@@ -1,0 +1,3 @@
+C:\Users\Benna\Documents\Visual Studio 2008\Projects\Editor\Editor\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+K:\Editor\Editor\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Editor\Editor\Content\obj\x86\Debug\ResolveAssemblyReference.cache
