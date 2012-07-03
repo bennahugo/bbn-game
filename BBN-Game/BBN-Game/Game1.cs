@@ -73,7 +73,7 @@ namespace BBN_Game
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            player1.LoadContent(2);
+            player1.LoadContent(1);
             des.LoadContent();
             des2.LoadContent();
             des3.LoadContent();
