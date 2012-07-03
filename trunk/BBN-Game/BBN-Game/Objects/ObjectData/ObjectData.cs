@@ -20,9 +20,9 @@ namespace BBN_Game.Objects.ObjectData
 {
     class ObjectData
     {
-        public float pitch;
-        public float yaw;
-        public float roll;
+        public float pitch, totalPitch;
+        public float yaw, totalYaw;
+        public float roll, totalRoll;
         public float speed;
         public float scale;
         public Vector3 position;
@@ -30,6 +30,7 @@ namespace BBN_Game.Objects.ObjectData
         public ObjectData()
         {
             reset();
+            totalPitch = totalRoll = totalYaw = 0;
         }
 
 
@@ -40,10 +41,17 @@ namespace BBN_Game.Objects.ObjectData
             this.roll = roll;
             this.position = Pos;
             this.scale = scale;
+            totalPitch = totalRoll = totalYaw = 0;
         }
 
         public void reset()
         {
+            // Set the totals before resetting
+            totalPitch += pitch;
+            totalRoll += roll;
+            totalYaw += yaw;
+
+            // reset
             pitch = yaw = roll = speed = 0.0f;
             scale = 1;
             position = Vector3.Zero;
