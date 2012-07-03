@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Entity Name="Astriod" Type="Scenery" MovableObject="false">
+<Entity Name="Astriod" Type="Scenery">
   <x>0</x>
   <y>0</y>
   <z>0</z>
@@ -11,5 +11,4 @@
   <scaleZ>1</scaleZ>
   <damageOnCollision>0</damageOnCollision>
   <modelName>Models/Cube</modelName>
-  <visible>True</visible>
 </Entity>
