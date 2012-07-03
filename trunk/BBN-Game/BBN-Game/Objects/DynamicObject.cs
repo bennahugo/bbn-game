@@ -24,6 +24,18 @@ namespace BBN_Game.Objects
         protected float maxSpeed, minSpeed;
 
         /// <summary>
+        /// Getters and setters
+        /// </summary>
+        public float getMaxSpeed
+        {
+            get { return maxSpeed; }
+        }
+        public float getMinSpeed
+        {
+            get { return minSpeed; }
+        }
+
+        /// <summary>
         /// Constructor
         /// This adds the setData() method to the default constructor
         /// </summary>
