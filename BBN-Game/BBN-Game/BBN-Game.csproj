@@ -85,8 +85,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CamerasAndEffects\CameraMatrices.cs" />
+    <Compile Include="CamerasAndEffects\ChaseCamera.cs" />
     <Compile Include="CamerasAndEffects\LightAndFog.cs" />
-    <Compile Include="ChaseCamera.cs" />
     <Compile Include="Collision Detection\CollisionDetectionHelper.cs" />
     <Compile Include="Collision Detection\Triangle.cs" />
     <Compile Include="Graphics\Skybox\QuadDrawer.cs" />
