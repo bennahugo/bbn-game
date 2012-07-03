@@ -1,1 +1,2 @@
 F:\repository\bbn-game\trunk\BBN-Game-AI\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\bjt.000\Documents\SVN\AI-Test\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
