@@ -46,12 +46,8 @@ namespace BBN_Game.Objects.ObjectData
 
         public void reset()
         {
-            // Set the totals before resetting
-            totalPitch += pitch;
-            totalRoll += roll;
-            totalYaw += yaw;
-
             // reset
+            totalPitch = totalRoll = totalYaw = 0;
             pitch = yaw = roll = speed = 0.0f;
             scale = 1;
             position = Vector3.Zero;
@@ -59,6 +55,12 @@ namespace BBN_Game.Objects.ObjectData
 
         public void resetAngles()
         {
+
+            // Set the totals before resetting
+            totalPitch += pitch;
+            totalRoll += roll;
+            totalYaw += yaw;
+
             pitch = yaw = roll = 0.0f;
         }
     }
