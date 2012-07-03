@@ -60,6 +60,7 @@ namespace BBN_Game.AI
         /// Method to update the movement of all registered AI characters. The list of waypoints have to be in reverse order (as returned by the A*)
         /// </summary>
         /// <param name="gt">Game time as passed on by the game loop</param>
+        int once = 0;
         public void updateAIMovement(GameTime gt)
         {
             foreach (DynamicObject ai in objectPaths.Keys)
@@ -82,28 +83,53 @@ namespace BBN_Game.AI
                             float distance = (float)Math.Sqrt(vWantDir.Z * vWantDir.Z + vWantDir.X * vWantDir.X);
                             float tpitch = (float)Math.Atan2(vWantDir.Y, distance);
                             float tyaw = (float)Math.Atan2(vWantDir.Z, vWantDir.X);
-                           // float troll = 0; //can't be determined
-                            float cyaw = ai.ShipMovementInfo.totalYaw, cpitch = ai.ShipMovementInfo.totalPitch;
-                            float diff = tyaw - cyaw;
-                            if (Math.Abs(diff) > EPSILON_DISTANCE)
-                            {
-                                double addVal = Math.Sign(diff) * ai.getYawSpeed * gt.ElapsedGameTime.TotalSeconds;
-                                if (Math.Abs(addVal) < Math.Abs(diff))
-                                    ai.ShipMovementInfo.yaw += (float)addVal;
-                                else
-                                    ai.ShipMovementInfo.yaw += diff;
-                            }
+                            Matrix want = Matrix.Identity;
+                            want.Forward = vWantDir;
+                            //// float troll = 0; //can't be determined
+                            //float cyaw = ai.ShipMovementInfo.totalYaw, cpitch = ai.ShipMovementInfo.totalPitch;
+                            //float diff = tyaw - cyaw;
+                            //if (Math.Abs(diff) > EPSILON_DISTANCE)
+                            //{
+                            //    double addVal = Math.Sign(diff) * ai.getYawSpeed * gt.ElapsedGameTime.TotalSeconds;
+                            //    if (Math.Abs(addVal) < Math.Abs(diff))
+                            //        ai.ShipMovementInfo.yaw += (float)addVal;
+                            //    else
+                            //        ai.ShipMovementInfo.yaw += diff;
+                            //}
 
-                            diff = tpitch - cpitch;
-                            if (Math.Abs(diff) > EPSILON_DISTANCE)
-                            {
-                                double addVal = Math.Sign(diff) * ai.getpitchSpeed * gt.ElapsedGameTime.TotalSeconds;
-                                if (Math.Abs(addVal) < Math.Abs(diff))
-                                    ai.ShipMovementInfo.pitch += (float)addVal;
-                                else
-                                    ai.ShipMovementInfo.pitch += diff;
-                            }
-                            
+                            //diff = tpitch - cpitch;
+                            //if (Math.Abs(diff) > EPSILON_DISTANCE)
+                            //{
+                            //    double addVal = Math.Sign(diff) * ai.getpitchSpeed * gt.ElapsedGameTime.TotalSeconds;
+                            //    if (Math.Abs(addVal) < Math.Abs(diff))
+                            //        ai.ShipMovementInfo.pitch += (float)addVal;
+                            //    else
+                            //        ai.ShipMovementInfo.pitch += diff;
+                            //}
+
+                            //if (once < 15)
+                            //{
+                            //    float pitch = ai.ShipMovementInfo.totalPitch - tpitch;
+                            //    float yaw = ai.ShipMovementInfo.totalYaw - tyaw;
+
+                            //    ai.ShipMovementInfo.yaw += yaw;
+                            //    ai.ShipMovementInfo.pitch += pitch;
+                            //    once++;
+                            //}
+
+                            Matrix target = Matrix.CreateFromQuaternion(ai.rotation);
+
+                            Matrix newMatrix = Matrix.Lerp(want, target, ai.getRollSpeed);
+
+                            // Ben here get the Euler angles from the newMatrix into these vars
+                            float pitchAmount = 0; float rollAmount = 0; float yawAmount = 0;
+
+                            // set the values
+
+                            ai.ShipMovementInfo.roll = rollAmount;
+                            ai.ShipMovementInfo.yaw = yawAmount;
+                            ai.ShipMovementInfo.pitch = pitchAmount;
+
                             //now set the speed:
                             if (distToWayPoint <= closeToWaypoint)
                                 ai.ShipMovementInfo.speed = ai.getMaxSpeed * 1f * distToWayPoint / closeToWaypoint;

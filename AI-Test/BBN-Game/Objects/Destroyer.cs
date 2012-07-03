@@ -27,7 +27,6 @@ namespace BBN_Game.Objects
             this.minSpeed = -25;
         }
 
-
         public Destroyer(Game game)
             : base(game)
         {

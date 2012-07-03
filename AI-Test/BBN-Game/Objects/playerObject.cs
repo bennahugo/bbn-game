@@ -220,23 +220,23 @@ namespace BBN_Game.Objects
         #region "Debug"
         public void Draw(GameTime gameTime, BBN_Game.Camera.CameraMatrices cam, SpriteBatch b, Objects.Destroyer target)
         {
-            GraphicsDevice.RenderState.DepthBufferEnable = false;
-            GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
-            b.Begin();
-            b.DrawString(f, "Speed: " + shipData.speed, new Vector2(10, 10), Color.Red);
+            //GraphicsDevice.RenderState.DepthBufferEnable = false;
+            //GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
+            //b.Begin();
+            //b.DrawString(f, "Speed: " + shipData.speed, new Vector2(10, 10), Color.Red);
 
-            b.DrawString(f, "W/S - Accelerate/Decelerate and Move backward", new Vector2(10, 110), Color.Red);
-            b.DrawString(f, "A/D - Yaw (left/right respectively)", new Vector2(10, 130), Color.Red);
-            b.DrawString(f, "Mouse - Pitch/roll (respective to normal)- Alternatively (Arrow keys)", new Vector2(10, 150), Color.Red);
-            b.DrawString(f, "Space - Mouse inverted (pitch)", new Vector2(10, 170), Color.Red);
+            //b.DrawString(f, "W/S - Accelerate/Decelerate and Move backward", new Vector2(10, 110), Color.Red);
+            //b.DrawString(f, "A/D - Yaw (left/right respectively)", new Vector2(10, 130), Color.Red);
+            //b.DrawString(f, "Mouse - Pitch/roll (respective to normal)- Alternatively (Arrow keys)", new Vector2(10, 150), Color.Red);
+            //b.DrawString(f, "Space - Mouse inverted (pitch)", new Vector2(10, 170), Color.Red);
             
-            if (target.IsVisible(cam))
-                b.DrawString(f, "Target Visible", new Vector2(Game.GraphicsDevice.Viewport.Width / 2 - 100, 0), Color.Red);
+            //if (target.IsVisible(cam))
+            //    b.DrawString(f, "Target Visible", new Vector2(Game.GraphicsDevice.Viewport.Width / 2 - 100, 0), Color.Red);
 
 
-            b.End();
-            GraphicsDevice.RenderState.DepthBufferEnable = true;
-            GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
+            //b.End();
+            //GraphicsDevice.RenderState.DepthBufferEnable = true;
+            //GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
             
 
             base.Draw(gameTime, cam);
