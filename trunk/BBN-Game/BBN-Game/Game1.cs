@@ -24,6 +24,8 @@ namespace BBN_Game
         Objects.Destroyer des;
         Graphics.Skybox.Skybox skyBox;
 
+        //Camera
+        Camera.ChaseCamera chasCam;
 
         public Game1()
         {
@@ -49,6 +51,8 @@ namespace BBN_Game
             // TODO: Add your initialization logic here
             player1.Initialize();
             des.Initialize();
+
+            chasCam = new BBN_Game.Camera.ChaseCamera(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
 
             base.Initialize();
         }
@@ -92,6 +96,8 @@ namespace BBN_Game
             player1.Update(gameTime);
             des.Update(gameTime);
 
+            chasCam.update(gameTime, player1.Position, Matrix.CreateFromQuaternion(player1.rotation));
+
             base.Update(gameTime);
         }
 
@@ -104,8 +110,7 @@ namespace BBN_Game
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            Camera.CameraMatrices cam = player1.getCamera(gameTime);
-            des.Draw(gameTime, cam);
+            Camera.CameraMatrices cam = new BBN_Game.Camera.CameraMatrices(chasCam.view, chasCam.proj);
             skyBox.Draw(gameTime, cam, player1.Position);
             player1.Draw(gameTime, cam, spriteBatch, des);
 

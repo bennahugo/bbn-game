@@ -220,34 +220,6 @@ namespace BBN_Game.Objects
 
         /// for debug
         #region "Debug"
-        public Camera.CameraMatrices getCamera(GameTime gameTime)
-        {
-            ChaseCameraSample.ChaseCamera camera = new ChaseCameraSample.ChaseCamera();
-
-            camera.DesiredPositionOffset = new Vector3(0.0f, 2f, -10f);
-            camera.LookAtOffset = new Vector3(0.0f, 1f, 0.0f);
-
-            // Set camera perspective
-            camera.NearPlaneDistance = 0.1f;
-            camera.FarPlaneDistance = 10000.0f;
-
-            camera.AspectRatio = (float)width /
-                height;
-            
-            camera.ChasePosition = this.Position;
-            camera.ChaseDirection = Matrix.CreateFromQuaternion(rotation).Forward;
-            camera.Up = Matrix.CreateFromQuaternion(rotation).Up;
-
-            camera.Reset();
-            
-            camera.Update(gameTime);
-
-            //Vector3 offset = new Vector3(0, 5, -10);
-            //Vector3.Transform(offset, Matrix.CreateFromQuaternion(rotation));
-            //Matrix view = Matrix.CreateLookAt(this.Position + offset, this.Position, (Matrix.CreateFromQuaternion(rotation)).Up);
-            //Matrix proj = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45), (GraphicsDevice.Viewport.Width / GraphicsDevice.Viewport.Height), 0.1f, 1000f);
-            return new Camera.CameraMatrices(camera.View, camera.Projection);
-        }
         public void Draw(GameTime gameTime, BBN_Game.Camera.CameraMatrices cam, SpriteBatch b, Objects.Destroyer target)
         {
             GraphicsDevice.RenderState.DepthBufferEnable = false;
