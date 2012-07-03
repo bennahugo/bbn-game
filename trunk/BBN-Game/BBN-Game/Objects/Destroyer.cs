@@ -24,7 +24,7 @@ namespace BBN_Game.Objects
             this.pitchSpeed = 10;
             this.yawSpeed = 5;
             this.maxSpeed = 300;
-            this.minSpeed = 125;
+            this.minSpeed = -25;
         }
 
 

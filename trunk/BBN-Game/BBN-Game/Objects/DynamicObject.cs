@@ -78,11 +78,14 @@ namespace BBN_Game.Objects
         public virtual void controller(GameTime gt)
         {
             // check speeds
-            if (shipData.speed < minSpeed)
-                shipData.speed = minSpeed;
+            if (!(shipData.speed == 0))
+            {
+                if (shipData.speed < minSpeed)
+                    shipData.speed = minSpeed;
 
-            if (shipData.speed > maxSpeed)
-                shipData.speed = maxSpeed;
+                if (shipData.speed > maxSpeed)
+                    shipData.speed = maxSpeed;
+            }
         }
 
         /// <summary>
