@@ -21,7 +21,7 @@ namespace BBN_Game
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Objects.playerObject player1;
-        Objects.Destroyer des;
+        Objects.Destroyer des, des2, des3;
         Graphics.Skybox.Skybox skyBox;
 
         //Camera
@@ -33,10 +33,12 @@ namespace BBN_Game
             Content.RootDirectory = "Content";
             player1 = new BBN_Game.Objects.playerObject(this);
             des = new BBN_Game.Objects.Destroyer(this);
+            des2 = new BBN_Game.Objects.Destroyer(this);
+            des3 = new BBN_Game.Objects.Destroyer(this);
             skyBox = new BBN_Game.Graphics.Skybox.Skybox(this, "Starfield");
 
-            graphics.PreferredBackBufferWidth = 1366 /2;
-            graphics.PreferredBackBufferHeight = 768 /2;
+            graphics.PreferredBackBufferWidth = 1366;
+            graphics.PreferredBackBufferHeight = 768;
 
             //graphics.IsFullScreen = true;
         }
@@ -52,6 +54,10 @@ namespace BBN_Game
             // TODO: Add your initialization logic here
             player1.Initialize();
             des.Initialize();
+            des2.Initialize();
+            des2.Position = new Vector3(20, 20, 45);
+            des3.Initialize(); 
+            des3.Position = new Vector3(0, -15, 20);
             skyBox.Initialize();
 
             chasCam = new BBN_Game.Camera.ChaseCamera(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
@@ -69,6 +75,8 @@ namespace BBN_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player1.LoadContent(2);
             des.LoadContent();
+            des2.LoadContent();
+            des3.LoadContent();
             skyBox.loadContent();
 
             // TODO: use this.Content to load your game content here
@@ -97,6 +105,9 @@ namespace BBN_Game
             // TODO: Add your update logic here
             player1.Update(gameTime);
             des.Update(gameTime);
+            des2.Update(gameTime);
+            des3.Update(gameTime);
+
 
             chasCam.update(gameTime, player1.Position, Matrix.CreateFromQuaternion(player1.rotation));
 
@@ -115,7 +126,15 @@ namespace BBN_Game
             Camera.CameraMatrices cam = new BBN_Game.Camera.CameraMatrices(chasCam.view, chasCam.proj);
             skyBox.Draw(gameTime, cam, player1.Position);
             des.Draw(gameTime, cam);
+            des2.Draw(gameTime, cam);
+            des3.Draw(gameTime, cam);
             player1.Draw(gameTime, cam, spriteBatch, des);
+
+
+            des.drawSuroundingBox(cam);
+            des2.drawSuroundingBox(cam);
+            des3.isTarget = true;
+            des3.drawSuroundingBox(cam);
 
             base.Draw(gameTime);
         }
