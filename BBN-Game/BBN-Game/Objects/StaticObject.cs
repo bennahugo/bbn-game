@@ -58,6 +58,11 @@ namespace BBN_Game.Objects
         {
             get { return mass; }
         }
+        public ObjectData.ObjectData ShipMovementInfo
+        {
+            get { return shipData; }
+            set { shipData = value; }
+        }
         #endregion
         #endregion
 
