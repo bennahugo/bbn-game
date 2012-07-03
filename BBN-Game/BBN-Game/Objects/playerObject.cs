@@ -152,7 +152,7 @@ namespace BBN_Game.Objects
             {
                 if (shipData.speed > 0)
                 {
-                    shipData.speed -= deceleration * time;
+                    shipData.speed -= deceleration * time * 2;
 
                     if (shipData.speed < 0)
                         shipData.speed = 0;
