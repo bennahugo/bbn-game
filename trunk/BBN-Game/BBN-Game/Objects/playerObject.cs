@@ -40,6 +40,8 @@ namespace BBN_Game.Objects
 
         public Boolean mouseInverted = true;
 
+
+        protected float acceleration, deceleration;
         #endregion
 
         #region "Constructors - Data setting"
@@ -52,6 +54,7 @@ namespace BBN_Game.Objects
             this.acceleration = 20f;
             this.deceleration = 15;
 
+            this.mass = 10;
             this.rollSpeed = 25;
             this.pitchSpeed = 25;
             this.yawSpeed = rollSpeed * 2;
@@ -133,9 +136,6 @@ namespace BBN_Game.Objects
                 if (shipData.speed < maxSpeed)
                 {
                     shipData.speed += acceleration * time;
-
-                    if (shipData.speed > maxSpeed)
-                        shipData.speed = maxSpeed;
                 }
             }
             else if (state.IsKeyDown(Keys.S))
@@ -143,9 +143,6 @@ namespace BBN_Game.Objects
                 if (shipData.speed > minSpeed)
                 {
                     shipData.speed -= deceleration * time;
-
-                    if (shipData.speed < minSpeed)
-                        shipData.speed = minSpeed;
                 }
             }
             else

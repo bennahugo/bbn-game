@@ -21,7 +21,7 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Extra variables that the static class did not require
         /// </summary>
-        protected float maxSpeed, minSpeed, acceleration, deceleration;
+        protected float maxSpeed, minSpeed;
 
         /// <summary>
         /// Constructor
@@ -38,9 +38,7 @@ namespace BBN_Game.Objects
         /// </summary>
         protected virtual void setData()
         {
-            this.acceleration = 3.5f;
-            this.deceleration = 3;
-
+            this.mass = 10f;
             this.rollSpeed = 30;
             this.pitchSpeed = 30;
             this.yawSpeed = rollSpeed * 2;
@@ -67,7 +65,12 @@ namespace BBN_Game.Objects
         /// <param name="gt"></param>
         public virtual void controller(GameTime gt)
         {
+            // check speeds
+            if (shipData.speed < minSpeed)
+                shipData.speed = minSpeed;
 
+            if (shipData.speed > maxSpeed)
+                shipData.speed = maxSpeed;
         }
 
         /// <summary>
