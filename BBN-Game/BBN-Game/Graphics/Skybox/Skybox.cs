@@ -49,7 +49,7 @@ namespace BBN_Game.Graphics.Skybox
         /// </summary>
         public override void Initialize()
         {
-            sphere = new Sphere.Sphere(1000, 5, 5);
+            sphere = new Sphere.Sphere(10000, 10, 10);
             sphere.TileUVs(16, 8);
 
             base.Initialize();

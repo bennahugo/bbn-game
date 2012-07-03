@@ -31,6 +31,24 @@ namespace BBN_Game.Objects
         Matrix world; // The world Matrix
 
         /// <summary>
+        /// Drawing the targeting box
+        /// </summary>
+        public Boolean isTarget
+        {
+            get;
+            set;
+        }
+        VertexBuffer targetBoxVB;
+        VertexDeclaration targetBoxDecleration;
+
+        Effect targetBoxE;
+        EffectParameter viewPort;
+
+        VertexPositionColor[] targetBoxVertices;
+
+        const int numHudLines = 8;
+
+        /// <summary>
         /// Static variables for rotaion speeds
         /// </summary>
         protected float yawSpeed, rollSpeed, pitchSpeed, mass;
@@ -90,6 +108,7 @@ namespace BBN_Game.Objects
             Position = Vector3.Zero;
             rotate = Quaternion.CreateFromAxisAngle(Vector3.Up, 0);
             mass = 1000000000f; // static objects dont move
+            isTarget = false;
         }
         #endregion
 
@@ -108,6 +127,13 @@ namespace BBN_Game.Objects
         /// </summary>
         protected virtual void LoadContent()
         {
+            targetBoxE = Game.Content.Load<Effect>("Shader/targetBox");
+            viewPort = targetBoxE.Parameters["viewPort"];
+
+            targetBoxDecleration = new VertexDeclaration(Game.GraphicsDevice, VertexPositionColor.VertexElements);
+
+            targetBoxVB = new VertexBuffer(Game.GraphicsDevice, typeof(VertexPositionColor), numHudLines + 1, BufferUsage.None);
+
             #region "Collision Detection"
 
             Collision_Detection.CollisionDetectionHelper.setModelData(model);
@@ -194,9 +220,98 @@ namespace BBN_Game.Objects
             base.Draw(gameTime);
         }
 
-        public void drawSuroundingBox()
+        /// <summary>
+        /// Draws the bounding hexagon around the object apon a fake screen situated ahead of the view matrix
+        /// </summary>
+        /// <param name="cam">the camera class containing the view matrix</param>
+        public void drawSuroundingBox(Camera.CameraMatrices cam)
         {
+            if (IsVisible(cam))
+            {
+                targetBoxVertices = new VertexPositionColor[numHudLines + 1];
+                for (int i = 0; i < numHudLines + 1; i++)
+                {
+                    if (isTarget)
+                        targetBoxVertices[i] = new VertexPositionColor(Vector3.Zero, Color.Red);
+                    else
+                        targetBoxVertices[i] = new VertexPositionColor(Vector3.Zero, Color.Green);
+                }
+                float sizeInPixels;
 
+                float distance = (Position - cam.View.Translation).Length();
+                sizeInPixels = 20.0f;
+                float radius = 5;
+                if (distance > radius)
+                {
+                    float angularSize = (float)Math.Tan(radius / distance);
+                    sizeInPixels = angularSize * GraphicsDevice.Viewport.Height / MathHelper.ToRadians(45);
+                }
+
+                Matrix viewProj = cam.View * cam.Projection;
+                Vector4 screenPos = Vector4.Transform(Position, viewProj);
+
+                Vector2 screenViewport = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+
+                float halfScreenY = screenViewport.Y / 2.0f;
+                float halfScreenX = screenViewport.X / 2.0f;
+
+                float screenY = ((screenPos.Y / screenPos.W) * halfScreenY) + halfScreenY;
+                float screenX = ((screenPos.X / screenPos.W) * halfScreenX) + halfScreenX;
+
+                targetBoxVertices[0].Position.X = screenX - sizeInPixels/2;
+                targetBoxVertices[0].Position.Y = screenY + sizeInPixels;
+
+                targetBoxVertices[1].Position.X = screenX - sizeInPixels;
+                targetBoxVertices[1].Position.Y = screenY + sizeInPixels/2;
+
+                targetBoxVertices[2].Position.X = screenX - sizeInPixels;
+                targetBoxVertices[2].Position.Y = screenY - sizeInPixels/2;
+
+                targetBoxVertices[3].Position.X = screenX - sizeInPixels/2;
+                targetBoxVertices[3].Position.Y = screenY - sizeInPixels;
+
+                targetBoxVertices[4].Position.X = screenX + sizeInPixels/2;
+                targetBoxVertices[4].Position.Y = screenY - sizeInPixels;
+
+                targetBoxVertices[5].Position.X = screenX + sizeInPixels;
+                targetBoxVertices[5].Position.Y = screenY - sizeInPixels/2;
+
+                targetBoxVertices[6].Position.X = screenX + sizeInPixels;
+                targetBoxVertices[6].Position.Y = screenY + sizeInPixels/2;
+
+                targetBoxVertices[7].Position.X = screenX + sizeInPixels/2;
+                targetBoxVertices[7].Position.Y = screenY + sizeInPixels;
+
+                targetBoxVertices[8].Position.X = screenX - sizeInPixels/2;
+                targetBoxVertices[8].Position.Y = screenY + sizeInPixels;
+
+
+
+                targetBoxVB.SetData<VertexPositionColor>(targetBoxVertices);
+
+                targetBoxE.Begin();
+                targetBoxE.Techniques[0].Passes[0].Begin();
+                viewPort.SetValue(screenViewport);
+                targetBoxE.CommitChanges();
+
+                GraphicsDevice.RenderState.DepthBufferEnable = false;
+                GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
+
+                GraphicsDevice.VertexDeclaration = targetBoxDecleration;
+                GraphicsDevice.Vertices[0].SetSource(targetBoxVB, 0, VertexPositionColor.SizeInBytes);
+
+                GraphicsDevice.DrawPrimitives(PrimitiveType.LineStrip, 0, numHudLines);
+
+                GraphicsDevice.Vertices[0].SetSource(null, 0, 0);
+
+                GraphicsDevice.RenderState.DepthBufferEnable = true;
+                GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
+
+                targetBoxE.Techniques[0].Passes[0].End();
+                targetBoxE.End();
+
+                screenY = halfScreenY - ((screenPos.Y / screenPos.W) * halfScreenY);
+            }
         }
 
         #endregion
