@@ -33,6 +33,7 @@ namespace BBN_Game
             Content.RootDirectory = "Content";
             player1 = new BBN_Game.Objects.playerObject(this);
             des = new BBN_Game.Objects.Destroyer(this);
+            skyBox = new BBN_Game.Graphics.Skybox.Skybox(this, "Starfield");
 
             graphics.PreferredBackBufferWidth = 1366 /2;
             graphics.PreferredBackBufferHeight = 768 /2;
@@ -51,6 +52,7 @@ namespace BBN_Game
             // TODO: Add your initialization logic here
             player1.Initialize();
             des.Initialize();
+            skyBox.Initialize();
 
             chasCam = new BBN_Game.Camera.ChaseCamera(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
 
@@ -67,7 +69,7 @@ namespace BBN_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player1.LoadContent(2);
             des.LoadContent();
-            skyBox = new BBN_Game.Graphics.Skybox.Skybox(this, 1000, new int[] { 1, 1, 1, 1, 1, 1 }, new string[] { "Skybox/SkyboxTop", "Skybox/SkyboxBottom", "Skybox/SkyboxRight", "Skybox/SkyboxLeft", "Skybox/SkyboxFront", "Skybox/SkyboxBack" }); 
+            skyBox.loadContent();
 
             // TODO: use this.Content to load your game content here
         }

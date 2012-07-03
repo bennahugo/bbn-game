@@ -18,58 +18,63 @@ namespace BBN_Game.Graphics.Skybox
     {
         /// <summary>
         /// Global Variables
-        /// 
-        /// Textures [] - array of textures to use
-        /// Quads - the Quads to draw
+        ///
+        /// Sphere is the sphere generator
+        /// texName the name of the texture to use
         /// </summary>
-        private Texture2D[] textures;
-        private List<QuadDrawer> Quads;
+        Graphics.Sphere.Sphere sphere;
 
-        public Skybox(Game game, int gameRadius, int [] repeat, string[] texNames)
+        Texture2D text;
+        string texName;
+
+        Effect e;
+        EffectParameter world;
+        EffectParameter view;
+        EffectParameter projection;
+        EffectParameter diffuseTex;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="game">The game</param>
+        /// <param name="texName">Name of the texture to use</param>
+        public Skybox(Game game, string texName)
             : base(game)
         {
-            Quads = new List<QuadDrawer>();
-            textures = new Texture2D[6];
-            for (int i = 0; i < 6; ++i)
-                textures[i] = Game.Content.Load<Texture2D>(texNames[i]);
+            this.texName = texName;
+        }
 
-            ///// TOP ----------------------------------------------------------------------------------------
-            Quads.Add(new QuadDrawer(new Vector3(gameRadius + 0.5f, gameRadius, -gameRadius),
-                    new Vector3(-gameRadius - 0.5f, gameRadius, -gameRadius),
-                    new Vector3(gameRadius + 0.5f, gameRadius, gameRadius),
-                    new Vector3(-gameRadius - 0.5f, gameRadius, gameRadius), repeat[0], textures[0], Game.GraphicsDevice));
+        /// <summary>
+        /// Creates the sphere that is required
+        /// </summary>
+        public override void Initialize()
+        {
+            sphere = new Sphere.Sphere(1000, 5, 5);
+            sphere.TileUVs(16, 8);
 
-            ///// Bottom ----------------------------------------------------------------------------------------
-            Quads.Add(new QuadDrawer(new Vector3(-gameRadius - 0.5f, -gameRadius, -gameRadius),
-                    new Vector3(gameRadius + 0.5f, -gameRadius, -gameRadius),
-                    new Vector3(-gameRadius - 0.5f, -gameRadius, gameRadius),
-                    new Vector3(gameRadius + 0.5f, -gameRadius, gameRadius), repeat[1], textures[1], Game.GraphicsDevice));
+            base.Initialize();
+        }
 
-            ///// Right ----------------------------------------------------------------------------------------
-            Quads.Add(new QuadDrawer(new Vector3(gameRadius, gameRadius, -gameRadius - 0.5f),
-                    new Vector3(gameRadius, gameRadius, +gameRadius + 0.5f),
-                    new Vector3(gameRadius, -gameRadius, -gameRadius - 0.5f),
-                    new Vector3(gameRadius, -gameRadius, +gameRadius + 0.5f), repeat[2], textures[2], Game.GraphicsDevice));
+        /// <summary>
+        /// Loads the data required
+        /// Gets the skyboxEffect shader
+        /// Gets the texture that the class was initialised with
+        /// </summary>
+        public void loadContent()
+        {
+            text = Game.Content.Load<Texture2D>("Skybox/" + texName);
 
-            ///// LEFT ----------------------------------------------------------------------------------------
-            Quads.Add(new QuadDrawer(new Vector3(-gameRadius, gameRadius, +gameRadius + 0.5f),
-                    new Vector3(-gameRadius, gameRadius, -gameRadius - 0.5f),
-                    new Vector3(-gameRadius, -gameRadius, +gameRadius + 0.5f),
-                    new Vector3(-gameRadius, -gameRadius, -gameRadius - 0.5f), repeat[3], textures[3], Game.GraphicsDevice));
+            e = Game.Content.Load<Effect>("Shader/skyBoxEffect");
 
-            ///// FRONT ----------------------------------------------------------------------------------------
-            Quads.Add(new QuadDrawer(new Vector3(gameRadius + 0.5f, gameRadius, gameRadius),
-                    new Vector3(-gameRadius - 0.5f, gameRadius, gameRadius),
-                    new Vector3(gameRadius + 0.5f, -gameRadius, gameRadius),
-                    new Vector3(-gameRadius - 0.5f, -gameRadius, gameRadius), repeat[4], textures[4], Game.GraphicsDevice));
+            world = e.Parameters["World"];
+            view = e.Parameters["View"];
+            projection = e.Parameters["Projection"];
 
-            ///// BACK ----------------------------------------------------------------------------------------
-            Quads.Add(new QuadDrawer(new Vector3(-gameRadius - 0.5f, gameRadius, -gameRadius),
-                    new Vector3(gameRadius + 0.5f, gameRadius, -gameRadius),
-                    new Vector3(-gameRadius - 0.5f, -gameRadius, -gameRadius),
-                    new Vector3(gameRadius + 0.5f, -gameRadius, -gameRadius), repeat[5], textures[5], Game.GraphicsDevice));
+            diffuseTex = e.Parameters["diffTex"];
 
-            
+            sphere.LoadContent(Game);
+
+            base.LoadContent();
         }
 
         /// <summary>
@@ -80,13 +85,28 @@ namespace BBN_Game.Graphics.Skybox
         /// <param name="playerPos">The players position</param>
         public void Draw(GameTime gt, Camera.CameraMatrices cam, Vector3 playerPos)
         {
-            Matrix world = Matrix.CreateTranslation(playerPos);
-            BasicEffect effect = new BasicEffect(Game.GraphicsDevice, new EffectPool());
-            effect.EmissiveColor = new Vector3(1,1,1);
-            foreach (QuadDrawer q in Quads)
-                q.Draw(cam.View, world, cam.Projection, effect); 
-            
-            base.Draw(gt);
+            Matrix worldMatrix = Matrix.CreateTranslation(playerPos);
+
+            e.Begin();
+            e.Techniques[0].Passes[0].Begin();
+
+            world.SetValue(worldMatrix);
+            view.SetValue(cam.View);
+            projection.SetValue(cam.Projection);
+            diffuseTex.SetValue(text);
+
+            e.CommitChanges();
+
+            GraphicsDevice.RenderState.CullMode = CullMode.None;
+            GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
+
+            sphere.draw(GraphicsDevice, cam);
+
+            GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
+            GraphicsDevice.RenderState.CullMode = CullMode.CullCounterClockwiseFace;
+
+            e.Techniques[0].Passes[0].End();
+            e.End();
         }
     }
 }
