@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>F:\repository\bbn-game\trunk\Editor\Editor\Content\Models\arrow.fbx</SourceFilename>
+      <SourceFilename>C:\Users\bjt.000\Documents\SVN\Editor\Editor\Content\Models\arrow.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>

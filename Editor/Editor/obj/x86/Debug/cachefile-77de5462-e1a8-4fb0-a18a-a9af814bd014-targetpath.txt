@@ -8,5 +8,8 @@ Content\Images\SkyboxFront.xnb
 Content\Images\SkyboxLeft.xnb
 Content\Images\SkyboxRight.xnb
 Content\Images\SkyboxTop.xnb
+Content\Shader\skyBoxEffect.xnb
+Content\Shader\targetBox.xnb
+Content\Images\Starfield.xnb
 Content\MapItems\astriod.xml
 Content\MapItems\junkMetal.xml

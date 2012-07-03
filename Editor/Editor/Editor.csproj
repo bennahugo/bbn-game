@@ -113,6 +113,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Collision Detection\Triangle.cs" />
+    <Compile Include="Utils\Skybox.cs" />
+    <Compile Include="Utils\Sphere.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

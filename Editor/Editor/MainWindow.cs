@@ -300,8 +300,8 @@ namespace Editor
             
             float fovAngle = 45 * (float)Math.PI / 180;  // convert to radians
             float aspectRatio = this.gfxDevice.Viewport.Width / this.gfxDevice.Viewport.Height;
-            float near = gfxDevice.Viewport.MinDepth; // the near clipping plane distance
-            float far = gfxDevice.Viewport.MaxDepth; // the far clipping plane distance
+            float near = 0.1f; // the near clipping plane distance
+            float far = BBNMap.getMapRadius(); // the far clipping plane distance
             projection = Matrix.CreatePerspectiveFieldOfView(fovAngle, aspectRatio, near, far);
             BBNMap.UpdateMapContent(deltaTime);
             //Update axis arrow positions
@@ -830,37 +830,13 @@ namespace Editor
         private void tsbSkybox_Click(object sender, EventArgs e)
         {
             //get textures and then texture repeat counters for all sides of the skybox:
-            String top = Microsoft.VisualBasic.Interaction.InputBox("Specify top texture name", "Texture name", "Images/SkyboxTop", Width / 2, Height / 2);
-            if (top == "") return;
-            String bottom = Microsoft.VisualBasic.Interaction.InputBox("Specify bottom texture name", "Texture name", "Images/SkyboxBottom", Width / 2, Height / 2);
-            if (bottom == "") return;
-            String left = Microsoft.VisualBasic.Interaction.InputBox("Specify left texture name", "Texture name", "Images/SkyboxLeft", Width / 2, Height / 2);
-            if (left == "") return;
-            String right = Microsoft.VisualBasic.Interaction.InputBox("Specify right texture name", "Texture name", "Images/SkyboxRight", Width / 2, Height / 2);
-            if (right == "") return; 
-            String front = Microsoft.VisualBasic.Interaction.InputBox("Specify front texture name", "Texture name", "Images/SkyboxFront", Width / 2, Height / 2);
-            if (front == "") return;
-            String back = Microsoft.VisualBasic.Interaction.InputBox("Specify back texture name", "Texture name", "Images/SkyboxBack", Width / 2, Height / 2);
-            if (back == "") return;
-            String topRepVal = Microsoft.VisualBasic.Interaction.InputBox("Specify top texture repeat", "Repeat count", "1.0", Width / 2, Height / 2);
-            if (topRepVal == "") return;
-            float topRepeat = Convert.ToSingle(topRepVal);
-            String bottomRepVal = Microsoft.VisualBasic.Interaction.InputBox("Specify bottom texture repeat", "Repeat count", "1.0", Width / 2, Height / 2);
-            if (bottomRepVal == "") return;
-            float bottomRepeat = Convert.ToSingle(bottomRepVal);
-            String leftRepVal = Microsoft.VisualBasic.Interaction.InputBox("Specify left texture repeat", "Repeat count", "1.0", Width / 2, Height / 2);
-            if (leftRepVal == "") return;
-            float leftRepeat = Convert.ToSingle(leftRepVal);
-            String rightRepVal = Microsoft.VisualBasic.Interaction.InputBox("Specify right texture repeat", "Repeat count", "1.0", Width / 2, Height / 2);
-            if (rightRepVal == "") return;
-            float rightRepeat = Convert.ToSingle(rightRepVal);
-            String frontRepVal = Microsoft.VisualBasic.Interaction.InputBox("Specify front texture repeat", "Repeat count", "1.0", Width / 2, Height / 2);
-            if (frontRepVal == "") return;
-            float frontRepeat = Convert.ToSingle(frontRepVal);
-            String backRepVal = Microsoft.VisualBasic.Interaction.InputBox("Specify back texture repeat", "Repeat count", "1.0", Width / 2, Height / 2);
-            if (backRepVal == "") return;
-            float backRepeat = Convert.ToSingle(backRepVal);
-            BBNMap.SetUpSkyBox(gfxDevice, contentMgr, top, bottom, left, right, front, back, topRepeat, bottomRepeat, leftRepeat, rightRepeat, frontRepeat, backRepeat);
+            String Texture = Microsoft.VisualBasic.Interaction.InputBox("Specify the texture name", "Texture name", "Images/Starfield", Width / 2, Height / 2);
+            if (Texture == "") return;
+            String horizontalRepeat = Microsoft.VisualBasic.Interaction.InputBox("Specify the Horizontal texture repeat", "Repeat count", "8.0", Width / 2, Height / 2);
+            if (horizontalRepeat == "") return;
+            String verticleRepeat = Microsoft.VisualBasic.Interaction.InputBox("Specify Verticle texture repeat", "Repeat count", "8.0", Width / 2, Height / 2);
+            if (verticleRepeat == "") return;
+            BBNMap.SetUpSkyBox(gfxDevice, contentMgr, Texture, horizontalRepeat, verticleRepeat);
         }
         /// <summary>
         /// Method to clear map content, after confirming with the user
