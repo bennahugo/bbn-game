@@ -41,7 +41,7 @@ namespace BBN_Game.Camera
 
         public ChaseCamera(int width, int height)
         {
-            proj = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45), width / height, 0.1f, 10000.0f);
+            proj = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45), width / height, 0.1f, 200000.0f);
         }
 
         /// <summary>
