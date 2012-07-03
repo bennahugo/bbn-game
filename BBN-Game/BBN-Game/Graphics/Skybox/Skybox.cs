@@ -49,7 +49,7 @@ namespace BBN_Game.Graphics.Skybox
         /// </summary>
         public override void Initialize()
         {
-            sphere = new Sphere.Sphere(10000, 10, 10);
+            sphere = new Sphere.Sphere(100000, 5, 5);
             sphere.TileUVs(16, 8);
 
             base.Initialize();
@@ -85,7 +85,7 @@ namespace BBN_Game.Graphics.Skybox
         /// <param name="playerPos">The players position</param>
         public void Draw(GameTime gt, Camera.CameraMatrices cam, Vector3 playerPos)
         {
-            Matrix worldMatrix = Matrix.CreateTranslation(playerPos);
+            Matrix worldMatrix = Matrix.Identity;
 
             e.Begin();
             e.Techniques[0].Passes[0].Begin();

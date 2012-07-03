@@ -37,8 +37,8 @@ namespace BBN_Game
             des3 = new BBN_Game.Objects.Destroyer(this);
             skyBox = new BBN_Game.Graphics.Skybox.Skybox(this, "Starfield");
 
-            graphics.PreferredBackBufferWidth = 1366;
-            graphics.PreferredBackBufferHeight = 768;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 1024;
 
             //graphics.IsFullScreen = true;
         }
