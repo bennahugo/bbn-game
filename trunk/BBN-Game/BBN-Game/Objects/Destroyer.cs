@@ -37,7 +37,7 @@ namespace BBN_Game.Objects
 
         public void LoadContent()
         {
-            this.model = Game.Content.Load<Model>("Models/Ships/FighterRed");
+            this.model = Game.Content.Load<Model>("Models/Ships/FighterBlue");
             base.LoadContent();
         }
     }
