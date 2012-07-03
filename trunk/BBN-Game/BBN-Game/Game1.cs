@@ -112,6 +112,7 @@ namespace BBN_Game
             // TODO: Add your drawing code here
             Camera.CameraMatrices cam = new BBN_Game.Camera.CameraMatrices(chasCam.view, chasCam.proj);
             skyBox.Draw(gameTime, cam, player1.Position);
+            des.Draw(gameTime, cam);
             player1.Draw(gameTime, cam, spriteBatch, des);
 
             base.Draw(gameTime);
