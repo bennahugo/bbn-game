@@ -28,20 +28,12 @@ namespace BBN_Game.Map
         /// </summary>
         public static Dictionary<String, Object> content = new Dictionary<String, Object>();
         // Skybox textures and quads:
-        private static Texture2D skyBoxTopTex = null;
-        private static Texture2D skyBoxBottomTex = null;
-        private static Texture2D skyBoxLeftTex = null;
-        private static Texture2D skyBoxRightTex = null;
-        private static Texture2D skyBoxFrontTex = null;
-        private static Texture2D skyBoxBackTex = null;
-        private static float skyBoxTopRepeat = 1.0f;
-        private static float skyBoxBottomRepeat = 1.0f;
-        private static float skyBoxLeftRepeat = 1.0f;
-        private static float skyBoxRightRepeat = 1.0f;
-        private static float skyBoxFrontRepeat = 1.0f;
-        private static float skyBoxBackRepeat = 1.0f;
+        private static Texture2D skyBoxTexture = null;
+        private static float skyBoxHRepeat = 1.0f;
+        private static float skyBoxVRepeat = 1.0f;
         private static QuadHelper[] skyboxQuads = new QuadHelper[6];
-        private static float mapRadius = 10000;
+        private static float mapRadius = 200000;
+        private static Graphics.Skybox.Skybox skyBoxDrawer;
         /// <summary>
         /// Set this value if you want to draw AI path edges for debugging purposes
         /// </summary>
@@ -67,84 +59,25 @@ namespace BBN_Game.Map
         /// <param name="repeatRight">repeat count for the right texture (normally 1.0f)</param>
         /// <param name="repeatFront">repeat count for the front texture (normally 1.0f)</param>
         /// <param name="repeatBack">repeat count for the back texture (normally 1.0f)</param>
-        public static void SetUpSkyBox(GraphicsDevice gfxDevice, ContentManager contentMgr, 
-            String top, String bottom, String left, String right, String front, String back,
-            float repeatTop, float repeatBottom, float repeatLeft, float repeatRight, float repeatFront, float repeatBack)
+        public static void SetUpSkyBox(GraphicsDevice gfxDevice, ContentManager contentMgr,
+            String Text, string hRepeat, string vRepeat)
         {
             //first check for texture loading errors before setting up the quads:
-            if (top != "" && top != null)
+            if (Text != "" && Text != null)
             {
-                skyBoxTopTex = contentMgr.Load<Texture2D>(top);
-                skyBoxTopTex.Name = top;
+                skyBoxTexture = contentMgr.Load<Texture2D>(Text);
+                skyBoxTexture.Name = Text;
             }
-            if (bottom != "" && bottom != null)
-            {
-                skyBoxBottomTex = contentMgr.Load<Texture2D>(bottom);
-                skyBoxBottomTex.Name = bottom;
-            }
-            if (left != "" && left != null)
-            {
-                skyBoxLeftTex = contentMgr.Load<Texture2D>(left);
-                skyBoxLeftTex.Name = left;
-            }
-            if (right != "" && right != null)
-            {
-                skyBoxRightTex = contentMgr.Load<Texture2D>(right);
-                skyBoxRightTex.Name = right;
-            }
-            if (front != "" && front != null)
-            {
-                skyBoxFrontTex = contentMgr.Load<Texture2D>(front);
-                skyBoxFrontTex.Name = front;
-            }
-            if (back != "" && back != null)
-            {
-                skyBoxBackTex = contentMgr.Load<Texture2D>(back);
-                skyBoxBackTex.Name = back;
-            }
-            skyBoxTopRepeat = repeatTop;
-            skyBoxBottomRepeat = repeatBottom;
-            skyBoxLeftRepeat = repeatLeft;
-            skyBoxRightRepeat = repeatRight;
-            skyBoxFrontRepeat = repeatFront;
-            skyBoxBackRepeat = repeatBack;
-            float maxAway = (float)Math.Floor(Math.Sqrt(gfxDevice.Viewport.MaxDepth * gfxDevice.Viewport.MaxDepth * 0.32));
+            float maxAway = mapRadius / 2;
             //top:
-            if (top != "" && top != null)
-                skyboxQuads[0] = new QuadHelper(new Vector3(maxAway + 0.5f, maxAway, -maxAway),
-                    new Vector3(-maxAway - 0.5f, maxAway, -maxAway),
-                    new Vector3(maxAway + 0.5f, maxAway, maxAway),
-                    new Vector3(-maxAway - 0.5f, maxAway, maxAway), repeatTop, top, gfxDevice, contentMgr);
-            //bottom:
-            if (bottom != "" && bottom != null)
-                skyboxQuads[1] = new QuadHelper(new Vector3(-maxAway - 0.5f, -maxAway, -maxAway),
-                    new Vector3(maxAway + 0.5f, -maxAway, -maxAway),
-                    new Vector3(-maxAway - 0.5f, -maxAway, maxAway),
-                    new Vector3(maxAway + 0.5f, -maxAway, maxAway), repeatBottom, bottom, gfxDevice, contentMgr);
-            //left:
-            if (left != "" && left != null)
-                skyboxQuads[2] = new QuadHelper(new Vector3(-maxAway, maxAway, +maxAway + 0.5f),
-                    new Vector3(-maxAway, maxAway, -maxAway - 0.5f),
-                    new Vector3(-maxAway, -maxAway, +maxAway + 0.5f),
-                    new Vector3(-maxAway, -maxAway, -maxAway - 0.5f), repeatLeft, left, gfxDevice, contentMgr);
-            //right:
-            if (right != "" && right != null)
-                skyboxQuads[3] = new QuadHelper(new Vector3(maxAway, maxAway, -maxAway - 0.5f),
-                    new Vector3(maxAway, maxAway, +maxAway + 0.5f),
-                    new Vector3(maxAway, -maxAway, -maxAway - 0.5f),
-                    new Vector3(maxAway, -maxAway, +maxAway + 0.5f), repeatRight, right, gfxDevice, contentMgr);
-            //back:
-            if (back != "" && back != null)
-                skyboxQuads[4] = new QuadHelper(new Vector3(-maxAway - 0.5f, maxAway, -maxAway),
-                    new Vector3(maxAway + 0.5f, maxAway, -maxAway),
-                    new Vector3(-maxAway - 0.5f, -maxAway, -maxAway),
-                    new Vector3(maxAway + 0.5f, -maxAway, -maxAway), repeatBack, back, gfxDevice, contentMgr);
-            //front:
-            if (front != "" && front != null)
-                skyboxQuads[5] = new QuadHelper(new Vector3(maxAway + 0.5f, maxAway, maxAway),
-                    new Vector3(-maxAway - 0.5f, maxAway, maxAway),
-                    new Vector3(maxAway + 0.5f, -maxAway, maxAway),
-                    new Vector3(-maxAway-0.5f, -maxAway, maxAway), repeatFront, front, gfxDevice, contentMgr);
+            skyBoxHRepeat = float.Parse(hRepeat);
+            skyBoxVRepeat = float.Parse(vRepeat);
+            if (Text != "" && Text != null)
+            {
+                skyBoxDrawer = new Graphics.Skybox.Skybox();
+                skyBoxDrawer.Initialize(skyBoxHRepeat, skyBoxVRepeat, mapRadius/2);
+                skyBoxDrawer.loadContent(skyBoxTexture, contentMgr, gfxDevice);
+            }
         }
         /// <summary>
         /// Method to set the radius of the map
@@ -213,9 +146,8 @@ namespace BBN_Game.Map
         public static void DrawMap(GraphicsDevice gfxDevice, Matrix projection, ContentManager contentMgr, Matrix view, Vector3[] lightsSetup, Vector3 fogColor, int[] fogSetup, BasicEffect basicEffect, Vector3 camPos)
         {
             //Draw skybox
-            foreach (QuadHelper wall in skyboxQuads)
-                if (wall != null)
-                    wall.Draw(view, Matrix.CreateTranslation(camPos), projection, basicEffect);
+            if (skyBoxDrawer != null)
+                skyBoxDrawer.Draw(view, projection, gfxDevice);
             //Draw all objects:
             foreach (Object item in BBNMap.content.Values)
             {
@@ -270,19 +202,10 @@ namespace BBN_Game.Map
         {
             content.Clear();
             contentMgr.Unload();
-            skyBoxBackTex = null;
-            skyBoxBottomTex = null;
-            skyBoxFrontTex = null;
-            skyBoxLeftTex = null;
-            skyBoxRightTex = null;
-            skyBoxTopTex = null;
-            mapRadius = 10000;
-            skyBoxBackRepeat = 1;
-            skyBoxBottomRepeat = 1;
-            skyBoxFrontRepeat = 1;
-            skyBoxLeftRepeat = 1;
-            skyBoxRightRepeat = 1;
-            skyBoxTopRepeat = 1;
+            skyBoxTexture = null;
+            mapRadius = 200000;
+            skyBoxHRepeat = 8;
+            skyBoxVRepeat = 8;
             for (int i = 0; i < skyboxQuads.Length; ++i )
                 skyboxQuads[i] = null;
         }
@@ -376,29 +299,8 @@ namespace BBN_Game.Map
             XPathNodeIterator iter;
             XPathNavigator mapIter = nav.SelectSingleNode("/Map");
             mapRadius = Convert.ToSingle(mapIter.GetAttribute("mapRadius", nsmanager.DefaultNamespace));
-            //Read skybox data:
+            //Read skybox data: TODODODODODO!!!!!!!
             XPathNavigator skyboxIter;
-            skyboxIter = nav.SelectSingleNode("/Map/Skybox/top");
-            skyBoxTopRepeat = Convert.ToSingle(skyboxIter.GetAttribute("repeatCount", nsmanager.DefaultNamespace));
-            String topTexName = skyboxIter.Value;
-            skyboxIter = nav.SelectSingleNode("/Map/Skybox/bottom");
-            skyBoxBottomRepeat = Convert.ToSingle(skyboxIter.GetAttribute("repeatCount", nsmanager.DefaultNamespace));
-            String bottomTexName = skyboxIter.Value;
-            skyboxIter = nav.SelectSingleNode("/Map/Skybox/left");
-            skyBoxLeftRepeat = Convert.ToSingle(skyboxIter.GetAttribute("repeatCount", nsmanager.DefaultNamespace));
-            String leftTexName = skyboxIter.Value;
-            skyboxIter = nav.SelectSingleNode("/Map/Skybox/right");
-            skyBoxRightRepeat = Convert.ToSingle(skyboxIter.GetAttribute("repeatCount", nsmanager.DefaultNamespace));
-            String rightTexName = skyboxIter.Value;
-            skyboxIter = nav.SelectSingleNode("/Map/Skybox/front");
-            skyBoxFrontRepeat = Convert.ToSingle(skyboxIter.GetAttribute("repeatCount", nsmanager.DefaultNamespace));
-            String frontTexName = skyboxIter.Value;
-            skyboxIter = nav.SelectSingleNode("/Map/Skybox/back");
-            skyBoxBackRepeat = Convert.ToSingle(skyboxIter.GetAttribute("repeatCount", nsmanager.DefaultNamespace));
-            String backTexName = skyboxIter.Value;
-            SetUpSkyBox(gfxDevice, contentMgr, topTexName, bottomTexName, leftTexName, rightTexName, 
-                frontTexName, backTexName, skyBoxTopRepeat, skyBoxBottomRepeat, skyBoxLeftRepeat, 
-                skyBoxRightRepeat, skyBoxFrontRepeat, skyBoxBackRepeat);
             //Now read in path nodes:
             iter = nav.Select("/Map/PathNode");
             while (iter.MoveNext())
@@ -468,40 +370,9 @@ namespace BBN_Game.Map
             List<Edge> edgeList = new List<Edge>();
             writer.WriteStartElement("Skybox");
             //top skybox texture
-            writer.WriteStartElement("top");
-            writer.WriteAttributeString("repeatCount",Convert.ToString(skyBoxTopRepeat));
-            if (skyBoxTopTex != null)
-                writer.WriteString(skyBoxTopTex.Name);
-            writer.WriteEndElement();
-            //bottom skybox texture
-            writer.WriteStartElement("bottom");
-            writer.WriteAttributeString("repeatCount", Convert.ToString(skyBoxBottomRepeat));
-            if (skyBoxBottomTex != null)
-                writer.WriteString(skyBoxBottomTex.Name);
-            writer.WriteEndElement();
-            //left skybox texture
-            writer.WriteStartElement("left");
-            writer.WriteAttributeString("repeatCount", Convert.ToString(skyBoxLeftRepeat));
-            if (skyBoxLeftTex != null)
-                writer.WriteString(skyBoxLeftTex.Name);
-            writer.WriteEndElement();
-            //right skybox texture
-            writer.WriteStartElement("right");
-            writer.WriteAttributeString("repeatCount", Convert.ToString(skyBoxRightRepeat));
-            if (skyBoxRightTex != null)
-                writer.WriteString(skyBoxRightTex.Name);
-            writer.WriteEndElement();
-            //front skybox texture
-            writer.WriteStartElement("front");
-            writer.WriteAttributeString("repeatCount", Convert.ToString(skyBoxFrontRepeat));
-            if (skyBoxFrontTex != null)
-                writer.WriteString(skyBoxFrontTex.Name);
-            writer.WriteEndElement();
-            //back skybox texture
-            writer.WriteStartElement("back");
-            writer.WriteAttributeString("repeatCount", Convert.ToString(skyBoxBackRepeat));
-            if (skyBoxBackTex != null)
-                writer.WriteString(skyBoxBackTex.Name);
+            //TODODODODO!!!!
+
+            ///Markers
             writer.WriteEndElement();
             writer.WriteEndElement();
             foreach (Object item in content.Values)

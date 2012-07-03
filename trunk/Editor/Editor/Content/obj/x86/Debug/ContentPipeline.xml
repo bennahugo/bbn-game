@@ -7,11 +7,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\repository\bbn-game\trunk\Editor\Editor\bin\x86\Debug\Content\Models\Cube.xnb</Output>
-      <Time>2012-07-03T04:01:15.0961934-07:00</Time>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Models\Cube.xnb</Output>
+      <Time>2012-07-03T11:31:08.6997495+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Cube_0.xml</Key>
-        <Value>2012-07-03T04:17:17.6161877-07:00</Value>
+        <Value>2012-07-03T23:12:59.9345917+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -20,11 +20,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\repository\bbn-game\trunk\Editor\Editor\bin\x86\Debug\Content\Models\marker.xnb</Output>
-      <Time>2012-07-03T04:01:15.0961934-07:00</Time>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Models\marker.xnb</Output>
+      <Time>2012-07-03T11:31:08.6927564+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\marker_0.xml</Key>
-        <Value>2012-07-03T04:17:19.5401877-07:00</Value>
+        <Value>2012-07-03T23:13:01.2343471+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -33,11 +33,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\repository\bbn-game\trunk\Editor\Editor\bin\x86\Debug\Content\Models\arrow.xnb</Output>
-      <Time>2012-07-03T04:01:15.0961934-07:00</Time>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Models\arrow.xnb</Output>
+      <Time>2012-07-03T11:31:08.6957535+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\arrow_0.xml</Key>
-        <Value>2012-07-03T04:17:20.9921877-07:00</Value>
+        <Value>2012-07-03T23:13:02.3687143+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -46,8 +46,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\repository\bbn-game\trunk\Editor\Editor\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-07-03T04:03:02.5601928-07:00</Time>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2012-07-03T11:31:08.6897598+02:00</Time>
     </Item>
     <Item>
       <Source>Images\SkyboxBack.png</Source>
@@ -55,8 +55,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\repository\bbn-game\trunk\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxBack.xnb</Output>
-      <Time>2012-07-03T04:03:00.5041928-07:00</Time>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxBack.xnb</Output>
+      <Time>2012-07-03T11:31:18.6584251+02:00</Time>
     </Item>
     <Item>
       <Source>Images\SkyboxBottom.png</Source>
@@ -64,8 +64,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\repository\bbn-game\trunk\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxBottom.xnb</Output>
-      <Time>2012-07-03T04:03:00.5081928-07:00</Time>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxBottom.xnb</Output>
+      <Time>2012-07-03T11:31:18.6634196+02:00</Time>
     </Item>
     <Item>
       <Source>Images\SkyboxFront.png</Source>
@@ -73,8 +73,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\repository\bbn-game\trunk\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxFront.xnb</Output>
-      <Time>2012-07-03T04:03:00.5081928-07:00</Time>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxFront.xnb</Output>
+      <Time>2012-07-03T11:31:18.6664164+02:00</Time>
     </Item>
     <Item>
       <Source>Images\SkyboxLeft.png</Source>
@@ -82,8 +82,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\repository\bbn-game\trunk\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxLeft.xnb</Output>
-      <Time>2012-07-03T04:03:00.5121928-07:00</Time>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxLeft.xnb</Output>
+      <Time>2012-07-03T11:31:18.6704124+02:00</Time>
     </Item>
     <Item>
       <Source>Images\SkyboxRight.png</Source>
@@ -91,8 +91,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\repository\bbn-game\trunk\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxRight.xnb</Output>
-      <Time>2012-07-03T04:03:00.5001928-07:00</Time>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxRight.xnb</Output>
+      <Time>2012-07-03T11:31:18.655428+02:00</Time>
     </Item>
     <Item>
       <Source>Images\SkyboxTop.png</Source>
@@ -100,64 +100,91 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>F:\repository\bbn-game\trunk\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxTop.xnb</Output>
-      <Time>2012-07-03T04:03:00.5041928-07:00</Time>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxTop.xnb</Output>
+      <Time>2012-07-03T11:31:18.6604233+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Cube.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Cube_0.xml</Output>
-      <Time>2012-07-03T04:01:15.0961934-07:00</Time>
+      <Time>2012-07-03T11:31:08.6997495+02:00</Time>
     </Item>
     <Item>
       <Source>Models\marker.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\marker_0.xml</Output>
-      <Time>2012-07-03T04:01:15.0961934-07:00</Time>
+      <Time>2012-07-03T11:31:08.6927564+02:00</Time>
     </Item>
     <Item>
       <Source>Models\arrow.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\arrow_0.xml</Output>
-      <Time>2012-07-03T04:01:15.0961934-07:00</Time>
+      <Time>2012-07-03T11:31:08.6957535+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Shader\skyBoxEffect.fx</Source>
+      <Name>Shader\skyBoxEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Shader\skyBoxEffect.xnb</Output>
+      <Time>2012-07-03T23:16:34.567947+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Shader\targetBox.fx</Source>
+      <Name>Shader\targetBox</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Shader\targetBox.xnb</Output>
+      <Time>2012-07-03T23:16:34.567947+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Starfield.png</Source>
+      <Name>Images\Starfield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\Images\Starfield.xnb</Output>
+      <Time>2012-07-03T23:16:41.8439508+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>F:\repository\bbn-game\trunk\Editor\Editor\Content\</RootDirectory>
-      <LoggerRootDirectory>F:\repository\bbn-game\trunk\Editor\Editor\</LoggerRootDirectory>
-      <IntermediateDirectory>F:\repository\bbn-game\trunk\Editor\Editor\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>F:\repository\bbn-game\trunk\Editor\Editor\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\bjt.000\Documents\SVN\Editor\Editor\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\bjt.000\Documents\SVN\Editor\Editor\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\bjt.000\Documents\SVN\Editor\Editor\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\bjt.000\Documents\SVN\Editor\Editor\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-07:00</Value>
+        <Value>2009-05-14T11:13:52+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-07:00</Value>
+        <Value>2009-05-14T11:13:52+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-07:00</Value>
+        <Value>2009-05-14T11:13:52+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-07:00</Value>
+        <Value>2009-05-14T11:13:52+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2009-05-14T11:13:52-07:00</Value>
+        <Value>2009-05-14T11:13:52+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-05-12T09:10:41.381375-07:00</Value>
+        <Value>2012-06-10T21:28:24.3023109+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
