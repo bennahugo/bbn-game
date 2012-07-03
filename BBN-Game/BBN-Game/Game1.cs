@@ -34,8 +34,8 @@ namespace BBN_Game
             player1 = new BBN_Game.Objects.playerObject(this);
             des = new BBN_Game.Objects.Destroyer(this);
 
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 1024;
+            graphics.PreferredBackBufferWidth = 1366 /2;
+            graphics.PreferredBackBufferHeight = 768 /2;
 
             //graphics.IsFullScreen = true;
         }

@@ -39,6 +39,18 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Getters and setters
         /// </summary>
+        public float getRollSpeed
+        {
+            get { return rollSpeed; }
+        }
+        public float getpitchSpeed
+        {
+            get { return pitchSpeed; }
+        }
+        public float getYawSpeed
+        {
+            get { return yawSpeed; }
+        }
         public Vector3 Position 
         {
             get { return shipData.position; }
@@ -77,6 +89,7 @@ namespace BBN_Game.Objects
             shipData = new BBN_Game.Objects.ObjectData.ObjectData();
             Position = Vector3.Zero;
             rotate = Quaternion.CreateFromAxisAngle(Vector3.Up, 0);
+            mass = 1000000000f; // static objects dont move
         }
         #endregion
 
@@ -144,15 +157,12 @@ namespace BBN_Game.Objects
         /// <returns>Boolean value - True is visible -- false - not visible</returns>
         public virtual bool IsVisible(Camera.CameraMatrices camera)
         {
-            foreach (ModelMesh mesh in shipModel.Meshes)
-            {
-                BoundingSphere localSphere = mesh.BoundingSphere;
-                localSphere.Center += Position;
+            BoundingSphere localSphere = shipModel.Meshes[0].BoundingSphere;
+            localSphere.Center += Position;
 
-                ContainmentType contains = camera.getBoundingFrustum.Contains(localSphere);
-                if (contains == ContainmentType.Contains || contains == ContainmentType.Intersects)
-                    return true;
-            }
+            ContainmentType contains = camera.getBoundingFrustum.Contains(localSphere);
+            if (contains == ContainmentType.Contains || contains == ContainmentType.Intersects)
+                return true;
 
             return false;
         }
@@ -183,6 +193,12 @@ namespace BBN_Game.Objects
 
             base.Draw(gameTime);
         }
+
+        public void drawSuroundingBox()
+        {
+
+        }
+
         #endregion
     }
 }

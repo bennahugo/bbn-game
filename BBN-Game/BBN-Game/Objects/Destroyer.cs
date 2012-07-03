@@ -20,9 +20,6 @@ namespace BBN_Game.Objects
     {
         private void setData()
         {
-            this.acceleration = 10;
-            this.deceleration = 6;
-
             this.rollSpeed = 5;
             this.pitchSpeed = 10;
             this.yawSpeed = 5;
