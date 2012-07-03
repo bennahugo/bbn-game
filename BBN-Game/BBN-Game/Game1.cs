@@ -128,7 +128,7 @@ namespace BBN_Game
             des.Draw(gameTime, cam);
             des2.Draw(gameTime, cam);
             des3.Draw(gameTime, cam);
-            player1.Draw(gameTime, cam, spriteBatch, des);
+            player1.Draw(gameTime, cam, spriteBatch);
 
 
             des.drawSuroundingBox(cam);

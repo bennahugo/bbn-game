@@ -88,7 +88,7 @@ namespace BBN_Game.Objects
         /// <param name="player">The palyer index (Team 1 or 2)</param>
         public void LoadContent(int player)
         {
-            this.model = Game.Content.Load<Model>("Models/Ships/Fighter" + (player == 1 ? "Red" : "Blue"));
+            this.model = Game.Content.Load<Model>("Models/Ships/Player" + (player == 1 ? "Red" : "Blue"));
             this.f = Game.Content.Load<SpriteFont>("SpriteFont1");
             base.LoadContent();
         }
@@ -217,7 +217,7 @@ namespace BBN_Game.Objects
 
         /// for debug
         #region "Debug"
-        public void Draw(GameTime gameTime, BBN_Game.Camera.CameraMatrices cam, SpriteBatch b, Objects.Destroyer target)
+        public void Draw(GameTime gameTime, BBN_Game.Camera.CameraMatrices cam, SpriteBatch b)
         {
             GraphicsDevice.RenderState.DepthBufferEnable = false;
             GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
@@ -228,9 +228,6 @@ namespace BBN_Game.Objects
             b.DrawString(f, "A/D - Yaw (left/right respectively)", new Vector2(10, 130), Color.Red);
             b.DrawString(f, "Mouse - Pitch/roll (respective to normal)- Alternatively (Arrow keys)", new Vector2(10, 150), Color.Red);
             b.DrawString(f, "Space - Mouse inverted (pitch)", new Vector2(10, 170), Color.Red);
-            
-            if (target.IsVisible(cam))
-                b.DrawString(f, "Target Visible", new Vector2(Game.GraphicsDevice.Viewport.Width / 2 - 100, 0), Color.Red);
 
 
             b.End();
