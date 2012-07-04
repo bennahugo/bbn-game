@@ -241,7 +241,7 @@ namespace BBN_Game.Objects
 
         #region "Target Box details"
         /// <summary>
-        /// Draws the bounding hexagon around the object apon a fake screen situated ahead of the view matrix
+        /// Draws the bounding shape around the object apon a fake screen situated y the object with the same rotation as the viewing screen
         /// </summary>
         /// <param name="cam">the camera class containing the view matrix</param>
         public void drawSuroundingBox(Camera.CameraMatrices cam)
@@ -265,8 +265,8 @@ namespace BBN_Game.Objects
         /// <param name="screenViewport">A vector to holding {screen width, screen height}</param>
         private void setVertexCoords(Camera.CameraMatrices cam, Vector2 screenViewport)
         {
-            float sizeOfObject;
-            sizeOfObject = greatestLength; // sets the greatest size of the object
+            float radiusOfObject;
+            radiusOfObject = greatestLength; // sets the greatest size of the object
 
             float distance = (Position - cam.Position).Length(); // distance the object is from the camera
             float radius = greatestLength / 2 * shipData.scale; // a variable for checking distances away from camera
@@ -274,7 +274,7 @@ namespace BBN_Game.Objects
             if (distance > radius)
             {
                 float angularSize = (float)Math.Tan(radius / distance); // calculate the size differance due to distance away
-                sizeOfObject = angularSize * GraphicsDevice.Viewport.Height / MathHelper.ToRadians(cam.viewAngle); // change the size of the object in accordance to the viewing angle
+                radiusOfObject = angularSize * GraphicsDevice.Viewport.Height / MathHelper.ToRadians(cam.viewAngle); // change the size of the object in accordance to the viewing angle
             }
 
             // The view and projection matrices together
@@ -288,44 +288,51 @@ namespace BBN_Game.Objects
             float screenX = ((screenPos.X / screenPos.W) * halfScreenX) + halfScreenX; // the position of the object in 2d space x
 
             // set positions for lines to draw 
-            //Line 1
-            targetBoxVertices[0].Position.X = screenX - sizeOfObject / 2;
-            targetBoxVertices[0].Position.Y = screenY + sizeOfObject;
 
-            //Line 2
-            targetBoxVertices[1].Position.X = screenX - sizeOfObject;
-            targetBoxVertices[1].Position.Y = screenY + sizeOfObject / 2;
+            setHexagonVertices(screenX, screenY, radiusOfObject);
 
-            //Line 3
-            targetBoxVertices[2].Position.X = screenX - sizeOfObject;
-            targetBoxVertices[2].Position.Y = screenY - sizeOfObject / 2;
-
-            //Line 4
-            targetBoxVertices[3].Position.X = screenX - sizeOfObject / 2;
-            targetBoxVertices[3].Position.Y = screenY - sizeOfObject;
-
-            //Line 5
-            targetBoxVertices[4].Position.X = screenX + sizeOfObject / 2;
-            targetBoxVertices[4].Position.Y = screenY - sizeOfObject;
-
-            //Line 6
-            targetBoxVertices[5].Position.X = screenX + sizeOfObject;
-            targetBoxVertices[5].Position.Y = screenY - sizeOfObject / 2;
-
-            //Line 7
-            targetBoxVertices[6].Position.X = screenX + sizeOfObject;
-            targetBoxVertices[6].Position.Y = screenY + sizeOfObject / 2;
-
-            //Line 8
-            targetBoxVertices[7].Position.X = screenX + sizeOfObject / 2;
-            targetBoxVertices[7].Position.Y = screenY + sizeOfObject;
-
-            //Line 9
-            targetBoxVertices[8].Position.X = screenX - sizeOfObject / 2;
-            targetBoxVertices[8].Position.Y = screenY + sizeOfObject;
 
             // set the variable to the new position vectors
             targetBoxVB.SetData<VertexPositionColor>(targetBoxVertices);
+        }
+
+        private void setHexagonVertices(float screenX, float screenY, float radiusOfObject)
+        {
+            //Line 1
+            targetBoxVertices[0].Position.X = screenX - radiusOfObject / 2;
+            targetBoxVertices[0].Position.Y = screenY + radiusOfObject;
+
+            //Line 2
+            targetBoxVertices[1].Position.X = screenX - radiusOfObject;
+            targetBoxVertices[1].Position.Y = screenY + radiusOfObject / 2;
+
+            //Line 3
+            targetBoxVertices[2].Position.X = screenX - radiusOfObject;
+            targetBoxVertices[2].Position.Y = screenY - radiusOfObject / 2;
+
+            //Line 4
+            targetBoxVertices[3].Position.X = screenX - radiusOfObject / 2;
+            targetBoxVertices[3].Position.Y = screenY - radiusOfObject;
+
+            //Line 5
+            targetBoxVertices[4].Position.X = screenX + radiusOfObject / 2;
+            targetBoxVertices[4].Position.Y = screenY - radiusOfObject;
+
+            //Line 6
+            targetBoxVertices[5].Position.X = screenX + radiusOfObject;
+            targetBoxVertices[5].Position.Y = screenY - radiusOfObject / 2;
+
+            //Line 7
+            targetBoxVertices[6].Position.X = screenX + radiusOfObject;
+            targetBoxVertices[6].Position.Y = screenY + radiusOfObject / 2;
+
+            //Line 8
+            targetBoxVertices[7].Position.X = screenX + radiusOfObject / 2;
+            targetBoxVertices[7].Position.Y = screenY + radiusOfObject;
+
+            //Line 9
+            targetBoxVertices[8].Position.X = screenX - radiusOfObject / 2;
+            targetBoxVertices[8].Position.Y = screenY + radiusOfObject;
         }
 
         /// <summary>

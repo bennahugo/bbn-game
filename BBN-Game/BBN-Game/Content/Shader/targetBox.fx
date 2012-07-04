@@ -1,7 +1,7 @@
 /// ----------------------------------------------
 /// @author - Brandon James Talbot
 ///
-/// This effect holds a fake screen to project targeting boxes onto
+/// This effect holds the direction of the screen so that the hudBoxes are drawn correctly facing the player
 ///
 /// Referance - spaceShooter sample code from MSN Microsoft
 ///
