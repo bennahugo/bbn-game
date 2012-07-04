@@ -69,7 +69,7 @@ namespace BBN_Game.Objects
             this.yawSpeed = rollSpeed * 2;
             this.maxSpeed = 50;
             this.minSpeed = -10;
-            this.greatestLength = 10f;
+            this.greatestLength = 6f;
         }
 
         /// <summary>
@@ -96,9 +96,9 @@ namespace BBN_Game.Objects
         /// Load content laods the players Model
         /// </summary>
         /// <param name="player">The palyer index (Team 1 or 2)</param>
-        public void LoadContent(int player)
+        public void LoadContent()
         {
-            this.model = Game.Content.Load<Model>("Models/Ships/Player" + (player == 1 ? "Red" : "Blue"));
+            this.model = Game.Content.Load<Model>("Models/Ships/Player" + (index == PlayerIndex.One ? "Red" : "Blue"));
             this.f = Game.Content.Load<SpriteFont>("SpriteFont1");
             base.LoadContent();
         }
@@ -155,78 +155,81 @@ namespace BBN_Game.Objects
         {
             KeyboardState state = Keyboard.GetState();
 
-            #region "Accel Deccel checks"
-            if (state.IsKeyDown(Keys.W))
+            if (index == PlayerIndex.One)
             {
-                if (shipData.speed < maxSpeed)
+                #region "Accel Deccel checks"
+                if (state.IsKeyDown(Keys.W))
                 {
-                    shipData.speed += acceleration * time;
+                    if (shipData.speed < maxSpeed)
+                    {
+                        shipData.speed += acceleration * time;
+                    }
                 }
-            }
-            else if (state.IsKeyDown(Keys.S))
-            {
-                if (shipData.speed > minSpeed)
+                else if (state.IsKeyDown(Keys.S))
                 {
-                    shipData.speed -= deceleration * time;
+                    if (shipData.speed > minSpeed)
+                    {
+                        shipData.speed -= deceleration * time;
+                    }
                 }
-            }
-            else
-            {
-                if (shipData.speed > 0)
+                else
                 {
-                    shipData.speed -= deceleration * time * 2;
-
-                    if (shipData.speed < 0)
-                        shipData.speed = 0;
-                }
-                else if (shipData.speed < 0)
-                {
-                    shipData.speed += acceleration * time;
-
                     if (shipData.speed > 0)
-                        shipData.speed = 0;
+                    {
+                        shipData.speed -= deceleration * time * 2;
+
+                        if (shipData.speed < 0)
+                            shipData.speed = 0;
+                    }
+                    else if (shipData.speed < 0)
+                    {
+                        shipData.speed += acceleration * time;
+
+                        if (shipData.speed > 0)
+                            shipData.speed = 0;
+                    }
                 }
+                #endregion
+
+
+                #region "Rotations"
+
+                MouseState mState = Mouse.GetState();
+                #region "Yaw"
+                if (state.IsKeyDown(Keys.A))
+                {
+                    shipData.yaw += yawSpeed * time;
+                }
+                if (state.IsKeyDown(Keys.D))
+                {
+                    shipData.yaw -= yawSpeed * time;
+                }
+                #endregion
+                #region "pitch & roll"
+                float pitch = (origState.Y - mState.Y) * pitchSpeed * time;
+                float roll = (origState.X - mState.X) * rollSpeed * time;
+
+                if (state.IsKeyDown(Keys.Up))
+                    pitch = pitchSpeed * 5 * time;
+                else if (state.IsKeyDown(Keys.Down))
+                    pitch = -pitchSpeed * 5 * time;
+
+                if (state.IsKeyDown(Keys.Left))
+                    roll = (rollSpeed * 5) * time;
+                else if (state.IsKeyDown(Keys.Right))
+                    roll = -(rollSpeed * 5) * time;
+
+                shipData.roll -= roll;
+                shipData.pitch = mouseInverted ? shipData.pitch + pitch : shipData.pitch - pitch;
+                #endregion
+
+                // Debug
+                if (state.IsKeyDown(Keys.Space))
+                    mouseInverted = mouseInverted ? false : true;
+
+                resetMouse();
+                #endregion
             }
-            #endregion
-
-
-            #region "Rotations"
-
-            MouseState mState = Mouse.GetState();
-            #region "Yaw"
-            if (state.IsKeyDown(Keys.A))
-            {
-                shipData.yaw += yawSpeed * time;
-            }
-            if (state.IsKeyDown(Keys.D))
-            {
-                shipData.yaw -= yawSpeed * time;
-            }
-            #endregion
-            #region "pitch & roll"
-            float pitch = (origState.Y - mState.Y) * pitchSpeed * time;
-            float roll = (origState.X - mState.X) * rollSpeed * time;
-
-            if (state.IsKeyDown(Keys.Up))
-                pitch = pitchSpeed * 5 * time;
-            else if (state.IsKeyDown(Keys.Down))
-                pitch = -pitchSpeed * 5 * time;
-
-            if (state.IsKeyDown(Keys.Left))
-                roll = (rollSpeed * 5) * time;
-            else if (state.IsKeyDown(Keys.Right))
-                roll = -(rollSpeed * 5) * time;
-
-            shipData.roll -= roll;
-            shipData.pitch = mouseInverted ? shipData.pitch + pitch : shipData.pitch - pitch;
-            #endregion
-
-            // Debug
-            if (state.IsKeyDown(Keys.Space))
-                mouseInverted = mouseInverted ? false : true;
-
-            resetMouse();
-            #endregion
         }
 
         /// <summary>

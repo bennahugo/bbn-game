@@ -42,13 +42,12 @@ namespace BBN_Game.Objects
         /// <param name="game">The Game</param>
         public DynamicObject (Game game) : base(game)
         {
-            setData();
         }
 
         /// <summary>
         /// Sets the data for the object (these are defaults)
         /// </summary>
-        protected virtual void setData()
+        protected override void setData()
         {
             this.maxSpeed = 50;
             this.minSpeed = -10;
