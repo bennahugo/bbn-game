@@ -22,7 +22,7 @@ namespace BBN_Game.Graphics.Skybox
         /// Sphere is the sphere generator
         /// texName the name of the texture to use
         /// </summary>
-        Graphics.Sphere.Sphere sphere;
+        Graphics.Shapes.Cube cube;
 
         Texture2D text;
         string texName;
@@ -32,25 +32,28 @@ namespace BBN_Game.Graphics.Skybox
         EffectParameter view;
         EffectParameter projection;
         EffectParameter diffuseTex;
+        float rad;
+        int repeat;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="game">The game</param>
         /// <param name="texName">Name of the texture to use</param>
-        public Skybox(Game game, string texName)
+        public Skybox(Game game, string texName, float radius, int repeatcount)
             : base(game)
         {
             this.texName = texName;
+            rad = radius;
+            repeat = repeatcount;
         }
 
         /// <summary>
         /// Creates the sphere that is required
         /// </summary>
-        public void Initialize(float radius, int hRepeat, int vRepeat)
+        public void Initialize()
         {
-            sphere = new Sphere.Sphere(radius, 10, 10);
-            sphere.TileUVs(hRepeat, vRepeat);
+            cube = new Shapes.Cube(rad, repeat);
 
             base.Initialize();
         }
@@ -72,7 +75,7 @@ namespace BBN_Game.Graphics.Skybox
 
             diffuseTex = e.Parameters["diffTex"];
 
-            sphere.LoadContent(Game);
+            cube.LoadContent(Game);
 
             base.LoadContent();
         }
@@ -100,7 +103,7 @@ namespace BBN_Game.Graphics.Skybox
             GraphicsDevice.RenderState.CullMode = CullMode.None;
             GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
 
-            sphere.draw(GraphicsDevice, cam);
+            cube.draw(GraphicsDevice, cam);
 
             GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
             GraphicsDevice.RenderState.CullMode = CullMode.CullCounterClockwiseFace;

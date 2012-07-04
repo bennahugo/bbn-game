@@ -32,7 +32,7 @@ namespace BBN_Game
             des = new BBN_Game.Objects.Destroyer(this);
             des2 = new BBN_Game.Objects.Destroyer(this);
             des3 = new BBN_Game.Objects.Destroyer(this);
-            skyBox = new BBN_Game.Graphics.Skybox.Skybox(this, "Starfield");
+            skyBox = new BBN_Game.Graphics.Skybox.Skybox(this, "Starfield", 100000, 10);
 
             graphics.PreferredBackBufferWidth = 1366;
             graphics.PreferredBackBufferHeight = 768;
@@ -55,7 +55,7 @@ namespace BBN_Game
             des2.Position = new Vector3(20, 20, 45);
             des3.Initialize(); 
             des3.Position = new Vector3(0, -15, 20);
-            skyBox.Initialize(100000, 8, 8);
+            skyBox.Initialize();
 
             base.Initialize();
         }

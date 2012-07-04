@@ -15,22 +15,8 @@ using Microsoft.Xna.Framework.Graphics;
 /// @Author : Brandon James Talbot
 ///
 
-namespace BBN_Game.Graphics.Sphere
+namespace BBN_Game.Graphics.Shapes
 {
-    struct vertexPos
-    {
-        public Vector3 Position;
-        public Vector2 TextureCoordinate;
-
-        public static int SizeInBytes
-        {
-            get
-            {
-                return (sizeof(float) * 3) + (sizeof(float) * 2);
-            }
-        }
-    }
-
     class Sphere : IDisposable
     {
         vertexPos[] vertices;
@@ -107,11 +93,11 @@ namespace BBN_Game.Graphics.Sphere
 
         #region "Creation"
         /// <summary>
-        /// Scales the sphere in horizontal and verticle positions
-        /// Convert to oval procedure here
+        /// Scales the spheres texture in horizontal and verticle positions
+        /// This tells it how many times teh texture should try paste the image onto it
         /// </summary>
-        /// <param name="uScale">horiz scale</param>
-        /// <param name="vScale">Verticle scale</param>
+        /// <param name="uScale">horiz repetitions</param>
+        /// <param name="vScale">Verticle repetitions</param>
         public void TileUVs(int uScale, int vScale)
         {
             for (int i = 0; i < numV; i++)
