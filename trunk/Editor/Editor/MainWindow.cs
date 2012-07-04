@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using BBN_Game.Map;
 using BBN_Game.Utils;
 using BBN_Game.AI;
+using BBN_Game.Graphics.Skybox;
 //include XNA:
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -856,6 +857,7 @@ namespace Editor
         private void tsbNew_Click(object sender, EventArgs e)
         {
             clearContent();
+            BBNMap.SetUpSkyBox(gfxDevice, contentMgr, "", "1.0");
         }
         private void tsbOpen_Click(object sender, EventArgs e)
         {
@@ -894,7 +896,7 @@ namespace Editor
                 String val = Microsoft.VisualBasic.Interaction.InputBox("Specify new radius", "Map Radius", Convert.ToString(BBNMap.getMapRadius()), Width / 2, Height / 2);
                 if (val == "")
                     return; //abort
-                BBNMap.setMapSize(Convert.ToSingle(val));
+                BBNMap.setMapSize(Convert.ToSingle(val),contentMgr,gfxDevice);
             }
             catch (Exception ex)
             {
