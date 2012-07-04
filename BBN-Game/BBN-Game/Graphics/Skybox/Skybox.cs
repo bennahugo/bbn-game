@@ -47,10 +47,10 @@ namespace BBN_Game.Graphics.Skybox
         /// <summary>
         /// Creates the sphere that is required
         /// </summary>
-        public override void Initialize()
+        public void Initialize(float radius, int hRepeat, int vRepeat)
         {
-            sphere = new Sphere.Sphere(100000, 10, 10);
-            sphere.TileUVs(20, 20);
+            sphere = new Sphere.Sphere(radius, 10, 10);
+            sphere.TileUVs(hRepeat, vRepeat);
 
             base.Initialize();
         }
@@ -83,7 +83,7 @@ namespace BBN_Game.Graphics.Skybox
         /// <param name="gt">The game time</param>
         /// <param name="cam">The camera class</param>
         /// <param name="playerPos">The players position</param>
-        public void Draw(GameTime gt, Camera.CameraMatrices cam, Vector3 playerPos)
+        public void Draw(GameTime gt, Camera.CameraMatrices cam)
         {
             Matrix worldMatrix = Matrix.Identity;
 
