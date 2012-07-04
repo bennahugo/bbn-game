@@ -7,29 +7,20 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
-/////
-///
-/// Author - Brandon James Talbot
-/// 
-/// This is the Destroyer Object class
-////
-
 namespace BBN_Game.Objects
 {
-    class Destroyer : DynamicObject
+    class Base : StaticObject
     {
-        protected override void setData()
+        private void setData()
         {
             this.rollSpeed = 5;
             this.pitchSpeed = 10;
             this.yawSpeed = 5;
-            this.maxSpeed = 300;
-            this.minSpeed = -25;
             this.greatestLength = 6f;
         }
 
 
-        public Destroyer(Game game)
+        public Base(Game game)
             : base(game)
         {
             this.Position = new Vector3(0, 0, 10);
@@ -37,7 +28,7 @@ namespace BBN_Game.Objects
 
         public void LoadContent()
         {
-            this.model = Game.Content.Load<Model>("Models/Ships/FighterBlue");
+            this.model = Game.Content.Load<Model>("Models/Ships/FighterRed");
             base.LoadContent();
         }
     }

@@ -16,9 +16,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BBN_Game.Objects
 {
-    class Destroyer : DynamicObject
+    class Fighter : DynamicObject
     {
-        protected override void setData()
+        private void setData()
         {
             this.rollSpeed = 5;
             this.pitchSpeed = 10;
@@ -29,7 +29,7 @@ namespace BBN_Game.Objects
         }
 
 
-        public Destroyer(Game game)
+        public Fighter(Game game)
             : base(game)
         {
             this.Position = new Vector3(0, 0, 10);
@@ -37,7 +37,7 @@ namespace BBN_Game.Objects
 
         public void LoadContent()
         {
-            this.model = Game.Content.Load<Model>("Models/Ships/FighterBlue");
+            this.model = Game.Content.Load<Model>("Models/Ships/FighterRed");
             base.LoadContent();
         }
     }
