@@ -51,7 +51,7 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Static variables for rotaion speeds
         /// </summary>
-        protected float yawSpeed, rollSpeed, pitchSpeed, mass;
+        protected float yawSpeed, rollSpeed, pitchSpeed, mass, greatestLength;
 
         #region "Getters and setters"
         /// <summary>
@@ -109,6 +109,18 @@ namespace BBN_Game.Objects
             rotate = Quaternion.CreateFromAxisAngle(Vector3.Up, 0);
             mass = 1000000000f; // static objects dont move
             isTarget = false;
+        }
+
+        /// <summary>
+        /// Sets the data for the object (these are defaults)
+        /// </summary>
+        protected virtual void setData()
+        {
+            this.mass = 10f;
+            this.rollSpeed = 30;
+            this.pitchSpeed = 30;
+            this.yawSpeed = rollSpeed * 2;
+            greatestLength = 10.0f;
         }
         #endregion
 
@@ -236,11 +248,12 @@ namespace BBN_Game.Objects
                     else
                         targetBoxVertices[i] = new VertexPositionColor(Vector3.Zero, Color.Green);
                 }
+
                 float sizeInPixels;
 
                 float distance = (Position - cam.View.Translation).Length();
-                sizeInPixels = 20.0f;
-                float radius = 5 * shipData.scale;
+                sizeInPixels = greatestLength;
+                float radius = greatestLength/2 * shipData.scale;
                 if (distance > radius)
                 {
                     float angularSize = (float)Math.Tan(radius / distance);

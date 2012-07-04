@@ -32,6 +32,9 @@ namespace BBN_Game.Objects
         /// OrigState is the state of the mouse when centered (Computer controls)
         /// The width and height are storage variables for the width and height of the viewport of the game
         /// Mouse inverted is another variable to determine the motion of the mouse (joystick)
+        /// acceleration - The acceleration speed of the object
+        /// Decelleration - The deceleration speed of the object
+        /// chaseCamera - The chase camera
         /// </summary>
         PlayerIndex index;
         MouseState origState;
@@ -39,9 +42,15 @@ namespace BBN_Game.Objects
         float width, height;
 
         public Boolean mouseInverted = true;
-
-
+        
         protected float acceleration, deceleration;
+
+        Camera.ChaseCamera chaseCamera;
+
+        public Camera.CameraMatrices Camera
+        {
+            get { return new Camera.CameraMatrices(chaseCamera.view, chaseCamera.proj); }
+        }
         #endregion
 
         #region "Constructors - Data setting"
@@ -60,6 +69,7 @@ namespace BBN_Game.Objects
             this.yawSpeed = rollSpeed * 2;
             this.maxSpeed = 50;
             this.minSpeed = -10;
+            this.greatestLength = 10f;
         }
 
         /// <summary>
@@ -105,12 +115,27 @@ namespace BBN_Game.Objects
             resetMouse();
             origState = Mouse.GetState();
 
+            chaseCamera = new BBN_Game.Camera.ChaseCamera(Game.GraphicsDevice.Viewport.Width, Game.GraphicsDevice.Viewport.Height);
+
             base.Initialize();
         }
 
         #endregion
 
         #region "Controls"
+
+        /// <summary>
+        /// override for the update method to call on the camera update methods.
+        /// </summary>
+        /// <param name="gt">Game time variable</param>
+        public override void Update(GameTime gt)
+        {
+            // todo add the if statement on the enum for cockpit View
+            chaseCamera.update(gt, Position, Matrix.CreateFromQuaternion(rotation));
+
+            base.Update(gt);
+        }
+
         /// <summary>
         /// Overide of the controller
         /// Calls on the keyboard and gamepad key checks
@@ -228,7 +253,6 @@ namespace BBN_Game.Objects
             b.DrawString(f, "A/D - Yaw (left/right respectively)", new Vector2(10, 130), Color.Red);
             b.DrawString(f, "Mouse - Pitch/roll (respective to normal)- Alternatively (Arrow keys)", new Vector2(10, 150), Color.Red);
             b.DrawString(f, "Space - Mouse inverted (pitch)", new Vector2(10, 170), Color.Red);
-
 
             b.End();
             GraphicsDevice.RenderState.DepthBufferEnable = true;
