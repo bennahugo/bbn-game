@@ -23,7 +23,7 @@ namespace BBN_Game.Graphics.Skybox
         /// Sphere is the sphere generator
         /// texName the name of the texture to use
         /// </summary>
-        Graphics.Sphere.Sphere sphere;
+        Graphics.Shapes.Cube sphere;
 
         Texture2D text;
 
@@ -32,6 +32,8 @@ namespace BBN_Game.Graphics.Skybox
         EffectParameter view;
         EffectParameter projection;
         EffectParameter diffuseTex;
+        float rad;
+        int repeat;
 
         /// <summary>
         /// Constructor
@@ -45,10 +47,11 @@ namespace BBN_Game.Graphics.Skybox
         /// <summary>
         /// Creates the sphere that is required
         /// </summary>
-        public void Initialize(float hR, float VR, float radius)
+        public void Initialize(float radius, int repeatcount)
         {
-            sphere = new Sphere.Sphere(radius, 5, 5);
-            sphere.TileUVs((int)hR, (int)VR);
+            rad = radius;
+            repeat = repeatcount;
+            sphere = new Graphics.Shapes.Cube(radius, repeat);
         }
 
         /// <summary>

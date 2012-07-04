@@ -93,6 +93,7 @@
     <Compile Include="AI\SpawnPoint.cs" />
     <Compile Include="Map\BBNMap.cs" />
     <Compile Include="ToolboxItem.cs" />
+    <Compile Include="Utils\Cube.cs" />
     <Compile Include="Utils\QuadHelper.cs" />
     <Compile Include="Utils\Algorithms.cs" />
     <Compile Include="Collision Detection\CollisionDetectionHelper.cs" />
@@ -114,7 +115,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Collision Detection\Triangle.cs" />
     <Compile Include="Utils\Skybox.cs" />
-    <Compile Include="Utils\Sphere.cs" />
+    <Compile Include="Utils\VertexPos.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

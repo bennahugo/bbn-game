@@ -29,8 +29,7 @@ namespace BBN_Game.Map
         public static Dictionary<String, Object> content = new Dictionary<String, Object>();
         // Skybox textures and quads:
         private static Texture2D skyBoxTexture = null;
-        private static float skyBoxHRepeat = 1.0f;
-        private static float skyBoxVRepeat = 1.0f;
+        private static float skyBoxRepeat = 10.0f;
         private static QuadHelper[] skyboxQuads = new QuadHelper[6];
         private static float mapRadius = 200000;
         private static Graphics.Skybox.Skybox skyBoxDrawer;
@@ -60,7 +59,7 @@ namespace BBN_Game.Map
         /// <param name="repeatFront">repeat count for the front texture (normally 1.0f)</param>
         /// <param name="repeatBack">repeat count for the back texture (normally 1.0f)</param>
         public static void SetUpSkyBox(GraphicsDevice gfxDevice, ContentManager contentMgr,
-            String Text, string hRepeat, string vRepeat)
+            String Text, string Repeat)
         {
             //first check for texture loading errors before setting up the quads:
             if (Text != "" && Text != null)
@@ -70,12 +69,11 @@ namespace BBN_Game.Map
             }
             float maxAway = mapRadius / 2;
             //top:
-            skyBoxHRepeat = float.Parse(hRepeat);
-            skyBoxVRepeat = float.Parse(vRepeat);
+            skyBoxRepeat = float.Parse(Repeat);
             if (Text != "" && Text != null)
             {
                 skyBoxDrawer = new Graphics.Skybox.Skybox();
-                skyBoxDrawer.Initialize(skyBoxHRepeat, skyBoxVRepeat, mapRadius/2);
+                skyBoxDrawer.Initialize(mapRadius/2, (int)skyBoxRepeat);
                 skyBoxDrawer.loadContent(skyBoxTexture, contentMgr, gfxDevice);
             }
         }
@@ -204,8 +202,7 @@ namespace BBN_Game.Map
             contentMgr.Unload();
             skyBoxTexture = null;
             mapRadius = 200000;
-            skyBoxHRepeat = 8;
-            skyBoxVRepeat = 8;
+            skyBoxRepeat = 10;
             for (int i = 0; i < skyboxQuads.Length; ++i )
                 skyboxQuads[i] = null;
         }
@@ -299,7 +296,7 @@ namespace BBN_Game.Map
             XPathNodeIterator iter;
             XPathNavigator mapIter = nav.SelectSingleNode("/Map");
             mapRadius = Convert.ToSingle(mapIter.GetAttribute("mapRadius", nsmanager.DefaultNamespace));
-            //Read skybox data: TODODODODODO!!!!!!!
+            //Read skybox data: TODODODODODO!!!!!!! Texture name and repeat count is needed only
             XPathNavigator skyboxIter;
             //Now read in path nodes:
             iter = nav.Select("/Map/PathNode");
@@ -370,7 +367,7 @@ namespace BBN_Game.Map
             List<Edge> edgeList = new List<Edge>();
             writer.WriteStartElement("Skybox");
             //top skybox texture
-            //TODODODODO!!!!
+            //TODODODODO!!!! texture name and repeat needed only
 
             ///Markers
             writer.WriteEndElement();
