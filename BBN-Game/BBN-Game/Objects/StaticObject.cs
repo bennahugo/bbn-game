@@ -170,7 +170,7 @@ namespace BBN_Game.Objects
             rotate.Normalize();
             #endregion
 
-            world = Matrix.CreateFromQuaternion(rotate);
+            world = Matrix.CreateScale(shipData.scale) * Matrix.CreateFromQuaternion(rotate);
             world.Translation = Position;
 
             shipData.resetAngles();
@@ -240,7 +240,7 @@ namespace BBN_Game.Objects
 
                 float distance = (Position - cam.View.Translation).Length();
                 sizeInPixels = 20.0f;
-                float radius = 5;
+                float radius = 5 * shipData.scale;
                 if (distance > radius)
                 {
                     float angularSize = (float)Math.Tan(radius / distance);
