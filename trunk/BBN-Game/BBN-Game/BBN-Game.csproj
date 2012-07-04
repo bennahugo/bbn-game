@@ -89,9 +89,11 @@
     <Compile Include="CamerasAndEffects\LightAndFog.cs" />
     <Compile Include="Collision Detection\CollisionDetectionHelper.cs" />
     <Compile Include="Collision Detection\Triangle.cs" />
+    <Compile Include="Graphics\Shapes\Cube.cs" />
+    <Compile Include="Graphics\Shapes\VertexPos.cs" />
     <Compile Include="Graphics\Skybox\QuadDrawer.cs" />
     <Compile Include="Graphics\Skybox\Skybox.cs" />
-    <Compile Include="Graphics\Sphere\Sphere.cs" />
+    <Compile Include="Graphics\Shapes\Sphere.cs" />
     <Compile Include="Objects\Destroyer.cs" />
     <Compile Include="Objects\DynamicObject.cs" />
     <Compile Include="Objects\ObjectData\ObjectData.cs" />
