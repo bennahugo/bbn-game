@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Content;
 using System.Xml;
 using System.Xml.XPath;
 using Editor;
+using BBN_Game.Graphics.Skybox;
 namespace BBN_Game.Map
 {
     /// <summary>
@@ -30,7 +31,7 @@ namespace BBN_Game.Map
         // Skybox textures and quads:
         private static Texture2D skyBoxTexture = null;
         private static float skyBoxRepeat = 10.0f;
-        private static QuadHelper[] skyboxQuads = new QuadHelper[6];
+        //private static QuadHelper[] skyboxQuads = new QuadHelper[6];
         private static float mapRadius = 200000;
         private static Graphics.Skybox.Skybox skyBoxDrawer;
         /// <summary>
@@ -81,10 +82,10 @@ namespace BBN_Game.Map
         /// Method to set the radius of the map
         /// </summary>
         /// <param name="newSize">Decimal value larger than 0</param>
-        public static void setMapSize(float newSize)
+        public static void setMapSize(float newSize, ContentManager contentMgr, GraphicsDevice gfxDevice)
         {
-            if (newSize <= 0)
-                throw new Exception("The new radius must be larger than 0");
+            if (newSize < 50)
+                throw new Exception("The new radius must be larger or equal to 50");
             float oldSize = mapRadius;
             mapRadius = newSize;
             foreach (Object item in content.Values)
@@ -93,6 +94,8 @@ namespace BBN_Game.Map
                     mapRadius = oldSize;
                     throw new Exception("Some objects are outside of the new radius. Please set the radius to a larger size");
                 }
+            if (skyBoxTexture != null)
+                SetUpSkyBox(gfxDevice, contentMgr, skyBoxTexture.Name, Convert.ToString(skyBoxRepeat)); 
         }
         /// <summary>
         /// Method to get the map radius
@@ -203,8 +206,7 @@ namespace BBN_Game.Map
             skyBoxTexture = null;
             mapRadius = 200000;
             skyBoxRepeat = 10;
-            for (int i = 0; i < skyboxQuads.Length; ++i )
-                skyboxQuads[i] = null;
+            skyBoxDrawer = null;
         }
         /// <summary>
         /// Method to read a single map content instance's data from XML
@@ -296,8 +298,11 @@ namespace BBN_Game.Map
             XPathNodeIterator iter;
             XPathNavigator mapIter = nav.SelectSingleNode("/Map");
             mapRadius = Convert.ToSingle(mapIter.GetAttribute("mapRadius", nsmanager.DefaultNamespace));
-            //Read skybox data: TODODODODODO!!!!!!! Texture name and repeat count is needed only
-            XPathNavigator skyboxIter;
+
+            XPathNavigator skyboxIter = nav.SelectSingleNode("/Map/Skybox");
+            String texName = skyboxIter.GetAttribute("texture", nsmanager.DefaultNamespace);
+            skyBoxRepeat = Convert.ToSingle(skyboxIter.GetAttribute("repeat", nsmanager.DefaultNamespace));
+            SetUpSkyBox(gfxDevice, contentMgr, texName, Convert.ToString(skyBoxRepeat));
             //Now read in path nodes:
             iter = nav.Select("/Map/PathNode");
             while (iter.MoveNext())
@@ -366,12 +371,16 @@ namespace BBN_Game.Map
             writer.WriteAttributeString("mapRadius", Convert.ToString(mapRadius));
             List<Edge> edgeList = new List<Edge>();
             writer.WriteStartElement("Skybox");
-            //top skybox texture
-            //TODODODODO!!!! texture name and repeat needed only
-
+            //top skybox texture 
+            if (skyBoxTexture != null)
+                writer.WriteAttributeString("texture", Convert.ToString(skyBoxTexture.Name));
+            else
+                writer.WriteAttributeString("texture", "");
+            writer.WriteAttributeString("repeat", Convert.ToString(skyBoxRepeat));
+            writer.WriteEndElement();
             ///Markers
-            writer.WriteEndElement();
-            writer.WriteEndElement();
+            
+            
             foreach (Object item in content.Values)
             {
                 if (item is Marker)
