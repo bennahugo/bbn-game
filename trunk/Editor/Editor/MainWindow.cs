@@ -832,11 +832,9 @@ namespace Editor
             //get textures and then texture repeat counters for all sides of the skybox:
             String Texture = Microsoft.VisualBasic.Interaction.InputBox("Specify the texture name", "Texture name", "Images/Starfield", Width / 2, Height / 2);
             if (Texture == "") return;
-            String horizontalRepeat = Microsoft.VisualBasic.Interaction.InputBox("Specify the Horizontal texture repeat", "Repeat count", "8.0", Width / 2, Height / 2);
-            if (horizontalRepeat == "") return;
-            String verticleRepeat = Microsoft.VisualBasic.Interaction.InputBox("Specify Verticle texture repeat", "Repeat count", "8.0", Width / 2, Height / 2);
-            if (verticleRepeat == "") return;
-            BBNMap.SetUpSkyBox(gfxDevice, contentMgr, Texture, horizontalRepeat, verticleRepeat);
+            String Repeat = Microsoft.VisualBasic.Interaction.InputBox("Specify the texture repeat", "Repeat count", "10.0", Width / 2, Height / 2);
+            if (Repeat == "") return;
+            BBNMap.SetUpSkyBox(gfxDevice, contentMgr, Texture, Repeat);
         }
         /// <summary>
         /// Method to clear map content, after confirming with the user
