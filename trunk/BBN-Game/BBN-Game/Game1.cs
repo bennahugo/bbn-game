@@ -133,7 +133,7 @@ namespace BBN_Game
 
             des.drawSuroundingBox(cam);
             des2.drawSuroundingBox(cam);
-            des3.isTarget = true;
+            des3.isTarget = true; des3.ShipMovementInfo.scale = 0.2f;
             des3.drawSuroundingBox(cam);
 
             base.Draw(gameTime);
