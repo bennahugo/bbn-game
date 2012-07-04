@@ -50,12 +50,9 @@ namespace BBN_Game.Objects
         /// </summary>
         protected virtual void setData()
         {
-            this.mass = 10f;
-            this.rollSpeed = 30;
-            this.pitchSpeed = 30;
-            this.yawSpeed = rollSpeed * 2;
             this.maxSpeed = 50;
             this.minSpeed = -10;
+            base.setData();
         }
 
         /// <summary>

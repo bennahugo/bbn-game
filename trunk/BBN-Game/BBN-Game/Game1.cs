@@ -24,9 +24,6 @@ namespace BBN_Game
         Objects.Destroyer des, des2, des3;
         Graphics.Skybox.Skybox skyBox;
 
-        //Camera
-        Camera.ChaseCamera chasCam;
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -37,10 +34,10 @@ namespace BBN_Game
             des3 = new BBN_Game.Objects.Destroyer(this);
             skyBox = new BBN_Game.Graphics.Skybox.Skybox(this, "Starfield");
 
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 1024;
+            graphics.PreferredBackBufferWidth = 1366;
+            graphics.PreferredBackBufferHeight = 768;
 
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
         }
 
         /// <summary>
@@ -58,9 +55,7 @@ namespace BBN_Game
             des2.Position = new Vector3(20, 20, 45);
             des3.Initialize(); 
             des3.Position = new Vector3(0, -15, 20);
-            skyBox.Initialize();
-
-            chasCam = new BBN_Game.Camera.ChaseCamera(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
+            skyBox.Initialize(100000, 8, 8);
 
             base.Initialize();
         }
@@ -108,9 +103,6 @@ namespace BBN_Game
             des2.Update(gameTime);
             des3.Update(gameTime);
 
-
-            chasCam.update(gameTime, player1.Position, Matrix.CreateFromQuaternion(player1.rotation));
-
             base.Update(gameTime);
         }
 
@@ -123,17 +115,17 @@ namespace BBN_Game
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            Camera.CameraMatrices cam = new BBN_Game.Camera.CameraMatrices(chasCam.view, chasCam.proj);
-            skyBox.Draw(gameTime, cam, player1.Position);
+            Camera.CameraMatrices cam = player1.Camera;
+            skyBox.Draw(gameTime, cam);
             des.Draw(gameTime, cam);
             des2.Draw(gameTime, cam);
             des3.Draw(gameTime, cam);
             player1.Draw(gameTime, cam, spriteBatch);
 
-
             des.drawSuroundingBox(cam);
             des2.drawSuroundingBox(cam);
             des3.isTarget = true; des3.ShipMovementInfo.scale = 0.2f;
+            des3.ShipMovementInfo.scale = 0.5f;
             des3.drawSuroundingBox(cam);
 
             base.Draw(gameTime);
