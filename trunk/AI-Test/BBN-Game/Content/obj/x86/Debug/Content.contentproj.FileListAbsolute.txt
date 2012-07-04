@@ -1,0 +1,3 @@
+F:\repository\bbn-game\trunk\BBN-Game-AI\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\repository\bbn-game\trunk\AI-Test\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\repository\bbn-game\trunk\AI-Test.BAK\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
