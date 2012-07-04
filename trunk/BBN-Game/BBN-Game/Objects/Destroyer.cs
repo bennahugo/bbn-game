@@ -25,7 +25,7 @@ namespace BBN_Game.Objects
             this.yawSpeed = 5;
             this.maxSpeed = 300;
             this.minSpeed = -25;
-            this.greatestLength = 10f;
+            this.greatestLength = 8.5f;
         }
 
 
