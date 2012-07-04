@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>Cylinder01</Name>
     <Identity>
-      <SourceFilename>F:\repository\bbn-game\trunk\AI-Test.BAK\BBN-Game\Content\Models\Ships\object.fbx</SourceFilename>
+      <SourceFilename>F:\repository\bbn-game\trunk\AI-Test\BBN-Game\Content\Models\Ships\object.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>2.54 0 0 0 0 1.55525E-16 -2.54 0 0 2.54 1.55525E-16 0 0 0 1.513958E-07 1</Transform>
