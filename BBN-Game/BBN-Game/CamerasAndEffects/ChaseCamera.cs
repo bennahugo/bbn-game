@@ -36,12 +36,13 @@ namespace BBN_Game.Camera
         public Vector3 speed; // speed vector
         public Matrix view; // view matrix to generate
         public Matrix proj; // projection matrix to generate
+        public float viewingAnle = 45;
 
         public float rotateSpeed = 2f;
 
         public ChaseCamera(int width, int height)
         {
-            proj = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45), width / height, 0.1f, 200000.0f);
+            proj = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(viewingAnle), width / height, 0.1f, 200000.0f);
         }
 
         /// <summary>

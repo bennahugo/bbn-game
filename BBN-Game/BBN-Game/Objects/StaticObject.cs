@@ -251,13 +251,15 @@ namespace BBN_Game.Objects
 
                 float sizeInPixels;
 
-                float distance = (Position - cam.View.Translation).Length();
+                float distance = (Position - cam.Position).Length();
+
                 sizeInPixels = greatestLength;
                 float radius = greatestLength/2 * shipData.scale;
+
                 if (distance > radius)
                 {
                     float angularSize = (float)Math.Tan(radius / distance);
-                    sizeInPixels = angularSize * GraphicsDevice.Viewport.Height / MathHelper.ToRadians(45);
+                    sizeInPixels = angularSize * GraphicsDevice.Viewport.Height / MathHelper.ToRadians(cam.viewAngle);
                 }
 
                 Matrix viewProj = cam.View * cam.Projection;

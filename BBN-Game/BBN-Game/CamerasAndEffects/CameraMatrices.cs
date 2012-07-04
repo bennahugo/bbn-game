@@ -29,12 +29,17 @@ namespace BBN_Game.Camera
         Matrix view;
         Matrix projection;
         BoundingFrustum bf;
+        Vector3 position;
+        float angle;
 
         /// <summary>
         /// Getters and setters for the variables
         /// </summary>
         public Matrix View { get { return view; } set { view = value; } }
         public Matrix Projection { get { return projection; } set { projection = value; } }
+        public Vector3 Position { get { return position; } set { position = value; } }
+        public float viewAngle { get { return angle; } set { angle = value; } }
+
         public BoundingFrustum getBoundingFrustum
         {
             get
@@ -49,10 +54,13 @@ namespace BBN_Game.Camera
         /// </summary>
         /// <param name="v">The view Matrix</param>
         /// <param name="p">The projection matrix</param>
-        public CameraMatrices (Matrix v, Matrix p)
+        public CameraMatrices (Matrix v, Matrix p, Vector3 Pos, float viewingAngle)
         {
             view = v;
             projection = p;
+
+            position = Pos;
+            angle = viewingAngle;
 
             bf = new BoundingFrustum(Matrix.Identity);
         }

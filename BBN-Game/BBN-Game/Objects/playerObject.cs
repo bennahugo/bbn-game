@@ -49,7 +49,7 @@ namespace BBN_Game.Objects
 
         public Camera.CameraMatrices Camera
         {
-            get { return new Camera.CameraMatrices(chaseCamera.view, chaseCamera.proj); }
+            get { return new Camera.CameraMatrices(chaseCamera.view, chaseCamera.proj, chaseCamera.position, chaseCamera.viewingAnle); }
         }
         #endregion
 
