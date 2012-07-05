@@ -25,7 +25,7 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Globals
         /// </summary>
-        protected Objects.ObjectData.ObjectData shipData; // the data for rotaiton and position
+        protected Objects.ObjectData.ObjectData shipData = new BBN_Game.Objects.ObjectData.ObjectData();  // the data for rotaiton and position
         Quaternion rotate; // Rotation Qauternion
         protected Model model; // model to draw
         Matrix world; // The world Matrix
@@ -95,6 +95,10 @@ namespace BBN_Game.Objects
             get { return shipData; }
             set { shipData = value; }
         }
+        public float getGreatestLength
+        {
+            get { return greatestLength; }
+        }
         #endregion
         #endregion
 
@@ -106,7 +110,6 @@ namespace BBN_Game.Objects
         /// <param name="game">The game</param>
         public StaticObject(Game game) : base(game)
         {
-            shipData = new BBN_Game.Objects.ObjectData.ObjectData();
             Position = Vector3.Zero;
             rotate = Quaternion.CreateFromAxisAngle(Vector3.Up, 0);
             mass = 1000000000f; // static objects dont move
@@ -276,7 +279,7 @@ namespace BBN_Game.Objects
             radiusOfObject = greatestLength; // sets the greatest size of the object
 
             float distance = (Position - cam.Position).Length(); // distance the object is from the camera
-            float radius = greatestLength / 2 * shipData.scale; // a variable for checking distances away from camera
+            float radius = (greatestLength / 2) * shipData.scale; // a variable for checking distances away from camera
             // Check if the objectis further away from the camera than its actual size.
             if (distance > radius)
             {
