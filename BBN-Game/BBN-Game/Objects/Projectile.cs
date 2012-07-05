@@ -25,8 +25,8 @@ namespace BBN_Game.Objects
         protected override void setData()
         {
             this.rollSpeed = 10;
-            this.yawSpeed = 10;
-            this.pitchSpeed = 10;
+            this.yawSpeed = 3.5f;
+            this.pitchSpeed = 3.5f;
             this.maxSpeed = 70;
             this.minSpeed = 0;
             this.mass = 0;
@@ -83,9 +83,9 @@ namespace BBN_Game.Objects
                     else
                         diffp = (float)(Math.PI * 2 - Math.Abs(diffp));
 
-                if (Math.Abs(diffp) > Math.Abs(pitchSpeed))
+                if (Math.Abs(diffp) > Math.Abs(pitchSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds))
                     diffp = Math.Sign(diffp) * Math.Abs(pitchSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds);
-                if (Math.Abs(diffy) > Math.Abs(yawSpeed))
+                if (Math.Abs(diffy) > Math.Abs(yawSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds))
                     diffy = Math.Sign(diffy) * Math.Abs(yawSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds);
 
                 Matrix m = Matrix.CreateFromQuaternion(rotation);

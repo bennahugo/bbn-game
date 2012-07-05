@@ -57,7 +57,7 @@ namespace BBN_Game.AI
             if (objectPaths.Keys.Contains(AIObject))
                 objectPaths.Remove(AIObject);
         }
-        public void SpecifyCollisionGrid(Object collisionGrid)
+        public void SpecifyCollisionGrid(object collisionGrid)
         {
             //TODO: Register collision grid
         }
@@ -116,14 +116,14 @@ namespace BBN_Game.AI
                                 else
                                     diffp = (float)(Math.PI * 2 - Math.Abs(diffp));
 
-                            if (Math.Abs(diffp) > Math.Abs(ai.getpitchSpeed))
-                                diffp = Math.Sign(diffp) * Math.Abs(ai.getpitchSpeed);
-                            if (Math.Abs(diffy) > Math.Abs(ai.getYawSpeed))
-                                diffy = Math.Sign(diffy) * Math.Abs(ai.getYawSpeed);
+                            if (Math.Abs(diffp) > Math.Abs(ai.getpitchSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds))
+                                diffp = Math.Sign(diffp) * Math.Abs(ai.getpitchSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds);
+                            if (Math.Abs(diffy) > Math.Abs(ai.getYawSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds))
+                                diffy = Math.Sign(diffy) * Math.Abs(ai.getYawSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds);
                             
                             Matrix m = Matrix.CreateFromQuaternion(ai.rotation);
-                            Quaternion pitch = Quaternion.CreateFromAxisAngle(m.Right, diffp * (float)(gt.ElapsedGameTime.TotalSeconds));    
-                            Quaternion yaw = Quaternion.CreateFromAxisAngle(m.Up, diffy * (float)(gt.ElapsedGameTime.TotalSeconds));
+                            Quaternion pitch = Quaternion.CreateFromAxisAngle(m.Right, diffp);    
+                            Quaternion yaw = Quaternion.CreateFromAxisAngle(m.Up, diffy);
 
                             //special case: deal with the pitch if its PI/2 or -PI/2, because if its slightly off it causes problems:
                             if (Math.Abs(Math.Abs(tpitch) - Math.PI / 2) <= EPSILON_DISTANCE && !(Math.Abs(diffy) <= EPSILON_DISTANCE))
