@@ -24,7 +24,7 @@ namespace BBN_Game
         Objects.Destroyer des;
         Objects.Fighter fig;
         Objects.Base bse;
-        Objects.Projectile proj;
+        Objects.Missile proj;
         Objects.Turret turret;
         Objects.playerObject plyTmp;
 
@@ -78,7 +78,7 @@ namespace BBN_Game
             turret.Position = new Vector3(50, 50, 0 + 100);
             plyTmp.Initialize();
             plyTmp.Position = new Vector3(0, 50, 50 + 100);
-            proj = new BBN_Game.Objects.Projectile(this, player1, plyTmp);
+            proj = new BBN_Game.Objects.Missile(this, player1, plyTmp);
             proj.Initialize();
 
 

@@ -9,44 +9,53 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BBN_Game.Objects
 {
-    class Projectile : DynamicObject
+    class Missile :Projectile
     {
-        StaticObject target;
-
+        #region "Globals"
         protected float acceleration;
         protected double EPSILON_DISTANCE = 0.0001f;
-        protected const float TURNING_SPEED_COEF = 1.05f;
+        protected const float TURNING_SPEED_COEF = 0.95f;
         private const float DISTANCE_TO_TARGET_IN_SECONDS_WHEN_VERY_CLOSE = 0.01f;
         private const float DISTANCE_TO_TARGET_IN_SECONDS_WHEN_CLOSE = 0.1f;
-        protected float lifeSpan;
 
-        Boolean hit = false;
+        StaticObject target;
+        #endregion
 
+        #region "Constructors - Data settors"
         protected override void setData()
         {
             this.rollSpeed = 10;
-            this.yawSpeed = 3.5f;
-            this.pitchSpeed = 3.5f;
-            this.maxSpeed = 70;
+            this.yawSpeed = 2.5f;
+            this.pitchSpeed = 2.5f;
+            this.maxSpeed = 58;
             this.minSpeed = 0;
             this.mass = 0;
             this.greatestLength = 2f;
-            this.shipData.scale = 0.2f;
+            this.shipData.scale = 0.1f;
             this.acceleration = 50f;
-            this.lifeSpan = 20;
+            this.lifeSpan = 15;
         }
 
-        public Projectile(Game game, StaticObject target, StaticObject parent)
-            : base(game)
+        public Missile(Game game, StaticObject target, StaticObject parent)
+            : base(game, parent)
         {
             this.target = target;
-            Vector3 move = parent.Position + Vector3.Transform(new Vector3(0, 0, parent.getGreatestLength / 2), Matrix.CreateFromQuaternion(parent.rotation));
-            this.Position = move;
-            this.rotation = parent.rotation;
-            shipData.speed = parent.ShipMovementInfo.speed;
+        }
+
+        public override void LoadContent()
+        {
+            this.model = Game.Content.Load<Model>("Models/Projectiles/Missile");
+            base.LoadContent();
         }
 
         public override void controller(GameTime gt)
+        {
+            chaseTarget(gt);
+
+            base.controller(gt);
+        }
+
+        public void chaseTarget(GameTime gt)
         {
             float veryCloseToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_VERY_CLOSE;
             float closeToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_CLOSE;
@@ -112,30 +121,9 @@ namespace BBN_Game.Objects
                 shipData.speed = 0;
 
                 //BULLET IS ON TARGET MOERSE BANG, PARTS FLYING... BLOOD... GORE...
-                hit = true;
             }
-            base.controller(gt);
         }
 
-        public void LoadContent()
-        {
-            this.model = Game.Content.Load<Model>("Models/Projectiles/projectile1");
-            base.LoadContent();
-        }
-
-        public override void Draw(GameTime gameTime, BBN_Game.Camera.CameraMatrices cam)
-        {
-            SpriteBatch b = new SpriteBatch(Game.GraphicsDevice);
-
-            SpriteFont f = Game.Content.Load<SpriteFont>("SpriteFont1");
-
-            b.Begin();
-            if (hit)
-                b.DrawString(f, "DEAD", new Vector2(10, 10), Color.Red);
-            b.DrawString(f, shipData.speed.ToString("0000") + " " + (target.Position - Position).Length().ToString("0000"), new Vector2(0, 0), Color.Yellow);
-            b.End();
-
-            base.Draw(gameTime, cam);
-        }
+        #endregion
     }
 }
