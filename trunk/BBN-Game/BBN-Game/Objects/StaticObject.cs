@@ -211,6 +211,8 @@ namespace BBN_Game.Objects
             BoundingSphere localSphere = shipModel.Meshes[0].BoundingSphere;
             localSphere.Center += Position;
 
+            localSphere.Transform(Matrix.CreateScale(ShipMovementInfo.scale));
+
             ContainmentType contains = camera.getBoundingFrustum.Contains(localSphere);
             if (contains == ContainmentType.Contains || contains == ContainmentType.Intersects)
                 return true;
@@ -256,9 +258,8 @@ namespace BBN_Game.Objects
             {                
                 Vector2 screenViewport = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
-                setVertexCoords(cam, screenViewport, currentPlayerforViewport);
-
-                drawBox(screenViewport);
+                if (setVertexCoords(cam, screenViewport, currentPlayerforViewport))
+                    drawBox(screenViewport);
             }
         }
 
@@ -269,7 +270,7 @@ namespace BBN_Game.Objects
         /// </summary>
         /// <param name="cam">Camera matrices for the creating of the boxes coords</param>
         /// <param name="screenViewport">A vector to holding {screen width, screen height}</param>
-        private void setVertexCoords(Camera.CameraMatrices cam, Vector2 screenViewport, playerObject player)
+        private Boolean setVertexCoords(Camera.CameraMatrices cam, Vector2 screenViewport, playerObject player)
         {
             float radiusOfObject;
             radiusOfObject = greatestLength; // sets the greatest size of the object
@@ -309,18 +310,18 @@ namespace BBN_Game.Objects
 
             // set the y back to the non depth version
             screenY = halfScreenY - ((screenPos.Y / screenPos.W) * halfScreenY);
-            drawDistances(player, screenX, screenY, radiusOfObject); // draw the distances to the object
+            float distanceToPlayer = (Position - player.Position).Length();
+
+            drawDistances(distanceToPlayer, screenX, screenY, radiusOfObject); // draw the distances to the object
 
             // set the variable to the new position vectors
             targetBoxVB.SetData<VertexPositionColor>(targetBoxVertices);
+            return true;
         }
 
-        private void drawDistances(playerObject player, float x, float y, float radius)
+        private void drawDistances(float distance, float x, float y, float radius)
         {
             SpriteBatch b = new SpriteBatch(Game.GraphicsDevice);
-
-
-            float distance = (Position - player.Position).Length();
 
             b.Begin();
             b.DrawString(targetBoxFont, distance.ToString("0000"), new Vector2(x + radius, y + radius), Color.Green);

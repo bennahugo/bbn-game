@@ -16,7 +16,7 @@ namespace BBN_Game
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class BBNGame : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -30,7 +30,7 @@ namespace BBN_Game
 
         Graphics.Skybox.Skybox skyBox;
 
-        public Game1()
+        public BBNGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -71,8 +71,10 @@ namespace BBN_Game
             fig.Position = new Vector3(0, 0, 50 + 100);
             bse.Initialize();
             bse.Position = new Vector3(50, 0, 0 + 100);
+            bse.ShipMovementInfo.scale = 3;
             proj.Initialize();
             proj.Position = new Vector3(0, 50, 0 + 100);
+            proj.ShipMovementInfo.scale = 0.02f;
             turret.Initialize();
             turret.Position = new Vector3(50, 50, 0 + 100);
             plyTmp.Initialize();
