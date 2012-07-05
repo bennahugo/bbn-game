@@ -11,6 +11,10 @@ namespace BBN_Game.AI
     class Edge
     {
         /// <summary>
+        /// An edge can be used exclusively by one AI object
+        /// </summary>
+        internal Boolean beingUsedByAI { internal get; internal set; } 
+        /// <summary>
         /// There are two nodes per edge
         /// </summary>
         public Node node1 { get; private set; }

@@ -55,3 +55,4 @@ F:\repository\bbn-game\trunk\AI-Test.BAK\BBN-Game\obj\x86\Debug\ResolveAssemblyR
 F:\repository\bbn-game\trunk\AI-Test.BAK\BBN-Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 F:\repository\bbn-game\trunk\AI-Test.BAK\BBN-Game\obj\x86\Debug\BBN-Game.exe
 F:\repository\bbn-game\trunk\AI-Test.BAK\BBN-Game\obj\x86\Debug\BBN-Game.pdb
+F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\patrolPath.xml
