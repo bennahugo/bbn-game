@@ -30,7 +30,6 @@ namespace BBN_Game.Objects
         /// Global variables
         /// Index is the player index for xbox
         /// OrigState is the state of the mouse when centered (Computer controls)
-        /// The width and height are storage variables for the width and height of the viewport of the game
         /// Mouse inverted is another variable to determine the motion of the mouse (joystick)
         /// acceleration - The acceleration speed of the object
         /// Decelleration - The deceleration speed of the object
@@ -39,17 +38,24 @@ namespace BBN_Game.Objects
         PlayerIndex index;
         MouseState origState;
 
-        float width, height;
-
         public Boolean mouseInverted = true;
         
         protected float acceleration, deceleration;
 
         Camera.ChaseCamera chaseCamera;
 
+        Viewport playerViewport;
+
+        /// <summary>
+        /// Getter and setter
+        /// </summary>
         public Camera.CameraMatrices Camera
         {
             get { return new Camera.CameraMatrices(chaseCamera.view, chaseCamera.proj, chaseCamera.position, chaseCamera.viewingAnle); }
+        }
+        public Viewport getViewport
+        {
+            get { return playerViewport; }
         }
         #endregion
 
@@ -109,13 +115,25 @@ namespace BBN_Game.Objects
         /// </summary>
         public void Initialize()
         {
-            this.width = Game.GraphicsDevice.Viewport.Width;
-            this.height = Game.GraphicsDevice.Viewport.Height;
-
+            #region "Mouse Initialization"
             resetMouse();
             origState = Mouse.GetState();
+            #endregion
 
-            chaseCamera = new BBN_Game.Camera.ChaseCamera(Game.GraphicsDevice.Viewport.Width, Game.GraphicsDevice.Viewport.Height);
+            #region "Camera initialization"
+            chaseCamera = new BBN_Game.Camera.ChaseCamera(Game.GraphicsDevice.Viewport.Width/2, Game.GraphicsDevice.Viewport.Height);
+            #endregion
+
+            #region "Viewport initialization"
+            playerViewport = Game.GraphicsDevice.Viewport;
+            playerViewport.Width = Game.GraphicsDevice.Viewport.Width / 2 - 1;
+
+            // if player 2 it must start in a differant place
+            if (index == PlayerIndex.Two)
+            {
+                playerViewport.X = Game.GraphicsDevice.Viewport.Width / 2 + 1;
+            }
+            #endregion
 
             base.Initialize();
         }
@@ -155,6 +173,8 @@ namespace BBN_Game.Objects
         {
             KeyboardState state = Keyboard.GetState();
 
+
+            #region "Player 1"
             if (index == PlayerIndex.One)
             {
                 #region "Accel Deccel checks"
@@ -193,8 +213,6 @@ namespace BBN_Game.Objects
 
 
                 #region "Rotations"
-
-                MouseState mState = Mouse.GetState();
                 #region "Yaw"
                 if (state.IsKeyDown(Keys.A))
                 {
@@ -206,17 +224,17 @@ namespace BBN_Game.Objects
                 }
                 #endregion
                 #region "pitch & roll"
-                float pitch = (origState.Y - mState.Y) * pitchSpeed * time;
-                float roll = (origState.X - mState.X) * rollSpeed * time;
+                float pitch = 0;
+                float roll = 0;
 
-                if (state.IsKeyDown(Keys.Up))
+                if (state.IsKeyDown(Keys.I))
                     pitch = pitchSpeed * 5 * time;
-                else if (state.IsKeyDown(Keys.Down))
+                else if (state.IsKeyDown(Keys.K))
                     pitch = -pitchSpeed * 5 * time;
 
-                if (state.IsKeyDown(Keys.Left))
+                if (state.IsKeyDown(Keys.J))
                     roll = (rollSpeed * 5) * time;
-                else if (state.IsKeyDown(Keys.Right))
+                else if (state.IsKeyDown(Keys.L))
                     roll = -(rollSpeed * 5) * time;
 
                 shipData.roll -= roll;
@@ -226,10 +244,86 @@ namespace BBN_Game.Objects
                 // Debug
                 if (state.IsKeyDown(Keys.Space))
                     mouseInverted = mouseInverted ? false : true;
+                #endregion
+            }
+            #endregion
+            #region "Player 2"
+            if (index == PlayerIndex.Two)
+            {
+                #region "Accel Deccel checks"
+                if (state.IsKeyDown(Keys.Up))
+                {
+                    if (shipData.speed < maxSpeed)
+                    {
+                        shipData.speed += acceleration * time;
+                    }
+                }
+                else if (state.IsKeyDown(Keys.Down))
+                {
+                    if (shipData.speed > minSpeed)
+                    {
+                        shipData.speed -= deceleration * time;
+                    }
+                }
+                else
+                {
+                    if (shipData.speed > 0)
+                    {
+                        shipData.speed -= deceleration * time * 2;
+
+                        if (shipData.speed < 0)
+                            shipData.speed = 0;
+                    }
+                    else if (shipData.speed < 0)
+                    {
+                        shipData.speed += acceleration * time;
+
+                        if (shipData.speed > 0)
+                            shipData.speed = 0;
+                    }
+                }
+                #endregion
+
+
+                #region "Rotations"
+
+                MouseState mState = Mouse.GetState();
+                #region "Yaw"
+                if (state.IsKeyDown(Keys.Left))
+                {
+                    shipData.yaw += yawSpeed * time;
+                }
+                if (state.IsKeyDown(Keys.Right))
+                {
+                    shipData.yaw -= yawSpeed * time;
+                }
+                #endregion
+                #region "pitch & roll"
+                float pitch = (origState.Y - mState.Y) * pitchSpeed * time;
+                float roll = (origState.X - mState.X) * rollSpeed * time;
+
+                //if (state.IsKeyDown(Keys.Up))
+                //    pitch = pitchSpeed * 5 * time;
+                //else if (state.IsKeyDown(Keys.Down))
+                //    pitch = -pitchSpeed * 5 * time;
+
+                //if (state.IsKeyDown(Keys.Left))
+                //    roll = (rollSpeed * 5) * time;
+                //else if (state.IsKeyDown(Keys.Right))
+                //    roll = -(rollSpeed * 5) * time;
+
+                shipData.roll -= roll;
+                shipData.pitch = mouseInverted ? shipData.pitch + pitch : shipData.pitch - pitch;
+                #endregion
+
+                // Debug
+                if (state.IsKeyDown(Keys.NumPad0))
+                    mouseInverted = mouseInverted ? false : true;
 
                 resetMouse();
                 #endregion
             }
+            #endregion
         }
 
         /// <summary>
@@ -238,7 +332,7 @@ namespace BBN_Game.Objects
         /// </summary>
         private void resetMouse()
         {
-            Mouse.SetPosition((int)width / 2, (int)height / 2);
+            Mouse.SetPosition((int)Game.GraphicsDevice.Viewport.Width / 2, (int)Game.GraphicsDevice.Viewport.Height / 2);
         }
 
         #endregion

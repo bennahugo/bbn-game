@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Graphics;
 /// Draws a quad at a specified location with specified texture
 ///
 /////
-namespace BBN_Game.Graphics.Skybox
+namespace BBN_Game.Graphics.Shapes
 {
         class QuadDrawer
         {

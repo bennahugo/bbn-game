@@ -28,6 +28,8 @@ namespace BBN_Game
         Objects.Turret turret;
         Objects.playerObject plyTmp;
 
+        Viewport orig;
+
         Graphics.Skybox.Skybox skyBox;
 
         public BBNGame()
@@ -82,6 +84,9 @@ namespace BBN_Game
 
 
             skyBox.Initialize();
+
+
+            orig = GraphicsDevice.Viewport;
 
             base.Initialize();
         }
@@ -150,7 +155,9 @@ namespace BBN_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Khaki);
+
+            GraphicsDevice.Viewport = player1.getViewport;
 
             // TODO: Add your drawing code here
             Camera.CameraMatrices cam = player1.Camera;
@@ -165,7 +172,7 @@ namespace BBN_Game
             plyTmp.Draw(gameTime, cam);
 
 
-            player1.Draw(gameTime, cam, spriteBatch);
+            player1.Draw(gameTime, cam);
 
             des.drawSuroundingBox(cam, player1);
             fig.drawSuroundingBox(cam, player1);
@@ -174,6 +181,29 @@ namespace BBN_Game
             turret.drawSuroundingBox(cam, player1);
             plyTmp.drawSuroundingBox(cam, player1);
 
+            GraphicsDevice.Viewport = plyTmp.getViewport;
+            cam = plyTmp.Camera;
+            skyBox.Draw(gameTime, cam);
+
+            // temp
+            des.Draw(gameTime, cam);
+            fig.Draw(gameTime, cam);
+            bse.Draw(gameTime, cam);
+            proj.Draw(gameTime, cam);
+            turret.Draw(gameTime, cam);
+            plyTmp.Draw(gameTime, cam);
+
+
+            player1.Draw(gameTime, cam);
+
+            des.drawSuroundingBox(cam, plyTmp);
+            fig.drawSuroundingBox(cam, plyTmp);
+            bse.drawSuroundingBox(cam, plyTmp);
+            proj.drawSuroundingBox(cam, plyTmp);
+            turret.drawSuroundingBox(cam, plyTmp);
+            player1.drawSuroundingBox(cam, plyTmp);
+
+            GraphicsDevice.Viewport = orig;            
 
             base.Draw(gameTime);
         }

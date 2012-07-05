@@ -40,7 +40,7 @@ namespace BBN_Game.Camera
 
         public float rotateSpeed = 2f;
 
-        public ChaseCamera(int width, int height)
+        public ChaseCamera(float width, float height)
         {
             proj = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(viewingAnle), width / height, 0.1f, 200000.0f);
         }
