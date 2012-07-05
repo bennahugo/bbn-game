@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 using BBN_Game.AI;
 using BBN_Game.Utils;
+using BBN_Game.Map;
 
 namespace BBN_Game
 {
@@ -30,13 +31,6 @@ namespace BBN_Game
         Camera.ChaseCamera chasCam;
         SpriteFont spf;
         AI.NavigationComputer navComputer;
-        #region node data
-        Node n1 = new Node(new Vector3(0, 0, 0), -1);
-        Node n2 = new Node(new Vector3(100, 500, 600), -1);
-        Node n3 = new Node(new Vector3(0, 100, 0), -1);
-        Node n4 = new Node(new Vector3(-100, 100, -600), -1);
-        Node n5 = new Node(new Vector3(-100, 100, -900), -1);
-        #endregion
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -65,18 +59,10 @@ namespace BBN_Game
             chasCam = new BBN_Game.Camera.ChaseCamera(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
 
             //setup connections:
-            n1.connectToNode(n2, 0);
-            n1.connectToNode(n3, 0);
-            n3.connectToNode(n4, 0);
-            n4.connectToNode(n5, 0);
-            n1.id = "1";
-            n2.id = "2";
-            n3.id = "3";
-            n4.id = "4";
-            n5.id = "5";
+            BBNMap.loadMap("Content/patrolPath.xml", Content, GraphicsDevice);
             navComputer = new NavigationComputer();
             navComputer.registerObject(player1);
-            navComputer.setNewPathForRegisteredObject(player1, n1, n5);
+            navComputer.setNewPathForRegisteredObject(player1, BBNMap.content["0"] as Node, BBNMap.content["8"] as Node);
             bf = new BasicEffect(GraphicsDevice, null);
             base.Initialize();
         }

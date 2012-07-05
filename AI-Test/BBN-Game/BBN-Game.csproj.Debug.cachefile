@@ -11,3 +11,4 @@ Content\Skybox\SkyboxRight.xnb
 Content\Skybox\SkyboxTop.xnb
 Content\Shader\skyBoxEffect.xnb
 Content\Shader\targetBox.xnb
+Content\patrolPath.xml

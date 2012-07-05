@@ -57,6 +57,16 @@ namespace BBN_Game.AI
             if (objectPaths.Keys.Contains(AIObject))
                 objectPaths.Remove(AIObject);
         }
+        public void SpecifyCollisionGrid(Object collisionGrid)
+        {
+            //TODO: Register collision grid
+        }
+        private Boolean SpacialAwarenessTest(DynamicObject ai)
+        {
+            //TODO: STUB. Test if another object is not to close (otherwise we need to stop the ai for a while)
+            //Return true if ai may move
+            return true;
+        }
         /// <summary>
         /// Method to update the movement of all registered AI characters. The list of waypoints have to be in reverse order (as returned by the A*)
         /// </summary>
@@ -110,11 +120,11 @@ namespace BBN_Game.AI
                                 diffp = Math.Sign(diffp) * Math.Abs(ai.getpitchSpeed);
                             if (Math.Abs(diffy) > Math.Abs(ai.getYawSpeed))
                                 diffy = Math.Sign(diffy) * Math.Abs(ai.getYawSpeed);
-
                             
                             Matrix m = Matrix.CreateFromQuaternion(ai.rotation);
                             Quaternion pitch = Quaternion.CreateFromAxisAngle(m.Right, diffp * (float)(gt.ElapsedGameTime.TotalSeconds));    
                             Quaternion yaw = Quaternion.CreateFromAxisAngle(m.Up, diffy * (float)(gt.ElapsedGameTime.TotalSeconds));
+
                             //special case: deal with the pitch if its PI/2 or -PI/2, because if its slightly off it causes problems:
                             if (Math.Abs(Math.Abs(tpitch) - Math.PI / 2) <= EPSILON_DISTANCE && !(Math.Abs(diffy) <= EPSILON_DISTANCE))
                                 ai.rotation = Quaternion.CreateFromYawPitchRoll(tyaw, tpitch, 0);
@@ -122,13 +132,16 @@ namespace BBN_Game.AI
                                 ai.rotation = yaw * pitch * ai.rotation;
                             
                             //now set the speed:
-                            float compLookOntoWant = Vector3.Dot(vLookDir, vWantDir);
-                            if (Math.Abs(compLookOntoWant) > 1)
-                                compLookOntoWant = 1;
-                            if (distToWayPoint <= closeToWaypoint)
-                                ai.ShipMovementInfo.speed = ai.getMaxSpeed * (float)(Math.Pow(TURNING_SPEED_COEF,- Math.Abs(Math.Acos(compLookOntoWant) * 180 / Math.PI)));
-                            else
-                                ai.ShipMovementInfo.speed = ai.getMaxSpeed * (float)(Math.Pow(TURNING_SPEED_COEF, -Math.Abs(Math.Acos(compLookOntoWant) * 180 / Math.PI)));
+                            if (SpacialAwarenessTest(ai))
+                            {
+                                float compLookOntoWant = Vector3.Dot(vLookDir, vWantDir);
+                                if (Math.Abs(compLookOntoWant) > 1)
+                                    compLookOntoWant = 1;
+                                if (distToWayPoint <= closeToWaypoint)
+                                    ai.ShipMovementInfo.speed = ai.getMaxSpeed * (float)(Math.Pow(TURNING_SPEED_COEF, -Math.Abs(Math.Acos(compLookOntoWant) * 180 / Math.PI)));
+                                else
+                                    ai.ShipMovementInfo.speed = ai.getMaxSpeed * (float)(Math.Pow(TURNING_SPEED_COEF, -Math.Abs(Math.Acos(compLookOntoWant) * 180 / Math.PI)));
+                            }
                         }
                     }
                     else objectPaths[ai].Clear();
@@ -165,6 +178,7 @@ namespace BBN_Game.AI
 
                 if (bestChoice == end) //REACHED DESTINATION!!!
                 {
+                    
                     List<Node> result = new List<Node>();
                     
                     result.Add(end);
@@ -181,6 +195,7 @@ namespace BBN_Game.AI
                     //Finally clear node data for the next iteration of the A*:
                     foreach (Node node in visitedList)
                         node.clear();
+                  
                     return result;
                 }
                 //Not yet at destination so we look at the best choice's neighbours:
