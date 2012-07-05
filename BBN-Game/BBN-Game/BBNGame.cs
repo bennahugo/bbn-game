@@ -42,7 +42,6 @@ namespace BBN_Game
             des = new BBN_Game.Objects.Destroyer(this);
             fig = new BBN_Game.Objects.Fighter(this);
             bse = new BBN_Game.Objects.Base(this);
-            proj = new BBN_Game.Objects.Projectile(this);
             turret = new BBN_Game.Objects.Turret(this);
             plyTmp = new BBN_Game.Objects.playerObject(this, PlayerIndex.Two);
 
@@ -74,13 +73,12 @@ namespace BBN_Game
             bse.Initialize();
             bse.Position = new Vector3(50, 0, 0 + 100);
             bse.ShipMovementInfo.scale = 3;
-            proj.Initialize();
-            proj.Position = new Vector3(0, 50, 0 + 100);
-            proj.ShipMovementInfo.scale = 0.02f;
             turret.Initialize();
             turret.Position = new Vector3(50, 50, 0 + 100);
             plyTmp.Initialize();
             plyTmp.Position = new Vector3(0, 50, 50 + 100);
+            proj = new BBN_Game.Objects.Projectile(this, player1, plyTmp);
+            proj.Initialize();
 
 
             skyBox.Initialize();
