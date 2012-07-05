@@ -123,8 +123,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Projectiles\projectile1.fbx">
-      <Name>projectile1</Name>
+    <Compile Include="Models\Projectiles\Missile.fbx">
+      <Name>Missile</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
