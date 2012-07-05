@@ -82,7 +82,7 @@ namespace BBN_Game.Objects
             if (Math.Abs(diffy) > Math.Abs(yawSpeed))
                 diffy = Math.Sign(diffy) * Math.Abs(yawSpeed);
 
-            EPSILON_DISTANCE = 0.1f;
+            EPSILON_DISTANCE = 0.08f;
 
             Matrix m = Matrix.CreateFromQuaternion(rotation);
             Quaternion pitch = Quaternion.CreateFromAxisAngle(m.Right, diffp * (float)(gt.ElapsedGameTime.TotalSeconds));

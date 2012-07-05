@@ -48,10 +48,7 @@ namespace BBN_Game
 
             skyBox = new BBN_Game.Graphics.Skybox.Skybox(this, "Starfield", 100000, 10);
 
-            graphics.PreferredBackBufferWidth = (int)((float)1280 * 0.8f);
-            graphics.PreferredBackBufferHeight = (int)((float)1024 * 0.8f);
-
-            //graphics.IsFullScreen = true;
+            
         }
 
         /// <summary>
@@ -62,6 +59,10 @@ namespace BBN_Game
         /// </summary>
         protected override void Initialize()
         {
+            graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            graphics.ApplyChanges();
+            //graphics.IsFullScreen = true;
             // TODO: Add your initialization logic here
             player1.Initialize();
 
