@@ -9,7 +9,7 @@ namespace BBN_Game
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            using (BBNGame game = new BBNGame())
             {
                 game.Run();
             }
