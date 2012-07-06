@@ -101,7 +101,7 @@ namespace BBN_Game.Controller
                     prevGameState = GameState.Playing;
 
                     Player2.Target = Player1;
-                    Player1.Target = Team2Base;
+                    Player1.Target = Player2;
                 }
             }
         }
@@ -119,6 +119,11 @@ namespace BBN_Game.Controller
                     AllObjects.ElementAt(i).Update(gameTime);
 
                 SkyBox.Update(gameTime);
+
+                foreach (Objects.Projectile p in Projectiles )
+                {
+                    checkCollision(p);
+                }
             }
         }
 
@@ -251,9 +256,21 @@ namespace BBN_Game.Controller
 
             // skybox
             SkyBox = new BBN_Game.Graphics.Skybox.Skybox(game, "Starfield", 100000, 10);
+            game.Components.Add(SkyBox);
         }
 
 
         #endregion
+
+        // debug
+        public void checkCollision(Objects.Projectile projectile)
+        {
+            BoundingSphere p = projectile.parent.Equals(Player1) ? Player2.getBoundingShpere() : Player1.getBoundingShpere();
+            BoundingSphere proj = projectile.getBoundingShpere();
+
+            ContainmentType contains = p.Contains(proj);
+            if (contains == ContainmentType.Contains || contains == ContainmentType.Intersects)
+                projectile.destroy = true;
+        }
     }
 }

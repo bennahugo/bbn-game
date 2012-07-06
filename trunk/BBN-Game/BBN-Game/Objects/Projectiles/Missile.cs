@@ -120,7 +120,7 @@ namespace BBN_Game.Objects
                 shipData.speed = 0;
 
                 //BULLET IS ON TARGET MOERSE BANG, PARTS FLYING... BLOOD... GORE...
-                this.destroy = true;
+                //this.destroy = true;
             }
         }
     }

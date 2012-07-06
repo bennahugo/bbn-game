@@ -14,6 +14,8 @@ namespace BBN_Game.Objects
         #region "Globals"
         protected float lifeSpan; // how long the bullet lasts
 
+        public StaticObject parent;
+
         public Boolean destroy // does the object need to be destroyed
         {
             get;
@@ -48,16 +50,21 @@ namespace BBN_Game.Objects
 
             /// SIGH!!!!!!!
             //rotation = parent.rotation;
-            Matrix m = Matrix.CreateFromQuaternion(parent.rotation);
+            //Matrix m = Matrix.CreateFromQuaternion(parent.rotation);
 
-            //if (m.Up.Y <= 0)
-                m.Up = new Vector3(m.Up.X, 1, m.Up.Z);
-            rotation = Quaternion.CreateFromRotationMatrix(m);
+            //if (m.Backward.Y > 0)
+            //    m.Forward = new Vector3(m.Forward.X, m.Forward.Y, m.Forward.Z * -1f);
+            //m.Up = new Vector3(m.Up.X, 1, m.Up.Z);
 
+            //rotation = Quaternion.CreateFromRotationMatrix(m);
+
+            rotation = parent.rotation;
 
             this.destroy = false;
 
             this.shipData.speed = parent.ShipMovementInfo.speed;
+
+            this.parent = parent;
         }
         #endregion
 

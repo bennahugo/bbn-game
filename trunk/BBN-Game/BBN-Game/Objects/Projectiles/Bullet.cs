@@ -23,9 +23,9 @@ namespace BBN_Game.Objects
         #region "Constructors - Data settors"
         protected override void setData()
         {
-            this.rollSpeed = 10;
-            this.yawSpeed = 0.8f;
-            this.pitchSpeed = 0.8f;
+            this.rollSpeed = 0.2f;
+            this.yawSpeed = 100f;
+            this.pitchSpeed = 100f;
             this.maxSpeed = 60;
             this.minSpeed = 0;
             this.mass = 0;
@@ -81,70 +81,87 @@ namespace BBN_Game.Objects
 
         public void chaseTarget(GameTime gt)
         {
-            float veryCloseToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_VERY_CLOSE;
-            float closeToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_CLOSE;
-            float distanceFromTarget = (target.Position - this.Position).Length();
-            if ((target.Position - this.Position).Length() > veryCloseToTarget)
-            {
-                float time = (float)gt.ElapsedGameTime.TotalSeconds;
+            //float veryCloseToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_VERY_CLOSE;
+            //if ((target.Position - this.Position).Length() < veryCloseToTarget)
+            //    destroy = true;
 
-                #region "Rotations"
+            Vector3 targetVec = Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(rotation));
+            Vector3 current = MathEuler.AngleTo(targetVec, Position);
 
-                Vector3 vWantDir = Vector3.Normalize(target.Position - Position);
-                float distance = (float)Math.Sqrt(vWantDir.Z * vWantDir.Z + vWantDir.X * vWantDir.X);
-                float tpitch = distance == 0 ? (float)Math.Sign(-vWantDir.Y) * (float)Math.PI / 2 : -(float)Math.Atan2(vWantDir.Y, distance);
-                float tyaw = (float)Math.Atan2(vWantDir.X, vWantDir.Z);
-                Vector3 vLookDir = Vector3.Normalize(-Matrix.CreateFromQuaternion(rotation).Forward);
-                distance = (float)Math.Sqrt(vLookDir.Z * vLookDir.Z + vLookDir.X * vLookDir.X);
-                float cyaw = (float)Math.Atan2(vLookDir.X, vLookDir.Z);
-                float cpitch = distance == 0 ? (float)Math.Sign(-vLookDir.Y) * (float)Math.PI / 2 : -(float)Math.Atan2(vLookDir.Y, distance);
+            Vector3 targetE = MathEuler.AngleTo(target.Position, Position);
 
-                //now rotate towards the target yaw and pitch
-                float diffy = tyaw - cyaw;
-                float diffp = tpitch - cpitch;
+            Vector3 newRot = Vector3.Lerp(current, targetE, rollSpeed * (float)gt.ElapsedGameTime.TotalSeconds);
 
-                //get the direction we need to rotate in:
-                if (Math.Abs(diffy) > Math.PI)
-                    if (tyaw > cyaw)
-                        diffy = -(float)(Math.PI * 2 - Math.Abs(diffy));
-                    else
-                        diffy = (float)(Math.PI * 2 - Math.Abs(diffy));
+            rotation = Quaternion.CreateFromYawPitchRoll(newRot.Y, newRot.X, newRot.Z);
 
-                if (Math.Abs(diffp) > Math.PI)
-                    if (tpitch > cpitch)
-                        diffp = -(float)(Math.PI * 2 - Math.Abs(diffp));
-                    else
-                        diffp = (float)(Math.PI * 2 - Math.Abs(diffp));
+            shipData.speed = maxSpeed;
 
-                if (Math.Abs(diffp) > Math.Abs(pitchSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds))
-                    diffp = Math.Sign(diffp) * Math.Abs(pitchSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds);
-                if (Math.Abs(diffy) > Math.Abs(yawSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds))
-                    diffy = Math.Sign(diffy) * Math.Abs(yawSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds);
+            /// Old Version
 
-                Matrix m = Matrix.CreateFromQuaternion(rotation);
-                Quaternion pitch = Quaternion.CreateFromAxisAngle(m.Right, diffp);
-                Quaternion yaw = Quaternion.CreateFromAxisAngle(m.Up, diffy);
-                //special case: deal with the pitch if its PI/2 or -PI/2, because if its slightly off it causes problems:
-                if (Math.Abs(Math.Abs(tpitch) - Math.PI / 2) <= EPSILON_DISTANCE && !(Math.Abs(diffy) <= EPSILON_DISTANCE))
-                    rotation = Quaternion.CreateFromYawPitchRoll(tyaw, tpitch, 0);
-                else
-                    rotation = yaw * pitch * rotation;
-                #endregion
+            //float veryCloseToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_VERY_CLOSE;
+            //float closeToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_CLOSE;
+            //float distanceFromTarget = (target.Position - this.Position).Length();
+            //if ((target.Position - this.Position).Length() > veryCloseToTarget)
+            //{
+            //    float time = (float)gt.ElapsedGameTime.TotalSeconds;
 
-                #region "Speed"
-                float compLookOntoWant = Vector3.Dot(vLookDir, vWantDir);
-                if (Math.Abs(compLookOntoWant) > 1)
-                    compLookOntoWant = 1;
-                shipData.speed += (this.maxSpeed * (float)(Math.Pow(TURNING_SPEED_COEF, -Math.Abs(Math.Acos(compLookOntoWant) * 180 / Math.PI)))) * (float)(gt.ElapsedGameTime.TotalSeconds);
-                #endregion
-            }
-            else // if the bullet is very close
-            {
-                shipData.speed = 0;
+            //    #region "Rotations"
 
-                //BULLET IS ON TARGET MOERSE BANG, PARTS FLYING... BLOOD... GORE...
-                this.destroy = true;
-            }
+            //    Vector3 vWantDir = Vector3.Normalize(target.Position - Position);
+            //    float distance = (float)Math.Sqrt(vWantDir.Z * vWantDir.Z + vWantDir.X * vWantDir.X);
+            //    float tpitch = distance == 0 ? (float)Math.Sign(-vWantDir.Y) * (float)Math.PI / 2 : -(float)Math.Atan2(vWantDir.Y, distance);
+            //    float tyaw = (float)Math.Atan2(vWantDir.X, vWantDir.Z);
+            //    Vector3 vLookDir = Vector3.Normalize(-Matrix.CreateFromQuaternion(rotation).Forward);
+            //    distance = (float)Math.Sqrt(vLookDir.Z * vLookDir.Z + vLookDir.X * vLookDir.X);
+            //    float cyaw = (float)Math.Atan2(vLookDir.X, vLookDir.Z);
+            //    float cpitch = distance == 0 ? (float)Math.Sign(-vLookDir.Y) * (float)Math.PI / 2 : -(float)Math.Atan2(vLookDir.Y, distance);
+
+            //    //now rotate towards the target yaw and pitch
+            //    float diffy = tyaw - cyaw;
+            //    float diffp = tpitch - cpitch;
+
+            //    //get the direction we need to rotate in:
+            //    if (Math.Abs(diffy) > Math.PI)
+            //        if (tyaw > cyaw)
+            //            diffy = -(float)(Math.PI * 2 - Math.Abs(diffy));
+            //        else
+            //            diffy = (float)(Math.PI * 2 - Math.Abs(diffy));
+
+            //    if (Math.Abs(diffp) > Math.PI)
+            //        if (tpitch > cpitch)
+            //            diffp = -(float)(Math.PI * 2 - Math.Abs(diffp));
+            //        else
+            //            diffp = (float)(Math.PI * 2 - Math.Abs(diffp));
+
+            //    if (Math.Abs(diffp) > Math.Abs(pitchSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds))
+            //        diffp = Math.Sign(diffp) * Math.Abs(pitchSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds);
+            //    if (Math.Abs(diffy) > Math.Abs(yawSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds))
+            //        diffy = Math.Sign(diffy) * Math.Abs(yawSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds);
+
+            //    Matrix m = Matrix.CreateFromQuaternion(rotation);
+            //    Quaternion pitch = Quaternion.CreateFromAxisAngle(m.Right, diffp);
+            //    Quaternion yaw = Quaternion.CreateFromAxisAngle(m.Up, diffy);
+            //    //special case: deal with the pitch if its PI/2 or -PI/2, because if its slightly off it causes problems:
+            //    if (Math.Abs(Math.Abs(tpitch) - Math.PI / 2) <= EPSILON_DISTANCE && !(Math.Abs(diffy) <= EPSILON_DISTANCE))
+            //        rotation = Quaternion.CreateFromYawPitchRoll(tyaw, tpitch, 0);
+            //    else
+            //        rotation = yaw * pitch * rotation;
+            //    #endregion
+
+            //    #region "Speed"
+            //    float compLookOntoWant = Vector3.Dot(vLookDir, vWantDir);
+            //    if (Math.Abs(compLookOntoWant) > 1)
+            //        compLookOntoWant = 1;
+            //    shipData.speed += (this.maxSpeed * (float)(Math.Pow(TURNING_SPEED_COEF, -Math.Abs(Math.Acos(compLookOntoWant) * 180 / Math.PI)))) * (float)(gt.ElapsedGameTime.TotalSeconds);
+            //    #endregion
+            //}
+            //else // if the bullet is very close
+            //{
+            //    shipData.speed = 0;
+
+            //    //BULLET IS ON TARGET MOERSE BANG, PARTS FLYING... BLOOD... GORE...
+            //    this.destroy = true;
+            //}
         }
     }
 }

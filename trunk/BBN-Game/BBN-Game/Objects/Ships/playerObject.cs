@@ -454,7 +454,17 @@ namespace BBN_Game.Objects
             #endregion
 
             #region "Reload speeds"
-            sb.DrawString(f, reloadTimer[1].ToString("00"), new Vector2(0, 0), Color.Red);
+            //sb.DrawString(f, reloadTimer[1].ToString("00"), new Vector2(0, 0), Color.Red);
+            #endregion
+
+            #region "Debug"
+
+            Vector3 tmp1 = MathEuler.AngleTo(Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(rotation)), Position);
+            sb.DrawString(f,tmp1.X + " - " + tmp1.Y + " - " + tmp1.Z, new Vector2(0, 0), Color.Yellow);
+            Vector3 tmp = MathEuler.QuaternionToEuler(rotation);
+            sb.DrawString(f, tmp.X + " - " + tmp.Y + " - " + tmp.Z, new Vector2(0, 15), Color.Red);
+
+
             #endregion
 
             sb.End();
