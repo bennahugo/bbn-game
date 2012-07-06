@@ -24,8 +24,8 @@ namespace BBN_Game.Objects
         protected override void setData()
         {
             this.rollSpeed = 10;
-            this.yawSpeed = 0.1f;
-            this.pitchSpeed = 0.1f;
+            this.yawSpeed = 0.2f;
+            this.pitchSpeed = 0.2f;
             this.maxSpeed = 60;
             this.minSpeed = 0;
             this.mass = 0;
@@ -34,6 +34,12 @@ namespace BBN_Game.Objects
             this.lifeSpan = 5.68f;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="game">Game class</param>
+        /// <param name="parent">The parent of the bullet</param>
+        /// <param name="target">The target for the object</param>
         public Bullet(Game game, StaticObject target, StaticObject parent)
             : base(game, parent)
         {
@@ -51,12 +57,24 @@ namespace BBN_Game.Objects
 
         public override void controller(GameTime gt)
         {
-            shipData.speed = maxSpeed;
-            float veryCloseToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_VERY_CLOSE;
-            float closeToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_CLOSE;
-            float distanceFromTarget = (target.Position - this.Position).Length();
-            if ((target.Position - this.Position).Length() <= veryCloseToTarget)
-                this.destroy = true;
+            //shipData.speed = maxSpeed;
+            //float veryCloseToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_VERY_CLOSE;
+            //float closeToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_CLOSE;
+            //float distanceFromTarget = (target.Position - this.Position).Length();
+            //if ((target.Position - this.Position).Length() <= veryCloseToTarget)
+            //    this.destroy = true;
+
+            chaseTarget(gt);
+
+            //Vector3 newRotation = (this.Position - target.Position);
+
+            //Matrix rotate = Matrix.CreateFromQuaternion(rotation);
+            //rotate.Forward = newRotation;
+            //rotate.Translation = Position;
+
+            //this.rotation = Quaternion.CreateFromRotationMatrix(rotate);
+
+            //shipData.speed = maxSpeed;
 
             base.controller(gt);
         }

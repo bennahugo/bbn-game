@@ -18,6 +18,7 @@ namespace BBN_Game.Objects
 {
     class DynamicObject : StaticObject
     {
+        #region "Globals"
         /// <summary>
         /// Extra variables that the static class did not require
         /// </summary>
@@ -34,7 +35,9 @@ namespace BBN_Game.Objects
         {
             get { return minSpeed; }
         }
+        #endregion
 
+        #region "Constructors"
         /// <summary>
         /// Constructor
         /// This adds the setData() method to the default constructor
@@ -53,7 +56,9 @@ namespace BBN_Game.Objects
             this.minSpeed = -10;
             base.setData();
         }
+        #endregion
 
+        #region "Update methods"
         /// <summary>
         /// Update method overide
         /// This adds the Controller method to the list of duties
@@ -95,5 +100,6 @@ namespace BBN_Game.Objects
 
             base.setWorldMatrix(time, m);
         }
+        #endregion
     }
 }
