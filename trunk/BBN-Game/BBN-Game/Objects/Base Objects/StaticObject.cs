@@ -62,6 +62,9 @@ namespace BBN_Game.Objects
         /// </summary>
         protected float yawSpeed, rollSpeed, pitchSpeed, mass, greatestLength;
 
+        protected float Health;
+        protected float Shield;
+
         #region "Getters and setters"
         /// <summary>
         /// Getters and setters
@@ -138,6 +141,8 @@ namespace BBN_Game.Objects
             this.pitchSpeed = 30;
             this.yawSpeed = rollSpeed * 2;
             greatestLength = 10.0f;
+            Shield = 100;
+            Health = 100;
         }
         #endregion
 
