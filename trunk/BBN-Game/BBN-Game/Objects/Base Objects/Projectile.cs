@@ -50,8 +50,8 @@ namespace BBN_Game.Objects
             //rotation = parent.rotation;
             Matrix m = Matrix.CreateFromQuaternion(parent.rotation);
 
-            if (m.Up.Y < 0)
-                m.Up = new Vector3(m.Up.X, m.Up.Y * -1, m.Up.Z);
+            //if (m.Up.Y <= 0)
+                m.Up = new Vector3(m.Up.X, 1, m.Up.Z);
             rotation = Quaternion.CreateFromRotationMatrix(m);
 
 
