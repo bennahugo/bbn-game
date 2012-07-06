@@ -460,8 +460,8 @@ namespace BBN_Game.Objects
             #region "Debug"
 
             Vector3 tmp1 = MathEuler.AngleTo(Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(rotation)), Position);
-            sb.DrawString(f,tmp1.X + " - " + tmp1.Y + " - " + tmp1.Z, new Vector2(0, 0), Color.Yellow);
-            Vector3 tmp = MathEuler.QuaternionToEuler(rotation);
+            sb.DrawString(f,tmp1.Y + " - " + tmp1.X + " - " + tmp1.Z, new Vector2(0, 0), Color.Yellow);
+            Vector3 tmp = MathEuler.QuaternionToEuler2(rotation);
             sb.DrawString(f, tmp.X + " - " + tmp.Y + " - " + tmp.Z, new Vector2(0, 15), Color.Red);
 
 

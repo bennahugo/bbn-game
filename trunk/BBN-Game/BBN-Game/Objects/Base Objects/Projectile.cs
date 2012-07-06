@@ -49,16 +49,16 @@ namespace BBN_Game.Objects
             typeOfLine = PrimitiveType.LineStrip;
 
             /// SIGH!!!!!!!
-            //rotation = parent.rotation;
-            //Matrix m = Matrix.CreateFromQuaternion(parent.rotation);
+            rotation = parent.rotation;
+            Matrix m = Matrix.CreateFromQuaternion(parent.rotation);
 
             //if (m.Backward.Y > 0)
             //    m.Forward = new Vector3(m.Forward.X, m.Forward.Y, m.Forward.Z * -1f);
-            //m.Up = new Vector3(m.Up.X, 1, m.Up.Z);
+            m.Up = new Vector3(m.Up.X, 1, m.Up.Z);
 
-            //rotation = Quaternion.CreateFromRotationMatrix(m);
+            rotation = Quaternion.CreateFromRotationMatrix(m);
 
-            rotation = parent.rotation;
+            //rotation = parent.rotation;
 
             this.destroy = false;
 
