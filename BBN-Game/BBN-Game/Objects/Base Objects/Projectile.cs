@@ -43,19 +43,17 @@ namespace BBN_Game.Objects
         public Projectile(Game game, StaticObject parent)
             : base(game, Objects.Team.nutral, parent.Position + Vector3.Transform(new Vector3(0, -parent.getGreatestLength / 4, parent.getGreatestLength / 4), Matrix.CreateFromQuaternion(parent.rotation)))
         {
-            this.rotation = parent.rotation;
-
             numHudLines = 3;
             typeOfLine = PrimitiveType.LineStrip;
 
-            if (Matrix.CreateFromQuaternion(rotation).Up.Y < 0)
-            {
-                Matrix a = Matrix.CreateFromQuaternion(rotation);
+            /// SIGH!!!!!!!
+            //rotation = parent.rotation;
+            Matrix m = Matrix.CreateFromQuaternion(parent.rotation);
 
-                Quaternion rot = Quaternion.CreateFromAxisAngle(a.Backward, MathHelper.ToRadians(90));
+            if (m.Up.Y < 0)
+                m.Up = new Vector3(m.Up.X, m.Up.Y * -1, m.Up.Z);
+            rotation = Quaternion.CreateFromRotationMatrix(m);
 
-                rotation = rot * rotation;
-            }
 
             this.destroy = false;
 
