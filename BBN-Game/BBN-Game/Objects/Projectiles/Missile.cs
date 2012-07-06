@@ -12,9 +12,8 @@ namespace BBN_Game.Objects
     class Missile :Projectile
     {
         #region "Globals"
-        protected float acceleration;
         protected double EPSILON_DISTANCE = 0.0001f;
-        protected const float TURNING_SPEED_COEF = 0.95f;
+        protected const float TURNING_SPEED_COEF = 0.9f;
         private const float DISTANCE_TO_TARGET_IN_SECONDS_WHEN_VERY_CLOSE = 0.01f;
         private const float DISTANCE_TO_TARGET_IN_SECONDS_WHEN_CLOSE = 0.1f;
 
@@ -27,12 +26,11 @@ namespace BBN_Game.Objects
             this.rollSpeed = 10;
             this.yawSpeed = 2.5f;
             this.pitchSpeed = 2.5f;
-            this.maxSpeed = 58;
+            this.maxSpeed = 57;
             this.minSpeed = 0;
             this.mass = 0;
             this.greatestLength = 2f;
             this.shipData.scale = 0.1f;
-            this.acceleration = 50f;
             this.lifeSpan = 15;
         }
 
@@ -42,10 +40,16 @@ namespace BBN_Game.Objects
             this.target = target;
         }
 
-        public override void LoadContent()
+        #endregion
+
+        protected override void resetModels()
         {
-            this.model = Game.Content.Load<Model>("Models/Projectiles/Missile");
-            base.LoadContent();
+            if (this.Team == Team.Red)
+                model = Game.Content.Load<Model>("Models/Ships/FighterRed");
+            else
+                model = Game.Content.Load<Model>("Models/Ships/FighterBlue");
+
+            base.resetModels();
         }
 
         public override void controller(GameTime gt)
@@ -123,7 +127,5 @@ namespace BBN_Game.Objects
                 //BULLET IS ON TARGET MOERSE BANG, PARTS FLYING... BLOOD... GORE...
             }
         }
-
-        #endregion
     }
 }

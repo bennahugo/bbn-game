@@ -40,7 +40,7 @@ namespace BBN_Game.Objects
         /// This adds the setData() method to the default constructor
         /// </summary>
         /// <param name="game">The Game</param>
-        public DynamicObject (Game game) : base(game)
+        public DynamicObject (Game game, Team team, Vector3 position) : base(game, team, position)
         {
         }
 

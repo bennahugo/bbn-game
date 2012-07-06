@@ -29,16 +29,19 @@ namespace BBN_Game.Objects
         }
 
 
-        public Fighter(Game game)
-            : base(game)
+        public Fighter(Game game, Team team, Vector3 position)
+            : base(game, team, position)
         {
-            this.Position = new Vector3(0, 0, 10);
         }
 
-        public void LoadContent()
+        protected override void resetModels()
         {
-            this.model = Game.Content.Load<Model>("Models/Ships/FighterRed");
-            base.LoadContent();
+            if (this.Team == Team.Red)
+                model = Game.Content.Load<Model>("Models/Ships/FighterRed");
+            else
+                model = Game.Content.Load<Model>("Models/Ships/FighterBlue");
+
+            base.resetModels();
         }
     }
 }
