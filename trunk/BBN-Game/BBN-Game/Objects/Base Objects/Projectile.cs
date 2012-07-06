@@ -13,6 +13,12 @@ namespace BBN_Game.Objects
     {
         protected float lifeSpan;
 
+        public Boolean destroy
+        {
+            get;
+            set;
+        }
+
         protected override void setData()
         {
             this.rollSpeed = 10;
@@ -31,8 +37,29 @@ namespace BBN_Game.Objects
         {
             this.rotation = parent.rotation;
 
+            this.destroy = false;
+
             this.shipData.speed = parent.ShipMovementInfo.speed;
         }
+
+        public override void Update(GameTime gt)
+        {
+
+            this.lifeSpan -= 1 * (float)gt.ElapsedGameTime.TotalSeconds;
+
+            if (lifeSpan <= 0)
+                this.destroy = true;
+
+            if (this.destroy)
+                Controller.GameController.removeObject(this);
+
+            base.Update(gt);
+        }
+
+        protected override void resetModels()
+        {
+            base.resetModels();
+        }        
 
         public override void controller(GameTime gt)
         {

@@ -29,7 +29,7 @@ namespace BBN_Game.Controller
     class GameController
     {
         #region "Object holders"
-        List<Objects.StaticObject> AllObjects, Fighters, Destroyers, Towers, Asteroids, Projectiles;
+        static List<Objects.StaticObject> AllObjects, Fighters, Destroyers, Towers, Asteroids, Projectiles;
 
         Objects.playerObject Player1, Player2;
         Objects.Base Team1Base, Team2Base;
@@ -46,6 +46,7 @@ namespace BBN_Game.Controller
         #region "Global Data Holders"
         Viewport Origional;
         BBN_Game.BBNGame game;
+        static int i;
         #endregion
 
         #region "XNA Required"
@@ -72,6 +73,9 @@ namespace BBN_Game.Controller
             #region "Viewport setting"
             game.Graphics.PreferredBackBufferWidth = game.Graphics.GraphicsDevice.DisplayMode.Width;
             game.Graphics.PreferredBackBufferHeight = game.Graphics.GraphicsDevice.DisplayMode.Height;
+            //game.Graphics.PreferredBackBufferWidth = 1440;
+            //game.Graphics.PreferredBackBufferHeight = 900;
+            //game.Graphics.IsFullScreen = true;
             game.Graphics.ApplyChanges();
 
             Origional = game.GraphicsDevice.Viewport;
@@ -111,8 +115,8 @@ namespace BBN_Game.Controller
         {
             if (gameState.Equals(GameState.Playing))
             {
-                foreach (Objects.StaticObject obj in AllObjects)
-                    obj.Update(gameTime);
+                for (i = 0; i < AllObjects.Count; ++i)
+                    AllObjects.ElementAt(i).Update(gameTime);
 
                 SkyBox.Update(gameTime);
             }
@@ -131,12 +135,18 @@ namespace BBN_Game.Controller
                 // draw skybox fist each time
                 SkyBox.Draw(gameTime, cam);
                 // draw all other objects
-                foreach (Objects.StaticObject obj in AllObjects)
-                        obj.Draw(gameTime, cam);
+                for (i = 0; i < AllObjects.Count; ++i)
+                    AllObjects.ElementAt(i).Draw(gameTime, cam);
 
                 // we have to draw the huds afterward so that in third person camera the huds will draw above the player (as the dpth buffer is removed)
-                foreach (Objects.StaticObject obj in AllObjects)
-                    obj.drawSuroundingBox(cam, Player1);
+                for (i = 0; i < AllObjects.Count; ++i)
+                    if (! ( AllObjects.ElementAt(i) is Objects.playerObject))
+                        AllObjects.ElementAt(i).drawSuroundingBox(cam, Player1);
+
+                // this was moved out to fix a bug with XNA's draw method - drew some weird lines every now and then
+                // and this seams to have fixed it
+                Player2.drawSuroundingBox(cam, Player1);
+                Player1.drawSuroundingBox(cam, Player1);
 
                 // draw the players hud now (so that the target boxes wont obscure them)
                 Player1.drawHud();
@@ -149,12 +159,18 @@ namespace BBN_Game.Controller
                 // draw skybox fist each time
                 SkyBox.Draw(gameTime, cam);
                 // draw all other objects
-                foreach (Objects.StaticObject obj in AllObjects)
-                        obj.Draw(gameTime, cam);
+                for (i = 0; i < AllObjects.Count; ++i)
+                    AllObjects.ElementAt(i).Draw(gameTime, cam);
 
                 // we have to draw the huds afterward so that in third person camera the huds will draw above the player (as the dpth buffer is removed)
-                foreach (Objects.StaticObject obj in AllObjects)
-                    obj.drawSuroundingBox(cam, Player2);
+                for (i = 0; i < AllObjects.Count; ++i)
+                    if (!(AllObjects.ElementAt(i) is Objects.playerObject))
+                        AllObjects.ElementAt(i).drawSuroundingBox(cam, Player2);
+
+                // this was moved out to fix a bug with XNA's draw method - drew some weird lines every now and then
+                // and this seams to have fixed it
+                Player1.drawSuroundingBox(cam, Player2);
+                Player2.drawSuroundingBox(cam, Player2);
 
                 // draw the players hud now (so that the target boxes wont obscure them)
                 Player2.drawHud();
@@ -179,7 +195,7 @@ namespace BBN_Game.Controller
         ///         Destroyer.
         /// </summary>
         /// <param name="Object">The object to add</param>
-        public void addObject(Objects.StaticObject Object)
+        public static void addObject(Objects.StaticObject Object)
         {
             // initialise the object first
             Object.Initialize();
@@ -198,12 +214,40 @@ namespace BBN_Game.Controller
             }
             else if (Object is Objects.Projectile)
             {
-                Projectiles.Add(Object);
+                Objects.Projectile p = (Objects.Projectile)Object;
+                p.Initialize();
+                p.LoadContent();
+                Projectiles.Add(p);
             }
             
             // _____-----TODO----____ Add asteroids when class is made
 
             AllObjects.Add(Object);
+        }
+
+        public static void removeObject(Objects.StaticObject Object)
+        {
+            if (Object is Objects.Fighter)
+            {
+                Fighters.Remove(Object);
+            }
+            else if (Object is Objects.Destroyer)
+            {
+                Destroyers.Remove(Object);
+            }
+            else if (Object is Objects.Turret)
+            {
+                Towers.Remove(Object);
+            }
+            else if (Object is Objects.Projectile)
+            {
+                Projectiles.Remove(Object);
+            }
+
+            // _____-----TODO----____ Add asteroids when class is made
+
+            AllObjects.Remove(Object);
+            --i;
         }
 
         #endregion

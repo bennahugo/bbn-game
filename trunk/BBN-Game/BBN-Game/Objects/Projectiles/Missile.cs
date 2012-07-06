@@ -31,7 +31,7 @@ namespace BBN_Game.Objects
             this.mass = 0;
             this.greatestLength = 2f;
             this.shipData.scale = 0.1f;
-            this.lifeSpan = 15;
+            this.lifeSpan = 10;
         }
 
         public Missile(Game game, StaticObject target, StaticObject parent)
@@ -44,10 +44,7 @@ namespace BBN_Game.Objects
 
         protected override void resetModels()
         {
-            if (this.Team == Team.Red)
-                model = Game.Content.Load<Model>("Models/Ships/FighterRed");
-            else
-                model = Game.Content.Load<Model>("Models/Ships/FighterBlue");
+            model = Game.Content.Load<Model>("Models/Projectiles/Missile");
 
             base.resetModels();
         }
@@ -117,14 +114,13 @@ namespace BBN_Game.Objects
                     compLookOntoWant = 1;
                 shipData.speed = this.maxSpeed * (float)(Math.Pow(TURNING_SPEED_COEF, -Math.Abs(Math.Acos(compLookOntoWant) * 180 / Math.PI)));
                 #endregion
-
-                this.lifeSpan -= 1 * time;
             }
             else // if the bullet is very close
             {
                 shipData.speed = 0;
 
                 //BULLET IS ON TARGET MOERSE BANG, PARTS FLYING... BLOOD... GORE...
+                this.destroy = true;
             }
         }
     }
