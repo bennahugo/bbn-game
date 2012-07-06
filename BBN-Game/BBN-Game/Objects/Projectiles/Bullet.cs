@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BBN_Game.Objects
 {
-    class Missile :Projectile
+    class Bullet : Projectile
     {
         #region "Globals"
         protected double EPSILON_DISTANCE = 0.0001f;
@@ -24,17 +24,17 @@ namespace BBN_Game.Objects
         protected override void setData()
         {
             this.rollSpeed = 10;
-            this.yawSpeed = 2.5f;
-            this.pitchSpeed = 2.5f;
-            this.maxSpeed = 57;
+            this.yawSpeed = 0.1f;
+            this.pitchSpeed = 0.1f;
+            this.maxSpeed = 60;
             this.minSpeed = 0;
             this.mass = 0;
             this.greatestLength = 2f;
             this.shipData.scale = 0.1f;
-            this.lifeSpan = 5.75f;
+            this.lifeSpan = 5.68f;
         }
 
-        public Missile(Game game, StaticObject target, StaticObject parent)
+        public Bullet(Game game, StaticObject target, StaticObject parent)
             : base(game, parent)
         {
             this.target = target;
@@ -51,7 +51,12 @@ namespace BBN_Game.Objects
 
         public override void controller(GameTime gt)
         {
-            chaseTarget(gt);
+            shipData.speed = maxSpeed;
+            float veryCloseToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_VERY_CLOSE;
+            float closeToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_CLOSE;
+            float distanceFromTarget = (target.Position - this.Position).Length();
+            if ((target.Position - this.Position).Length() <= veryCloseToTarget)
+                this.destroy = true;
 
             base.controller(gt);
         }

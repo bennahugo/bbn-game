@@ -50,7 +50,7 @@ namespace BBN_Game.Objects
         static Texture2D HudBarHolder;
         static Texture2D HudBar;
 
-        private const int MissileReload = 15, MechinegunReload = 5, DefensiveReload = 20;
+        private const float MissileReload = 15, MechinegunReload = 0.2f, DefensiveReload = 20;
 
         private float [] reloadTimer;
 
@@ -268,6 +268,14 @@ namespace BBN_Game.Objects
                         reloadTimer[1] = MissileReload;
                     }
                 }
+                if (state.IsKeyDown(Keys.E))
+                {
+                    if (reloadTimer[0] <= 0)
+                    {
+                        Controller.GameController.addObject(new Objects.Bullet(Game, this.target, this));
+                        reloadTimer[0] = MechinegunReload;
+                    }
+                }
                 #endregion
             }
             #endregion
@@ -405,7 +413,6 @@ namespace BBN_Game.Objects
             #region "Reload speeds"
             sb.DrawString(f, reloadTimer[1].ToString("00"), new Vector2(0, 0), Color.Red);
             #endregion
-
 
             sb.End();
 

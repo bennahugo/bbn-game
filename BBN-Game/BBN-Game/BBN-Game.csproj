@@ -95,6 +95,7 @@
     <Compile Include="Graphics\Shapes\QuadDrawer.cs" />
     <Compile Include="Graphics\Skybox\Skybox.cs" />
     <Compile Include="Graphics\Shapes\Sphere.cs" />
+    <Compile Include="Objects\Projectiles\Bullet.cs" />
     <Compile Include="Objects\Projectiles\Missile.cs" />
     <Compile Include="Objects\Ships\Base.cs" />
     <Compile Include="Objects\Ships\Destroyer.cs" />
