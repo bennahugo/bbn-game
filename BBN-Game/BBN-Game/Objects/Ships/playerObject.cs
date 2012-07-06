@@ -50,6 +50,10 @@ namespace BBN_Game.Objects
         static Texture2D HudBarHolder;
         static Texture2D HudBar;
 
+        private const int MissileReload = 15, MechinegunReload = 5, DefensiveReload = 20;
+
+        private float [] reloadTimer;
+
         /// <summary>
         /// Getter and setter
         /// </summary>
@@ -102,6 +106,10 @@ namespace BBN_Game.Objects
             float tyaw = (float)Math.Atan2(startingDirection.X, startingDirection.Z);
 
             rotation = Quaternion.CreateFromYawPitchRoll(tyaw, tpitch, 0);
+
+            reloadTimer = new float[3];
+            for (int i = 0; i < 3; ++i)
+                reloadTimer[i] = 0;
         }
 
         protected override void resetModels()
@@ -217,7 +225,6 @@ namespace BBN_Game.Objects
                 }
                 #endregion
 
-
                 #region "Rotations"
                 #region "Yaw"
                 if (state.IsKeyDown(Keys.A))
@@ -250,6 +257,17 @@ namespace BBN_Game.Objects
                 // Debug
                 if (state.IsKeyDown(Keys.Space))
                     mouseInverted = mouseInverted ? false : true;
+                #endregion
+
+                #region "Guns"
+                if (state.IsKeyDown(Keys.F))
+                {
+                    if (reloadTimer[1] <= 0)
+                    {
+                        Controller.GameController.addObject(new Objects.Missile(Game, this.target, this));
+                        reloadTimer[1] = MissileReload;
+                    }
+                }
                 #endregion
             }
             #endregion
@@ -290,7 +308,6 @@ namespace BBN_Game.Objects
                 }
                 #endregion
 
-
                 #region "Rotations"
                 #region "Yaw"
                 if (state.IsKeyDown(Keys.Left))
@@ -324,7 +341,23 @@ namespace BBN_Game.Objects
                 if (state.IsKeyDown(Keys.NumPad0))
                     mouseInverted = mouseInverted ? false : true;
                 #endregion
+
+                #region "Guns"
+                if (state.IsKeyDown(Keys.NumPad1))
+                {
+                    if (reloadTimer[1] <= 0)
+                    {
+                        Controller.GameController.addObject(new Objects.Missile(Game, this.target, this));
+                        reloadTimer[1] = MissileReload;
+                    }
+                }
             }
+            #endregion
+
+
+            // reset loader
+            for (int i = 0; i < 3; ++i)
+                reloadTimer[i] = reloadTimer[i] > 0 ? reloadTimer[i] - (1 * time) : 0;
             #endregion
         }
 
@@ -352,6 +385,7 @@ namespace BBN_Game.Objects
 
             sb.Begin();
 
+            #region "Speed"
             sb.DrawString(f, shipData.speed.ToString("00"), new Vector2(hudWidth * 0.15f, viewport.Height - hudHeight * 0.55f), Color.Aqua);
 
             sb.Draw(HudBarHolder, new Rectangle(0, viewport.Height - hudHeight, hudWidth, hudHeight), Color.Aqua);
@@ -366,7 +400,13 @@ namespace BBN_Game.Objects
             int textWidth = (int)(HudBar.Width * (shipData.speed / maxSpeed));
 
             sb.Draw(HudBar, new Rectangle(barStartX, barStartY, barWidthX, barWidthY), new Rectangle(0, 0, textWidth, textHeight), new Color((shipData.speed / maxSpeed), 1 - (shipData.speed / maxSpeed), 0));
-            
+            #endregion
+
+            #region "Reload speeds"
+            sb.DrawString(f, reloadTimer[1].ToString("00"), new Vector2(0, 0), Color.Red);
+            #endregion
+
+
             sb.End();
 
             sb.Dispose();
