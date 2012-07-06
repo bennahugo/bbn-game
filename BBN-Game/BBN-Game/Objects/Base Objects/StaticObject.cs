@@ -29,6 +29,27 @@ namespace BBN_Game.Objects
 
     class StaticObject : DrawableGameComponent
     {
+        // debug
+        public BoundingSphere getBoundingShpere()
+        {
+            BoundingSphere sphere = new BoundingSphere();
+
+            sphere = new BoundingSphere();
+            foreach (ModelMesh m in model.Meshes)
+            {
+                if (sphere.Radius == 0)
+                    sphere = m.BoundingSphere;
+                else
+                    sphere = BoundingSphere.CreateMerged(sphere, m.BoundingSphere);
+            }
+            sphere.Radius *= this.shipData.scale * 0.8f;
+
+            sphere.Center = Position;
+
+            return sphere;
+        }
+
+
         #region "Variables"
         /// <summary>
         /// Globals
@@ -244,11 +265,7 @@ namespace BBN_Game.Objects
         /// <returns>Boolean value - True is visible -- false - not visible</returns>
         public virtual bool IsVisible(Camera.CameraMatrices camera)
         {
-            BoundingSphere localSphere = shipModel.Meshes[0].BoundingSphere;
-
-            localSphere.Transform(Matrix.CreateScale(ShipMovementInfo.scale));
-
-            localSphere.Center += Position;
+            BoundingSphere localSphere = this.getBoundingShpere();
 
             ContainmentType contains = camera.getBoundingFrustum.Contains(localSphere);
             if (contains == ContainmentType.Contains || contains == ContainmentType.Intersects)
