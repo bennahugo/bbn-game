@@ -20,11 +20,6 @@ namespace BBN_Game.Objects
 {
     class playerObject : DynamicObject
     {
-
-
-        // debug
-        SpriteFont f;
-
         #region "Globals"
         /// <summary>
         /// Global variables
@@ -36,6 +31,8 @@ namespace BBN_Game.Objects
         /// chaseCamera - The chase camera
         /// </summary>
         PlayerIndex index;
+
+        SpriteFont f;
 
         StaticObject target;
 
@@ -89,6 +86,9 @@ namespace BBN_Game.Objects
             this.maxSpeed = 50;
             this.minSpeed = -10;
             this.greatestLength = 6f;
+
+            this.numHudLines = 7;
+            typeOfLine = PrimitiveType.LineList;
         }
         
         /// <summary>
@@ -155,18 +155,6 @@ namespace BBN_Game.Objects
         #endregion
 
         #region "Controls"
-
-        /// <summary>
-        /// override for the update method to call on the camera update methods.
-        /// </summary>
-        /// <param name="gt">Game time variable</param>
-        public override void Update(GameTime gt)
-        {
-            // todo add the if statement on the enum for cockpit View
-            chaseCamera.update(gt, Position, Matrix.CreateFromQuaternion(rotation));
-
-            base.Update(gt);
-        }
 
         /// <summary>
         /// Overide of the controller
@@ -371,11 +359,66 @@ namespace BBN_Game.Objects
 
         #endregion
 
-        public void Draw(GameTime gameTime, BBN_Game.Camera.CameraMatrices cam)
+        #region "Update"
+        protected override void setVertexPosition(float screenX, float screenY, float radiusOfObject, Color col)
         {
-            base.Draw(gameTime, cam);
+            //Line 1
+            targetBoxVertices[0].Position.X = screenX - radiusOfObject * 0.5f;
+            targetBoxVertices[0].Position.Y = screenY + radiusOfObject * 1f;
+            targetBoxVertices[0].Color = col;
+
+            targetBoxVertices[1].Position.X = screenX - radiusOfObject * 1f;
+            targetBoxVertices[1].Position.Y = screenY + radiusOfObject * 0.5f;
+            targetBoxVertices[1].Color = col;
+
+            //    Line 2
+            targetBoxVertices[2].Position.X = screenX - radiusOfObject * 1f;
+            targetBoxVertices[2].Position.Y = screenY - radiusOfObject * 0.5f;
+            targetBoxVertices[2].Color = col;
+
+            targetBoxVertices[3].Position.X = screenX - radiusOfObject * 0.5f;
+            targetBoxVertices[3].Position.Y = screenY - radiusOfObject * 1f;
+            targetBoxVertices[3].Color = col;
+
+            //     line 3
+            targetBoxVertices[4].Position.X = screenX + radiusOfObject * 0.5f;
+            targetBoxVertices[4].Position.Y = screenY - radiusOfObject * 1f;
+            targetBoxVertices[4].Color = col;
+
+            targetBoxVertices[5].Position.X = screenX + radiusOfObject * 1f;
+            targetBoxVertices[5].Position.Y = screenY - radiusOfObject * 0.5f;
+            targetBoxVertices[5].Color = col;
+
+            //     line 4
+            targetBoxVertices[6].Position.X = screenX + radiusOfObject * 1f;
+            targetBoxVertices[6].Position.Y = screenY + radiusOfObject * 0.5f;
+            targetBoxVertices[6].Color = col;
+
+            targetBoxVertices[7].Position.X = screenX + radiusOfObject * 0.5f;
+            targetBoxVertices[7].Position.Y = screenY + radiusOfObject * 1f;
+            targetBoxVertices[7].Color = col;
         }
 
+
+
+        /// <summary>
+        /// override for the update method to call on the camera update methods.
+        /// </summary>
+        /// <param name="gt">Game time variable</param>
+        public override void Update(GameTime gt)
+        {
+            // todo add the if statement on the enum for cockpit View
+            chaseCamera.update(gt, Position, Matrix.CreateFromQuaternion(rotation));
+
+            base.Update(gt);
+        }
+        #endregion
+
+        #region "Draw"
+
+        /// <summary>
+        /// Draws the payers hud
+        /// </summary>
         public void drawHud()
         {
             //if (!Game.GraphicsDevice.Viewport.Equals(playerViewport)) removed cus it was made obsolete
@@ -424,5 +467,6 @@ namespace BBN_Game.Objects
             GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
         }
 
+        #endregion
     }
 }

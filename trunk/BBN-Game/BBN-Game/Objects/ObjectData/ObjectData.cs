@@ -20,20 +20,32 @@ namespace BBN_Game.Objects.ObjectData
 {
     class ObjectData
     {
+        #region "Globals"
         public float pitch, totalPitch;
         public float yaw, totalYaw;
         public float roll, totalRoll;
         public float speed;
         public float scale;
         public Vector3 position;
+        #endregion
 
+        /// <summary>
+        /// Resets the variables
+        /// </summary>
         public ObjectData()
         {
             reset();
             totalPitch = totalRoll = totalYaw = 0;
         }
 
-
+        /// <summary>
+        /// Sets the variables with the input
+        /// </summary>
+        /// <param name="Pos">Position</param>
+        /// <param name="pitch">Pitch</param>
+        /// <param name="yaw">Yaw</param>
+        /// <param name="roll">Roll</param>
+        /// <param name="scale">Scale</param>
         public ObjectData(Vector3 Pos, float pitch, float yaw, float roll, float scale)
         {
             this.pitch = pitch;
@@ -44,6 +56,9 @@ namespace BBN_Game.Objects.ObjectData
             totalPitch = totalRoll = totalYaw = 0;
         }
 
+        /// <summary>
+        /// resets variables to defaults
+        /// </summary>
         public void reset()
         {
             // reset
@@ -53,6 +68,9 @@ namespace BBN_Game.Objects.ObjectData
             position = Vector3.Zero;
         }
 
+        /// <summary>
+        /// Zeroes all variables needed
+        /// </summary>
         public void resetAngles()
         {
 

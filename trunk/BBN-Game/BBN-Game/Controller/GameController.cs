@@ -126,59 +126,39 @@ namespace BBN_Game.Controller
         {
             if (gameState.Equals(GameState.Playing))
             {
-                Camera.CameraMatrices cam; // init variable
 
                 #region "Player 1"
-                // First off draw for player 1
-                cam = Player1.Camera;
-                game.GraphicsDevice.Viewport = Player1.getViewport;
-                // draw skybox fist each time
-                SkyBox.Draw(gameTime, cam);
-                // draw all other objects
-                for (i = 0; i < AllObjects.Count; ++i)
-                    AllObjects.ElementAt(i).Draw(gameTime, cam);
-
-                // we have to draw the huds afterward so that in third person camera the huds will draw above the player (as the dpth buffer is removed)
-                for (i = 0; i < AllObjects.Count; ++i)
-                    if (! ( AllObjects.ElementAt(i) is Objects.playerObject))
-                        AllObjects.ElementAt(i).drawSuroundingBox(cam, Player1);
-
-                // this was moved out to fix a bug with XNA's draw method - drew some weird lines every now and then
-                // and this seams to have fixed it
-                Player2.drawSuroundingBox(cam, Player1);
-                Player1.drawSuroundingBox(cam, Player1);
-
-                // draw the players hud now (so that the target boxes wont obscure them)
-                Player1.drawHud();
+                drawObjects(gameTime, Player1);
                 #endregion
 
                 #region "Player 2"
-                // player 2
-                cam = Player2.Camera;
-                game.GraphicsDevice.Viewport = Player2.getViewport;
-                // draw skybox fist each time
-                SkyBox.Draw(gameTime, cam);
-                // draw all other objects
-                for (i = 0; i < AllObjects.Count; ++i)
-                    AllObjects.ElementAt(i).Draw(gameTime, cam);
-
-                // we have to draw the huds afterward so that in third person camera the huds will draw above the player (as the dpth buffer is removed)
-                for (i = 0; i < AllObjects.Count; ++i)
-                    if (!(AllObjects.ElementAt(i) is Objects.playerObject))
-                        AllObjects.ElementAt(i).drawSuroundingBox(cam, Player2);
-
-                // this was moved out to fix a bug with XNA's draw method - drew some weird lines every now and then
-                // and this seams to have fixed it
-                Player1.drawSuroundingBox(cam, Player2);
-                Player2.drawSuroundingBox(cam, Player2);
-
-                // draw the players hud now (so that the target boxes wont obscure them)
-                Player2.drawHud();
+                drawObjects(gameTime, Player2);
                 #endregion
 
                 // set the graphics device back to normal
                 game.GraphicsDevice.Viewport = Origional;
             }
+        }
+
+        private void drawObjects(GameTime gameTime,  Objects.playerObject player)
+        {
+            Camera.CameraMatrices cam; // init variable
+
+            // First off draw for player 1
+            cam = player.Camera;
+            game.GraphicsDevice.Viewport = player.getViewport;
+            // draw skybox fist each time
+            SkyBox.Draw(gameTime, cam);
+            // draw all other objects
+            for (i = 0; i < AllObjects.Count; ++i)
+                AllObjects.ElementAt(i).Draw(gameTime, cam);
+
+            // we have to draw the huds afterward so that in third person camera the huds will draw above the player (as the dpth buffer is removed)
+            for (i = 0; i < AllObjects.Count; ++i)
+                    AllObjects.ElementAt(i).drawSuroundingBox(cam, player);
+
+            //draw the players hud now (so that the target boxes wont obscure them)
+            player.drawHud();
         }
         #endregion
 

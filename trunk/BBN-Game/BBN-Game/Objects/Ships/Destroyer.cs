@@ -18,6 +18,7 @@ namespace BBN_Game.Objects
 {
     class Destroyer : DynamicObject
     {
+        #region "Constructors"
         protected override void setData()
         {
             this.rollSpeed = 5;
@@ -26,6 +27,8 @@ namespace BBN_Game.Objects
             this.maxSpeed = 300;
             this.minSpeed = -25;
             this.greatestLength = 6f;
+            numHudLines = 4;
+            typeOfLine = PrimitiveType.LineStrip;
         }
 
 
@@ -33,7 +36,9 @@ namespace BBN_Game.Objects
             : base(game, team, position)
         {
         }
+        #endregion
 
+        #region "Update"
         protected override void resetModels()
         {
             if (this.Team == Team.Red)
@@ -43,5 +48,6 @@ namespace BBN_Game.Objects
 
             base.resetModels();
         }
+        #endregion
     }
 }
