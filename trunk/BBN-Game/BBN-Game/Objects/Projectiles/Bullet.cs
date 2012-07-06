@@ -24,8 +24,8 @@ namespace BBN_Game.Objects
         protected override void setData()
         {
             this.rollSpeed = 10;
-            this.yawSpeed = 0.2f;
-            this.pitchSpeed = 0.2f;
+            this.yawSpeed = 0.8f;
+            this.pitchSpeed = 0.8f;
             this.maxSpeed = 60;
             this.minSpeed = 0;
             this.mass = 0;
