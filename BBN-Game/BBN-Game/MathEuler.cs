@@ -70,5 +70,42 @@ namespace BBN_Game
             }
             return rotationaxes;
         }
+
+        // Y P R output
+        public static Vector3 QuaternionToEuler2(Quaternion q)
+        {
+            Vector3 v = Vector3.Zero;
+
+            v.X = (float)Math.Atan2
+            (
+                2 * q.Y * q.W - 2 * q.X * q.Z,
+                   1 - 2 * Math.Pow(q.Y, 2) - 2 * Math.Pow(q.Z, 2)
+            );
+
+            v.Z = (float)Math.Asin
+            (
+                2 * q.X * q.Y + 2 * q.Z * q.W
+            );
+
+            v.Y = (float)Math.Atan2
+            (
+                2 * q.X * q.W - 2 * q.Y * q.Z,
+                1 - 2 * Math.Pow(q.X, 2) - 2 * Math.Pow(q.Z, 2)
+            );
+
+            if (q.X * q.Y + q.Z * q.W == 0.5)
+            {
+                v.X = (float)(2 * Math.Atan2(q.X, q.W));
+                v.Y = 0;
+            }
+
+            else if (q.X * q.Y + q.Z * q.W == -0.5)
+            {
+                v.X = (float)(-2 * Math.Atan2(q.X, q.W));
+                v.Y = 0;
+            }
+
+            return v;
+        }  
     }
 }
