@@ -27,11 +27,9 @@ namespace BBN_Game.Objects
         }
 
         public Projectile(Game game, StaticObject parent)
-            : base(game)
+            : base(game, Objects.Team.nutral, parent.Position + Vector3.Transform(new Vector3(0, -parent.getGreatestLength / 4, parent.getGreatestLength / 4), Matrix.CreateFromQuaternion(parent.rotation)))
         {
             this.rotation = parent.rotation;
-
-            this.Position = parent.Position + Vector3.Transform(new Vector3(0, -parent.getGreatestLength/4, parent.getGreatestLength/4), Matrix.CreateFromQuaternion(parent.rotation));
 
             this.shipData.speed = parent.ShipMovementInfo.speed;
         }
@@ -40,18 +38,6 @@ namespace BBN_Game.Objects
         {
 
             base.controller(gt);
-        }
-
-
-        public virtual void LoadContent()
-        {
-            base.LoadContent();
-        }
-
-        public override void Draw(GameTime gameTime, BBN_Game.Camera.CameraMatrices cam)
-        {
-
-            base.Draw(gameTime, cam);
         }
     }
 }

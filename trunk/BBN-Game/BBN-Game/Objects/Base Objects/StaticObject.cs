@@ -19,6 +19,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BBN_Game.Objects
 {
+
+    enum Team
+    {
+        Red = 0,
+        Blue = 1,
+        nutral = 2
+    }
+
     class StaticObject : DrawableGameComponent
     {
         #region "Variables"
@@ -26,18 +34,15 @@ namespace BBN_Game.Objects
         /// Globals
         /// </summary>
         protected Objects.ObjectData.ObjectData shipData = new BBN_Game.Objects.ObjectData.ObjectData();  // the data for rotaiton and position
-        Quaternion rotate; // Rotation Qauternion
+        Quaternion rotate = Quaternion.CreateFromAxisAngle(Vector3.Up, 0); // Rotation Qauternion
         protected Model model; // model to draw
         Matrix world; // The world Matrix
+        Team team;
 
+        #region "Target box data"
         /// <summary>
         /// Drawing the targeting box
         /// </summary>
-        public Boolean isTarget
-        {
-            get;
-            set;
-        }
         VertexBuffer targetBoxVB;
         VertexDeclaration targetBoxDecleration;
 
@@ -50,6 +55,8 @@ namespace BBN_Game.Objects
         PrimitiveType typeOfLine = PrimitiveType.LineStrip;
         SpriteFont targetBoxFont;
 
+        #endregion
+
         /// <summary>
         /// Static variables for rotaion speeds
         /// </summary>
@@ -59,6 +66,11 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Getters and setters
         /// </summary>
+        public Team Team
+        {
+            get { return team; }
+            set { team = value; }
+        }
         public float getRollSpeed
         {
             get { return rollSpeed; }
@@ -108,12 +120,11 @@ namespace BBN_Game.Objects
         /// Initialises variables
         /// </summary>
         /// <param name="game">The game</param>
-        public StaticObject(Game game) : base(game)
+        public StaticObject(Game game, Team team, Vector3 position) : base(game)
         {
-            Position = Vector3.Zero;
-            rotate = Quaternion.CreateFromAxisAngle(Vector3.Up, 0);
+            Position = position;
             mass = 1000000000f; // static objects dont move
-            isTarget = false;
+            this.team = team;
             setData();
         }
 
@@ -151,8 +162,11 @@ namespace BBN_Game.Objects
         /// Load content method
         /// This adds the creation of bounding boxes for current model
         /// </summary>
-        protected virtual void LoadContent()
+        public virtual void LoadContent()
         {
+            // get modal first
+            resetModels();
+
             #region "Target box data"
             targetBoxE = Game.Content.Load<Effect>("Shader/targetBox");
             viewPort = targetBoxE.Parameters["viewPort"];
@@ -167,8 +181,12 @@ namespace BBN_Game.Objects
             Collision_Detection.CollisionDetectionHelper.setModelData(model);
 
             #endregion
+
             base.LoadContent();
         }
+
+        protected virtual void resetModels()
+        {}
 
         /// <summary>
         /// Update method
@@ -257,6 +275,11 @@ namespace BBN_Game.Objects
         /// <param name="cam">the camera class containing the view matrix</param>
         public void drawSuroundingBox(Camera.CameraMatrices cam, playerObject currentPlayerforViewport)
         {
+            // if its the current player dont draw it
+            if (this is playerObject)
+                if (((playerObject)this).getViewport.Equals(Game.GraphicsDevice.Viewport))
+                    return;
+
             if (IsVisible(cam))
             {                
                 Vector2 screenViewport = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
@@ -266,8 +289,6 @@ namespace BBN_Game.Objects
             }
         }
 
-       
-
         /// <summary>
         /// Sets the positions in the vertex data to draw the target box
         /// </summary>
@@ -275,6 +296,9 @@ namespace BBN_Game.Objects
         /// <param name="screenViewport">A vector to holding {screen width, screen height}</param>
         private Boolean setVertexCoords(Camera.CameraMatrices cam, Vector2 screenViewport, playerObject player)
         {
+            Color col = this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.nutral) ? Color.Yellow :
+                        this.Team.Equals(player.team) ? Color.Green : Color.Orange;
+
             float radiusOfObject;
             radiusOfObject = greatestLength; // sets the greatest size of the object
 
@@ -299,35 +323,35 @@ namespace BBN_Game.Objects
 
             // set positions for lines to draw 
             if (this is Objects.Destroyer)
-                setSquareVertices(screenX, screenY, radiusOfObject);
+                setSquareVertices(screenX, screenY, radiusOfObject, col);
             else if (this is Objects.Fighter)
-                setHexagonVertices(screenX, screenY, radiusOfObject);
+                setHexagonVertices(screenX, screenY, radiusOfObject, col);
             else if (this is Objects.playerObject)
-                setReticleVertices(screenX, screenY, radiusOfObject);
+                setReticleVertices(screenX, screenY, radiusOfObject, col);
             else if (this is Objects.Projectile)
-                setTriangleVertices(screenX, screenY, radiusOfObject);
+                setTriangleVertices(screenX, screenY, radiusOfObject, col);
             else if (this is Objects.Base)
-                setCircleVertices(screenX, screenY, radiusOfObject);
+                setCircleVertices(screenX, screenY, radiusOfObject, col);
             else if (this is Objects.Turret)
-                setTriangleReticleVertices(screenX, screenY, radiusOfObject);
+                setTriangleReticleVertices(screenX, screenY, radiusOfObject, col);
 
             // set the y back to the non depth version
             screenY = halfScreenY - ((screenPos.Y / screenPos.W) * halfScreenY);
             float distanceToPlayer = (Position - player.Position).Length();
 
-            drawDistances(distanceToPlayer, screenX, screenY, radiusOfObject); // draw the distances to the object
+            drawDistances(distanceToPlayer, screenX, screenY, radiusOfObject, col); // draw the distances to the object
 
             // set the variable to the new position vectors
             targetBoxVB.SetData<VertexPositionColor>(targetBoxVertices);
             return true;
         }
 
-        private void drawDistances(float distance, float x, float y, float radius)
+        private void drawDistances(float distance, float x, float y, float radius, Color col)
         {
             SpriteBatch b = new SpriteBatch(Game.GraphicsDevice);
 
             b.Begin();
-            b.DrawString(targetBoxFont, distance.ToString("0000"), new Vector2(x + radius, y + radius), Color.Green);
+            b.DrawString(targetBoxFont, distance.ToString("0000"), new Vector2(x + radius, y + radius), col);
             b.End();
 
             b.Dispose();
@@ -341,9 +365,9 @@ namespace BBN_Game.Objects
         /// <param name="screenX">The position of the object in x coord 2D</param>
         /// <param name="screenY">The position of the object in y coord 2D</param>
         /// <param name="radiusOfObject">The widht/radius of the object (greatest half length)</param>
-        private void setTriangleReticleVertices(float screenX, float screenY, float radiusOfObject)
+        private void setTriangleReticleVertices(float screenX, float screenY, float radiusOfObject, Color col)
         {
-            setVertexData(11);
+            setVertexData(11, col);
             typeOfLine = PrimitiveType.TriangleList;
 
             Vector2 topLeft = new Vector2(screenX - radiusOfObject, screenY + radiusOfObject);
@@ -392,9 +416,9 @@ namespace BBN_Game.Objects
         /// <param name="screenX">The position of the object in x coord 2D</param>
         /// <param name="screenY">The position of the object in y coord 2D</param>
         /// <param name="radiusOfObject">The widht/radius of the object (greatest half length)</param>
-        private void setTriangleVertices(float screenX, float screenY, float radiusOfObject)
+        private void setTriangleVertices(float screenX, float screenY, float radiusOfObject, Color col)
         {
-            setVertexData(3);
+            setVertexData(3, col);
             typeOfLine = PrimitiveType.LineStrip;
 
             //Line 1
@@ -420,9 +444,9 @@ namespace BBN_Game.Objects
         /// <param name="screenX">The position of the object in x coord 2D</param>
         /// <param name="screenY">The position of the object in y coord 2D</param>
         /// <param name="radiusOfObject">The widht/radius of the object (greatest half length)</param>
-        private void setSquareVertices(float screenX, float screenY, float radiusOfObject)
+        private void setSquareVertices(float screenX, float screenY, float radiusOfObject, Color col)
         {
-            setVertexData(4);
+            setVertexData(4, col);
             typeOfLine = PrimitiveType.LineStrip;
 
             //Line 1
@@ -452,9 +476,9 @@ namespace BBN_Game.Objects
         /// <param name="screenX">The position of the object in x coord 2D</param>
         /// <param name="screenY">The position of the object in y coord 2D</param>
         /// <param name="radiusOfObject">The widht/radius of the object (greatest half length)</param>
-        private void setReticleVertices(float screenX, float screenY, float radiusOfObject)
+        private void setReticleVertices(float screenX, float screenY, float radiusOfObject, Color col)
         {
-            setVertexData(7);
+            setVertexData(7, col);
             typeOfLine = PrimitiveType.LineList;
 
             //Line 1
@@ -492,9 +516,9 @@ namespace BBN_Game.Objects
         /// <param name="screenX">The X position for the object</param>
         /// <param name="screenY">The y position for the object</param>
         /// <param name="radiusOfObject">the objects greatest length halved</param>
-        private void setCircleVertices(float screenX, float screenY, float radiusOfObject)
+        private void setCircleVertices(float screenX, float screenY, float radiusOfObject, Color col)
         {
-            setVertexData(360/20);
+            setVertexData(360 / 20, col);
             typeOfLine = PrimitiveType.LineStrip;
 
             for (int i = 0; i <= 360; i+=20)
@@ -510,9 +534,9 @@ namespace BBN_Game.Objects
         /// <param name="screenX">The position of the object in x coord 2D</param>
         /// <param name="screenY">The position of the object in y coord 2D</param>
         /// <param name="radiusOfObject">The widht/radius of the object (greatest half length)</param>
-        private void setHexagonVertices(float screenX, float screenY, float radiusOfObject)
+        private void setHexagonVertices(float screenX, float screenY, float radiusOfObject, Color col)
         {
-            setVertexData(8);
+            setVertexData(8, col);
             typeOfLine = PrimitiveType.LineStrip;
 
             //Line 1
@@ -585,23 +609,20 @@ namespace BBN_Game.Objects
         /// 
         /// A method that checks to see if it should re initialise the vertices holder in order to change its colours
         /// </summary>
-        private Boolean lastEntry = false;
-        private void setVertexData(int numLines)
+        Color prevCol = Color.Black;
+        private void setVertexData(int numLines, Color col)
         {
-            if ((lastEntry != isTarget) || (numHudLines != numLines))
+            if ((numHudLines != numLines) || col != prevCol)
             {
                 numHudLines = numLines;
                 targetBoxVertices = new VertexPositionColor[numHudLines + 1];
                 for (int i = 0; i < numHudLines + 1; i++)
                 {
-                    if (isTarget)
-                        targetBoxVertices[i] = new VertexPositionColor(Vector3.Zero, Color.Red);
-                    else
-                        targetBoxVertices[i] = new VertexPositionColor(Vector3.Zero, Color.Green);
+                    targetBoxVertices[i] = new VertexPositionColor(Vector3.Zero, col);
                 }
                 targetBoxVB = new VertexBuffer(Game.GraphicsDevice, typeof(VertexPositionColor), numHudLines + 1, BufferUsage.None);
+                prevCol = col;
             }
-            lastEntry = isTarget;
         }
         #endregion
         #endregion

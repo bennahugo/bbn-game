@@ -51,7 +51,7 @@ namespace BBN_Game.Graphics.Skybox
         /// <summary>
         /// Creates the sphere that is required
         /// </summary>
-        public void Initialize()
+        public override void Initialize()
         {
             cube = new Shapes.Cube(rad, repeat);
 

@@ -89,6 +89,7 @@
     <Compile Include="CamerasAndEffects\LightAndFog.cs" />
     <Compile Include="Collision Detection\CollisionDetectionHelper.cs" />
     <Compile Include="Collision Detection\Triangle.cs" />
+    <Compile Include="Controller\GameController.cs" />
     <Compile Include="Graphics\Shapes\Cube.cs" />
     <Compile Include="Graphics\Shapes\VertexPos.cs" />
     <Compile Include="Graphics\Shapes\QuadDrawer.cs" />
