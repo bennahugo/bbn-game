@@ -47,7 +47,7 @@ namespace BBN_Game.Objects
         static Texture2D HudBarHolder;
         static Texture2D HudBar;
 
-        private const float MissileReload = 15, MechinegunReload = 0.2f, DefensiveReload = 20;
+        private const float MissileReload = 10, MechinegunReload = 0.2f, DefensiveReload = 20;
 
         private float [] reloadTimer;
 
