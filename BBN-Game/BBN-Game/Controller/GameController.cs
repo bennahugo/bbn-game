@@ -73,8 +73,8 @@ namespace BBN_Game.Controller
             #region "Viewport setting"
             game.Graphics.PreferredBackBufferWidth = game.Graphics.GraphicsDevice.DisplayMode.Width;
             game.Graphics.PreferredBackBufferHeight = game.Graphics.GraphicsDevice.DisplayMode.Height;
-            //game.Graphics.PreferredBackBufferWidth = 1440;
-            //game.Graphics.PreferredBackBufferHeight = 900;
+            //game.Graphics.PreferredBackBufferWidth = 1920;
+            //game.Graphics.PreferredBackBufferHeight = 1080;
             //game.Graphics.IsFullScreen = true;
             game.Graphics.ApplyChanges();
 
