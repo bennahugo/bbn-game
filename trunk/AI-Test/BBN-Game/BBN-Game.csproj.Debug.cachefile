@@ -11,4 +11,9 @@ Content\Skybox\SkyboxRight.xnb
 Content\Skybox\SkyboxTop.xnb
 Content\Shader\skyBoxEffect.xnb
 Content\Shader\targetBox.xnb
+Content\Models\Ships\PlayerBlue.xnb
+Content\Models\Ships\PlayerRed.xnb
+Content\HudTextures\HealthBar.xnb
+Content\HudTextures\HealthBarHolder.xnb
+Content\Fonts\distanceFont.xnb
 Content\patrolPath.xml

@@ -61,21 +61,70 @@ namespace BBN_Game.AI
             if (objectPaths.Keys.Contains(AIObject))
                 objectPaths.Remove(AIObject);
         }
+        /// <summary>
+        /// Checks if an object is registered in the navigation computer
+        /// </summary>
+        /// <param name="AIObject">Object to check</param>
+        /// <returns>true iff object is registered</returns>
+        public bool isObjectRegistered(DynamicObject AIObject)
+        {
+            return objectPaths.Keys.Contains(AIObject);
+        }
         public void SpecifyCollisionGrid(object collisionGrid)
         {
             //TODO: Register collision grid
         }
-        private bool SpacialAwarenessTest(DynamicObject ai)
+        private List<StaticObject> SpacialAwarenessTest(DynamicObject ai)
         {
             //TODO: STUB. Test if another object is not to close (otherwise we need to stop the ai for a while)
             //Return an empty list if ai may move
-            return true;
+            return new List<StaticObject>();
         }
-        private void avoidCollision(int RecursionDepth, DynamicObject callingAI)
+        private void dodgeObject(DynamicObject callingAI,PathInformation callingAIPath, StaticObject obstruction)
+        {
+            bool bFlag = false;
+            Vector3 ptTemp = Vector3.Zero;
+            float dodgeDistance = callingAI.getGreatestLength + obstruction.getGreatestLength;
+            do
+            {
+                ptTemp = obstruction.Position + Vector3.Normalize(Matrix.CreateFromQuaternion(callingAI.rotation).Right) * dodgeDistance;
+                dodgeDistance *= 1.3f; //increase dodge distance
+                //foreach model in grid cells objects do 
+                //if (Collision_Detection.CollisionDetectionHelper.isPointInModelsBoundingBox(ptTemp,obj.model))
+                //bFlag = true;
+                //else
+                //bFlag = false;
+            }
+            while (bFlag);
+            List<Node> path = callingAIPath.remainingPath;
+            path.Add(new Node(ptTemp, -1));
+            callingAIPath.remainingPath = path;
+        }
+        private void avoidCollisions(DynamicObject callingAI, List<StaticObject> obstructionsList)
         {
             PathInformation pathInfo = objectPaths[callingAI];
-            float lengthOfObjects = 0;
-            callingAI.shipModel.Tag
+            StaticObject closestObstruction = obstructionsList.First();
+            float closestObstructionDistance = (closestObstruction.Position - callingAI.Position).Length();
+            //find the closest obstruction and dodge it:
+            for (int i = 1; i < obstructionsList.Count; ++i)
+            {
+                StaticObject obstruction = obstructionsList.ElementAt(i);
+                float distanceToObstruction = (obstruction.Position - callingAI.Position).Length();
+                if (distanceToObstruction < closestObstructionDistance)
+                {
+                    closestObstruction = obstruction;
+                    closestObstructionDistance = distanceToObstruction;
+                }
+            }
+            dodgeObject(callingAI, pathInfo, closestObstruction);
+            //if the other object is also a registered ai object then make it dodge to its right hand side as well:
+            if (closestObstruction is DynamicObject)
+                if (isObjectRegistered(closestObstruction as DynamicObject))
+                {
+                    PathInformation pathInfoForOtherObject = objectPaths[closestObstruction as DynamicObject];
+                    dodgeObject(closestObstruction as DynamicObject, pathInfoForOtherObject, callingAI);
+                }
+                
         }
         /// <summary>
         /// Method to update the movement of all registered AI characters. The list of waypoints have to be in reverse order (as returned by the A*)
@@ -91,11 +140,11 @@ namespace BBN_Game.AI
                 if (pathInfo.currentWaypoint != null) //if there is a path
                 {
                     float distToWayPoint = (pathInfo.currentWaypoint.Position - ai.Position).Length();
-                    List<StaticObject> pathBlockingObjects = SpacialAwarenessTest(ai);
+                    List<StaticObject> obstructionsList = SpacialAwarenessTest(ai); 
                     //if very close to the next waypoint remove that waypoint so that we can go to the next:
                     if (distToWayPoint <= veryCloseToWaypoint)
                         pathInfo.reachedWaypoint();
-                    else if (pathBlockingObjects.Count == 0)
+                    else if (obstructionsList.Count == 0)
                     {   //We want our ship to slowly rotate towards the direction it has to move in:
                         //Calculate yaw and pitch for view direction and target direction
                         Vector3 vWantDir = Vector3.Normalize(pathInfo.currentWaypoint.Position - ai.Position);
@@ -147,7 +196,7 @@ namespace BBN_Game.AI
                             (float)(Math.Pow(TURNING_SPEED_COEF, -Math.Abs(Math.Acos(compLookOntoWant) * 180 / Math.PI)));
                     }
                     else //there are objects in the way
-                        avoidCollision(0, pathBlockingObjects); //calculate a temporary path
+                        avoidCollisions(ai, obstructionsList); //calculate a temporary path arround the closest one of the objects
                 }
             }
         }

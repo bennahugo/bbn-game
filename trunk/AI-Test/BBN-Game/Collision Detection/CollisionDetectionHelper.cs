@@ -274,6 +274,15 @@ namespace BBN_Game.Collision_Detection
                 intersect = -1;
             return intersected;
         }
+        public static bool isPointInModelsBoundingBox(Vector3 point, Model aModel)
+        {
+            if (!(aModel.Tag is BoundingBox))
+                throw new Exception("Call ConstructObjectLevelBoundingBox first");
+            if (((BoundingBox)aModel.Tag).Contains(point) == ContainmentType.Contains)
+                return true;
+            else
+                return false;
+        }
     }
 }
 
