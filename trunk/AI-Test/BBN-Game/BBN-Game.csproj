@@ -88,6 +88,7 @@
     <Compile Include="AI\Marker.cs" />
     <Compile Include="AI\NavigationComputer.cs" />
     <Compile Include="AI\Node.cs" />
+    <Compile Include="AI\PathInformation.cs" />
     <Compile Include="AI\SpawnPoint.cs" />
     <Compile Include="CamerasAndEffects\CameraMatrices.cs" />
     <Compile Include="CamerasAndEffects\ChaseCamera.cs" />
