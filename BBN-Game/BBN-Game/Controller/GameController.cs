@@ -26,6 +26,12 @@ namespace BBN_Game.Controller
         notLoaded = 4
     }
 
+    enum Players
+    {
+        single = 0,
+        two = 1
+    }
+
     class GameController
     {
         #region "Object holders"
@@ -41,6 +47,7 @@ namespace BBN_Game.Controller
 
         #region "Game Controllers"
         GameState gameState, prevGameState;
+        Players numPlayers;
         #endregion
 
         #region "Global Data Holders"
@@ -57,6 +64,7 @@ namespace BBN_Game.Controller
             // Set up the Variables
             gameState = GameState.Playing;
             prevGameState = GameState.notLoaded;
+            numPlayers = Players.single;
         }
 
         public void Initialize()
@@ -137,7 +145,8 @@ namespace BBN_Game.Controller
                 #endregion
 
                 #region "Player 2"
-                drawObjects(gameTime, Player2);
+                if (numPlayers.Equals(Players.two))
+                    drawObjects(gameTime, Player2);
                 #endregion
 
                 // set the graphics device back to normal
@@ -243,8 +252,8 @@ namespace BBN_Game.Controller
         {
             // hardcoded for now
             // players
-            addObject(Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, new Vector3(0, 0, -500), new Vector3(0,0,1)));
-            addObject(Player2 = new BBN_Game.Objects.playerObject(game, Objects.Team.Blue, new Vector3(0, 0, 500), new Vector3(0,0,-1)));
+            addObject(Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, new Vector3(0, 0, -500), new Vector3(0,0,1), numPlayers.Equals(Players.single) ? false : true));
+            addObject(Player2 = new BBN_Game.Objects.playerObject(game, Objects.Team.Blue, new Vector3(0, 0, 500), new Vector3(0, 0, -1), numPlayers.Equals(Players.single) ? false : true));
           
             // Bases
             addObject(Team1Base = new BBN_Game.Objects.Base(game, Objects.Team.Red, new Vector3(10, 5, -510)));
