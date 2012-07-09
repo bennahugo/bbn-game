@@ -11,7 +11,7 @@
       <Time>2012-07-03T04:05:23-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\object_0.xml</Key>
-        <Value>2012-07-04T15:40:13.4115556-07:00</Value>
+        <Value>2012-07-08T22:57:32.1324051-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -24,7 +24,7 @@
       <Time>2012-07-03T04:05:23-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Player1_0.xml</Key>
-        <Value>2012-07-04T15:40:15.1715556-07:00</Value>
+        <Value>2012-07-08T22:57:33.5844051-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -37,7 +37,7 @@
       <Time>2012-07-03T04:05:23-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\FighterBlue_0.xml</Key>
-        <Value>2012-07-04T15:40:17.5035556-07:00</Value>
+        <Value>2012-07-08T22:57:35.7324051-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -50,7 +50,7 @@
       <Time>2012-07-03T04:05:23-07:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\FighterRed_0.xml</Key>
-        <Value>2012-07-04T15:40:19.8035557-07:00</Value>
+        <Value>2012-07-08T22:57:38.0044052-07:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -161,6 +161,73 @@
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Ships\FighterRed_0.xml</Output>
       <Time>2012-07-03T04:05:23-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\PlayerBlue.fbx</Source>
+      <Name>Models\Ships\PlayerBlue</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerBlue.xnb</Output>
+      <Time>2012-07-08T22:59:42.388038-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\PlayerBlue_0.xml</Key>
+        <Value>2012-07-08T23:00:06.8364063-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\PlayerRed.fbx</Source>
+      <Name>Models\Ships\PlayerRed</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerRed.xnb</Output>
+      <Time>2012-07-08T22:59:42.450538-07:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\PlayerRed_0.xml</Key>
+        <Value>2012-07-08T23:00:08.8564063-07:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>HudTextures\HealthBar.png</Source>
+      <Name>HudTextures\HealthBar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBar.xnb</Output>
+      <Time>2012-07-08T22:56:42.598975-07:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\HealthBarHolder.png</Source>
+      <Name>HudTextures\HealthBarHolder</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBarHolder.xnb</Output>
+      <Time>2012-07-08T22:56:41.89585-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\PlayerBlue.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\PlayerBlue_0.xml</Output>
+      <Time>2012-07-08T22:59:42.388038-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\PlayerRed.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\PlayerRed_0.xml</Output>
+      <Time>2012-07-08T22:59:42.450538-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\distanceFont.spritefont</Source>
+      <Name>Fonts\distanceFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\Fonts\distanceFont.xnb</Output>
+      <Time>2012-07-08T23:00:42.950538-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

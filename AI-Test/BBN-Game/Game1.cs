@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Storage;
 using BBN_Game.AI;
 using BBN_Game.Utils;
 using BBN_Game.Map;
+using BBN_Game.Objects;
 
 namespace BBN_Game
 {
@@ -35,8 +36,8 @@ namespace BBN_Game
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            player1 = new BBN_Game.Objects.playerObject(this);
-            des = new BBN_Game.Objects.Destroyer(this);
+            Team t1 = new Team();
+            player1 = new BBN_Game.Objects.playerObject(this,t1,new Vector3(0,0,0),new Vector3(0,0,0));
 
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 1024;
@@ -54,7 +55,7 @@ namespace BBN_Game
         {
             // TODO: Add your initialization logic here
             player1.Initialize();
-            des.Initialize();
+            //des.Initialize();
 
             chasCam = new BBN_Game.Camera.ChaseCamera(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
 
@@ -75,8 +76,8 @@ namespace BBN_Game
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            player1.LoadContent(2);
-            des.LoadContent();
+            player1.LoadContent();
+           // des.LoadContent();
            // skyBox = new BBN_Game.Graphics.Skybox.Skybox(this, 1000, new int[] { 1, 1, 1, 1, 1, 1 }, new string[] { "Skybox/SkyboxTop", "Skybox/SkyboxBottom", "Skybox/SkyboxRight", "Skybox/SkyboxLeft", "Skybox/SkyboxFront", "Skybox/SkyboxBack" });
             spf = Content.Load<SpriteFont>("SpriteFont1");
             // TODO: use this.Content to load your game content here
@@ -104,7 +105,7 @@ namespace BBN_Game
 
             // TODO: Add your update logic here
             player1.Update(gameTime);
-            des.Update(gameTime);
+           // des.Update(gameTime);
             this.navComputer.updateAIMovement(gameTime);
             chasCam.update(gameTime, player1.Position, Matrix.CreateFromQuaternion(player1.rotation));
 
@@ -120,10 +121,10 @@ namespace BBN_Game
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            Camera.CameraMatrices cam = new BBN_Game.Camera.CameraMatrices(chasCam.view, chasCam.proj);
+            //Camera.CameraMatrices cam = new BBN_Game.Camera.CameraMatrices(chasCam.view, chasCam.proj,new Vector3(0,0,0),(float)Math.PI/4);
             //skyBox.Draw(gameTime, cam, player1.Position);
-            des.Draw(gameTime, cam);
-            player1.Draw(gameTime, cam, spriteBatch, des);
+            //des.Draw(gameTime, cam);
+            player1.Draw(gameTime,player1.Camera);
 
             base.Draw(gameTime);
             spriteBatch.Begin();

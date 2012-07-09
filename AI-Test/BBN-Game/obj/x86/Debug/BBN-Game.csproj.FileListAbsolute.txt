@@ -56,3 +56,8 @@ F:\repository\bbn-game\trunk\AI-Test.BAK\BBN-Game\obj\x86\Debug\Microsoft.Xna.Fr
 F:\repository\bbn-game\trunk\AI-Test.BAK\BBN-Game\obj\x86\Debug\BBN-Game.exe
 F:\repository\bbn-game\trunk\AI-Test.BAK\BBN-Game\obj\x86\Debug\BBN-Game.pdb
 F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\patrolPath.xml
+F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerBlue.xnb
+F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerRed.xnb
+F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBar.xnb
+F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBarHolder.xnb
+F:\repository\bbn-game\trunk\AI-Test\BBN-Game\bin\x86\Debug\Content\Fonts\distanceFont.xnb

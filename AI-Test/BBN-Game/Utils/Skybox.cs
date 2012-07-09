@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 /////
 /// Author - Brandon James Talbot
@@ -14,7 +15,7 @@ using Microsoft.Xna.Framework.Graphics;
 /////
 namespace BBN_Game.Graphics.Skybox
 {
-    class Skybox : DrawableGameComponent
+    class Skybox
     {
         /// <summary>
         /// Global Variables
@@ -22,10 +23,9 @@ namespace BBN_Game.Graphics.Skybox
         /// Sphere is the sphere generator
         /// texName the name of the texture to use
         /// </summary>
-        Graphics.Shapes.Cube cube;
+        Graphics.Shapes.Cube sphere;
 
         Texture2D text;
-        string texName;
 
         Effect e;
         EffectParameter world;
@@ -40,22 +40,18 @@ namespace BBN_Game.Graphics.Skybox
         /// </summary>
         /// <param name="game">The game</param>
         /// <param name="texName">Name of the texture to use</param>
-        public Skybox(Game game, string texName, float radius, int repeatcount)
-            : base(game)
+        public Skybox()
         {
-            this.texName = texName;
-            rad = radius;
-            repeat = repeatcount;
         }
 
         /// <summary>
         /// Creates the sphere that is required
         /// </summary>
-        public override void Initialize()
+        public void Initialize(float radius, int repeatcount)
         {
-            cube = new Shapes.Cube(rad, repeat);
-
-            base.Initialize();
+            rad = radius;
+            repeat = repeatcount;
+            sphere = new Graphics.Shapes.Cube(radius, repeat);
         }
 
         /// <summary>
@@ -63,11 +59,11 @@ namespace BBN_Game.Graphics.Skybox
         /// Gets the skyboxEffect shader
         /// Gets the texture that the class was initialised with
         /// </summary>
-        public void loadContent()
+        public void loadContent(Texture2D tex, ContentManager content, GraphicsDevice gd)
         {
-            text = Game.Content.Load<Texture2D>("Skybox/" + texName);
+            text = tex;
 
-            e = Game.Content.Load<Effect>("Shader/skyBoxEffect");
+            e = content.Load<Effect>("Shader/skyBoxEffect");
 
             world = e.Parameters["World"];
             view = e.Parameters["View"];
@@ -75,9 +71,7 @@ namespace BBN_Game.Graphics.Skybox
 
             diffuseTex = e.Parameters["diffTex"];
 
-            cube.LoadContent(Game);
-
-            base.LoadContent();
+            sphere.LoadContent(gd);
         }
 
         /// <summary>
@@ -86,7 +80,7 @@ namespace BBN_Game.Graphics.Skybox
         /// <param name="gt">The game time</param>
         /// <param name="cam">The camera class</param>
         /// <param name="playerPos">The players position</param>
-        public void Draw(GameTime gt, Camera.CameraMatrices cam)
+        public void Draw(Matrix v, Matrix Projection, GraphicsDevice gd)
         {
             Matrix worldMatrix = Matrix.Identity;
 
@@ -94,19 +88,19 @@ namespace BBN_Game.Graphics.Skybox
             e.Techniques[0].Passes[0].Begin();
 
             world.SetValue(worldMatrix);
-            view.SetValue(cam.View);
-            projection.SetValue(cam.Projection);
+            view.SetValue(v);
+            projection.SetValue(Projection);
             diffuseTex.SetValue(text);
 
             e.CommitChanges();
 
-            GraphicsDevice.RenderState.CullMode = CullMode.None;
-            GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
+            gd.RenderState.CullMode = CullMode.None;
+            gd.RenderState.DepthBufferWriteEnable = false;
 
-            cube.draw(GraphicsDevice, cam);
+            sphere.draw(gd);
 
-            GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
-            GraphicsDevice.RenderState.CullMode = CullMode.CullCounterClockwiseFace;
+            gd.RenderState.DepthBufferWriteEnable = true;
+            gd.RenderState.CullMode = CullMode.CullCounterClockwiseFace;
 
             e.Techniques[0].Passes[0].End();
             e.End();
