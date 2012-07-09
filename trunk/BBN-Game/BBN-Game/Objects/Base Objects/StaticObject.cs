@@ -84,7 +84,7 @@ namespace BBN_Game.Objects
         /// </summary>
         protected float yawSpeed, rollSpeed, pitchSpeed, mass, greatestLength;
 
-        protected float Health;
+        protected float Health, totalHealth;
         protected float Shield;
 
         #region "Getters and setters"
@@ -169,6 +169,7 @@ namespace BBN_Game.Objects
             greatestLength = 10.0f;
             Shield = 100;
             Health = 100;
+            totalHealth = 100;
             numHudLines = 4;
             typeOfLine = PrimitiveType.LineStrip;
         }
@@ -234,6 +235,11 @@ namespace BBN_Game.Objects
             setWorldMatrix((float)gt.ElapsedGameTime.TotalSeconds, Matrix.CreateFromQuaternion(rotate));
 
             base.Update(gt);
+        }
+
+        public void doDamage(float dmg)
+        {
+            this.Health -= dmg;
         }
 
         /// <summary>

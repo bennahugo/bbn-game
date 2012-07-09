@@ -13,6 +13,12 @@ namespace BBN_Game.Objects
     {
         #region "Globals"
         protected float lifeSpan; // how long the bullet lasts
+        protected float Damage;
+
+        public float damage
+        {
+            get { return Damage; }
+        }
 
         public StaticObject parent;
 
@@ -35,6 +41,8 @@ namespace BBN_Game.Objects
             this.greatestLength = 2f;
             this.shipData.scale = 0.1f;
             this.lifeSpan = 15;
+
+            this.Damage = 10;
         }
 
         /// <summary>
