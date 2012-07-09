@@ -89,6 +89,10 @@ namespace BBN_Game.Objects
 
             this.numHudLines = 7;
             typeOfLine = PrimitiveType.LineList;
+
+            Shield = 100;
+            Health = 100;
+            totalHealth = 100;
         }
         
         /// <summary>
@@ -451,6 +455,12 @@ namespace BBN_Game.Objects
             int textWidth = (int)(HudBar.Width * (shipData.speed / maxSpeed));
 
             sb.Draw(HudBar, new Rectangle(barStartX, barStartY, barWidthX, barWidthY), new Rectangle(0, 0, textWidth, textHeight), new Color((shipData.speed / maxSpeed), 1 - (shipData.speed / maxSpeed), 0));
+            #endregion
+
+            #region "Health Bar"
+
+            sb.DrawString(f, this.Health.ToString("0000"), new Vector2(Game.GraphicsDevice.Viewport.Width / 2f - 10, 0), Color.Red);
+
             #endregion
 
             #region "Reload speeds"

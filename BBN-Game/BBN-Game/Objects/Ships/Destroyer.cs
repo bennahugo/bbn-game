@@ -29,6 +29,9 @@ namespace BBN_Game.Objects
             this.greatestLength = 6f;
             numHudLines = 4;
             typeOfLine = PrimitiveType.LineStrip;
+            Shield = 100;
+            Health = 100;
+            totalHealth = 100;
         }
 
 

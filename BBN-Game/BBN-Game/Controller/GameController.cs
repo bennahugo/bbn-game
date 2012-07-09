@@ -270,7 +270,13 @@ namespace BBN_Game.Controller
 
             ContainmentType contains = p.Contains(proj);
             if (contains == ContainmentType.Contains || contains == ContainmentType.Intersects)
+            {
+                if (projectile.parent.Equals(Player1))
+                    Player2.doDamage(projectile.damage);
+                else
+                    Player1.doDamage(projectile.damage);
                 projectile.destroy = true;
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace BBN_Game.Objects
     {
         #region "Globals"
         protected double EPSILON_DISTANCE = 0.0001f;
-        protected const float TURNING_SPEED_COEF = 0.9f;
+        protected const float TURNING_SPEED_COEF = 0.8f;
         private const float DISTANCE_TO_TARGET_IN_SECONDS_WHEN_VERY_CLOSE = 0.01f;
         private const float DISTANCE_TO_TARGET_IN_SECONDS_WHEN_CLOSE = 0.1f;
 
@@ -23,8 +23,8 @@ namespace BBN_Game.Objects
         #region "Constructors - Data settors"
         protected override void setData()
         {
-            this.rollSpeed = 1f;
-            this.yawSpeed = 1f;
+            this.rollSpeed = 0.9f;
+            this.yawSpeed = 0.9f;
             this.pitchSpeed = 1f;
             this.maxSpeed = 60;
             this.minSpeed = 0;
@@ -32,6 +32,8 @@ namespace BBN_Game.Objects
             this.greatestLength = 2f;
             this.shipData.scale = 0.1f;
             this.lifeSpan = 5.68f;
+
+            this.Damage = 0.5f;
         }
 
         /// <summary>

@@ -20,6 +20,10 @@ namespace BBN_Game.Objects
             this.greatestLength = 6f;
             numHudLines = 11;
             typeOfLine = PrimitiveType.TriangleList;
+
+            Shield = 100;
+            Health = 100;
+            totalHealth = 100;
         }
 
         /// <summary>
