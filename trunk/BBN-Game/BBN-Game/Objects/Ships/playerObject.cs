@@ -51,6 +51,8 @@ namespace BBN_Game.Objects
 
         private float [] reloadTimer;
 
+        protected Boolean twoPlayer;
+
         /// <summary>
         /// Getter and setter
         /// </summary>
@@ -100,7 +102,7 @@ namespace BBN_Game.Objects
         /// </summary>
         /// <param name="game"></param>
         /// <param name="index"></param>
-        public playerObject(Game game, Team team, Vector3 position, Vector3 startingDirection)
+        public playerObject(Game game, Team team, Vector3 position, Vector3 startingDirection, Boolean twoPlayer)
             : base(game, team, position)
         {
             this.index = team == Team.Red ? PlayerIndex.One : PlayerIndex.Two;
@@ -114,6 +116,8 @@ namespace BBN_Game.Objects
             reloadTimer = new float[3];
             for (int i = 0; i < 3; ++i)
                 reloadTimer[i] = 0;
+
+            this.twoPlayer = twoPlayer;
         }
 
         protected override void resetModels()
@@ -140,7 +144,7 @@ namespace BBN_Game.Objects
         {
             #region "Viewport initialization"
             playerViewport = Game.GraphicsDevice.Viewport;
-            playerViewport.Width = Game.GraphicsDevice.Viewport.Width / 2 - 1;
+            playerViewport.Width = twoPlayer ? Game.GraphicsDevice.Viewport.Width / 2 - 1 : Game.GraphicsDevice.Viewport.Width;
 
             // if player 2 it must start in a differant place
             if (index == PlayerIndex.Two)
