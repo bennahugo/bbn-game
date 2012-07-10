@@ -89,8 +89,8 @@ namespace BBN_Game.AI
             {
                 ptTemp = obstruction.Position + Vector3.Normalize(Matrix.CreateFromQuaternion(callingAI.rotation).Right) * dodgeDistance;
                 dodgeDistance *= 1.3f; //increase dodge distance
-                //foreach model in grid cells objects do 
-                //if (Collision_Detection.CollisionDetectionHelper.isPointInModelsBoundingBox(ptTemp,obj.model))
+                //foreach object in grid cells objects do 
+                //if ((object.position+ptTemp).Length() <= object.getGreatestLength + callingAI.getGreatestLength)
                 //bFlag = true;
                 //else
                 //bFlag = false;

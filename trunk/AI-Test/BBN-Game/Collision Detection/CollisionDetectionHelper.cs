@@ -274,14 +274,73 @@ namespace BBN_Game.Collision_Detection
                 intersect = -1;
             return intersected;
         }
-        public static bool isPointInModelsBoundingBox(Vector3 point, Model aModel)
+        /// <summary>
+        /// Method to check if a point is inside the bounding box of a model
+        /// </summary>
+        /// <param name="point">Point to check</param>
+        /// <param name="aModel">Model to check</param>
+        /// <param name="world">transformation matrix</param>
+        /// <returns></returns>
+        public static bool isPointInModelsBoundingBox(Vector3 point, Model aModel, Matrix world)
         {
             if (!(aModel.Tag is BoundingBox))
                 throw new Exception("Call ConstructObjectLevelBoundingBox first");
-            if (((BoundingBox)aModel.Tag).Contains(point) == ContainmentType.Contains)
+            if (TransformBox((BoundingBox)aModel.Tag,world).Contains(point) == ContainmentType.Contains)
                 return true;
             else
                 return false;
+        }
+        /// <summary>
+        /// Checks if a collision occured between two objects (only with respect to the boundingboxes of each of the model's meshparts)
+        /// </summary>
+        /// <param name="object1">First object's model's data</param>
+        /// <param name="object2">Second object's model's data </param>
+        /// <param name="object1Transformation">Transformation of first object into world space</param>
+        /// <param name="object2Transformation">Transformation of second object into world space</param>
+        /// <returns>True if such a collision is detected, false otherwise</returns>
+        public static bool isObjectsCollidingOnMeshPartLevel(Model object1, Model object2, Matrix object1Transformation, Matrix object2Transformation)
+        {
+            
+            if (!(object1.Tag is BoundingBox))
+                throw new Exception("Call the Collision Detection Helper's constructObjectLevelBoundingBox on arg1 load");
+            if (!(object2.Tag is BoundingBox))
+                throw new Exception("Call the Collision Detection Helper's constructObjectLevelBoundingBox on arg2 load");
+            
+            //Check if outer bounding boxes intersect:
+            if (!TransformBox((BoundingBox)object1.Tag, object1Transformation).Intersects(
+               TransformBox((BoundingBox)object2.Tag, object2Transformation)))
+                    return false;
+                
+            //Check now if mesh bounding boxes intersect:
+            foreach (ModelMesh mesh1 in object1.Meshes)
+            {
+                if (!(mesh1.Tag is BoundingBox))
+                    throw new Exception("Call the Collision Detection Helper's constructMeshLevelBoundingBox on arg1 load");
+                foreach (ModelMesh mesh2 in object2.Meshes)
+                {
+                    if (!(mesh2.Tag is BoundingBox))
+                        throw new Exception("Call the Collision Detection Helper's constructMeshLevelBoundingBox on arg2 load");
+                    if (TransformBox((BoundingBox)mesh1.Tag, object1Transformation).Intersects(
+                       TransformBox((BoundingBox)mesh2.Tag, object2Transformation)))
+                    {
+                        //Check now if one of the modelmeshparts' bounding boxes intersected:
+                        foreach (ModelMeshPart part1 in mesh1.MeshParts)
+                        {
+                            if (!(part1.Tag is object[] || (part1.Tag as object[]).Length >= 2 || (part1.Tag as object[])[0] is List<Triangle> || (part1.Tag as object[])[1] is List<BoundingBox>))
+                                throw new Exception("Call the Collision Detection Helper's Extract Model Data, ConstructMeshPartBoundingBoxes on arg1 load");
+                            foreach (ModelMeshPart part2 in mesh2.MeshParts)
+                            {
+                                if (!(part2.Tag is object[] || (part2.Tag as object[]).Length >= 2 || (part2.Tag as object[])[0] is List<Triangle> || (part2.Tag as object[])[1] is List<BoundingBox>))
+                                    throw new Exception("Call the Collision Detection Helper's Extract Model Data, ConstructMeshPartBoundingBoxes on arg2 load");
+                                if (TransformBox((BoundingBox)(part1.Tag as object[])[1], object1Transformation).Intersects(
+                                    TransformBox((BoundingBox)(part2.Tag as object[])[1], object2Transformation)))
+                                    return true;
+                            } //foreach part in mesh of model 2
+                        } //foreach part in mesh of model 1
+                    } //if meshes intersects
+                } //foreach mesh in model 2
+            } //foreach mesh in model 1
+            return false;
         }
     }
 }
