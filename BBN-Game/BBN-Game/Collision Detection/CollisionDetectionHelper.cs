@@ -19,7 +19,7 @@ namespace BBN_Game.Collision_Detection
         /// collision detection, but it can slow down per triangle collision detection if number is too large.
         /// For main game this number should be larger, since collisions are not detected per triangle there.
         /// </summary>
-        public const int NUM_TRIANGLES_PER_BOX = 3;
+        public const int NUM_TRIANGLES_PER_BOX = 10;
         /// <summary>
         /// Each model part will have several datastrutures associated with it so we need an array of objects to store them all
         /// </summary>
