@@ -109,9 +109,11 @@ namespace BBN_Game.Collision_Detection
                         continue;                   //if already calculated, don't calculate again
                     List<Triangle> currentList = (part.Tag as object[])[0] as List<Triangle>;
                     List<BoundingBox> results = new List<BoundingBox>();
+                    int numberOfBoxes = 0;
                     for (int i = 0;;)
                     {
                         List<Vector3> pointList = new List<Vector3>();
+                        //add until we added the correct number of triangles
                         if (i + NUM_TRIANGLES_PER_BOX < currentList.Count)
                             for (int j = 0; j < NUM_TRIANGLES_PER_BOX; j++)
                             {
@@ -120,7 +122,7 @@ namespace BBN_Game.Collision_Detection
                                 pointList.Add(currentTriangle.v2);
                                 pointList.Add(currentTriangle.v3);
                             }
-                        else
+                        else //or until we added to the end of the triangle list
                             for (int j = i; j < currentList.Count; j++)
                             {
                                 Triangle currentTriangle = currentList.ElementAt(j);
@@ -128,8 +130,12 @@ namespace BBN_Game.Collision_Detection
                                 pointList.Add(currentTriangle.v2);
                                 pointList.Add(currentTriangle.v3);
                             }
+                        //now add to model part list
                         results.Add(BoundingBox.CreateFromPoints(pointList));
-                        if (++i == currentList.Count)
+                        numberOfBoxes++;
+                        //increment i by correct amount (number of triangles or the end of the list, whichever comes first)
+                        i = Math.Min(i + NUM_TRIANGLES_PER_BOX, currentList.Count);
+                        if (i == currentList.Count)
                             break;
                     }
                     (part.Tag as object[])[1] = results;
@@ -323,7 +329,7 @@ namespace BBN_Game.Collision_Detection
                     if (TransformBox((BoundingBox)mesh1.Tag, object1Transformation).Intersects(
                        TransformBox((BoundingBox)mesh2.Tag, object2Transformation)))
                     {
-                        /*//Check now if one of the modelmeshparts' bounding boxes intersected:
+                        //Check now if one of the modelmeshparts' bounding boxes intersected:
                         foreach (ModelMeshPart part1 in mesh1.MeshParts)
                         {
                             if (!(part1.Tag is object[] || (part1.Tag as object[]).Length >= 2 || (part1.Tag as object[])[0] is List<Triangle> || (part1.Tag as object[])[1] is List<BoundingBox>))
@@ -341,8 +347,6 @@ namespace BBN_Game.Collision_Detection
                                             return true;
                             } //foreach part in mesh of model 2
                         } //foreach part in mesh of model 1
-                         */
-                        return true;
                     } //if meshes intersects
                 } //foreach mesh in model 2
             } //foreach mesh in model 1
