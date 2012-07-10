@@ -19,7 +19,7 @@ namespace BBN_Game.Collision_Detection
         /// collision detection, but it can slow down per triangle collision detection if number is too large.
         /// For main game this number should be larger, since collisions are not detected per triangle there.
         /// </summary>
-        public const int NUM_TRIANGLES_PER_BOX = 10;
+        public const int NUM_TRIANGLES_PER_BOX = 45;
         /// <summary>
         /// Each model part will have several datastrutures associated with it so we need an array of objects to store them all
         /// </summary>
@@ -312,6 +312,7 @@ namespace BBN_Game.Collision_Detection
                     return false;
                 
             //Check now if mesh bounding boxes intersect:
+            bool bFlag = false;
             foreach (ModelMesh mesh1 in object1.Meshes)
             {
                 if (!(mesh1.Tag is BoundingBox))
@@ -328,6 +329,7 @@ namespace BBN_Game.Collision_Detection
                         {
                             if (!(part1.Tag is object[] || (part1.Tag as object[]).Length >= 2 || (part1.Tag as object[])[0] is List<Triangle> || (part1.Tag as object[])[1] is List<BoundingBox>))
                                 throw new Exception("Call the Collision Detection Helper's Extract Model Data, ConstructMeshPartBoundingBoxes on arg1 load");
+
                             foreach (ModelMeshPart part2 in mesh2.MeshParts)
                             {
                                 if (!(part2.Tag is object[] || (part2.Tag as object[]).Length >= 2 || (part2.Tag as object[])[0] is List<Triangle> || (part2.Tag as object[])[1] is List<BoundingBox>))
@@ -337,10 +339,11 @@ namespace BBN_Game.Collision_Detection
                                     foreach (BoundingBox aPart2Box in ((part2.Tag as object[])[1] as List<BoundingBox>))
                                         if (TransformBox(aPart1Box, object1Transformation).Intersects(
                                             TransformBox(aPart2Box, object2Transformation)))
-                                                return true;
+                                            return true;
                             } //foreach part in mesh of model 2
                         } //foreach part in mesh of model 1
                     } //if meshes intersects
+                    if (bFlag) break;
                 } //foreach mesh in model 2
             } //foreach mesh in model 1
             return false;
