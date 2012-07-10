@@ -332,9 +332,12 @@ namespace BBN_Game.Collision_Detection
                             {
                                 if (!(part2.Tag is object[] || (part2.Tag as object[]).Length >= 2 || (part2.Tag as object[])[0] is List<Triangle> || (part2.Tag as object[])[1] is List<BoundingBox>))
                                     throw new Exception("Call the Collision Detection Helper's Extract Model Data, ConstructMeshPartBoundingBoxes on arg2 load");
-                                if (TransformBox((BoundingBox)(part1.Tag as object[])[1], object1Transformation).Intersects(
-                                    TransformBox((BoundingBox)(part2.Tag as object[])[1], object2Transformation)))
-                                    return true;
+                                //now check each of the bounding boxes in the list of boxes for this part against the bounding boxes in the other part's list
+                                foreach (BoundingBox aPart1Box in ((part1.Tag as object[])[1] as List<BoundingBox>))
+                                    foreach (BoundingBox aPart2Box in ((part2.Tag as object[])[1] as List<BoundingBox>))
+                                        if (TransformBox(aPart1Box, object1Transformation).Intersects(
+                                            TransformBox(aPart2Box, object2Transformation)))
+                                                return true;
                             } //foreach part in mesh of model 2
                         } //foreach part in mesh of model 1
                     } //if meshes intersects
