@@ -64,7 +64,7 @@ namespace BBN_Game.Controller
             // Set up the Variables
             gameState = GameState.Playing;
             prevGameState = GameState.notLoaded;
-            numPlayers = Players.single;
+            numPlayers = Players.two;
         }
 
         public void Initialize()
@@ -274,11 +274,8 @@ namespace BBN_Game.Controller
         // debug
         public void checkCollision(Objects.Projectile projectile)
         {
-            BoundingSphere p = projectile.parent.Equals(Player1) ? Player2.getBoundingShpere() : Player1.getBoundingShpere();
-            BoundingSphere proj = projectile.getBoundingShpere();
-
-            ContainmentType contains = p.Contains(proj);
-            if (contains == ContainmentType.Contains || contains == ContainmentType.Intersects)
+            
+            if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(projectile.shipModel, Player2.shipModel, projectile.getWorld, Player2.getWorld))
             {
                 if (projectile.parent.Equals(Player1))
                     Player2.doDamage(projectile.damage);
