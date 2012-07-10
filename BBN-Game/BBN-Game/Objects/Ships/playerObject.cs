@@ -276,6 +276,7 @@ namespace BBN_Game.Objects
             }
             #endregion
             #region "Player 2"
+            if (twoPlayer)
             if (index == PlayerIndex.Two)
             {
                 #region "Accel Deccel checks"

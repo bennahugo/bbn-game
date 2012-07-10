@@ -136,6 +136,10 @@ namespace BBN_Game.Objects
         {
             get { return greatestLength; }
         }
+        public Matrix getWorld
+        {
+            get { return world; }
+        }
         #endregion
         #endregion
 
