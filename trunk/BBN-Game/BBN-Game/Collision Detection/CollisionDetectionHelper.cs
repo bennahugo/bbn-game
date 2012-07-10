@@ -312,7 +312,6 @@ namespace BBN_Game.Collision_Detection
                     return false;
                 
             //Check now if mesh bounding boxes intersect:
-            bool bFlag = false;
             foreach (ModelMesh mesh1 in object1.Meshes)
             {
                 if (!(mesh1.Tag is BoundingBox))
@@ -324,7 +323,7 @@ namespace BBN_Game.Collision_Detection
                     if (TransformBox((BoundingBox)mesh1.Tag, object1Transformation).Intersects(
                        TransformBox((BoundingBox)mesh2.Tag, object2Transformation)))
                     {
-                        //Check now if one of the modelmeshparts' bounding boxes intersected:
+                        /*//Check now if one of the modelmeshparts' bounding boxes intersected:
                         foreach (ModelMeshPart part1 in mesh1.MeshParts)
                         {
                             if (!(part1.Tag is object[] || (part1.Tag as object[]).Length >= 2 || (part1.Tag as object[])[0] is List<Triangle> || (part1.Tag as object[])[1] is List<BoundingBox>))
@@ -342,8 +341,9 @@ namespace BBN_Game.Collision_Detection
                                             return true;
                             } //foreach part in mesh of model 2
                         } //foreach part in mesh of model 1
+                         */
+                        return true;
                     } //if meshes intersects
-                    if (bFlag) break;
                 } //foreach mesh in model 2
             } //foreach mesh in model 1
             return false;
