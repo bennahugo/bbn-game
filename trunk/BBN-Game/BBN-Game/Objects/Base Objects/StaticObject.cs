@@ -91,6 +91,14 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Getters and setters
         /// </summary>
+        public void doDamage(float dmg)
+        {
+            Health -= dmg;
+        }
+        public float getHealth
+        {
+            get { return Health; }
+        }
         public Team Team
         {
             get { return team; }
