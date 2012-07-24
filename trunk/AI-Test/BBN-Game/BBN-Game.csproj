@@ -90,7 +90,7 @@
     <Compile Include="AI\Node.cs" />
     <Compile Include="AI\PathInformation.cs" />
     <Compile Include="AI\SpawnPoint.cs" />
-    <Compile Include="AI\TeamAIController.cs" />
+    <Compile Include="AI\AIController.cs" />
     <Compile Include="AI\TeamInformation.cs" />
     <Compile Include="CamerasAndEffects\CameraMatrices.cs" />
     <Compile Include="CamerasAndEffects\ChaseCamera.cs" />
@@ -116,6 +116,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="ToolboxItem.cs" />
+    <Compile Include="TradingInformation.cs" />
     <Compile Include="Utils\Algorithms.cs" />
     <Compile Include="Utils\Cube.cs" />
     <Compile Include="Utils\PriorityQueue.cs" />

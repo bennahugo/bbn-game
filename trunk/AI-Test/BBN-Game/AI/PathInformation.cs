@@ -8,6 +8,9 @@ namespace BBN_Game.AI
     class PathInformation
     {
         private List<Node> objectRemainingPath;
+        /// <summary>
+        /// Gets or sets the remaining path, updating previous node, currentWaypoint and currentEdge
+        /// </summary>
         internal List<Node> remainingPath
         {
             get
@@ -38,6 +41,9 @@ namespace BBN_Game.AI
         {
             objectRemainingPath = new List<Node>();
         }
+        /// <summary>
+        /// Method to calculate what edge the object is travelling on (if any)
+        /// </summary>
         internal void calculateCurrentEdge()
         {
             if (previousNode == null)
@@ -57,6 +63,9 @@ namespace BBN_Game.AI
             }
             else currentEdge = null; //no path
         }
+        /// <summary>
+        /// Method to update remaining path variables when an object reaches its waypoint
+        /// </summary>
         internal void reachedWaypoint()
         {
             if (objectRemainingPath != null) //if there is a path

@@ -1,5 +1,4 @@
 using System;
-
 namespace BBN_Game
 {
     static class Program

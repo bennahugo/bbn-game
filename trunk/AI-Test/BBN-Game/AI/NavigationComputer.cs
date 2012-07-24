@@ -8,29 +8,22 @@ using BBN_Game.Utils;
 
 namespace BBN_Game.AI
 {
-    class NavigationComputer
+    static class NavigationComputer
     {
         private const float DISTANCE_TO_WAYPOINT_IN_SECONDS_WHEN_CLOSE = 0.5f;
         private const float DISTANCE_TO_WAYPOINT_IN_SECONDS_WHEN_VERY_CLOSE = 0.05f;
         private const double EPSILON_DISTANCE = 0.0001f;
         private const int TURN_INTERPOLATION_STEPS = 10;
         private const float TURNING_SPEED_COEF = 1.05f;
-        private Dictionary<DynamicObject, PathInformation> objectPaths;
+        private static Dictionary<DynamicObject, PathInformation> objectPaths = new Dictionary<DynamicObject, PathInformation>();
         /// <summary>
         /// Method to get the current Path of a registered object
         /// </summary>
         /// <param name="o">registered object</param>
         /// <returns>path if it exists. Either an empty list or Null otherwise</returns>
-        public List<Node> getPath(DynamicObject o)
+        public static List<Node> getPath(DynamicObject o)
         {
             return objectPaths[o].remainingPath;
-        }
-        /// <summary>
-        /// Default constructor for the class
-        /// </summary>
-        public NavigationComputer()
-        {
-            objectPaths = new Dictionary<DynamicObject, PathInformation>();
         }
         /// <summary>
         /// Sets a new path for an object if it is already registered
@@ -38,16 +31,26 @@ namespace BBN_Game.AI
         /// <param name="AIObject">Any registered dynamic object</param>
         /// <param name="start">Start node (should be close to the object if possible)</param>
         /// <param name="end">End node</param>
-        public void setNewPathForRegisteredObject(DynamicObject AIObject, Node start, Node end)
+        public static void setNewPathForRegisteredObject(DynamicObject AIObject, Node start, Node end)
         {
             if (objectPaths.Keys.Contains(AIObject))
-                objectPaths[AIObject].remainingPath = AStar(start, end);
+            {
+                List<Node> path = AStar(start, end);
+                if (path != null)
+                    objectPaths[AIObject].remainingPath = path;
+                else
+                {
+                    path = new List<Node>();
+                    path.Add(start);
+                    objectPaths[AIObject].remainingPath = path;
+                }
+            }
         }
         /// <summary>
         /// Method to register an object for computer-based navigation
         /// </summary>
         /// <param name="AIObject">Any dynamic object capable of moving</param>
-        public void registerObject(DynamicObject AIObject)
+        public static void registerObject(DynamicObject AIObject)
         {
             if (!objectPaths.Keys.Contains(AIObject))
                 objectPaths.Add(AIObject, new PathInformation());
@@ -56,7 +59,7 @@ namespace BBN_Game.AI
         /// Method to deregister an object in order to stop computer-based navigation for that object
         /// </summary>
         /// <param name="AIObject">Currently registered dynamic object</param>
-        public void deregisterObject(DynamicObject AIObject)
+        public static void deregisterObject(DynamicObject AIObject)
         {
             if (objectPaths.Keys.Contains(AIObject))
                 objectPaths.Remove(AIObject);
@@ -66,21 +69,21 @@ namespace BBN_Game.AI
         /// </summary>
         /// <param name="AIObject">Object to check</param>
         /// <returns>true iff object is registered</returns>
-        public bool isObjectRegistered(DynamicObject AIObject)
+        public static bool isObjectRegistered(DynamicObject AIObject)
         {
             return objectPaths.Keys.Contains(AIObject);
         }
-        public void SpecifyCollisionGrid(object collisionGrid)
+        public static void SpecifyCollisionGrid(object collisionGrid)
         {
             //TODO: Register collision grid
         }
-        private List<StaticObject> SpacialAwarenessTest(DynamicObject ai)
+        private static List<StaticObject> SpacialAwarenessTest(DynamicObject ai)
         {
             //TODO: STUB. Test if another object is not to close (otherwise we need to stop the ai for a while)
             //Return an empty list if ai may move
             return new List<StaticObject>();
         }
-        private void dodgeObject(DynamicObject callingAI,PathInformation callingAIPath, StaticObject obstruction)
+        private static void dodgeObject(DynamicObject callingAI, PathInformation callingAIPath, StaticObject obstruction)
         {
             bool bFlag = false;
             Vector3 ptTemp = Vector3.Zero;
@@ -100,7 +103,7 @@ namespace BBN_Game.AI
             path.Add(new Node(ptTemp, -1));
             callingAIPath.remainingPath = path;
         }
-        private void avoidCollisions(DynamicObject callingAI, List<StaticObject> obstructionsList)
+        private static void avoidCollisions(DynamicObject callingAI, List<StaticObject> obstructionsList)
         {
             PathInformation pathInfo = objectPaths[callingAI];
             StaticObject closestObstruction = obstructionsList.First();
@@ -130,7 +133,7 @@ namespace BBN_Game.AI
         /// Method to update the movement of all registered AI characters. The list of waypoints have to be in reverse order (as returned by the A*)
         /// </summary>
         /// <param name="gt">Game time as passed on by the game loop</param>
-        public void updateAIMovement(GameTime gt)
+        public static void updateAIMovement(GameTime gt)
         {
             foreach (DynamicObject ai in objectPaths.Keys)
             {
@@ -208,7 +211,6 @@ namespace BBN_Game.AI
         /// <returns>Path to end node if one is found, otherwise null</returns>
         public static List<Node> AStar(Node start, Node end)
         {
-
             List<Node> openList = new List<Node>();
             List<Node> visitedList = new List<Node>();
             openList.Add(start);
