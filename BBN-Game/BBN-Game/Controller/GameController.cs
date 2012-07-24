@@ -64,7 +64,7 @@ namespace BBN_Game.Controller
             // Set up the Variables
             gameState = GameState.Playing;
             prevGameState = GameState.notLoaded;
-            numPlayers = Players.two;
+            numPlayers = Players.single;
         }
 
         public void Initialize()

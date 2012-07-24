@@ -249,11 +249,6 @@ namespace BBN_Game.Objects
             base.Update(gt);
         }
 
-        public void doDamage(float dmg)
-        {
-            this.Health -= dmg;
-        }
-
         /// <summary>
         /// Sets the world matrix
         /// </summary>
