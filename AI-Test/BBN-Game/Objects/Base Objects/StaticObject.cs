@@ -91,6 +91,14 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Getters and setters
         /// </summary>
+        public void doDamage(float dmg)
+        {
+            Health -= dmg;
+        }
+        public float getHealth
+        {
+            get { return Health; }
+        }
         public Team Team
         {
             get { return team; }
@@ -135,6 +143,10 @@ namespace BBN_Game.Objects
         public float getGreatestLength
         {
             get { return greatestLength; }
+        }
+        public Matrix getWorld
+        {
+            get { return world; }
         }
         #endregion
         #endregion
@@ -235,11 +247,6 @@ namespace BBN_Game.Objects
             setWorldMatrix((float)gt.ElapsedGameTime.TotalSeconds, Matrix.CreateFromQuaternion(rotate));
 
             base.Update(gt);
-        }
-
-        public void doDamage(float dmg)
-        {
-            this.Health -= dmg;
         }
 
         /// <summary>

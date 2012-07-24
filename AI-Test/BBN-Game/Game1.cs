@@ -31,7 +31,6 @@ namespace BBN_Game
         //Camera
         Camera.ChaseCamera chasCam;
         SpriteFont spf;
-        AI.NavigationComputer navComputer;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -61,9 +60,8 @@ namespace BBN_Game
 
             //setup connections:
             BBNMap.loadMap("Content/patrolPath.xml", Content, GraphicsDevice);
-            navComputer = new NavigationComputer();
-            navComputer.registerObject(player1);
-            navComputer.setNewPathForRegisteredObject(player1, BBNMap.content["0"] as Node, BBNMap.content["8"] as Node);
+            NavigationComputer.registerObject(player1);
+            NavigationComputer.setNewPathForRegisteredObject(player1, BBNMap.content["0"] as Node, BBNMap.content["8"] as Node);
             bf = new BasicEffect(GraphicsDevice, null);
             base.Initialize();
         }
@@ -106,7 +104,7 @@ namespace BBN_Game
             // TODO: Add your update logic here
             player1.Update(gameTime);
            // des.Update(gameTime);
-            this.navComputer.updateAIMovement(gameTime);
+            NavigationComputer.updateAIMovement(gameTime);
             chasCam.update(gameTime, player1.Position, Matrix.CreateFromQuaternion(player1.rotation));
 
             base.Update(gameTime);
@@ -129,7 +127,7 @@ namespace BBN_Game
             base.Draw(gameTime);
             spriteBatch.Begin();
             spriteBatch.DrawString(spf,String.Format("Position: {0:0.00} ; {1:0.00} ; {2:0.00}",player1.Position.X,player1.Position.Y,player1.Position.Z),new Vector2(0,25),Color.Yellow);
-            List<Node> path = navComputer.getPath(player1);
+            List<Node> path = NavigationComputer.getPath(player1);
             if (path.Count > 0)
             {
                 Node nextWaypoint = path.Last();
