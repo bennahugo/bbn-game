@@ -132,6 +132,8 @@ namespace BBN_Game.Controller
                 {
                     checkCollision(p);
                 }
+
+                RemoveDeadObjects();
             }
         }
 
@@ -177,6 +179,18 @@ namespace BBN_Game.Controller
         #endregion
 
         #region "Add Objects"
+
+        /// <summary>
+        /// Loops through all the objects deleting those that should not exist
+        /// </summary>
+        private static void RemoveDeadObjects()
+        {
+            for (i = 0; i < AllObjects.Count; i++)
+            {
+                if (AllObjects.ElementAt(i).getHealth <= 0)
+                    removeObject(AllObjects.ElementAt(i));
+            }
+        }
 
         /// <summary>
         /// Adds the object Specified to the correct matricies
@@ -271,6 +285,10 @@ namespace BBN_Game.Controller
 
         #endregion
 
+        #region "Grid Data"
+
+        #endregion
+
         // debug
         public void checkCollision(Objects.Projectile projectile)
         {
@@ -281,7 +299,7 @@ namespace BBN_Game.Controller
                     Player2.doDamage(projectile.damage);
                 else
                     Player1.doDamage(projectile.damage);
-                projectile.destroy = true;
+                projectile.doDamage(1000);
             }
         }
     }
