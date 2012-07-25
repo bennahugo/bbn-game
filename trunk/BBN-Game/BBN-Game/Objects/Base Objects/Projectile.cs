@@ -21,12 +21,6 @@ namespace BBN_Game.Objects
         }
 
         public StaticObject parent;
-
-        public Boolean destroy // does the object need to be destroyed
-        {
-            get;
-            set;
-        }
         #endregion
 
         #region "Constructors"
@@ -53,6 +47,7 @@ namespace BBN_Game.Objects
         public Projectile(Game game, StaticObject parent)
             : base(game, Objects.Team.nutral, parent.Position + Vector3.Transform(new Vector3(0, -parent.getGreatestLength / 4, parent.getGreatestLength / 4), Matrix.CreateFromQuaternion(parent.rotation)))
         {
+            this.Health = 10;
             numHudLines = 3;
             typeOfLine = PrimitiveType.LineStrip;
 
@@ -76,8 +71,6 @@ namespace BBN_Game.Objects
 
             rotation = Quaternion.CreateFromYawPitchRoll(PYR.Y, PYR.X, PYR.Z);
 
-            this.destroy = false;
-
             this.shipData.speed = parent.ShipMovementInfo.speed;
 
             this.parent = parent;
@@ -91,10 +84,7 @@ namespace BBN_Game.Objects
             this.lifeSpan -= 1 * (float)gt.ElapsedGameTime.TotalSeconds;
 
             if (lifeSpan <= 0)
-                this.destroy = true;
-
-            if (this.destroy)
-                Controller.GameController.removeObject(this);
+                this.Health = 0;
 
             base.Update(gt);
         }
