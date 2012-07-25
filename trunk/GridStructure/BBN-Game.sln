@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C# Express 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBN-Game", "BBN-Game\BBN-Game.csproj", "{34B71AFD-2BD2-44AA-9461-7C2FB9CD4E32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34B71AFD-2BD2-44AA-9461-7C2FB9CD4E32}.Debug|x86.ActiveCfg = Debug|x86
+		{34B71AFD-2BD2-44AA-9461-7C2FB9CD4E32}.Debug|x86.Build.0 = Debug|x86
+		{34B71AFD-2BD2-44AA-9461-7C2FB9CD4E32}.Release|x86.ActiveCfg = Release|x86
+		{34B71AFD-2BD2-44AA-9461-7C2FB9CD4E32}.Release|x86.Build.0 = Release|x86
+		{9AEF0A7D-C97D-48B5-8E5F-5449CDA5045A}.Debug|x86.ActiveCfg = Debug|x86
+		{9AEF0A7D-C97D-48B5-8E5F-5449CDA5045A}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,2 @@
+C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\nathanf\Documents\Games\GameDev-repo\GridStructure\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
