@@ -18,6 +18,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BBN_Game.Objects
 {
+    enum CurrentCam
+    {
+        Chase = 0,
+        FirstPerson = 1
+    }
+
     class playerObject : DynamicObject
     {
         #region "Globals"
@@ -40,7 +46,10 @@ namespace BBN_Game.Objects
         
         protected float acceleration, deceleration;
 
+        CurrentCam cameraType = CurrentCam.Chase;
+
         Camera.ChaseCamera chaseCamera;
+        Camera.FirstPersonCam fpCamera;
 
         Viewport playerViewport;
 
@@ -53,12 +62,14 @@ namespace BBN_Game.Objects
 
         protected Boolean twoPlayer;
 
+        private KeyboardState oldState;
+
         /// <summary>
         /// Getter and setter
         /// </summary>
         public Camera.CameraMatrices Camera
         {
-            get { return new Camera.CameraMatrices(chaseCamera.view, chaseCamera.proj, chaseCamera.position, chaseCamera.viewingAnle); }
+            get { return cameraType.Equals(CurrentCam.Chase) ? new Camera.CameraMatrices(chaseCamera.view, chaseCamera.proj, chaseCamera.position, chaseCamera.viewingAnle) : new Camera.CameraMatrices(fpCamera.view, fpCamera.proj, fpCamera.Position, fpCamera.viewingAnle); }
         }
         public Viewport getViewport
         {
@@ -82,9 +93,9 @@ namespace BBN_Game.Objects
             this.deceleration = 15;
 
             this.mass = 10;
-            this.pitchSpeed = 50;
+            this.pitchSpeed = 40;
             this.rollSpeed = pitchSpeed * 1.5f;
-            this.yawSpeed = pitchSpeed;
+            this.yawSpeed = pitchSpeed * 0.75f;
             this.maxSpeed = 50;
             this.minSpeed = -10;
             this.greatestLength = 6f;
@@ -154,8 +165,12 @@ namespace BBN_Game.Objects
             #endregion
 
             #region "Camera initialization"
+            this.cameraType = CurrentCam.Chase;
             chaseCamera = new BBN_Game.Camera.ChaseCamera(playerViewport.Width, playerViewport.Height);
+            fpCamera = new BBN_Game.Camera.FirstPersonCam(playerViewport.Width, playerViewport.Height);
             #endregion
+
+            oldState = Keyboard.GetState();
 
             base.Initialize();
         }
@@ -187,6 +202,11 @@ namespace BBN_Game.Objects
             #region "Player 1"
             if (index == PlayerIndex.One)
             {
+                #region "Extra Controls (Camera)"
+                if (state.IsKeyDown(Keys.F1) && oldState.IsKeyUp(Keys.F1))
+                    cameraType = cameraType.Equals(CurrentCam.Chase) ? CurrentCam.FirstPerson : CurrentCam.Chase;
+                #endregion
+
                 #region "Accel Deccel checks"
                 if (state.IsKeyDown(Keys.W))
                 {
@@ -364,6 +384,8 @@ namespace BBN_Game.Objects
             for (int i = 0; i < 3; ++i)
                 reloadTimer[i] = reloadTimer[i] > 0 ? reloadTimer[i] - (1 * time) : 0;
             #endregion
+
+            oldState = state;
         }
 
         #endregion
@@ -417,7 +439,10 @@ namespace BBN_Game.Objects
         public override void Update(GameTime gt)
         {
             // todo add the if statement on the enum for cockpit View
-            chaseCamera.update(gt, Position, Matrix.CreateFromQuaternion(rotation));
+            if (cameraType.Equals(CurrentCam.Chase))
+                chaseCamera.update(gt, Position, Matrix.CreateFromQuaternion(rotation));
+            else
+                fpCamera.update(gt, Position, Matrix.CreateFromQuaternion(rotation), this.getGreatestLength);
 
             base.Update(gt);
         }
@@ -425,13 +450,22 @@ namespace BBN_Game.Objects
 
         #region "Draw"
 
+        public override void Draw(GameTime gameTime, BBN_Game.Camera.CameraMatrices cam)
+        {
+            drawHud();
+
+
+            if (true)
+                base.Draw(gameTime, cam);
+        }
+
         /// <summary>
         /// Draws the payers hud
         /// </summary>
         public void drawHud()
         {
-            //if (!Game.GraphicsDevice.Viewport.Equals(playerViewport)) removed cus it was made obsolete
-            //    return;
+            if (!Game.GraphicsDevice.Viewport.Equals(playerViewport))
+                return;
 
             GraphicsDevice.RenderState.DepthBufferEnable = false;
             GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
@@ -469,17 +503,7 @@ namespace BBN_Game.Objects
             #endregion
 
             #region "Reload speeds"
-            //sb.DrawString(f, reloadTimer[1].ToString("00"), new Vector2(0, 0), Color.Red);
-            #endregion
-
-            #region "Debug"
-
-            Vector3 tmp1 = MathEuler.AngleTo(Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(rotation)), Position);
-            sb.DrawString(f,tmp1.Y + " - " + tmp1.X + " - " + tmp1.Z, new Vector2(0, 0), Color.Yellow);
-            Vector3 tmp = MathEuler.QuaternionToEuler2(rotation);
-            sb.DrawString(f, tmp.X + " - " + tmp.Y + " - " + tmp.Z, new Vector2(0, 15), Color.Red);
-
-
+            sb.DrawString(f, reloadTimer[1].ToString("00"), new Vector2(0, 0), Color.Red);
             #endregion
 
             sb.End();
