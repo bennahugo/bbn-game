@@ -30,6 +30,7 @@ namespace BBN_Game
         Vector3 getLocation(int index);//return the location vector for specified index
         void removeAllLocations();//clear the list of grid locations containing the object
 
+        //can be found in Brandon's StaticObject class
         BoundingSphere getBoundingSphere();
         Vector3 Position
         {

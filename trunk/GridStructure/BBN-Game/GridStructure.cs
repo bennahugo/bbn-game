@@ -15,7 +15,8 @@ using Microsoft.Xna.Framework.Content;
  * Author: Nathan Floor
  * 
  * This class represents a 3 dimensional grid structure to be used for spatial lookups.
- * 
+ * This class provides the functionality to perform spatial lookups for any given object,
+ * as well as for any given point in space.
  * 
  */
 
@@ -126,9 +127,9 @@ namespace BBN_Game
                 blockZ = (int)Math.Round(gridBlock.Z);
 
                 //convert objects coords to grid coords
-                gridX = (int)Math.Round((double)((blockX * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
-                gridY = (int)Math.Round((double)((blockY * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
-                gridZ = (int)Math.Round((double)((blockZ * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
+                gridX = (int)Math.Round((double)(blockX / GRID_BLOCK_SIZE)) + 1;
+                gridY = (int)Math.Round((double)(blockY / GRID_BLOCK_SIZE)) + 1;
+                gridZ = (int)Math.Round((double)(blockZ / GRID_BLOCK_SIZE)) + 1;
                 
                 //check all 8 blocks surrounding object (as well as block object is in) for nearby objects
                 for (int x = -1; x < 2;x++)
@@ -139,12 +140,41 @@ namespace BBN_Game
             return neighbours;
         }
 
-        //check list of neighbours for duplicate entries
+        //find list of objects near/adjacent to current point in space
+        public List<GridObjectInterface> checkNeighbouringBlocks(Vector3 pointInSpace)
+        {
+            List<GridObjectInterface> neighbours = new List<GridObjectInterface>();
+            int gridX, gridY, gridZ;
+
+            //convert objects coords to grid coords
+            gridX = (int)Math.Round((double)(Math.Round(pointInSpace.X) / GRID_BLOCK_SIZE)) + 1;
+            gridY = (int)Math.Round((double)(Math.Round(pointInSpace.Y) / GRID_BLOCK_SIZE)) + 1;
+            gridZ = (int)Math.Round((double)(Math.Round(pointInSpace.Z) / GRID_BLOCK_SIZE)) + 1;
+            
+            //check all 8 blocks surrounding object (as well as block object is in) for nearby objects
+            for (int x = -1; x < 2; x++)
+                for (int y = -1; y < 2; y++)
+                    for (int z = -1; z < 2; z++)
+                        checkForDuplicates(neighbours, gridX + x, gridY + y, gridZ + z);
+            
+            return neighbours;
+        }
+        
+        //check list of neighbours to current object for duplicate entries
         private void checkForDuplicates(List<GridObjectInterface> nearByObjs, GridObjectInterface obj, int xcoord, int ycoord, int zcoord)
         {
             if ((xcoord >= 0) && (xcoord < grid.GetLength(0)) && (ycoord >= 0) && (ycoord < grid.GetLength(1)) && (zcoord >= 0) && (zcoord < grid.GetLength(2)))
                 for (int j = 0; j < grid[xcoord, ycoord, zcoord].Count; j++)
                     if (!nearByObjs.Contains(grid[xcoord, ycoord, zcoord].ElementAt(j)) && (obj != grid[xcoord, ycoord, zcoord].ElementAt(j)))
+                        nearByObjs.Add(grid[xcoord, ycoord, zcoord].ElementAt(j));
+        }
+
+        //check list of neighbours to point in space for duplicate entries
+        private void checkForDuplicates(List<GridObjectInterface> nearByObjs, int xcoord, int ycoord, int zcoord)
+        {
+            if ((xcoord >= 0) && (xcoord < grid.GetLength(0)) && (ycoord >= 0) && (ycoord < grid.GetLength(1)) && (zcoord >= 0) && (zcoord < grid.GetLength(2)))
+                for (int j = 0; j < grid[xcoord, ycoord, zcoord].Count; j++)
+                    if (!nearByObjs.Contains(grid[xcoord, ycoord, zcoord].ElementAt(j)))
                         nearByObjs.Add(grid[xcoord, ycoord, zcoord].ElementAt(j));
         }
     }
