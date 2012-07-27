@@ -29,27 +29,6 @@ namespace BBN_Game.Objects
 
     class StaticObject : DrawableGameComponent
     {
-        // debug
-        public BoundingSphere getBoundingSphere()
-        {
-            BoundingSphere sphere = new BoundingSphere();
-
-            sphere = new BoundingSphere();
-            foreach (ModelMesh m in model.Meshes)
-            {
-                if (sphere.Radius == 0)
-                    sphere = m.BoundingSphere;
-                else
-                    sphere = BoundingSphere.CreateMerged(sphere, m.BoundingSphere);
-            }
-            sphere.Radius *= this.shipData.scale * 0.8f;
-
-            sphere.Center = Position;
-
-            return sphere;
-        }
-
-
         #region "Variables"
         /// <summary>
         /// Globals
@@ -82,6 +61,8 @@ namespace BBN_Game.Objects
         #region "Grid blocks"
         protected List<Vector3> gridLocations;
         #endregion  
+
+        BoundingSphere Bsphere;
 
         /// <summary>
         /// Static variables for rotaion speeds
@@ -178,7 +159,7 @@ namespace BBN_Game.Objects
         /// </summary>
         public void removeAllLocations()
         {
-            gridLocations.Clear();
+            gridLocations = new List<Vector3>();
         }
         /// <summary>
         /// adds a grid location to the list
@@ -268,6 +249,9 @@ namespace BBN_Game.Objects
 
             #endregion
 
+            // neeeded for greatestLength
+            this.greatestLength = getGreatestLengthValue();
+
             base.LoadContent();
         }
 
@@ -318,7 +302,9 @@ namespace BBN_Game.Objects
         /// <returns>Boolean value - True is visible -- false - not visible</returns>
         public virtual bool IsVisible(Camera.CameraMatrices camera)
         {
-            BoundingSphere localSphere = this.getBoundingSphere();
+            BoundingSphere localSphere = Bsphere;
+
+            localSphere.Center = Position;
 
             ContainmentType contains = camera.getBoundingFrustum.Contains(localSphere);
             if (contains == ContainmentType.Contains || contains == ContainmentType.Intersects)
@@ -327,6 +313,24 @@ namespace BBN_Game.Objects
             return false;
         }
 
+        private int getGreatestLengthValue()
+        {
+            BoundingSphere sphere = new BoundingSphere();
+
+            sphere = new BoundingSphere();
+            foreach (ModelMesh m in model.Meshes)
+            {
+                if (sphere.Radius == 0)
+                    sphere = m.BoundingSphere;
+                else
+                    sphere = BoundingSphere.CreateMerged(sphere, m.BoundingSphere);
+            }
+            sphere.Radius *= this.shipData.scale;
+
+            Bsphere = sphere;
+
+            return (int)(sphere.Radius * 2);
+        }
         #endregion
 
         #region "Draw Methods"
@@ -389,7 +393,7 @@ namespace BBN_Game.Objects
                         this.Team.Equals(player.team) ? Color.Green : Color.Orange;
 
             float radiusOfObject;
-            radiusOfObject = greatestLength; // sets the greatest size of the object
+            radiusOfObject = greatestLength * 5f; // sets the greatest size of the object
 
             float distance = (Position - cam.Position).Length(); // distance the object is from the camera
             float radius = (greatestLength / 2) * shipData.scale; // a variable for checking distances away from camera
