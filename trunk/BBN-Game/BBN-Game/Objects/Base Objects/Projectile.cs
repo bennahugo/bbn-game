@@ -51,21 +51,6 @@ namespace BBN_Game.Objects
             numHudLines = 3;
             typeOfLine = PrimitiveType.LineStrip;
 
-            /// SIGH!!!!!!!
-            //rotation = parent.rotation;
-            //Matrix m = Matrix.CreateFromQuaternion(parent.rotation);
-
-            ////if (m.Backward.Y > 0)
-            ////    m.Forward = new Vector3(m.Forward.X, m.Forward.Y, m.Forward.Z * -1f);
-            ////if (m.Forward.Z > 0)
-            //m.Up = new Vector3(0, 1, 0);
-            //m.Forward = Vector3.Normalize(parent.Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(parent.rotation)));
-
-            //rotation = Quaternion.CreateFromRotationMatrix(m);
-
-            //rotation = parent.rotation;
-
-
             Vector3 foreward = this.Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(parent.rotation));
             Vector3 PYR = MathEuler.AngleTo(foreward, parent.Position);
 

@@ -30,7 +30,7 @@ namespace BBN_Game.Objects
     class StaticObject : DrawableGameComponent
     {
         // debug
-        public BoundingSphere getBoundingShpere()
+        public BoundingSphere getBoundingSphere()
         {
             BoundingSphere sphere = new BoundingSphere();
 
@@ -78,6 +78,10 @@ namespace BBN_Game.Objects
         SpriteFont targetBoxFont;
 
         #endregion
+
+        #region "Grid blocks"
+        protected List<Vector3> gridLocations;
+        #endregion  
 
         /// <summary>
         /// Static variables for rotaion speeds
@@ -151,6 +155,41 @@ namespace BBN_Game.Objects
         #endregion
         #endregion
 
+        #region "Grid required Methods"
+        /// <summary>
+        /// Returns the count of grid locations in the list
+        /// </summary>
+        /// <returns>number of locations</returns>
+        public int getCapacity()
+        {
+            return gridLocations.Count;
+        }
+        /// <summary>
+        /// Gets the specified location in the grid
+        /// </summary>
+        /// <param name="index">the index of the location</param>
+        /// <returns>the vector 3 location</returns>
+        public Vector3 getLocation(int index)
+        {
+            return gridLocations.ElementAt(index);
+        }
+        /// <summary>
+        /// Clears the grid locations
+        /// </summary>
+        public void removeAllLocations()
+        {
+            gridLocations.Clear();
+        }
+        /// <summary>
+        /// adds a grid location to the list
+        /// </summary>
+        /// <param name="location">Location in the grid</param>
+        public void setNewLocation(Vector3 location)
+        {
+            gridLocations.Add(location);
+        }
+        #endregion
+
         #region "Constructors"
 
         /// <summary>
@@ -167,6 +206,7 @@ namespace BBN_Game.Objects
             mass = 1000000000f; // static objects dont move
             this.team = team;
             setData();
+            gridLocations = new List<Vector3>();
         }
 
         /// <summary>
@@ -278,7 +318,7 @@ namespace BBN_Game.Objects
         /// <returns>Boolean value - True is visible -- false - not visible</returns>
         public virtual bool IsVisible(Camera.CameraMatrices camera)
         {
-            BoundingSphere localSphere = this.getBoundingShpere();
+            BoundingSphere localSphere = this.getBoundingSphere();
 
             ContainmentType contains = camera.getBoundingFrustum.Contains(localSphere);
             if (contains == ContainmentType.Contains || contains == ContainmentType.Intersects)

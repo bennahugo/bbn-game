@@ -35,7 +35,7 @@ namespace BBN_Game.Controller
     class GameController
     {
         #region "Object holders"
-        static List<Objects.StaticObject> AllObjects, Fighters, Destroyers, Towers, Asteroids, Projectiles;
+        static List<Objects.StaticObject> AllObjects, DynamicObjs, Fighters, Destroyers, Towers, Asteroids, Projectiles;
 
         Objects.playerObject Player1, Player2;
         Objects.Base Team1Base, Team2Base;
@@ -43,6 +43,8 @@ namespace BBN_Game.Controller
 
         #region "Graphics Devices"
         Graphics.Skybox.Skybox SkyBox;
+
+        static Grid.GridStructure gameGrid;
         #endregion
 
         #region "Game Controllers"
@@ -64,7 +66,7 @@ namespace BBN_Game.Controller
             // Set up the Variables
             gameState = GameState.Playing;
             prevGameState = GameState.notLoaded;
-            numPlayers = Players.two;
+            numPlayers = Players.single;
         }
 
         public void Initialize()
@@ -76,6 +78,7 @@ namespace BBN_Game.Controller
             Towers = new List<BBN_Game.Objects.StaticObject>();
             Asteroids = new List<BBN_Game.Objects.StaticObject>();
             Projectiles = new List<BBN_Game.Objects.StaticObject>();
+            DynamicObjs = new List<BBN_Game.Objects.StaticObject>();
             #endregion
 
             #region "Viewport setting"
@@ -102,9 +105,6 @@ namespace BBN_Game.Controller
 
                     SkyBox.Initialize();
                     SkyBox.loadContent();
-
-                    foreach (Objects.StaticObject obj in AllObjects)
-                        obj.LoadContent();
 
                     prevGameState = GameState.Playing;
 
@@ -134,6 +134,7 @@ namespace BBN_Game.Controller
                 }
 
                 RemoveDeadObjects();
+                changeMovements();
             }
         }
 
@@ -178,7 +179,13 @@ namespace BBN_Game.Controller
         }
         #endregion
 
-        #region "Add Objects"
+        #region "Objects methods"
+
+        private static void changeMovements()
+        {
+            foreach (Objects.StaticObject obj in DynamicObjs)
+                gameGrid.registerObject(obj);
+        }
 
         /// <summary>
         /// Loops through all the objects deleting those that should not exist
@@ -207,6 +214,7 @@ namespace BBN_Game.Controller
         {
             // initialise the object first
             Object.Initialize();
+            Object.LoadContent();
 
             if (Object is Objects.Fighter)
             {
@@ -222,15 +230,16 @@ namespace BBN_Game.Controller
             }
             else if (Object is Objects.Projectile)
             {
-                Objects.Projectile p = (Objects.Projectile)Object;
-                p.Initialize();
-                p.LoadContent();
-                Projectiles.Add(p);
+                Projectiles.Add(Object);
             }
-            
+
+            if (Object is Objects.DynamicObject)
+                DynamicObjs.Add(Object);
+
             // _____-----TODO----____ Add asteroids when class is made
 
             AllObjects.Add(Object);
+            gameGrid.registerObject(Object);
         }
 
         public static void removeObject(Objects.StaticObject Object)
@@ -252,8 +261,14 @@ namespace BBN_Game.Controller
                 Projectiles.Remove(Object);
             }
 
+            if (Object is Objects.DynamicObject)
+                DynamicObjs.Remove(Object);
+
             // _____-----TODO----____ Add asteroids when class is made
 
+
+
+            gameGrid.deregisterObject(Object);
             AllObjects.Remove(Object);
             --i;
         }
@@ -264,6 +279,9 @@ namespace BBN_Game.Controller
 
         protected void loadMap(string mapName)
         {
+            // Inititalise the grid.
+            gameGrid = new BBN_Game.Grid.GridStructure(20000, 2000, 20000, 50);
+
             // hardcoded for now
             // players
             addObject(Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, new Vector3(0, 0, -500), new Vector3(0,0,1), numPlayers.Equals(Players.single) ? false : true));
@@ -282,10 +300,6 @@ namespace BBN_Game.Controller
             game.Components.Add(SkyBox);
         }
 
-
-        #endregion
-
-        #region "Grid Data"
 
         #endregion
 
