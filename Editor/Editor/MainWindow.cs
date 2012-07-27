@@ -228,11 +228,11 @@ namespace Editor
                 Object item = BBNMap.content[cbxMapItems.SelectedItem.ToString().Split(':')[0].Trim()];
                 Vector3 xyz = getObjectPosition(item);
                 if (selectedXMoveLine)
-                    Algorithms.Draw3DLine(Microsoft.Xna.Framework.Graphics.Color.White, new Vector3(-farClip, xyz.Y, xyz.Z), new Vector3(farClip, xyz.Y, xyz.Z), basicEffect, gfxDevice, projection, view, Matrix.Identity);
+                    Algorithms.Draw3DLine(Microsoft.Xna.Framework.Graphics.Color.White, new Vector3(xyz.X - farClip, xyz.Y, xyz.Z), new Vector3(xyz.X+farClip, xyz.Y, xyz.Z), basicEffect, gfxDevice, projection, view, Matrix.Identity);
                 if (selectedYMoveLine)
-                    Algorithms.Draw3DLine(Microsoft.Xna.Framework.Graphics.Color.White, new Vector3(xyz.X, -farClip, xyz.Z), new Vector3(xyz.X, farClip, xyz.Z), basicEffect, gfxDevice, projection, view, Matrix.Identity);
+                    Algorithms.Draw3DLine(Microsoft.Xna.Framework.Graphics.Color.White, new Vector3(xyz.X, xyz.Y - farClip, xyz.Z), new Vector3(xyz.X, xyz.Y+farClip, xyz.Z), basicEffect, gfxDevice, projection, view, Matrix.Identity);
                 if (selectedZMoveLine)
-                    Algorithms.Draw3DLine(Microsoft.Xna.Framework.Graphics.Color.White, new Vector3(xyz.X, xyz.Y, -farClip), new Vector3(xyz.X, xyz.Y, farClip), basicEffect, gfxDevice, projection, view, Matrix.Identity);
+                    Algorithms.Draw3DLine(Microsoft.Xna.Framework.Graphics.Color.White, new Vector3(xyz.X, xyz.Y, xyz.Z - farClip), new Vector3(xyz.X, xyz.Y, xyz.Z + farClip), basicEffect, gfxDevice, projection, view, Matrix.Identity);
             }
             //Draw 2d effects over 3d environment:
             spriteBatch.Begin();
@@ -241,9 +241,14 @@ namespace Editor
             {
                 if (!(selectedXMoveLine || selectedYMoveLine || selectedZMoveLine))
                 {
-                    Algorithms.Draw2DLine(2, Microsoft.Xna.Framework.Graphics.Color.Green, xArrowBottom, xArrowTop, spriteBatch, blank);
-                    Algorithms.Draw2DLine(2, Microsoft.Xna.Framework.Graphics.Color.Red, yArrowBottom, yArrowTop, spriteBatch, blank);
-                    Algorithms.Draw2DLine(2, Microsoft.Xna.Framework.Graphics.Color.Blue, zArrowBottom, zArrowTop, spriteBatch, blank);
+                    Object item = BBNMap.content[cbxMapItems.SelectedItem.ToString().Split(':')[0].Trim()];
+                    Vector3 xyz = getObjectPosition(item);
+                    if (Vector3.Dot(Vector3.Normalize(cameraFocus-cameraPos), Vector3.Normalize(xyz - cameraPos)) >= 0)
+                    {
+                        Algorithms.Draw2DLine(2, Microsoft.Xna.Framework.Graphics.Color.Green, xArrowBottom, xArrowTop, spriteBatch, blank);
+                        Algorithms.Draw2DLine(2, Microsoft.Xna.Framework.Graphics.Color.Red, yArrowBottom, yArrowTop, spriteBatch, blank);
+                        Algorithms.Draw2DLine(2, Microsoft.Xna.Framework.Graphics.Color.Blue, zArrowBottom, zArrowTop, spriteBatch, blank);
+                    }
                 }
             }
             //Draw stats to screen:
@@ -1152,10 +1157,10 @@ namespace Editor
                 }
                 if (!(selectedXMoveLine || selectedYMoveLine || selectedZMoveLine)) //otherwise check if the user selected some object
                 {
-                    Vector3 vNear = gfxDevice.Viewport.Unproject(new Vector3(e.X, e.Y, 0f),
-                        projection, view, Matrix.Identity);
-                    Vector3 vFar = gfxDevice.Viewport.Unproject(new Vector3(e.X, e.Y, 1f),
-                        projection, view, Matrix.Identity);
+                    Vector3 vNear = gfxDevice.Viewport.Unproject(new Vector3(e.X, e.Y, 1f),
+                        projection, view, Matrix.CreateTranslation(0,0,0));
+                    Vector3 vFar = gfxDevice.Viewport.Unproject(new Vector3(e.X, e.Y, this.farClip),
+                        projection, view, Matrix.CreateTranslation(0, 0, 0));
                     float minDist = 0;
                     Drawer closestObj = null;
                     foreach (Object item in BBNMap.content.Values)
