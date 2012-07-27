@@ -304,7 +304,7 @@ namespace BBN_Game.Map
             skyBoxRepeat = Convert.ToSingle(skyboxIter.GetAttribute("repeat", nsmanager.DefaultNamespace));
             SetUpSkyBox(gfxDevice, contentMgr, texName, Convert.ToString(skyBoxRepeat));
             //Now read in path nodes:
-            iter = nav.Select("/Map/PathNode");
+            iter = nav.Select("/Map/Marker[@className!='SpawnPoint']");
             while (iter.MoveNext())
             {
                 Node n = new Node();
@@ -312,7 +312,7 @@ namespace BBN_Game.Map
                 content.Add(n.id, n);
             }
             //Read spawnpoints:
-            iter = nav.Select("/Map/ContentItem[@className='SpawnPoint']");
+            iter = nav.Select("/Map/Marker[@className='SpawnPoint']");
             while (iter.MoveNext())
             {
                 SpawnPoint n = new SpawnPoint();
@@ -320,7 +320,7 @@ namespace BBN_Game.Map
                 content.Add(n.id, n);
             }
             //Now read other content:
-            iter = nav.Select("/Map/ContentItem[@className!='SpawnPoint']");
+            iter = nav.Select("/Map/ContentItem");
             while (iter.MoveNext())
             {
                 Drawer n = new Drawer(false);
@@ -392,7 +392,7 @@ namespace BBN_Game.Map
                             if (!edgeList.Contains(edge))
                                 edgeList.Add(edge);
                         }
-                    writer.WriteStartElement("PathNode");
+                    writer.WriteStartElement("Marker");
                     writer.WriteAttributeString("id", (item as Marker).id);
                     writer.WriteAttributeString("className", (item as Marker).className);
                     writer.WriteAttributeString("type", (item as Marker).type);

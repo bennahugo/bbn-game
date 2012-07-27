@@ -4,7 +4,12 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+/////
+///
+/// Author - Benjamin Hugo
+/// 
+/// This class contains all the data needed for collision detection
+////
 namespace BBN_Game.Collision_Detection
 {
     public static class CollisionDetectionHelper
@@ -14,7 +19,7 @@ namespace BBN_Game.Collision_Detection
         /// collision detection, but it can slow down per triangle collision detection if number is too large.
         /// For main game this number should be larger, since collisions are not detected per triangle there.
         /// </summary>
-        public const int NUM_TRIANGLES_PER_BOX = 3;
+        public const int NUM_TRIANGLES_PER_BOX = 45;
         /// <summary>
         /// Each model part will have several datastrutures associated with it so we need an array of objects to store them all
         /// </summary>
@@ -23,6 +28,19 @@ namespace BBN_Game.Collision_Detection
         {
             part.Tag = new object[2];
         }
+
+        /// <summary>
+        /// Constructs All data needed using the mothods below (A one call method)
+        /// </summary>
+        /// <param name="model">The model to be deconstructed into bounding boxes</param>
+        public static void setModelData(Model model)
+        {
+            CollisionDetectionHelper.ExtractModelData(model);
+            CollisionDetectionHelper.ConstructMeshPartBoundingBoxes(model);
+            CollisionDetectionHelper.ConstructObjectLevelBoundingBox(model);
+            CollisionDetectionHelper.ConstructMeshLevelBoundingBox(model);
+        }
+
         /// <summary>
         /// Method to extract triangles from mesh
         /// Adapted from http://www.enchantedage.com/vertices-and-bounding-box-from-model-and-vertex-buffer-in-xna-framework
@@ -91,9 +109,11 @@ namespace BBN_Game.Collision_Detection
                         continue;                   //if already calculated, don't calculate again
                     List<Triangle> currentList = (part.Tag as object[])[0] as List<Triangle>;
                     List<BoundingBox> results = new List<BoundingBox>();
+                    int numberOfBoxes = 0;
                     for (int i = 0;;)
                     {
                         List<Vector3> pointList = new List<Vector3>();
+                        //add until we added the correct number of triangles
                         if (i + NUM_TRIANGLES_PER_BOX < currentList.Count)
                             for (int j = 0; j < NUM_TRIANGLES_PER_BOX; j++)
                             {
@@ -102,7 +122,7 @@ namespace BBN_Game.Collision_Detection
                                 pointList.Add(currentTriangle.v2);
                                 pointList.Add(currentTriangle.v3);
                             }
-                        else
+                        else //or until we added to the end of the triangle list
                             for (int j = i; j < currentList.Count; j++)
                             {
                                 Triangle currentTriangle = currentList.ElementAt(j);
@@ -110,8 +130,12 @@ namespace BBN_Game.Collision_Detection
                                 pointList.Add(currentTriangle.v2);
                                 pointList.Add(currentTriangle.v3);
                             }
+                        //now add to model part list
                         results.Add(BoundingBox.CreateFromPoints(pointList));
-                        if (++i == currentList.Count)
+                        numberOfBoxes++;
+                        //increment i by correct amount (number of triangles or the end of the list, whichever comes first)
+                        i = Math.Min(i + NUM_TRIANGLES_PER_BOX, currentList.Count);
+                        if (i == currentList.Count)
                             break;
                     }
                     (part.Tag as object[])[1] = results;
@@ -255,6 +279,78 @@ namespace BBN_Game.Collision_Detection
             else
                 intersect = -1;
             return intersected;
+        }
+        /// <summary>
+        /// Method to check if a point is inside the bounding box of a model
+        /// </summary>
+        /// <param name="point">Point to check</param>
+        /// <param name="aModel">Model to check</param>
+        /// <param name="world">transformation matrix</param>
+        /// <returns></returns>
+        public static bool isPointInModelsBoundingBox(Vector3 point, Model aModel, Matrix world)
+        {
+            if (!(aModel.Tag is BoundingBox))
+                throw new Exception("Call ConstructObjectLevelBoundingBox first");
+            if (TransformBox((BoundingBox)aModel.Tag,world).Contains(point) == ContainmentType.Contains)
+                return true;
+            else
+                return false;
+        }
+        /// <summary>
+        /// Checks if a collision occured between two objects (only with respect to the boundingboxes of each of the model's meshparts)
+        /// </summary>
+        /// <param name="object1">First object's model's data</param>
+        /// <param name="object2">Second object's model's data </param>
+        /// <param name="object1Transformation">Transformation of first object into world space</param>
+        /// <param name="object2Transformation">Transformation of second object into world space</param>
+        /// <returns>True if such a collision is detected, false otherwise</returns>
+        public static bool isObjectsCollidingOnMeshPartLevel(Model object1, Model object2, Matrix object1Transformation, Matrix object2Transformation)
+        {
+            
+            if (!(object1.Tag is BoundingBox))
+                throw new Exception("Call the Collision Detection Helper's constructObjectLevelBoundingBox on arg1 load");
+            if (!(object2.Tag is BoundingBox))
+                throw new Exception("Call the Collision Detection Helper's constructObjectLevelBoundingBox on arg2 load");
+            
+            //Check if outer bounding boxes intersect:
+            if (!TransformBox((BoundingBox)object1.Tag, object1Transformation).Intersects(
+               TransformBox((BoundingBox)object2.Tag, object2Transformation)))
+                    return false;
+                
+            //Check now if mesh bounding boxes intersect:
+            foreach (ModelMesh mesh1 in object1.Meshes)
+            {
+                if (!(mesh1.Tag is BoundingBox))
+                    throw new Exception("Call the Collision Detection Helper's constructMeshLevelBoundingBox on arg1 load");
+                foreach (ModelMesh mesh2 in object2.Meshes)
+                {
+                    if (!(mesh2.Tag is BoundingBox))
+                        throw new Exception("Call the Collision Detection Helper's constructMeshLevelBoundingBox on arg2 load");
+                    if (TransformBox((BoundingBox)mesh1.Tag, object1Transformation).Intersects(
+                       TransformBox((BoundingBox)mesh2.Tag, object2Transformation)))
+                    {
+                        //Check now if one of the modelmeshparts' bounding boxes intersected:
+                        foreach (ModelMeshPart part1 in mesh1.MeshParts)
+                        {
+                            if (!(part1.Tag is object[] || (part1.Tag as object[]).Length >= 2 || (part1.Tag as object[])[0] is List<Triangle> || (part1.Tag as object[])[1] is List<BoundingBox>))
+                                throw new Exception("Call the Collision Detection Helper's Extract Model Data, ConstructMeshPartBoundingBoxes on arg1 load");
+
+                            foreach (ModelMeshPart part2 in mesh2.MeshParts)
+                            {
+                                if (!(part2.Tag is object[] || (part2.Tag as object[]).Length >= 2 || (part2.Tag as object[])[0] is List<Triangle> || (part2.Tag as object[])[1] is List<BoundingBox>))
+                                    throw new Exception("Call the Collision Detection Helper's Extract Model Data, ConstructMeshPartBoundingBoxes on arg2 load");
+                                //now check each of the bounding boxes in the list of boxes for this part against the bounding boxes in the other part's list
+                                foreach (BoundingBox aPart1Box in ((part1.Tag as object[])[1] as List<BoundingBox>))
+                                    foreach (BoundingBox aPart2Box in ((part2.Tag as object[])[1] as List<BoundingBox>))
+                                        if (TransformBox(aPart1Box, object1Transformation).Intersects(
+                                            TransformBox(aPart2Box, object2Transformation)))
+                                            return true;
+                            } //foreach part in mesh of model 2
+                        } //foreach part in mesh of model 1
+                    } //if meshes intersects
+                } //foreach mesh in model 2
+            } //foreach mesh in model 1
+            return false;
         }
     }
 }
