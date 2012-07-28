@@ -27,7 +27,7 @@ namespace BBN_Game.Camera
         public Vector3 Up = Vector3.UnitY; // the up vector (in this case always up)
         public Vector3 offSet = new Vector3(0, 3.5f, -10f); // the offset we will be using
         public Vector3 targetPos; // the position the camera wants to go
-        public Vector3 LookAtOffset = new Vector3(0, 2f, 0); // the lookat offset (slightly above tank for view purposes)
+        public Vector3 LookAtOffset = new Vector3(0, 2f, 0); // the lookat offset (slightly above ship for view purposes)
         public Vector3 lookAt; // lookat saved variable
         public float DistanceCoEff = 1000.0f; // distance coeff determines the distance you can move away from target (the camera)
         public float Spunge = 600.0f; // stop oscilation

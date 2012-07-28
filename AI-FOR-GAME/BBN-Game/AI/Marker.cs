@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using BBN_Game.Grid;
 namespace BBN_Game.AI
 {
     /// <summary>
@@ -34,12 +35,11 @@ namespace BBN_Game.AI
             Position = vPosition;
             this.OwningTeam = OwningTeam;
         }
-
         #region GridObjectInterface Members
         private List<Vector3> locations = new List<Vector3>();
         void GridObjectInterface.setNewLocation(Vector3 newPosition)
         {
-            Position = newPosition;
+            locations.Add(newPosition);
         }
 
         int GridObjectInterface.getCapacity()
@@ -52,7 +52,10 @@ namespace BBN_Game.AI
 
         Vector3 GridObjectInterface.getLocation(int index)
         {
-            return locations[index];
+            if (locations != null)
+                return locations[index];
+            else
+                return Vector3.Zero;
         }
 
         void GridObjectInterface.removeAllLocations()
@@ -63,7 +66,7 @@ namespace BBN_Game.AI
 
         BoundingSphere GridObjectInterface.getBoundingSphere()
         {
-            return new BoundingSphere(this.Position, 0.1f);
+            return new BoundingSphere(this.Position, 0.00001f);
         }
 
         Vector3 GridObjectInterface.Position

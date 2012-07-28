@@ -21,12 +21,6 @@ namespace BBN_Game.Objects
         }
 
         public StaticObject parent;
-
-        public Boolean destroy // does the object need to be destroyed
-        {
-            get;
-            set;
-        }
         #endregion
 
         #region "Constructors"
@@ -53,30 +47,14 @@ namespace BBN_Game.Objects
         public Projectile(Game game, StaticObject parent)
             : base(game, Objects.Team.nutral, parent.Position + Vector3.Transform(new Vector3(0, -parent.getGreatestLength / 4, parent.getGreatestLength / 4), Matrix.CreateFromQuaternion(parent.rotation)))
         {
+            this.Health = 10;
             numHudLines = 3;
             typeOfLine = PrimitiveType.LineStrip;
-
-            /// SIGH!!!!!!!
-            //rotation = parent.rotation;
-            //Matrix m = Matrix.CreateFromQuaternion(parent.rotation);
-
-            ////if (m.Backward.Y > 0)
-            ////    m.Forward = new Vector3(m.Forward.X, m.Forward.Y, m.Forward.Z * -1f);
-            ////if (m.Forward.Z > 0)
-            //m.Up = new Vector3(0, 1, 0);
-            //m.Forward = Vector3.Normalize(parent.Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(parent.rotation)));
-
-            //rotation = Quaternion.CreateFromRotationMatrix(m);
-
-            //rotation = parent.rotation;
-
 
             Vector3 foreward = this.Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(parent.rotation));
             Vector3 PYR = MathEuler.AngleTo(foreward, parent.Position);
 
             rotation = Quaternion.CreateFromYawPitchRoll(PYR.Y, PYR.X, PYR.Z);
-
-            this.destroy = false;
 
             this.shipData.speed = parent.ShipMovementInfo.speed;
 
@@ -91,10 +69,7 @@ namespace BBN_Game.Objects
             this.lifeSpan -= 1 * (float)gt.ElapsedGameTime.TotalSeconds;
 
             if (lifeSpan <= 0)
-                this.destroy = true;
-
-            if (this.destroy)
-                Controller.GameController.removeObject(this);
+                this.Health = 0;
 
             base.Update(gt);
         }

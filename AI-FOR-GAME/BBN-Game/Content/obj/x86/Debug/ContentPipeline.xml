@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2012-07-03T08:09:00-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2012-07-03T17:09:00+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\distanceFont.spritefont</Source>
@@ -16,8 +16,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Fonts\distanceFont.xnb</Output>
-      <Time>2012-07-06T23:59:27-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Fonts\distanceFont.xnb</Output>
+      <Time>2012-07-07T08:59:27+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\FighterBlue.fbx</Source>
@@ -25,11 +25,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterBlue.xnb</Output>
-      <Time>2012-07-03T08:09:00-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterBlue.xnb</Output>
+      <Time>2012-07-03T17:09:00+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\FighterBlue_0.xml</Key>
-        <Value>2012-07-27T06:39:27.5120227-07:00</Value>
+        <Value>2012-07-28T13:04:57.4902195+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -38,11 +38,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterRed.xnb</Output>
-      <Time>2012-07-03T08:09:00-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterRed.xnb</Output>
+      <Time>2012-07-03T17:09:00+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\FighterRed_0.xml</Key>
-        <Value>2012-07-27T06:39:29.1188255-07:00</Value>
+        <Value>2012-07-28T13:04:59.0970223+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -51,11 +51,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerBlue.xnb</Output>
-      <Time>2012-07-04T15:36:53-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerBlue.xnb</Output>
+      <Time>2012-07-05T00:36:53+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\PlayerBlue_0.xml</Key>
-        <Value>2012-07-27T06:39:30.3824277-07:00</Value>
+        <Value>2012-07-28T13:05:00.3918246+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -64,11 +64,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerRed.xnb</Output>
-      <Time>2012-07-04T15:36:53-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerRed.xnb</Output>
+      <Time>2012-07-05T00:36:53+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\PlayerRed_0.xml</Key>
-        <Value>2012-07-27T06:39:31.69283-07:00</Value>
+        <Value>2012-07-28T13:05:01.6554268+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -77,11 +77,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Models\Projectiles\Missile.xnb</Output>
-      <Time>2012-07-06T23:59:27-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Models\Projectiles\Missile.xnb</Output>
+      <Time>2012-07-07T08:59:27+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Projectiles\Missile_0.xml</Key>
-        <Value>2012-07-27T06:39:32.831632-07:00</Value>
+        <Value>2012-07-28T13:05:02.7942288+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -90,8 +90,8 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Shader\skyBoxEffect.xnb</Output>
-      <Time>2012-07-03T08:09:00-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Shader\skyBoxEffect.xnb</Output>
+      <Time>2012-07-03T17:09:00+02:00</Time>
     </Item>
     <Item>
       <Source>Shader\targetBox.fx</Source>
@@ -99,8 +99,8 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Shader\targetBox.xnb</Output>
-      <Time>2012-07-04T15:36:53-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Shader\targetBox.xnb</Output>
+      <Time>2012-07-05T00:36:53+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\Starfield.png</Source>
@@ -108,8 +108,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\Starfield.xnb</Output>
-      <Time>2012-07-03T08:08:32-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\Starfield.xnb</Output>
+      <Time>2012-07-03T17:08:32+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\space1.jpg</Source>
@@ -117,8 +117,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\space1.xnb</Output>
-      <Time>2012-07-04T04:00:47-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\space1.xnb</Output>
+      <Time>2012-07-04T13:00:47+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\space2.jpg</Source>
@@ -126,8 +126,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\space2.xnb</Output>
-      <Time>2012-07-04T04:00:47-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\space2.xnb</Output>
+      <Time>2012-07-04T13:00:47+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\space3.jpg</Source>
@@ -135,8 +135,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\space3.xnb</Output>
-      <Time>2012-07-04T04:00:47-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\space3.xnb</Output>
+      <Time>2012-07-04T13:00:47+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\space4.jpg</Source>
@@ -144,8 +144,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\space4.xnb</Output>
-      <Time>2012-07-04T04:00:47-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\space4.xnb</Output>
+      <Time>2012-07-04T13:00:47+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\space5.jpg</Source>
@@ -153,8 +153,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\space5.xnb</Output>
-      <Time>2012-07-04T15:36:51-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\Skybox\space5.xnb</Output>
+      <Time>2012-07-05T00:36:51+02:00</Time>
     </Item>
     <Item>
       <Source>HudTextures\HealthBar.png</Source>
@@ -162,8 +162,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBar.xnb</Output>
-      <Time>2012-07-06T23:59:27-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBar.xnb</Output>
+      <Time>2012-07-07T08:59:27+02:00</Time>
     </Item>
     <Item>
       <Source>HudTextures\HealthBarHolder.png</Source>
@@ -171,78 +171,78 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBarHolder.xnb</Output>
-      <Time>2012-07-06T23:59:27-07:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBarHolder.xnb</Output>
+      <Time>2012-07-07T08:59:27+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\FighterBlue.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Ships\FighterBlue_0.xml</Output>
-      <Time>2012-07-03T08:09:00-07:00</Time>
+      <Time>2012-07-03T17:09:00+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\FighterRed.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Ships\FighterRed_0.xml</Output>
-      <Time>2012-07-03T08:09:00-07:00</Time>
+      <Time>2012-07-03T17:09:00+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\PlayerBlue.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Ships\PlayerBlue_0.xml</Output>
-      <Time>2012-07-04T15:36:53-07:00</Time>
+      <Time>2012-07-05T00:36:53+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\PlayerRed.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Ships\PlayerRed_0.xml</Output>
-      <Time>2012-07-04T15:36:53-07:00</Time>
+      <Time>2012-07-05T00:36:53+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Projectiles\Missile.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Projectiles\Missile_0.xml</Output>
-      <Time>2012-07-06T23:59:27-07:00</Time>
+      <Time>2012-07-07T08:59:27+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\AI-FOR-GAME\BBN-Game\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\AI-FOR-GAME\BBN-Game\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\AI-FOR-GAME\BBN-Game\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\benna\Desktop\repository\trunk\AI-FOR-GAME\BBN-Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-07:00</Value>
+        <Value>2009-05-14T20:13:52+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-07:00</Value>
+        <Value>2009-05-14T20:13:52+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-07:00</Value>
+        <Value>2009-05-14T20:13:52+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-07:00</Value>
+        <Value>2009-05-14T20:13:52+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2009-05-14T11:13:52-07:00</Value>
+        <Value>2009-05-14T20:13:52+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-07-27T06:34:58.2243532-07:00</Value>
+        <Value>2012-07-27T15:34:58.2243532+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

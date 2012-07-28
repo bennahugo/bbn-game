@@ -13,8 +13,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-using BBN_Game.AI;
 using BBN_Game.Map;
+using BBN_Game.AI;
 
 namespace BBN_Game.Controller
 {
@@ -37,7 +37,7 @@ namespace BBN_Game.Controller
     class GameController
     {
         #region "Object holders"
-        static List<Objects.StaticObject> AllObjects, Fighters, Destroyers, Towers, Asteroids, Projectiles;
+        static List<Objects.StaticObject> AllObjects, DynamicObjs, Fighters, Destroyers, Towers, Asteroids, Projectiles;
 
         Objects.playerObject Player1, Player2;
         Objects.Base Team1Base, Team2Base;
@@ -50,6 +50,7 @@ namespace BBN_Game.Controller
         #region "Game Controllers"
         GameState gameState, prevGameState;
         Players numPlayers;
+        static Grid.GridStructure gameGrid;
         #endregion
 
         #region "Global Data Holders"
@@ -78,6 +79,7 @@ namespace BBN_Game.Controller
             Towers = new List<BBN_Game.Objects.StaticObject>();
             Asteroids = new List<BBN_Game.Objects.StaticObject>();
             Projectiles = new List<BBN_Game.Objects.StaticObject>();
+            DynamicObjs = new List<BBN_Game.Objects.StaticObject>();
             #endregion
 
             #region "Viewport setting"
@@ -105,9 +107,6 @@ namespace BBN_Game.Controller
                     SkyBox.Initialize();
                     SkyBox.loadContent();
 
-                    foreach (Objects.StaticObject obj in AllObjects)
-                        obj.LoadContent();
-
                     prevGameState = GameState.Playing;
 
                     Player2.Target = Player1;
@@ -134,6 +133,9 @@ namespace BBN_Game.Controller
                 {
                     checkCollision(p);
                 }
+
+                RemoveDeadObjects();
+                moveObjectsInGrid();
             }
         }
 
@@ -180,7 +182,25 @@ namespace BBN_Game.Controller
         }
         #endregion
 
-        #region "Add Objects"
+        #region "Objects methods"
+
+        private static void moveObjectsInGrid()
+        {
+            foreach (Objects.StaticObject obj in DynamicObjs)
+                gameGrid.registerObject(obj);
+        }
+
+        /// <summary>
+        /// Loops through all the objects deleting those that should not exist
+        /// </summary>
+        private static void RemoveDeadObjects()
+        {
+            for (i = 0; i < AllObjects.Count; i++)
+            {
+                if (AllObjects.ElementAt(i).getHealth <= 0)
+                    AllObjects.ElementAt(i).killObject();
+            }
+        }
 
         /// <summary>
         /// Adds the object Specified to the correct matricies
@@ -197,6 +217,7 @@ namespace BBN_Game.Controller
         {
             // initialise the object first
             Object.Initialize();
+            Object.LoadContent();
 
             if (Object is Objects.Fighter)
             {
@@ -212,14 +233,15 @@ namespace BBN_Game.Controller
             }
             else if (Object is Objects.Projectile)
             {
-                Objects.Projectile p = (Objects.Projectile)Object;
-                p.Initialize();
-                p.LoadContent();
-                Projectiles.Add(p);
+                Projectiles.Add(Object);
             }
-            
+
+            if (Object is Objects.DynamicObject)
+                DynamicObjs.Add(Object);
+
             // _____-----TODO----____ Add asteroids when class is made
 
+            gameGrid.registerObject(Object);
             AllObjects.Add(Object);
         }
 
@@ -242,8 +264,13 @@ namespace BBN_Game.Controller
                 Projectiles.Remove(Object);
             }
 
+            if (Object is Objects.DynamicObject)
+                DynamicObjs.Remove(Object);
+
             // _____-----TODO----____ Add asteroids when class is made
 
+
+            gameGrid.deregisterObject(Object);
             AllObjects.Remove(Object);
             --i;
         }
@@ -254,13 +281,17 @@ namespace BBN_Game.Controller
 
         protected void loadMap(string mapName)
         {
+            TempLoader.loadMap("Content/patrolPath.xml", this.game.Content, this.game.GraphicsDevice);
+            gameGrid = new BBN_Game.Grid.GridStructure((int)Math.Ceiling(TempLoader.getMapRadius()*2), (int)Math.Ceiling(TempLoader.getMapRadius()*2), (int)Math.Ceiling(TempLoader.getMapRadius()*2), 50);
+            AITest.gridStructure = gameGrid;
+            
             Objects.Turret turretR;
             Objects.Turret turretB;
             // hardcoded for now
             // players
-            addObject(Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, new Vector3(0, 0, -500), new Vector3(0,0,1), numPlayers.Equals(Players.single) ? false : true));
+            addObject(Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, new Vector3(0, 0, -500), new Vector3(0, 0, 1), numPlayers.Equals(Players.single) ? false : true));
             addObject(Player2 = new BBN_Game.Objects.playerObject(game, Objects.Team.Blue, new Vector3(0, 0, 500), new Vector3(0, 0, -1), numPlayers.Equals(Players.single) ? false : true));
-          
+
             // Bases
             addObject(Team1Base = new BBN_Game.Objects.Base(game, Objects.Team.Red, new Vector3(10, 5, -510)));
             addObject(Team2Base = new BBN_Game.Objects.Base(game, Objects.Team.Blue, new Vector3(-10, 5, 500)));
@@ -272,8 +303,8 @@ namespace BBN_Game.Controller
             // skybox
             SkyBox = new BBN_Game.Graphics.Skybox.Skybox(game, "Starfield", 100000, 10);
             game.Components.Add(SkyBox);
+
             
-            TempLoader.loadMap("Content/patrolPath.xml", this.game.Content, this.game.GraphicsDevice);
             AITest.navComputer = new NavigationComputer();
             AITest.navComputer.registerObject(Player1);
             List<Node> t1ownedNodes = new List<Node>();
@@ -287,6 +318,7 @@ namespace BBN_Game.Controller
                         t1ownedNodes.Add(content as Node);
                     else if ((content as Node).OwningTeam == 1)
                         t2ownedNodes.Add(content as Node);
+                    gameGrid.registerObject(content as Node);
                 }
                 else if (content is SpawnPoint)
                 {
@@ -294,18 +326,20 @@ namespace BBN_Game.Controller
                         t1spawnPoints.Add(content as SpawnPoint);
                     else if ((content as SpawnPoint).OwningTeam == 1)
                         t2spawnPoints.Add(content as SpawnPoint);
+                    gameGrid.registerObject(content as SpawnPoint);
                 }
             List<Objects.Turret> turretListR = new List<Objects.Turret>();
             turretListR.Add(turretR);
             List<Objects.Turret> turretListB = new List<Objects.Turret>();
             turretListR.Add(turretB);
-            TeamInformation tiR = new TeamInformation(Objects.Team.Red, false, turretListR, 5000, Player1, t1ownedNodes, t1spawnPoints, (uint)25, (uint)10, Team1Base);
-            TeamInformation tiB = new TeamInformation(Objects.Team.Blue, numPlayers.Equals(Players.single) ? true : false, turretListR, 5000, Player2, t2ownedNodes, t2spawnPoints, (uint)25, (uint)10, Team2Base);
-            AITest.gridStructure = new GridStructure((int)Math.Ceiling(TempLoader.getMapRadius()), (int)Math.Ceiling(TempLoader.getMapRadius()), (int)Math.Ceiling(TempLoader.getMapRadius()), 500);
-            AITest.myAIController = new AIController(AITest.gridStructure, AITest.navComputer,this);
+            TeamInformation tiR = new TeamInformation(Objects.Team.Red, false, turretListR, 1000, Player1, t1ownedNodes, t1spawnPoints, (uint)25, (uint)10, Team1Base);
+            TeamInformation tiB = new TeamInformation(Objects.Team.Blue, numPlayers.Equals(Players.single) ? true : false, turretListR, 6000, Player2, t2ownedNodes, t2spawnPoints, (uint)25, (uint)10, Team2Base);
+            
+            AITest.myAIController = new AIController(AITest.gridStructure, AITest.navComputer, this);
             AITest.myAIController.registerTeam(tiR);
             AITest.myAIController.registerTeam(tiB);
         }
+
 
         #endregion
 
@@ -319,7 +353,7 @@ namespace BBN_Game.Controller
                     Player2.doDamage(projectile.damage);
                 else
                     Player1.doDamage(projectile.damage);
-                projectile.destroy = true;
+                projectile.doDamage(1000);
             }
         }
     }
