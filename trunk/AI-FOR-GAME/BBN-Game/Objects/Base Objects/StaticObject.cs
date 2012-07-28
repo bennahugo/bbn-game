@@ -27,29 +27,8 @@ namespace BBN_Game.Objects
         nutral = 2
     }
 
-    class StaticObject : DrawableGameComponent
+    class StaticObject : DrawableGameComponent, Grid.GridObjectInterface
     {
-        // debug
-        public BoundingSphere getBoundingShpere()
-        {
-            BoundingSphere sphere = new BoundingSphere();
-
-            sphere = new BoundingSphere();
-            foreach (ModelMesh m in model.Meshes)
-            {
-                if (sphere.Radius == 0)
-                    sphere = m.BoundingSphere;
-                else
-                    sphere = BoundingSphere.CreateMerged(sphere, m.BoundingSphere);
-            }
-            sphere.Radius *= this.shipData.scale * 0.8f;
-
-            sphere.Center = Position;
-
-            return sphere;
-        }
-
-
         #region "Variables"
         /// <summary>
         /// Globals
@@ -79,6 +58,12 @@ namespace BBN_Game.Objects
 
         #endregion
 
+        #region "Grid blocks"
+        protected List<Vector3> gridLocations;
+        #endregion  
+
+        BoundingSphere Bsphere;
+
         /// <summary>
         /// Static variables for rotaion speeds
         /// </summary>
@@ -91,6 +76,10 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Getters and setters
         /// </summary>
+        public BoundingSphere getBoundingSphere()
+        {
+            return Bsphere;
+        }
         public void doDamage(float dmg)
         {
             Health -= dmg;
@@ -119,7 +108,7 @@ namespace BBN_Game.Objects
         public Vector3 Position
         {
             get { return shipData.position; }
-            set { shipData.position = value; }
+            set { shipData.position = value; Bsphere.Center = value; }
         }
         public Quaternion rotation
         {
@@ -151,6 +140,41 @@ namespace BBN_Game.Objects
         #endregion
         #endregion
 
+        #region "Grid required Methods"
+        /// <summary>
+        /// Returns the count of grid locations in the list
+        /// </summary>
+        /// <returns>number of locations</returns>
+        public int getCapacity()
+        {
+            return gridLocations.Count;
+        }
+        /// <summary>
+        /// Gets the specified location in the grid
+        /// </summary>
+        /// <param name="index">the index of the location</param>
+        /// <returns>the vector 3 location</returns>
+        public Vector3 getLocation(int index)
+        {
+            return gridLocations.ElementAt(index);
+        }
+        /// <summary>
+        /// Clears the grid locations
+        /// </summary>
+        public void removeAllLocations()
+        {
+            gridLocations = new List<Vector3>();
+        }
+        /// <summary>
+        /// adds a grid location to the list
+        /// </summary>
+        /// <param name="location">Location in the grid</param>
+        public void setNewLocation(Vector3 location)
+        {
+            gridLocations.Add(location);
+        }
+        #endregion
+
         #region "Constructors"
 
         /// <summary>
@@ -167,6 +191,7 @@ namespace BBN_Game.Objects
             mass = 1000000000f; // static objects dont move
             this.team = team;
             setData();
+            gridLocations = new List<Vector3>();
         }
 
         /// <summary>
@@ -228,6 +253,9 @@ namespace BBN_Game.Objects
 
             #endregion
 
+            // neeeded for greatestLength
+            this.greatestLength = getGreatestLengthValue();
+
             base.LoadContent();
         }
 
@@ -278,7 +306,9 @@ namespace BBN_Game.Objects
         /// <returns>Boolean value - True is visible -- false - not visible</returns>
         public virtual bool IsVisible(Camera.CameraMatrices camera)
         {
-            BoundingSphere localSphere = this.getBoundingShpere();
+            BoundingSphere localSphere = Bsphere;
+
+            localSphere.Center = Position;
 
             ContainmentType contains = camera.getBoundingFrustum.Contains(localSphere);
             if (contains == ContainmentType.Contains || contains == ContainmentType.Intersects)
@@ -287,6 +317,29 @@ namespace BBN_Game.Objects
             return false;
         }
 
+        private int getGreatestLengthValue()
+        {
+            BoundingSphere sphere = new BoundingSphere();
+
+            sphere = new BoundingSphere();
+            foreach (ModelMesh m in model.Meshes)
+            {
+                if (sphere.Radius == 0)
+                    sphere = m.BoundingSphere;
+                else
+                    sphere = BoundingSphere.CreateMerged(sphere, m.BoundingSphere);
+            }
+            sphere.Radius *= this.shipData.scale;
+
+            Bsphere = sphere;
+
+            return (int)(sphere.Radius * 2);
+        }
+
+        public virtual void killObject()
+        {
+            Controller.GameController.removeObject(this);  
+        }
         #endregion
 
         #region "Draw Methods"
@@ -345,11 +398,16 @@ namespace BBN_Game.Objects
         /// <returns></returns>
         private Boolean setVertexCoords(Camera.CameraMatrices cam, Vector2 screenViewport, playerObject player)
         {
-            Color col = this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.nutral) ? Color.Yellow :
+            Color col;
+            if (this is Objects.Turret)
+                col = ((Objects.Turret)this).Repairing ? Color.Aqua : this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.nutral) ? Color.Yellow :
+                        this.Team.Equals(player.team) ? Color.Green : Color.Orange;
+            else
+                col = this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.nutral) ? Color.Yellow :
                         this.Team.Equals(player.team) ? Color.Green : Color.Orange;
 
             float radiusOfObject;
-            radiusOfObject = greatestLength; // sets the greatest size of the object
+            radiusOfObject = greatestLength * 5f; // sets the greatest size of the object
 
             float distance = (Position - cam.Position).Length(); // distance the object is from the camera
             float radius = (greatestLength / 2) * shipData.scale; // a variable for checking distances away from camera

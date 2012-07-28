@@ -95,6 +95,7 @@
     <Compile Include="AI\TeamInformation.cs" />
     <Compile Include="CamerasAndEffects\CameraMatrices.cs" />
     <Compile Include="CamerasAndEffects\ChaseCamera.cs" />
+    <Compile Include="CamerasAndEffects\FirstPersonCam.cs" />
     <Compile Include="CamerasAndEffects\LightAndFog.cs" />
     <Compile Include="Collision Detection\CollisionDetectionHelper.cs" />
     <Compile Include="Collision Detection\Triangle.cs" />
@@ -104,8 +105,8 @@
     <Compile Include="Graphics\Shapes\QuadDrawer.cs" />
     <Compile Include="Graphics\Skybox\Skybox.cs" />
     <Compile Include="Graphics\Shapes\Sphere.cs" />
-    <Compile Include="GridObjectInterface.cs" />
-    <Compile Include="GridStructure.cs" />
+    <Compile Include="Grid\GridObjectInterface.cs" />
+    <Compile Include="Grid\GridStructure.cs" />
     <Compile Include="Map\TempLoader.cs" />
     <Compile Include="Map\MapContent.cs" />
     <Compile Include="MathEuler.cs" />

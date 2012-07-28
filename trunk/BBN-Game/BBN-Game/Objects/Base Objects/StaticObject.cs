@@ -108,7 +108,7 @@ namespace BBN_Game.Objects
         public Vector3 Position
         {
             get { return shipData.position; }
-            set { shipData.position = value; }
+            set { shipData.position = value; Bsphere.Center = value; }
         }
         public Quaternion rotation
         {

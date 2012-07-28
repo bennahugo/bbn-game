@@ -5,6 +5,7 @@ using System.Text;
 using BBN_Game.Objects;
 using Microsoft.Xna.Framework;
 using BBN_Game.Controller;
+using BBN_Game.Grid;
 
 namespace BBN_Game.AI
 {
@@ -31,6 +32,7 @@ namespace BBN_Game.AI
         private GridStructure spatialGrid;
         private NavigationComputer navComputer;
         private GameController gameController;
+        private Random randomizer;
         #region "Public methods"
         public AIController(GridStructure spatialGrid, NavigationComputer navComputer, GameController gameController)
         {
@@ -38,6 +40,7 @@ namespace BBN_Game.AI
             this.spatialGrid = spatialGrid;
             this.navComputer = navComputer;
             this.gameController = gameController;
+            randomizer = new Random();
         }
         #region "Team Information"
         public void registerTeam(TeamInformation ti)
@@ -295,7 +298,7 @@ namespace BBN_Game.AI
         private Node getRandomPatrolNode(TeamInformation ti)
         {
             if (ti.teamOwnedNodes.Count > 0)
-                return ti.teamOwnedNodes.ElementAt(new Random().Next(0, ti.teamOwnedNodes.Count - 1));
+                return ti.teamOwnedNodes.ElementAt(randomizer.Next(0, ti.teamOwnedNodes.Count - 1));
             else return null;
         }
         #region "Spawning Code"
@@ -352,19 +355,25 @@ namespace BBN_Game.AI
                         List < GridObjectInterface > vacinity = this.spatialGrid.checkNeighbouringBlocks(sp.Position);
                         bool bCanSpawn = true;
                         obj.Position = sp.Position;
-                        //this.spatialGrid.registerObject(obj);
                         navComputer.registerObject(obj);
                         foreach (GridObjectInterface nearbyObject in vacinity)
                             if (!(nearbyObject is Marker))
-                                if (nearbyObject.getBoundingSphere().Intersects(obj.getBoundingShpere()))
+                            {
+                                BoundingSphere sphere1 = nearbyObject.getBoundingSphere();
+                                BoundingSphere sphere2 = obj.getBoundingSphere();
+                                if (sphere1.Intersects(sphere2))
                                 {
                                     bCanSpawn = false;
                                     break;
                                 }
+                            }
                         if (bCanSpawn)
                         {
-                            GameController.addObject(obj);
                             spawnedList.Add(obj);
+                            GameController.addObject(obj);
+                            obj.Position = sp.Position;
+                            spatialGrid.registerObject(obj);
+                            break;
                         }
                     }
                 foreach (DynamicObject removal in spawnedList)

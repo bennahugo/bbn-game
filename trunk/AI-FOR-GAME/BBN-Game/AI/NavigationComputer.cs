@@ -5,6 +5,7 @@ using System.Text;
 using BBN_Game.Objects;
 using Microsoft.Xna.Framework;
 using BBN_Game.Utils;
+using BBN_Game.Grid;
 
 namespace BBN_Game.AI
 {
