@@ -74,7 +74,7 @@ namespace BBN_Game.Grid
             deregisterObject(obj);
 
             //get the width/diameter of object in terms of grid blocks
-            int objectWidth = (int)Math.Ceiling(((obj.getBoundingSphere().Radius*2) / GRID_BLOCK_SIZE));
+            int objectWidth = (int)Math.Ceiling(((obj.getBoundingSphere().Radius * 2) / GRID_BLOCK_SIZE));
             int texX, texY, texZ;
             int objX, objY, objZ;
 
