@@ -43,8 +43,6 @@ namespace BBN_Game.Controller
 
         #region "Graphics Devices"
         Graphics.Skybox.Skybox SkyBox;
-
-        static Grid.GridStructure gameGrid;
         #endregion
 
         #region "Game Controllers"
@@ -134,7 +132,6 @@ namespace BBN_Game.Controller
                 }
 
                 RemoveDeadObjects();
-                changeMovements();
             }
         }
 
@@ -180,13 +177,6 @@ namespace BBN_Game.Controller
         #endregion
 
         #region "Objects methods"
-
-        private static void changeMovements()
-        {
-            foreach (Objects.StaticObject obj in DynamicObjs)
-                gameGrid.registerObject(obj);
-        }
-
         /// <summary>
         /// Loops through all the objects deleting those that should not exist
         /// </summary>
@@ -195,7 +185,7 @@ namespace BBN_Game.Controller
             for (i = 0; i < AllObjects.Count; i++)
             {
                 if (AllObjects.ElementAt(i).getHealth <= 0)
-                    removeObject(AllObjects.ElementAt(i));
+                    AllObjects.ElementAt(i).killObject();
             }
         }
 
@@ -239,7 +229,6 @@ namespace BBN_Game.Controller
             // _____-----TODO----____ Add asteroids when class is made
 
             AllObjects.Add(Object);
-            gameGrid.registerObject(Object);
         }
 
         public static void removeObject(Objects.StaticObject Object)
@@ -266,9 +255,6 @@ namespace BBN_Game.Controller
 
             // _____-----TODO----____ Add asteroids when class is made
 
-
-
-            gameGrid.deregisterObject(Object);
             AllObjects.Remove(Object);
             --i;
         }
@@ -279,21 +265,18 @@ namespace BBN_Game.Controller
 
         protected void loadMap(string mapName)
         {
-            // Inititalise the grid.
-            gameGrid = new BBN_Game.Grid.GridStructure(20000, 2000, 20000, 50);
-
             // hardcoded for now
             // players
-            addObject(Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, new Vector3(0, 0, -500), new Vector3(0,0,1), numPlayers.Equals(Players.single) ? false : true));
+            addObject(Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, new Vector3(0, 0, -500), new Vector3(0, 0, 1), numPlayers.Equals(Players.single) ? false : true));
             addObject(Player2 = new BBN_Game.Objects.playerObject(game, Objects.Team.Blue, new Vector3(0, 0, 500), new Vector3(0, 0, -1), numPlayers.Equals(Players.single) ? false : true));
           
             // Bases
-            addObject(Team1Base = new BBN_Game.Objects.Base(game, Objects.Team.Red, new Vector3(10, 5, -510)));
-            addObject(Team2Base = new BBN_Game.Objects.Base(game, Objects.Team.Blue, new Vector3(-10, 5, 500)));
+            addObject(Team1Base = new BBN_Game.Objects.Base(game, Objects.Team.Red, new Vector3(-100, 10, -500)));
+            addObject(Team2Base = new BBN_Game.Objects.Base(game, Objects.Team.Blue, new Vector3(100, -10, 500)));
 
             // add a few turrets
-            addObject(new Objects.Turret(game, Objects.Team.Red, new Vector3(-10, 5, -500)));
-            addObject(new Objects.Turret(game, Objects.Team.Blue, new Vector3(10, 5, 500)));
+            addObject(new Objects.Turret(game, Objects.Team.Red, new Vector3(-50, 100, -500)));
+            addObject(new Objects.Turret(game, Objects.Team.Blue, new Vector3(50, -100, 500)));
 
             // skybox
             SkyBox = new BBN_Game.Graphics.Skybox.Skybox(game, "Starfield", 100000, 10);

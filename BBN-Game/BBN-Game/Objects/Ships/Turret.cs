@@ -11,6 +11,17 @@ namespace BBN_Game.Objects
 {
     class Turret : StaticObject
     {
+        #region "Variables"
+        private Boolean isRepairing = false;
+
+        private int repairTimer = 0;
+       
+        public Boolean Repairing
+        {
+            get { return isRepairing; }
+        }
+        #endregion
+
         #region "Constructors"
         protected override void setData()
         {
@@ -40,6 +51,21 @@ namespace BBN_Game.Objects
         #endregion
 
         #region "Update"
+
+        public override void Update(GameTime gt)
+        {
+            if (this.Repairing)
+            {
+                if (repairTimer <= 0)
+                    isRepairing = false;
+                else
+                    repairTimer--;
+            }
+            else
+                this.doDamage(0.5f);
+
+            base.Update(gt);
+        }
 
         protected override void resetModels()
         {
@@ -104,6 +130,18 @@ namespace BBN_Game.Objects
             targetBoxVertices[11].Position.Y = botRight.Y + amount / 2;
             targetBoxVertices[11].Color = col;
         }
+        #endregion
+
+        #region "Controller methods"
+        public override void killObject()
+        {
+            isRepairing = true;
+
+            repairTimer = 500;
+
+            // dont call base as this object does not get removed
+        }
+
         #endregion
     }
 }

@@ -68,34 +68,50 @@ namespace BBN_Game.Grid
         //insert object into grid and update pointers to grid-blocks
         public void registerObject(Objects.StaticObject obj)
         {
+            //int x = (int)Math.Floor((float)((float)obj.Position.X * (float)GRID_BLOCK_SIZE) / (float)GRID_BLOCK_SIZE) + 1;
+            //int y = (int)Math.Floor((float)((float)obj.Position.Y * (float)GRID_BLOCK_SIZE) / (float)GRID_BLOCK_SIZE) + 1;
+            //int z = (int)Math.Floor((float)((float)obj.Position.Z * (float)GRID_BLOCK_SIZE) / (float)GRID_BLOCK_SIZE) + 1;
+
+            int x = (int)Math.Round((double)((obj.Position.X * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
+            int y = (int)Math.Round((double)((obj.Position.Y * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
+            int z = (int)Math.Round((double)((obj.Position.Z * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
+
+            if (!(new Vector3(x, y, z)).Equals(obj.Position))
+            {
+                deregisterObject(obj);
+                obj.setNewLocation(new Vector3(x, y, z));
+                grid[x, y, z].Add(obj);
+            }
+
+
             //remove object from grid first, if its already registered
-            deregisterObject(obj);
+            //deregisterObject(obj);
 
             //get the width/diameter of object in terms of grid blocks
-            int objectWidth = (int)((obj.getGreatestLength) / GRID_BLOCK_SIZE);
-            int texX, texY, texZ;
-            int objX, objY, objZ;
+            //int objectWidth = (int)((obj.getGreatestLength) / GRID_BLOCK_SIZE);
+            //int texX, texY, texZ;
+            //int objX, objY, objZ;
 
-            for (int x = 0; x < objectWidth; x++)
-                for (int y = 0; y < objectWidth; y++)
-                    for (int z = 0; z < objectWidth; z++)
-                    {
-                        texX = (int)obj.Position.X;
-                        texY = (int)obj.Position.Y;
-                        texZ = (int)obj.Position.Z;
+            //for (int x = 0; x < objectWidth; x++)
+            //    for (int y = 0; y < objectWidth; y++)
+            //        for (int z = 0; z < objectWidth; z++)
+            //        {
+            //            texX = (int)obj.Position.X;
+            //            texY = (int)obj.Position.Y;
+            //            texZ = (int)obj.Position.Z;
 
-                        //convert objects coords to grid coords
-                        objX = (int)Math.Round((double)((texX - x * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
-                        objY = (int)Math.Round((double)((texY - y * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
-                        objZ = (int)Math.Round((double)((texZ - z * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
+            //            //convert objects coords to grid coords
+            //            objX = (int)Math.Round((double)((texX - x * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
+            //            objY = (int)Math.Round((double)((texY - y * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
+            //            objZ = (int)Math.Round((double)((texZ - z * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
 
-                        //check that the object is still within the confines of the grid
-                        if((objX >=0) && (objX < grid.GetLength(0)) && (objY >= 0) && (objY < grid.GetLength(1)) && (objZ >= 0) && (objZ < grid.GetLength(2)))
-                        {
-                            grid[objX, objY, objZ].Add(obj);
-                            obj.setNewLocation(new Vector3(objX,objY,objZ));
-                        }
-                    }
+            //            //check that the object is still within the confines of the grid
+            //            if ((objX >= 0) && (objX < grid.GetLength(0)) && (objY >= 0) && (objY < grid.GetLength(1)) && (objZ >= 0) && (objZ < grid.GetLength(2)))
+            //            {
+            //                grid[objX, objY, objZ].Add(obj);
+            //                obj.setNewLocation(new Vector3(objX, objY, objZ));
+            //            }
+            //        }
         }
 
         //clear pointers to grid and remove object from grid

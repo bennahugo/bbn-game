@@ -21,7 +21,7 @@ using Microsoft.Xna.Framework.Content;
  * 
  */
 
-namespace BBN_Game
+namespace BBN_Game.Grid
 {
     interface GridObjectInterface
     {
