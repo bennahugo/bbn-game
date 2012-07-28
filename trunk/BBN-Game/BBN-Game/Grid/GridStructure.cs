@@ -29,26 +29,28 @@ namespace BBN_Game.Grid
         //public static extern uint MessageBox(IntPtr hWnd,String text,String caption,uint type);
 
         //instance variables
-        private List<Objects.StaticObject>[, ,] grid = null;
+        private List<GridObjectInterface>[, ,] grid = null;
         private int GRID_BLOCK_SIZE = 64; //max grid block size
+        private int grid_offset = 10; //because space is centered at (0,0,0)
 
         //constructor
         public GridStructure(int height,int width,int depth,int max_size)
         {
             GRID_BLOCK_SIZE = max_size;
-            grid = new List<Objects.StaticObject>[(height/GRID_BLOCK_SIZE) + 1, (width/GRID_BLOCK_SIZE) + 1, (depth/GRID_BLOCK_SIZE)+1];
+            grid_offset = (height / GRID_BLOCK_SIZE) / 2;
+            grid = new List<GridObjectInterface>[(height/GRID_BLOCK_SIZE) + 1, (width/GRID_BLOCK_SIZE) + 1, (depth/GRID_BLOCK_SIZE)+1];
 
             //initialise grid structure
             for (int x = 0; x < grid.GetLength(0); x++)
                 for (int y = 0; y < grid.GetLength(1); y++)
                     for (int z = 0; z < grid.GetLength(2); z++)
-                        grid[x, y, z] = new List<Objects.StaticObject>();
+                        grid[x, y, z] = new List<GridObjectInterface>();
         }
 
         //for debugging
         //public void displayGridContents()
         //{            
-        //    List<Objects.StaticObject> temp = new List<Objects.StaticObject>();
+        //    List<GridObjectInterface> temp = new List<GridObjectInterface>();
         //    for (int x = 0; x < grid.GetLength(0); x++)
         //        for (int y = 0; y < grid.GetLength(1); y++)
         //            for (int z = 0; z < grid.GetLength(2); z++)
@@ -59,65 +61,48 @@ namespace BBN_Game.Grid
         //                        if (temp.Contains(grid[x, y, z][i]) != true)
         //                            temp.Add(grid[x, y, z][i]);
         //            }
-        //    //String errorMsg = "";
-        //    //for (int i = 0; i < temp.Count; i++)
-        //    //    errorMsg = errorMsg + temp[i].Position + " \n";
-        //    //MessageBox(new IntPtr(0), errorMsg, "Contents of Grid:", 0);
+        //    String errorMsg = "";
+        //    for (int i = 0; i < temp.Count; i++)
+        //        errorMsg = errorMsg + temp[i].Position + " \n";
+        //    MessageBox(new IntPtr(0), errorMsg, "Contents of Grid:", 0);
         //}
           
         //insert object into grid and update pointers to grid-blocks
-        public void registerObject(Objects.StaticObject obj)
+        public void registerObject(GridObjectInterface obj)
         {
-            //int x = (int)Math.Floor((float)((float)obj.Position.X * (float)GRID_BLOCK_SIZE) / (float)GRID_BLOCK_SIZE) + 1;
-            //int y = (int)Math.Floor((float)((float)obj.Position.Y * (float)GRID_BLOCK_SIZE) / (float)GRID_BLOCK_SIZE) + 1;
-            //int z = (int)Math.Floor((float)((float)obj.Position.Z * (float)GRID_BLOCK_SIZE) / (float)GRID_BLOCK_SIZE) + 1;
-
-            int x = (int)Math.Round((double)((obj.Position.X * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
-            int y = (int)Math.Round((double)((obj.Position.Y * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
-            int z = (int)Math.Round((double)((obj.Position.Z * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
-
-            if (!(new Vector3(x, y, z)).Equals(obj.Position))
-            {
-                deregisterObject(obj);
-                obj.setNewLocation(new Vector3(x, y, z));
-                grid[x, y, z].Add(obj);
-            }
-
-
             //remove object from grid first, if its already registered
-            //deregisterObject(obj);
+            deregisterObject(obj);
 
             //get the width/diameter of object in terms of grid blocks
-            //int objectWidth = (int)((obj.getGreatestLength) / GRID_BLOCK_SIZE);
-            //int texX, texY, texZ;
-            //int objX, objY, objZ;
+            int objectWidth = (int)((obj.getBoundingSphere().Radius*2) / GRID_BLOCK_SIZE);
+            int texX, texY, texZ;
+            int objX, objY, objZ;
 
-            //for (int x = 0; x < objectWidth; x++)
-            //    for (int y = 0; y < objectWidth; y++)
-            //        for (int z = 0; z < objectWidth; z++)
-            //        {
-            //            texX = (int)obj.Position.X;
-            //            texY = (int)obj.Position.Y;
-            //            texZ = (int)obj.Position.Z;
+            for (int x = 0; x < objectWidth; x++)
+                for (int y = 0; y < objectWidth; y++)
+                    for (int z = 0; z < objectWidth; z++)
+                    {
+                        texX = (int)obj.Position.X;
+                        texY = (int)obj.Position.Y;
+                        texZ = (int)obj.Position.Z;
 
-            //            //convert objects coords to grid coords
-            //            objX = (int)Math.Round((double)((texX - x * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
-            //            objY = (int)Math.Round((double)((texY - y * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
-            //            objZ = (int)Math.Round((double)((texZ - z * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
+                        //convert objects coords to grid coords
+                        objX = (int)Math.Round((double)((texX - x * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
+                        objY = (int)Math.Round((double)((texY - y * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
+                        objZ = (int)Math.Round((double)((texZ - z * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
 
-            //            //check that the object is still within the confines of the grid
-            //            if ((objX >= 0) && (objX < grid.GetLength(0)) && (objY >= 0) && (objY < grid.GetLength(1)) && (objZ >= 0) && (objZ < grid.GetLength(2)))
-            //            {
-            //                grid[objX, objY, objZ].Add(obj);
-            //                obj.setNewLocation(new Vector3(objX, objY, objZ));
-            //            }
-            //        }
+                        //check that the object is still within the confines of the grid
+                        if((objX >=0) && (objX < grid.GetLength(0)) && (objY >= 0) && (objY < grid.GetLength(1)) && (objZ >= 0) && (objZ < grid.GetLength(2)))
+                        {
+                            grid[objX, objY, objZ].Add(obj);
+                            obj.setNewLocation(new Vector3(objX,objY,objZ));
+                        }
+                    }
         }
 
         //clear pointers to grid and remove object from grid
-        public void deregisterObject(Objects.StaticObject obj)
+        public void deregisterObject(GridObjectInterface obj)
         {
-           // Console.WriteLine("Deregister: "+obj.identity);
             for (int i = 0; i < obj.getCapacity(); i++)
             {
                 Vector3 gridBlock = obj.getLocation(i);
@@ -127,9 +112,9 @@ namespace BBN_Game.Grid
         }
 
         //find list of objects near/adjacent to current object
-        public List<Objects.StaticObject> checkNeighbouringBlocks(Objects.StaticObject obj)
+        public List<GridObjectInterface> checkNeighbouringBlocks(GridObjectInterface obj)
         {
-            List<Objects.StaticObject> neighbours = new List<Objects.StaticObject>();
+            List<GridObjectInterface> neighbours = new List<GridObjectInterface>();
             Vector3 gridBlock;
             int blockX, blockY, blockZ;
             int gridX, gridY, gridZ;
@@ -143,9 +128,9 @@ namespace BBN_Game.Grid
                 blockZ = (int)Math.Round(gridBlock.Z);
 
                 //convert objects coords to grid coords
-                gridX = (int)Math.Round((double)(blockX / GRID_BLOCK_SIZE)) + 1;
-                gridY = (int)Math.Round((double)(blockY / GRID_BLOCK_SIZE)) + 1;
-                gridZ = (int)Math.Round((double)(blockZ / GRID_BLOCK_SIZE)) + 1;
+                gridX = (int)Math.Round((double)(blockX / GRID_BLOCK_SIZE)) + grid_offset;
+                gridY = (int)Math.Round((double)(blockY / GRID_BLOCK_SIZE)) + grid_offset;
+                gridZ = (int)Math.Round((double)(blockZ / GRID_BLOCK_SIZE)) + grid_offset;
                 
                 //check all 8 blocks surrounding object (as well as block object is in) for nearby objects
                 for (int x = -1; x < 2;x++)
@@ -157,15 +142,15 @@ namespace BBN_Game.Grid
         }
 
         //find list of objects near/adjacent to current point in space
-        public List<Objects.StaticObject> checkNeighbouringBlocks(Vector3 pointInSpace)
+        public List<GridObjectInterface> checkNeighbouringBlocks(Vector3 pointInSpace)
         {
-            List<Objects.StaticObject> neighbours = new List<Objects.StaticObject>();
+            List<GridObjectInterface> neighbours = new List<GridObjectInterface>();
             int gridX, gridY, gridZ;
 
             //convert objects coords to grid coords
-            gridX = (int)Math.Round((double)(Math.Round(pointInSpace.X) / GRID_BLOCK_SIZE)) + 1;
-            gridY = (int)Math.Round((double)(Math.Round(pointInSpace.Y) / GRID_BLOCK_SIZE)) + 1;
-            gridZ = (int)Math.Round((double)(Math.Round(pointInSpace.Z) / GRID_BLOCK_SIZE)) + 1;
+            gridX = (int)Math.Round((double)(Math.Round(pointInSpace.X) / GRID_BLOCK_SIZE)) + grid_offset;
+            gridY = (int)Math.Round((double)(Math.Round(pointInSpace.Y) / GRID_BLOCK_SIZE)) + grid_offset;
+            gridZ = (int)Math.Round((double)(Math.Round(pointInSpace.Z) / GRID_BLOCK_SIZE)) + grid_offset;
             
             //check all 8 blocks surrounding object (as well as block object is in) for nearby objects
             for (int x = -1; x < 2; x++)
@@ -177,7 +162,7 @@ namespace BBN_Game.Grid
         }
         
         //check list of neighbours to current object for duplicate entries
-        private void checkForDuplicates(List<Objects.StaticObject> nearByObjs, Objects.StaticObject obj, int xcoord, int ycoord, int zcoord)
+        private void checkForDuplicates(List<GridObjectInterface> nearByObjs, GridObjectInterface obj, int xcoord, int ycoord, int zcoord)
         {
             if ((xcoord >= 0) && (xcoord < grid.GetLength(0)) && (ycoord >= 0) && (ycoord < grid.GetLength(1)) && (zcoord >= 0) && (zcoord < grid.GetLength(2)))
                 for (int j = 0; j < grid[xcoord, ycoord, zcoord].Count; j++)
@@ -186,7 +171,7 @@ namespace BBN_Game.Grid
         }
 
         //check list of neighbours to point in space for duplicate entries
-        private void checkForDuplicates(List<Objects.StaticObject> nearByObjs, int xcoord, int ycoord, int zcoord)
+        private void checkForDuplicates(List<GridObjectInterface> nearByObjs, int xcoord, int ycoord, int zcoord)
         {
             if ((xcoord >= 0) && (xcoord < grid.GetLength(0)) && (ycoord >= 0) && (ycoord < grid.GetLength(1)) && (zcoord >= 0) && (zcoord < grid.GetLength(2)))
                 for (int j = 0; j < grid[xcoord, ycoord, zcoord].Count; j++)

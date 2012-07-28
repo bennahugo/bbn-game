@@ -48,6 +48,7 @@ namespace BBN_Game.Controller
         #region "Game Controllers"
         GameState gameState, prevGameState;
         Players numPlayers;
+        static Grid.GridStructure gameGrid;
         #endregion
 
         #region "Global Data Holders"
@@ -132,6 +133,7 @@ namespace BBN_Game.Controller
                 }
 
                 RemoveDeadObjects();
+                moveObjectsInGrid();
             }
         }
 
@@ -177,6 +179,13 @@ namespace BBN_Game.Controller
         #endregion
 
         #region "Objects methods"
+
+        private static void moveObjectsInGrid()
+        {
+            foreach (Objects.StaticObject obj in DynamicObjs)
+                gameGrid.registerObject(obj);
+        }
+
         /// <summary>
         /// Loops through all the objects deleting those that should not exist
         /// </summary>
@@ -228,6 +237,7 @@ namespace BBN_Game.Controller
 
             // _____-----TODO----____ Add asteroids when class is made
 
+            gameGrid.registerObject(Object);
             AllObjects.Add(Object);
         }
 
@@ -255,6 +265,8 @@ namespace BBN_Game.Controller
 
             // _____-----TODO----____ Add asteroids when class is made
 
+
+            gameGrid.deregisterObject(Object);
             AllObjects.Remove(Object);
             --i;
         }
@@ -265,6 +277,8 @@ namespace BBN_Game.Controller
 
         protected void loadMap(string mapName)
         {
+            gameGrid = new BBN_Game.Grid.GridStructure(2000, 2000, 2000, 50);
+            
             // hardcoded for now
             // players
             addObject(Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, new Vector3(0, 0, -500), new Vector3(0, 0, 1), numPlayers.Equals(Players.single) ? false : true));
