@@ -27,7 +27,7 @@ namespace BBN_Game.Objects
         nutral = 2
     }
 
-    class StaticObject : DrawableGameComponent
+    class StaticObject : DrawableGameComponent, Grid.GridObjectInterface
     {
         #region "Variables"
         /// <summary>
@@ -76,6 +76,10 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Getters and setters
         /// </summary>
+        public BoundingSphere getBoundingSphere()
+        {
+            return Bsphere;
+        }
         public void doDamage(float dmg)
         {
             Health -= dmg;
@@ -331,6 +335,11 @@ namespace BBN_Game.Objects
 
             return (int)(sphere.Radius * 2);
         }
+
+        public virtual void killObject()
+        {
+            Controller.GameController.removeObject(this);  
+        }
         #endregion
 
         #region "Draw Methods"
@@ -389,7 +398,12 @@ namespace BBN_Game.Objects
         /// <returns></returns>
         private Boolean setVertexCoords(Camera.CameraMatrices cam, Vector2 screenViewport, playerObject player)
         {
-            Color col = this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.nutral) ? Color.Yellow :
+            Color col;
+            if (this is Objects.Turret)
+                col = ((Objects.Turret)this).Repairing ? Color.Aqua : this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.nutral) ? Color.Yellow :
+                        this.Team.Equals(player.team) ? Color.Green : Color.Orange;
+            else
+                col = this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.nutral) ? Color.Yellow :
                         this.Team.Equals(player.team) ? Color.Green : Color.Orange;
 
             float radiusOfObject;
