@@ -65,7 +65,7 @@ namespace BBN_Game.Controller
             // Set up the Variables
             gameState = GameState.Playing;
             prevGameState = GameState.notLoaded;
-            numPlayers = Players.single;
+            numPlayers = Players.two;
         }
 
         public void Initialize()
@@ -337,5 +337,11 @@ namespace BBN_Game.Controller
         }
 
         #endregion
+
+        // debug
+        public static int getNumberAround(Objects.StaticObject obj)
+        {
+            return gameGrid.checkNeighbouringBlocks(obj).Count;
+        }
     }
 }

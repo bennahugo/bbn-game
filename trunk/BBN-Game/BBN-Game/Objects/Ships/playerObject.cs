@@ -504,7 +504,8 @@ namespace BBN_Game.Objects
 
             #region "Reload speeds"
             sb.DrawString(f, reloadTimer[1].ToString("00"), new Vector2(0, 0), Color.Red);
-            sb.DrawString(f, this.gridLocations.ElementAt(0).ToString(), new Vector2(100, 0), Color.Red);
+            sb.DrawString(f, "Point in grid: " + this.gridLocations.ElementAt(0).ToString(), new Vector2(100, 0), Color.Red);
+            sb.DrawString(f, "Number of objects around player: " + Controller.GameController.getNumberAround(this).ToString("00"), new Vector2(100, 20), Color.Red);
             #endregion
 
             sb.End();
