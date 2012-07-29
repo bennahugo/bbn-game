@@ -302,7 +302,7 @@ namespace BBN_Game.Controller
         {
             foreach (Objects.StaticObject obj in DynamicObjs)
             {
-                List<Grid.GridObjectInterface> list = gameGrid.checkNeighbouringBlocks(obj.getLocation(0));
+                List<Grid.GridObjectInterface> list = gameGrid.checkNeighbouringBlocks(obj);
 
                 foreach (Grid.GridObjectInterface other in list)
                 {
@@ -342,7 +342,7 @@ namespace BBN_Game.Controller
         // debug
         public static int getNumberAround(Objects.StaticObject obj)
         {
-            return gameGrid.checkNeighbouringBlocks(obj.getLocation(0)).Count;
+            return gameGrid.checkNeighbouringBlocks(obj).Count;
         }
     }
 }
