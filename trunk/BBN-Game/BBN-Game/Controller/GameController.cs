@@ -127,11 +127,8 @@ namespace BBN_Game.Controller
 
                 SkyBox.Update(gameTime);
 
-                foreach (Objects.Projectile p in Projectiles )
-                {
-                    checkCollision(p);
-                }
 
+                checkCollision();
                 RemoveDeadObjects();
                 moveObjectsInGrid();
             }
@@ -174,7 +171,7 @@ namespace BBN_Game.Controller
                     AllObjects.ElementAt(i).drawSuroundingBox(cam, player);
 
             //draw the players hud now (so that the target boxes wont obscure them)
-            player.drawHud();
+            player.drawHud(DynamicObjs);
         }
         #endregion
 
@@ -300,18 +297,45 @@ namespace BBN_Game.Controller
 
         #endregion
 
-        // debug
-        public void checkCollision(Objects.Projectile projectile)
+        #region "Collision Detection"
+        public void checkCollision()
         {
-            
-            if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(projectile.shipModel, Player2.shipModel, projectile.getWorld, Player2.getWorld))
+            foreach (Objects.StaticObject obj in DynamicObjs)
             {
-                if (projectile.parent.Equals(Player1))
-                    Player2.doDamage(projectile.damage);
-                else
-                    Player1.doDamage(projectile.damage);
-                projectile.doDamage(1000);
+                List<Grid.GridObjectInterface> list = gameGrid.checkNeighbouringBlocks(obj);
+
+                foreach (Grid.GridObjectInterface other in list)
+                {
+                    if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld))
+                    {
+                        // Collision occured call on the checker
+                        checkTwoObjects(obj, ((Objects.StaticObject)other));
+                    }
+                }
             }
         }
+
+        private void checkTwoObjects(Objects.StaticObject obj1, Objects.StaticObject obj2)
+        {
+            if (obj1 is Objects.Projectile || obj2 is Objects.Projectile)
+            {
+                if (obj1 is Objects.Projectile)
+                {
+                    obj1.doDamage(10000);
+                    obj2.doDamage(((Objects.Projectile)obj1).damage);
+                }
+                else
+                {
+                    obj2.doDamage(10000);
+                    obj1.doDamage(((Objects.Projectile)obj2).damage);
+                }
+            }
+            else
+            {
+                // add object collision settings
+            }
+        }
+
+        #endregion
     }
 }

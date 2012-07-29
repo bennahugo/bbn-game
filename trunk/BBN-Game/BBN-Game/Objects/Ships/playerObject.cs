@@ -452,17 +452,17 @@ namespace BBN_Game.Objects
 
         public override void Draw(GameTime gameTime, BBN_Game.Camera.CameraMatrices cam)
         {
-            drawHud();
+            //drawHud();
 
 
-            if (true)
+            if (this.cameraType.Equals(CurrentCam.Chase))
                 base.Draw(gameTime, cam);
         }
 
         /// <summary>
         /// Draws the payers hud
         /// </summary>
-        public void drawHud()
+        public void drawHud(List<Objects.StaticObject> list)
         {
             if (!Game.GraphicsDevice.Viewport.Equals(playerViewport))
                 return;
@@ -504,6 +504,7 @@ namespace BBN_Game.Objects
 
             #region "Reload speeds"
             sb.DrawString(f, reloadTimer[1].ToString("00"), new Vector2(0, 0), Color.Red);
+            sb.DrawString(f, this.gridLocations.ElementAt(0).ToString(), new Vector2(100, 0), Color.Red);
             #endregion
 
             sb.End();
