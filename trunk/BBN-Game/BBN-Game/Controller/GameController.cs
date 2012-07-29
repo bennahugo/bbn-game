@@ -302,10 +302,11 @@ namespace BBN_Game.Controller
         {
             foreach (Objects.StaticObject obj in DynamicObjs)
             {
-                List<Grid.GridObjectInterface> list = gameGrid.checkNeighbouringBlocks(obj);
+                List<Grid.GridObjectInterface> list = gameGrid.checkNeighbouringBlocks(obj.getLocation(0));
 
                 foreach (Grid.GridObjectInterface other in list)
                 {
+                    if ( !other.Equals(obj))
                     if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld))
                     {
                         // Collision occured call on the checker
@@ -341,7 +342,7 @@ namespace BBN_Game.Controller
         // debug
         public static int getNumberAround(Objects.StaticObject obj)
         {
-            return gameGrid.checkNeighbouringBlocks(obj).Count;
+            return gameGrid.checkNeighbouringBlocks(obj.getLocation(0)).Count;
         }
     }
 }
