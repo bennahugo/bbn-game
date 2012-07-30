@@ -91,6 +91,7 @@
     <Compile Include="Collision Detection\CollisionDetectionHelper.cs" />
     <Compile Include="Collision Detection\Triangle.cs" />
     <Compile Include="Controller\GameController.cs" />
+    <Compile Include="Controller\GridDataCollection.cs" />
     <Compile Include="Graphics\Shapes\Cube.cs" />
     <Compile Include="Graphics\Shapes\VertexPos.cs" />
     <Compile Include="Graphics\Shapes\QuadDrawer.cs" />
@@ -98,7 +99,7 @@
     <Compile Include="Graphics\Shapes\Sphere.cs" />
     <Compile Include="Grid\GridObjectInterface.cs" />
     <Compile Include="Grid\GridStructure.cs" />
-    <Compile Include="MathEuler.cs" />
+    <Compile Include="Controller\MathEuler.cs" />
     <Compile Include="Objects\Projectiles\Bullet.cs" />
     <Compile Include="Objects\Projectiles\Missile.cs" />
     <Compile Include="Objects\Ships\Base.cs" />

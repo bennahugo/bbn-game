@@ -205,6 +205,8 @@ namespace BBN_Game.Objects
                 #region "Extra Controls (Camera)"
                 if (state.IsKeyDown(Keys.F1) && oldState.IsKeyUp(Keys.F1))
                     cameraType = cameraType.Equals(CurrentCam.Chase) ? CurrentCam.FirstPerson : CurrentCam.Chase;
+                if (state.IsKeyDown(Keys.Z) && oldState.IsKeyUp(Keys.Z))
+                    Controller.GridDataCollection.tryCaptureTower(this);
                 #endregion
 
                 #region "Accel Deccel checks"

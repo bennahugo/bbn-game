@@ -30,7 +30,7 @@ namespace BBN_Game.Objects
             this.minSpeed = 0;
             this.mass = 0;
             this.greatestLength = 2f;
-            this.shipData.scale = 0.1f;
+            this.shipData.scale = 0.2f;
             this.lifeSpan = 5.68f;
 
             this.Damage = 0.5f;
