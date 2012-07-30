@@ -31,12 +31,14 @@ namespace BBN_Game
         //instance variables
         private List<GridObjectInterface>[, ,] grid = null;
         private int GRID_BLOCK_SIZE = 64; //max grid block size
+        private int grid_offset = 10; //because space is centered at (0,0,0)
 
         //constructor
-        public GridStructure(int height,int width,int depth,int max_size)
+        public GridStructure(int cubeLength,int max_size)
         {
             GRID_BLOCK_SIZE = max_size;
-            grid = new List<GridObjectInterface>[(height/GRID_BLOCK_SIZE) + 1, (width/GRID_BLOCK_SIZE) + 1, (depth/GRID_BLOCK_SIZE)+1];
+            grid_offset = (cubeLength / GRID_BLOCK_SIZE) / 2;
+            grid = new List<GridObjectInterface>[(cubeLength / GRID_BLOCK_SIZE) + 1, (cubeLength / GRID_BLOCK_SIZE) + 1, (cubeLength / GRID_BLOCK_SIZE) + 1];
 
             //initialise grid structure
             for (int x = 0; x < grid.GetLength(0); x++)
@@ -85,9 +87,9 @@ namespace BBN_Game
                         texZ = (int)obj.Position.Z;
 
                         //convert objects coords to grid coords
-                        objX = (int)Math.Round((double)((texX - x * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
-                        objY = (int)Math.Round((double)((texY - y * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
-                        objZ = (int)Math.Round((double)((texZ - z * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + 1;
+                        objX = (int)Math.Round((double)((texX - x * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
+                        objY = (int)Math.Round((double)((texY - y * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
+                        objZ = (int)Math.Round((double)((texZ - z * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
 
                         //check that the object is still within the confines of the grid
                         if((objX >=0) && (objX < grid.GetLength(0)) && (objY >= 0) && (objY < grid.GetLength(1)) && (objZ >= 0) && (objZ < grid.GetLength(2)))
@@ -101,7 +103,6 @@ namespace BBN_Game
         //clear pointers to grid and remove object from grid
         public void deregisterObject(GridObjectInterface obj)
         {
-           // Console.WriteLine("Deregister: "+obj.identity);
             for (int i = 0; i < obj.getCapacity(); i++)
             {
                 Vector3 gridBlock = obj.getLocation(i);
@@ -127,9 +128,9 @@ namespace BBN_Game
                 blockZ = (int)Math.Round(gridBlock.Z);
 
                 //convert objects coords to grid coords
-                gridX = (int)Math.Round((double)(blockX / GRID_BLOCK_SIZE)) + 1;
-                gridY = (int)Math.Round((double)(blockY / GRID_BLOCK_SIZE)) + 1;
-                gridZ = (int)Math.Round((double)(blockZ / GRID_BLOCK_SIZE)) + 1;
+                gridX = (int)Math.Round((double)(blockX / GRID_BLOCK_SIZE)) + grid_offset;
+                gridY = (int)Math.Round((double)(blockY / GRID_BLOCK_SIZE)) + grid_offset;
+                gridZ = (int)Math.Round((double)(blockZ / GRID_BLOCK_SIZE)) + grid_offset;
                 
                 //check all 8 blocks surrounding object (as well as block object is in) for nearby objects
                 for (int x = -1; x < 2;x++)
@@ -147,9 +148,9 @@ namespace BBN_Game
             int gridX, gridY, gridZ;
 
             //convert objects coords to grid coords
-            gridX = (int)Math.Round((double)(Math.Round(pointInSpace.X) / GRID_BLOCK_SIZE)) + 1;
-            gridY = (int)Math.Round((double)(Math.Round(pointInSpace.Y) / GRID_BLOCK_SIZE)) + 1;
-            gridZ = (int)Math.Round((double)(Math.Round(pointInSpace.Z) / GRID_BLOCK_SIZE)) + 1;
+            gridX = (int)Math.Round((double)(Math.Round(pointInSpace.X) / GRID_BLOCK_SIZE)) + grid_offset;
+            gridY = (int)Math.Round((double)(Math.Round(pointInSpace.Y) / GRID_BLOCK_SIZE)) + grid_offset;
+            gridZ = (int)Math.Round((double)(Math.Round(pointInSpace.Z) / GRID_BLOCK_SIZE)) + grid_offset;
             
             //check all 8 blocks surrounding object (as well as block object is in) for nearby objects
             for (int x = -1; x < 2; x++)
