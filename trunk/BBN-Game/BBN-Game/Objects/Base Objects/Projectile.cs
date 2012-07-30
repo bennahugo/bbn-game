@@ -33,7 +33,7 @@ namespace BBN_Game.Objects
             this.minSpeed = 0;
             this.mass = 0;
             this.greatestLength = 2f;
-            this.shipData.scale = 0.1f;
+            this.shipData.scale = 1f;
             this.lifeSpan = 15;
 
             this.Damage = 10;
@@ -87,6 +87,8 @@ namespace BBN_Game.Objects
 
         protected override void setVertexPosition(float screenX, float screenY, float radiusOfObject, Color col)
         {
+            radiusOfObject = 2;
+
             //Line 1
             targetBoxVertices[0].Position.X = screenX;
             targetBoxVertices[0].Position.Y = screenY + radiusOfObject * 1.8f;

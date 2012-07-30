@@ -49,6 +49,11 @@ namespace BBN_Game.Controller
         GameState gameState, prevGameState;
         Players numPlayers;
         static Grid.GridStructure gameGrid;
+
+        public static Grid.GridStructure Grid
+        {
+            get { return gameGrid; }
+        }
         #endregion
 
         #region "Global Data Holders"
@@ -65,7 +70,7 @@ namespace BBN_Game.Controller
             // Set up the Variables
             gameState = GameState.Playing;
             prevGameState = GameState.notLoaded;
-            numPlayers = Players.two;
+            numPlayers = Players.single;
         }
 
         public void Initialize()
@@ -286,7 +291,7 @@ namespace BBN_Game.Controller
             addObject(Team2Base = new BBN_Game.Objects.Base(game, Objects.Team.Blue, new Vector3(100, -10, 500)));
 
             // add a few turrets
-            addObject(new Objects.Turret(game, Objects.Team.Red, new Vector3(-50, 100, -500)));
+            addObject(new Objects.Turret(game, Objects.Team.nutral, new Vector3(-50, 100, -500)));
             addObject(new Objects.Turret(game, Objects.Team.Blue, new Vector3(50, -100, 500)));
 
             // skybox

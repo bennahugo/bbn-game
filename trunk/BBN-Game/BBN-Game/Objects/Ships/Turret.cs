@@ -14,7 +14,7 @@ namespace BBN_Game.Objects
         #region "Variables"
         private Boolean isRepairing = false;
 
-        private int repairTimer = 0;
+        private float repairTimer = 0;
        
         public Boolean Repairing
         {
@@ -33,8 +33,8 @@ namespace BBN_Game.Objects
             typeOfLine = PrimitiveType.TriangleList;
 
             Shield = 100;
-            Health = 100;
-            totalHealth = 100;
+            Health = 10;
+            totalHealth = 10;
         }
 
         /// <summary>
@@ -54,15 +54,17 @@ namespace BBN_Game.Objects
 
         public override void Update(GameTime gt)
         {
-            if (this.Repairing)
+            if (isRepairing)
             {
                 if (repairTimer <= 0)
-                    isRepairing = false;
-                else
-                    repairTimer--;
+                {
+                    this.Health = totalHealth;
+                    changeTeam(Team.nutral);
+                    this.isRepairing = false;
+                    resetModels();
+                }
+                repairTimer -= (float)gt.ElapsedGameTime.TotalSeconds;
             }
-            else
-                this.doDamage(0.5f);
 
             base.Update(gt);
         }
@@ -75,6 +77,12 @@ namespace BBN_Game.Objects
                 model = Game.Content.Load<Model>("Models/Ships/FighterBlue");
 
             base.resetModels();
+        }
+
+        public void changeTeam(Team team)
+        {
+            this.Team = team;
+            resetModels();
         }
 
         protected override void setVertexPosition(float screenX, float screenY, float radiusOfObject, Color col)
@@ -135,9 +143,11 @@ namespace BBN_Game.Objects
         #region "Controller methods"
         public override void killObject()
         {
-            isRepairing = true;
-
-            repairTimer = 500;
+            if (!isRepairing)
+            {
+                isRepairing = true;
+                repairTimer = 30;
+            }
 
             // dont call base as this object does not get removed
         }
