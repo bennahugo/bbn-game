@@ -24,7 +24,7 @@ namespace BBN_Game.Objects
             this.rollSpeed = 1;
             this.pitchSpeed = 2;
             this.yawSpeed = 1;
-            this.maxSpeed = 60;
+            this.maxSpeed = 10;
             this.minSpeed = -25;
             this.greatestLength = 6f;
             numHudLines = 4;

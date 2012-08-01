@@ -96,12 +96,20 @@ namespace BBN_Game.Utils
             }
             return false;
         }
-        public static float convertToPositiveAngle(float angle)
+        /// <summary>
+        /// Gets the distance from a point to a line in 3 space
+        /// Reference: Wolfram Alpha
+        /// </summary>
+        /// <param name="pt">Point in 3 space</param>
+        /// <param name="line">Line in 3 space</param>
+        /// <returns>minimum distance from point to the line</returns>
+        public static float distanceFromPointToLine(Vector3 pt, Ray line)
         {
-            if (angle < 0)
-                return (float)Math.PI * 2 + angle;
-            else
-                return angle;
+            //Let two points in space define a line:
+            Vector3 x1 = line.Position;
+            Vector3 x2 = line.Position + line.Direction;
+            
+            return Vector3.Cross((x2 - x1),(x1 - pt)).Length()/(x2-x1).Length();
         }
     }
 }

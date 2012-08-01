@@ -57,40 +57,6 @@ namespace BBN_Game.AI
             return infoOnTeams.ElementAt(index);
         }
         #endregion
-        public void registerHitOnBaseOrTurretOrFighters(StaticObject victim, StaticObject shooter)
-        {
-            TeamInformation tiV = getTeam(victim);
-            TeamInformation tiS = getTeam(shooter);
-            if (tiV == null || tiS == null) return;
-
-            if (tiV != tiS)
-                if (!isTargetMarkedForElimination(shooter, tiV))
-                    if (!isTargetAlreadyBattled(tiV,shooter))
-                    {
-                        if (shooter is playerObject)
-                        {
-                            if (victim is Fighter || victim is Base)
-                                tiV.scrambleQueue.Add(new KeyValuePair<int, StaticObject>(PRIORITY_FOR_ELIMINATING_PLAYER, shooter));
-                            else if (victim is Turret)
-                            {
-                                float distanceFromTurretToHomeBase = Vector3.Distance(victim.Position, tiV.teamBase.Position);
-                                if (distanceFromTurretToHomeBase <= DISTANCE_WHEN_TURRET_IS_CLOSE_TO_BASE)
-                                    tiV.scrambleQueue.Add(new KeyValuePair<int, StaticObject>(PRIORITY_FOR_ELIMINATING_PLAYER, shooter));
-                            }
-                        }
-                        else if (shooter is Destroyer)
-                        {
-                            if (victim is Fighter || victim is Base)
-                                tiV.scrambleQueue.Add(new KeyValuePair<int, StaticObject>(PRIORITY_FOR_ELIMINATING_DESTROYER, shooter));
-                            else if (victim is Turret)
-                            {
-                                float distanceFromTurretToHomeBase = Vector3.Distance(victim.Position, tiV.teamBase.Position);
-                                if (distanceFromTurretToHomeBase <= DISTANCE_WHEN_TURRET_IS_CLOSE_TO_BASE)
-                                    tiV.scrambleQueue.Add(new KeyValuePair<int, StaticObject>(PRIORITY_FOR_ELIMINATING_DESTROYER, shooter));
-                            }
-                        }
-                    }
-        }
         
         public int getEliminationPriority(StaticObject target)
         {
@@ -112,7 +78,7 @@ namespace BBN_Game.AI
             replenishFightersAndDestroyers(game);
             doSpawning();
             this.ensureIdlingFightersAreActivelyPatrolling();
-            
+            this.ensureIdlingDestroyersAreMovingTowardsEnemyBase();
         }
         #endregion
         #region "Fighters update methods"
@@ -252,13 +218,53 @@ namespace BBN_Game.AI
                     if (!isFighterEngagedInBattle(ti, fi))
                     {
                         List<Node> path = navComputer.getPath(fi);
+                        spatialGrid.checkNeighbouringBlocks(fi);
+
+                        Node randomStart = getRandomPatrolNode(ti);
+                        Node randomEnd = getRandomPatrolNode(ti);
                         if (path == null)
-                            navComputer.setNewPathForRegisteredObject(fi, getRandomPatrolNode(ti), getRandomPatrolNode(ti));
+                            navComputer.setNewPathForRegisteredObject(fi, randomStart, randomEnd);
                         else if (path.Count == 0)
-                            navComputer.setNewPathForRegisteredObject(fi, getRandomPatrolNode(ti), getRandomPatrolNode(ti));
+                            navComputer.setNewPathForRegisteredObject(fi, randomStart, randomEnd);
                     }
         }
         #endregion
+        #region "Detection Code For Fighters & Destroyers"
+        public void registerHitOnBaseOrTurretOrFighters(StaticObject victim, StaticObject shooter)
+        {
+            TeamInformation tiV = getTeam(victim);
+            TeamInformation tiS = getTeam(shooter);
+            if (tiV == null || tiS == null) return;
+
+            if (tiV != tiS)
+                if (!isTargetMarkedForElimination(shooter, tiV))
+                    if (!isTargetAlreadyBattled(tiV, shooter))
+                    {
+                        if (shooter is playerObject)
+                        {
+                            if (victim is Fighter || victim is Base)
+                                tiV.scrambleQueue.Add(new KeyValuePair<int, StaticObject>(PRIORITY_FOR_ELIMINATING_PLAYER, shooter));
+                            else if (victim is Turret)
+                            {
+                                float distanceFromTurretToHomeBase = (victim.Position - tiV.teamBase.Position).Length();
+                                if (distanceFromTurretToHomeBase <= DISTANCE_WHEN_TURRET_IS_CLOSE_TO_BASE)
+                                    tiV.scrambleQueue.Add(new KeyValuePair<int, StaticObject>(PRIORITY_FOR_ELIMINATING_PLAYER, shooter));
+                            }
+                        }
+                        else if (shooter is Destroyer)
+                        {
+                            if (victim is Fighter || victim is Base)
+                                tiV.scrambleQueue.Add(new KeyValuePair<int, StaticObject>(PRIORITY_FOR_ELIMINATING_DESTROYER, shooter));
+                            else if (victim is Turret)
+                            {
+                                float distanceFromTurretToHomeBase = (victim.Position - tiV.teamBase.Position).Length();
+                                if (distanceFromTurretToHomeBase <= DISTANCE_WHEN_TURRET_IS_CLOSE_TO_BASE)
+                                    tiV.scrambleQueue.Add(new KeyValuePair<int, StaticObject>(PRIORITY_FOR_ELIMINATING_DESTROYER, shooter));
+                            }
+                        }
+                    }
+        }
+
         private void detectEnemyTargets()
         {
             foreach (TeamInformation homeTeam in infoOnTeams)
@@ -271,11 +277,11 @@ namespace BBN_Game.AI
                             PowerDataStructures.PriorityQueue<float, DynamicObject> targetQueue = new PowerDataStructures.PriorityQueue<float, DynamicObject>(true);
                             foreach (Destroyer enemyDes in enemyTeam.teamDestroyers)
                             {
-                                float dist = Vector3.Distance(enemyDes.Position, homeFi.Position);
+                                float dist = (enemyDes.Position - homeFi.Position).Length();
                                 if (dist <= DETECTION_RADIUS)
                                     targetQueue.Add(new KeyValuePair<float, DynamicObject>(this.getEliminationPriority(enemyDes)*100+dist, enemyDes));
                             }
-                            float distToPlayer = Vector3.Distance(enemyTeam.teamPlayer.Position, homeFi.Position);
+                            float distToPlayer = (enemyTeam.teamPlayer.Position - homeFi.Position).Length();
                             if (distToPlayer <= DETECTION_RADIUS)
                                 targetQueue.Add(new KeyValuePair<float, DynamicObject>(this.getEliminationPriority(enemyTeam.teamPlayer) * 100 + distToPlayer, enemyTeam.teamPlayer));
                             if (targetQueue.Count > 0)
@@ -288,6 +294,51 @@ namespace BBN_Game.AI
 
                     }
         }
+        #endregion
+        #region "Destroyer navigation code"
+        private void ensureIdlingDestroyersAreMovingTowardsEnemyBase()
+        {
+            foreach (TeamInformation ti in infoOnTeams)
+                foreach (Destroyer ds in ti.teamDestroyers)
+                {
+                    if (navComputer.getPath(ds) != null)
+                        if (navComputer.getPath(ds).Count != 0) continue;
+                    if (isDestroyerEngaged(ti, ds)) continue;
+                    List<GridObjectInterface> vacinity = spatialGrid.checkNeighbouringBlocks(ds);
+                    if (vacinity != null)
+                    {
+                        Node closestNode = null;
+                        Node randomEnemyNode = null;
+                        foreach (GridObjectInterface goi in vacinity)
+                            if (goi is Node)
+                                closestNode = (closestNode != null) ? 
+                                                ((goi.Position-ds.Position).Length() < (closestNode.Position-ds.Position).Length()) ? 
+                                                    goi as Node : closestNode 
+                                              : goi as Node;
+                        if (closestNode != null)
+                        {                            
+                            int i = randomizer.Next(0,infoOnTeams.Count() - 1);
+                            TeamInformation eti = null;
+                            if (infoOnTeams.ElementAt(i) == ti)
+                                if (i + 1 < infoOnTeams.Count)
+                                    eti = infoOnTeams.ElementAt(i + 1);
+                                else if (i - 1 >= 0)
+                                    eti = infoOnTeams.ElementAt(i - 1);
+                            if (eti != null)
+                                randomEnemyNode = this.getRandomPatrolNode(eti);
+                            navComputer.setNewPathForRegisteredObject(ds, closestNode, randomEnemyNode);
+                        }
+                    }
+                }
+        }
+        private bool isDestroyerEngaged(TeamInformation ti, Destroyer ds)
+        {
+            if (ti.destroyerBattleList.Keys.Contains(ds))
+                return true;
+            else
+                return false;
+        }
+        #endregion
         private TeamInformation getTeam(StaticObject ai)
         {
             foreach (TeamInformation ti in infoOnTeams)
@@ -356,24 +407,27 @@ namespace BBN_Game.AI
                         bool bCanSpawn = true;
                         obj.Position = sp.Position;
                         navComputer.registerObject(obj);
-                        foreach (GridObjectInterface nearbyObject in vacinity)
-                            if (!(nearbyObject is Marker))
-                            {
-                                BoundingSphere sphere1 = nearbyObject.getBoundingSphere();
-                                BoundingSphere sphere2 = obj.getBoundingSphere();
-                                if (sphere1.Intersects(sphere2))
-                                {
-                                    bCanSpawn = false;
-                                    break;
-                                }
-                            }
-                        if (bCanSpawn)
+                        if (vacinity != null)
                         {
-                            spawnedList.Add(obj);
-                            GameController.addObject(obj);
-                            obj.Position = sp.Position;
-                            spatialGrid.registerObject(obj);
-                            break;
+                            foreach (GridObjectInterface nearbyObject in vacinity)
+                                if (!(nearbyObject is Marker))
+                                {
+                                    BoundingSphere sphere1 = nearbyObject.getBoundingSphere();
+                                    BoundingSphere sphere2 = obj.getBoundingSphere();
+                                    if ((nearbyObject.Position - obj.Position).Length() < (sphere1.Radius + sphere2.Radius) * 2)
+                                    {
+                                        bCanSpawn = false;
+                                        break;
+                                    }
+                                }
+                            if (bCanSpawn)
+                            {
+                                spawnedList.Add(obj);
+                                GameController.addObject(obj);
+                                obj.Position = sp.Position;
+                                spatialGrid.registerObject(obj);
+                                break;
+                            }
                         }
                     }
                 foreach (DynamicObject removal in spawnedList)

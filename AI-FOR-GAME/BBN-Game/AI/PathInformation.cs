@@ -67,7 +67,7 @@ namespace BBN_Game.AI
         /// Method to update remaining path variables when an object reaches its waypoint
         /// </summary>
         internal void reachedWaypoint()
-        {
+        {      
             if (objectRemainingPath != null) //if there is a path
             {
                 if (objectRemainingPath.Count > 1) //if we have not reached our destination yet
