@@ -66,7 +66,10 @@ namespace BBN_Game.Objects
             //if ((target.Position - this.Position).Length() <= veryCloseToTarget)
             //    this.destroy = true;
 
-            chaseTarget(gt);
+            if (this.target != null)
+                chaseTarget(gt);
+            else
+                this.shipData.speed = maxSpeed;
 
             //Vector3 newRotation = (this.Position - target.Position);
 

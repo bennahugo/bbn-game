@@ -437,7 +437,7 @@ namespace BBN_Game.Objects
             screenY = halfScreenY - ((screenPos.Y / screenPos.W) * halfScreenY);
             float distanceToPlayer = (Position - player.Position).Length();
 
-            drawDistances(distanceToPlayer, screenX, screenY, radiusOfObject, col); // draw the distances to the object
+            drawData(distanceToPlayer, screenX, screenY, radiusOfObject, col); // draw the distances to the object
 
             // set the variable to the new position vectors
             targetBoxVB.SetData<VertexPositionColor>(targetBoxVertices);
@@ -487,7 +487,7 @@ namespace BBN_Game.Objects
         /// <param name="y">Y pos of the object</param>
         /// <param name="radius">Radius of the object</param>
         /// <param name="col">Colour for the box</param>
-        private void drawDistances(float distance, float x, float y, float radius, Color col)
+        private void drawData(float distance, float x, float y, float radius, Color col)
         {
             GraphicsDevice.RenderState.DepthBufferEnable = false;
             GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
