@@ -78,7 +78,9 @@ namespace BBN_Game.Objects
         /// </summary>
         public BoundingSphere getBoundingSphere()
         {
-            return Bsphere;
+            BoundingSphere sphere = Bsphere;
+            sphere.Center = Position;
+            return sphere;
         }
         public void doDamage(float dmg)
         {

@@ -13,8 +13,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
-using BBN_Game.Map;
 using BBN_Game.AI;
+using BBN_Game.Map;
 
 namespace BBN_Game.Controller
 {
@@ -67,7 +67,7 @@ namespace BBN_Game.Controller
             // Set up the Variables
             gameState = GameState.Playing;
             prevGameState = GameState.notLoaded;
-            numPlayers = Players.single;
+            numPlayers = Players.two;
         }
 
         public void Initialize()
@@ -129,11 +129,8 @@ namespace BBN_Game.Controller
 
                 SkyBox.Update(gameTime);
 
-                foreach (Objects.Projectile p in Projectiles )
-                {
-                    checkCollision(p);
-                }
 
+                checkCollision();
                 RemoveDeadObjects();
                 moveObjectsInGrid();
             }
@@ -176,7 +173,7 @@ namespace BBN_Game.Controller
                     AllObjects.ElementAt(i).drawSuroundingBox(cam, player);
 
             //draw the players hud now (so that the target boxes wont obscure them)
-            player.drawHud();
+            player.drawHud(DynamicObjs);
             //draw path
             AITest.draw(gameTime, player.Camera, new BasicEffect(this.game.GraphicsDevice, null), game.GraphicsDevice);
         }
@@ -282,9 +279,9 @@ namespace BBN_Game.Controller
         protected void loadMap(string mapName)
         {
             TempLoader.loadMap("Content/patrolPath.xml", this.game.Content, this.game.GraphicsDevice);
-            gameGrid = new BBN_Game.Grid.GridStructure((int)Math.Ceiling(TempLoader.getMapRadius()*2), (int)Math.Ceiling(TempLoader.getMapRadius()*2), (int)Math.Ceiling(TempLoader.getMapRadius()*2), 50);
+            gameGrid = new BBN_Game.Grid.GridStructure((int)Math.Ceiling(TempLoader.getMapRadius() * 2), (int)Math.Ceiling(TempLoader.getMapRadius() * 2), (int)Math.Ceiling(TempLoader.getMapRadius() * 2), 50);
             AITest.gridStructure = gameGrid;
-            
+
             Objects.Turret turretR;
             Objects.Turret turretB;
             // hardcoded for now
@@ -304,9 +301,9 @@ namespace BBN_Game.Controller
             SkyBox = new BBN_Game.Graphics.Skybox.Skybox(game, "Starfield", 100000, 10);
             game.Components.Add(SkyBox);
 
-            
-            AITest.navComputer = new NavigationComputer();
-            AITest.navComputer.registerObject(Player1);
+
+            AITest.navComputer = new NavigationComputer(gameGrid);
+            //AITest.navComputer.registerObject(Player1);
             List<Node> t1ownedNodes = new List<Node>();
             List<Node> t2ownedNodes = new List<Node>();
             List<SpawnPoint> t1spawnPoints = new List<SpawnPoint>();
@@ -332,9 +329,9 @@ namespace BBN_Game.Controller
             turretListR.Add(turretR);
             List<Objects.Turret> turretListB = new List<Objects.Turret>();
             turretListR.Add(turretB);
-            TeamInformation tiR = new TeamInformation(Objects.Team.Red, false, turretListR, 1000, Player1, t1ownedNodes, t1spawnPoints, (uint)25, (uint)10, Team1Base);
-            TeamInformation tiB = new TeamInformation(Objects.Team.Blue, numPlayers.Equals(Players.single) ? true : false, turretListR, 6000, Player2, t2ownedNodes, t2spawnPoints, (uint)25, (uint)10, Team2Base);
-            
+            TeamInformation tiR = new TeamInformation(Objects.Team.Red, true, turretListR, 15000, Player1, t1ownedNodes, t1spawnPoints, (uint)25, (uint)10, Team1Base);
+            TeamInformation tiB = new TeamInformation(Objects.Team.Blue, numPlayers.Equals(Players.single) ? true : false, turretListR, 10000, Player2, t2ownedNodes, t2spawnPoints, (uint)25, (uint)10, Team2Base);
+
             AITest.myAIController = new AIController(AITest.gridStructure, AITest.navComputer, this);
             AITest.myAIController.registerTeam(tiR);
             AITest.myAIController.registerTeam(tiB);
@@ -343,18 +340,53 @@ namespace BBN_Game.Controller
 
         #endregion
 
-        // debug
-        public void checkCollision(Objects.Projectile projectile)
+        #region "Collision Detection"
+        public void checkCollision()
         {
-            
-            if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(projectile.shipModel, Player2.shipModel, projectile.getWorld, Player2.getWorld))
+            /*foreach (Objects.StaticObject obj in DynamicObjs)
             {
-                if (projectile.parent.Equals(Player1))
-                    Player2.doDamage(projectile.damage);
+                List<Grid.GridObjectInterface> list = gameGrid.checkNeighbouringBlocks(obj.getLocation(0));
+
+                foreach (Grid.GridObjectInterface other in list)
+                {
+                    if ( !(other is Marker) )
+                    if ( !other.Equals(obj))
+                    if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld))
+                    {
+                        // Collision occured call on the checker
+                        checkTwoObjects(obj, ((Objects.StaticObject)other));
+                    }
+                }
+            }*/
+        }
+
+        private void checkTwoObjects(Objects.StaticObject obj1, Objects.StaticObject obj2)
+        {
+            if (obj1 is Objects.Projectile || obj2 is Objects.Projectile)
+            {
+                if (obj1 is Objects.Projectile)
+                {
+                    obj1.doDamage(10000);
+                    obj2.doDamage(((Objects.Projectile)obj1).damage);
+                }
                 else
-                    Player1.doDamage(projectile.damage);
-                projectile.doDamage(1000);
+                {
+                    obj2.doDamage(10000);
+                    obj1.doDamage(((Objects.Projectile)obj2).damage);
+                }
             }
+            else
+            {
+                // add object collision settings
+            }
+        }
+
+        #endregion
+
+        // debug
+        public static int getNumberAround(Objects.StaticObject obj)
+        {
+            return gameGrid.checkNeighbouringBlocks(obj.getLocation(0)).Count;
         }
     }
 }

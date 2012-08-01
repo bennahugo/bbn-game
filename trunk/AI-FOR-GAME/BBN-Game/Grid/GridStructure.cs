@@ -74,7 +74,7 @@ namespace BBN_Game.Grid
             deregisterObject(obj);
 
             //get the width/diameter of object in terms of grid blocks
-            int objectWidth = (int)Math.Ceiling(((obj.getBoundingSphere().Radius*2) / GRID_BLOCK_SIZE));
+            int objectWidth = (int)Math.Ceiling(((obj.getBoundingSphere().Radius * 2) / GRID_BLOCK_SIZE));
             int texX, texY, texZ;
             int objX, objY, objZ;
 
@@ -116,27 +116,21 @@ namespace BBN_Game.Grid
         {
             List<GridObjectInterface> neighbours = new List<GridObjectInterface>();
             Vector3 gridBlock;
-            int blockX, blockY, blockZ;
             int gridX, gridY, gridZ;
 
             //loop though adjacent blocks containing objects to test for potential collisions
             for (int i = 0; i < obj.getCapacity(); i++)
             {
                 gridBlock = obj.getLocation(i);
-                blockX = (int)Math.Round(gridBlock.X);
-                blockY = (int)Math.Round(gridBlock.Y);
-                blockZ = (int)Math.Round(gridBlock.Z);
-
-                //convert objects coords to grid coords
-                gridX = (int)Math.Round((double)(blockX / GRID_BLOCK_SIZE)) + grid_offset;
-                gridY = (int)Math.Round((double)(blockY / GRID_BLOCK_SIZE)) + grid_offset;
-                gridZ = (int)Math.Round((double)(blockZ / GRID_BLOCK_SIZE)) + grid_offset;
+                gridX = (int)(gridBlock.X);
+                gridY = (int)(gridBlock.Y);
+                gridZ = (int)(gridBlock.Z);
                 
                 //check all 8 blocks surrounding object (as well as block object is in) for nearby objects
                 for (int x = -1; x < 2;x++)
                     for(int y=-1;y<2;y++)
                         for (int z = -1; z < 2; z++)
-                            checkForDuplicates(neighbours, obj, gridX + x, gridY + y, gridZ + z);                        
+                            checkForDuplicates(neighbours, obj, gridX + x, gridY + y, gridZ + z);
             }
             return neighbours;
         }
@@ -160,6 +154,11 @@ namespace BBN_Game.Grid
             
             return neighbours;
         }
+
+        //public List<GridObjectInterface> getAllObjectsAround(Vector3 block)
+        //{
+
+        //}
         
         //check list of neighbours to current object for duplicate entries
         private void checkForDuplicates(List<GridObjectInterface> nearByObjs, GridObjectInterface obj, int xcoord, int ycoord, int zcoord)
