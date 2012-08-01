@@ -47,6 +47,11 @@ namespace BBN_Game.Controller
 
         #region "Game Controllers"
         GameState gameState, prevGameState;
+        public GameState CurrentGameState
+        {
+            get { return gameState; }
+            set { gameState = value; }
+        }
         Players numPlayers;
         static Grid.GridStructure gameGrid;
 

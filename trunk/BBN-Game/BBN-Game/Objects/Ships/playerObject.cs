@@ -432,7 +432,10 @@ namespace BBN_Game.Objects
             targetBoxVertices[7].Color = col;
         }
 
-
+        public override void killObject()
+        {
+            
+        }
 
         /// <summary>
         /// override for the update method to call on the camera update methods.
