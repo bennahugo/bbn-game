@@ -25,8 +25,8 @@ namespace BBN_Game.Grid
     class GridStructure
     {
         //for error message boxs, ie debugging
-        //[DllImport("user32.dll", CharSet = CharSet.Auto)]
-        //public static extern uint MessageBox(IntPtr hWnd,String text,String caption,uint type);
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern uint MessageBox(IntPtr hWnd, String text, String caption, uint type);
 
         //instance variables
         private List<GridObjectInterface>[, ,] grid = null;
@@ -34,11 +34,11 @@ namespace BBN_Game.Grid
         private int grid_offset = 10; //because space is centered at (0,0,0)
 
         //constructor
-        public GridStructure(int height,int width,int depth,int max_size)
+        public GridStructure(int cubeLength,int max_size)
         {
             GRID_BLOCK_SIZE = max_size;
-            grid_offset = (height / GRID_BLOCK_SIZE) / 2;
-            grid = new List<GridObjectInterface>[(height/GRID_BLOCK_SIZE) + 1, (width/GRID_BLOCK_SIZE) + 1, (depth/GRID_BLOCK_SIZE)+1];
+            grid_offset = (cubeLength / GRID_BLOCK_SIZE) / 2;
+            grid = new List<GridObjectInterface>[(cubeLength / GRID_BLOCK_SIZE) + 1, (cubeLength / GRID_BLOCK_SIZE) + 1, (cubeLength / GRID_BLOCK_SIZE) + 1];
 
             //initialise grid structure
             for (int x = 0; x < grid.GetLength(0); x++)
@@ -48,24 +48,24 @@ namespace BBN_Game.Grid
         }
 
         //for debugging
-        //public void displayGridContents()
-        //{            
-        //    List<GridObjectInterface> temp = new List<GridObjectInterface>();
-        //    for (int x = 0; x < grid.GetLength(0); x++)
-        //        for (int y = 0; y < grid.GetLength(1); y++)
-        //            for (int z = 0; z < grid.GetLength(2); z++)
-        //            {
-        //                //Console.WriteLine(grid[x, y, z].Count);
-        //                if (grid[x, y, z].Count > 0)
-        //                    for (int i = 0; i < grid[x, y, z].Count; i++)
-        //                        if (temp.Contains(grid[x, y, z][i]) != true)
-        //                            temp.Add(grid[x, y, z][i]);
-        //            }
-        //    String errorMsg = "";
-        //    for (int i = 0; i < temp.Count; i++)
-        //        errorMsg = errorMsg + temp[i].Position + " \n";
-        //    MessageBox(new IntPtr(0), errorMsg, "Contents of Grid:", 0);
-        //}
+        public void displayGridContents()
+        {
+            List<GridObjectInterface> temp = new List<GridObjectInterface>();
+            for (int x = 0; x < grid.GetLength(0); x++)
+                for (int y = 0; y < grid.GetLength(1); y++)
+                    for (int z = 0; z < grid.GetLength(2); z++)
+                    {
+                        //Console.WriteLine(grid[x, y, z].Count);
+                        if (grid[x, y, z].Count > 0)
+                            for (int i = 0; i < grid[x, y, z].Count; i++)
+                                if (temp.Contains(grid[x, y, z][i]) != true)
+                                    temp.Add(grid[x, y, z][i]);
+                    }
+            String errorMsg = "";
+            for (int i = 0; i < temp.Count; i++)
+                errorMsg = errorMsg + temp[i].Position + " \n";
+            MessageBox(new IntPtr(0), errorMsg, "Contents of Grid:", 0);
+        }
           
         //insert object into grid and update pointers to grid-blocks
         public void registerObject(GridObjectInterface obj)
@@ -154,11 +154,6 @@ namespace BBN_Game.Grid
             
             return neighbours;
         }
-
-        //public List<GridObjectInterface> getAllObjectsAround(Vector3 block)
-        //{
-
-        //}
         
         //check list of neighbours to current object for duplicate entries
         private void checkForDuplicates(List<GridObjectInterface> nearByObjs, GridObjectInterface obj, int xcoord, int ycoord, int zcoord)

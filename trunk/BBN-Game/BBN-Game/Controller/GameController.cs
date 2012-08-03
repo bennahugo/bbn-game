@@ -284,7 +284,7 @@ namespace BBN_Game.Controller
 
         protected void loadMap(string mapName)
         {
-            gameGrid = new BBN_Game.Grid.GridStructure(2000, 2000, 2000, 50);
+            gameGrid = new BBN_Game.Grid.GridStructure(2000, 50);
             
             // hardcoded for now
             // players
