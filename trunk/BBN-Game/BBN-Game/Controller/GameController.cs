@@ -52,9 +52,15 @@ namespace BBN_Game.Controller
             get { return gameState; }
             set { gameState = value; }
         }
-        Players numPlayers;
+        static Players numPlayers;
         static Grid.GridStructure gameGrid;
+        protected Menu.MenuController menuController;
 
+        public static Players NumberOfPlayers
+        {
+            get { return numPlayers; }
+            set { numPlayers = value; }
+        }
         public static Grid.GridStructure Grid
         {
             get { return gameGrid; }
@@ -65,6 +71,8 @@ namespace BBN_Game.Controller
         Viewport Origional;
         BBN_Game.BBNGame game;
         static int i;
+
+        static Boolean ObjectsLoaded;
         #endregion
 
         #region "XNA Required"
@@ -73,9 +81,10 @@ namespace BBN_Game.Controller
             this.game = game;
 
             // Set up the Variables
-            gameState = GameState.Playing;
+            gameState = GameState.MainMenu;
             prevGameState = GameState.notLoaded;
             numPlayers = Players.single;
+            ObjectsLoaded = false;
         }
 
         public void Initialize()
@@ -101,6 +110,9 @@ namespace BBN_Game.Controller
             Origional = game.GraphicsDevice.Viewport;
             #endregion
 
+            #region "Menu initialization"
+            menuController = new BBN_Game.Menu.MenuController(this, this.game);
+            #endregion
         }
 
         public void loadContent()
@@ -110,6 +122,8 @@ namespace BBN_Game.Controller
             {
                 if (!(prevGameState.Equals(GameState.Playing)))
                 {
+                    game.Content.Unload();
+
                     loadMap("temp not used yet");
 
                     SkyBox.Initialize();
@@ -119,7 +133,16 @@ namespace BBN_Game.Controller
 
                     Player2.Target = Player1;
                     Player1.Target = Player2;
+
+                    ObjectsLoaded = true;
                 }
+            }
+            else
+            {
+                game.Content.Unload();
+
+                menuController.loadContent();
+                ObjectsLoaded = false;
             }
         }
 
@@ -132,15 +155,26 @@ namespace BBN_Game.Controller
         {
             if (gameState.Equals(GameState.Playing))
             {
-                for (i = 0; i < AllObjects.Count; ++i)
-                    AllObjects.ElementAt(i).Update(gameTime);
+                if (ObjectsLoaded)
+                {
+                    for (i = 0; i < AllObjects.Count; ++i)
+                        AllObjects.ElementAt(i).Update(gameTime);
 
-                SkyBox.Update(gameTime);
+                    SkyBox.Update(gameTime);
 
 
-                checkCollision();
-                RemoveDeadObjects();
-                moveObjectsInGrid();
+                    checkCollision();
+                    RemoveDeadObjects();
+                    moveObjectsInGrid();
+                }
+                else
+                {
+                    loadContent();
+                }
+            }
+            else
+            {
+                menuController.updateMenu(gameTime);
             }
         }
 
@@ -148,18 +182,24 @@ namespace BBN_Game.Controller
         {
             if (gameState.Equals(GameState.Playing))
             {
+                if (ObjectsLoaded)
+                {
+                    #region "Player 1"
+                    drawObjects(gameTime, Player1);
+                    #endregion
 
-                #region "Player 1"
-                drawObjects(gameTime, Player1);
-                #endregion
+                    #region "Player 2"
+                    if (numPlayers.Equals(Players.two))
+                        drawObjects(gameTime, Player2);
+                    #endregion
 
-                #region "Player 2"
-                if (numPlayers.Equals(Players.two))
-                    drawObjects(gameTime, Player2);
-                #endregion
-
-                // set the graphics device back to normal
-                game.GraphicsDevice.Viewport = Origional;
+                    // set the graphics device back to normal
+                    game.GraphicsDevice.Viewport = Origional;
+                }
+            }
+            else
+            {
+                menuController.drawMenu(gameTime);
             }
         }
 
