@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<questionlist>
+	<entry>
+		<question>What is first in line A B or C</question>
+		<option>A</option>
+		<option>B</option>
+		<option>C</option>
+		<answerindex>0</answerindex>
+	</entry>
+	<entry>
+		<question>What is second in line 1 2 or 3</question>
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<answerindex>1</answerindex>
+	</entry>
+	<entry>
+		<question>What is third in line d e or f</question>
+		<option>d</option>
+		<option>e</option>
+		<option>f</option>
+		<answerindex>2</answerindex>
+	</entry>
+	<entry>
+		<question>What popular TV series features a fictitious bulk supplier called Buy More</question>
+		<option>Fringe</option>
+		<option>Chuck</option>
+		<option>The Big Bang Theory</option>
+		<answerindex>1</answerindex>
+	</entry>
+</questionlist> 
