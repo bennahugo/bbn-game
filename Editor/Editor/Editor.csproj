@@ -87,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\PlayerSpawnPoint.cs" />
     <Compile Include="AI\Edge.cs" />
     <Compile Include="AI\Marker.cs" />
     <Compile Include="AI\Node.cs" />

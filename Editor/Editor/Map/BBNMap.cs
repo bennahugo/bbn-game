@@ -304,7 +304,7 @@ namespace BBN_Game.Map
             skyBoxRepeat = Convert.ToSingle(skyboxIter.GetAttribute("repeat", nsmanager.DefaultNamespace));
             SetUpSkyBox(gfxDevice, contentMgr, texName, Convert.ToString(skyBoxRepeat));
             //Now read in path nodes:
-            iter = nav.Select("/Map/Marker[@className!='SpawnPoint']");
+            iter = nav.Select("/Map/Marker[@className!='SpawnPoint' and @className!='PlayerSpawnPoint']");
             while (iter.MoveNext())
             {
                 Node n = new Node();
@@ -316,6 +316,14 @@ namespace BBN_Game.Map
             while (iter.MoveNext())
             {
                 SpawnPoint n = new SpawnPoint();
+                readMarkerData(contentMgr, reader, docNav, nav, nsmanager, iter, n);
+                content.Add(n.id, n);
+            }
+            //Read player spawnpoints:
+            iter = nav.Select("/Map/Marker[@className='PlayerSpawnPoint']");
+            while (iter.MoveNext())
+            {
+                SpawnPoint n = new PlayerSpawnPoint();
                 readMarkerData(contentMgr, reader, docNav, nav, nsmanager, iter, n);
                 content.Add(n.id, n);
             }
@@ -379,8 +387,6 @@ namespace BBN_Game.Map
             writer.WriteAttributeString("repeat", Convert.ToString(skyBoxRepeat));
             writer.WriteEndElement();
             ///Markers
-            
-            
             foreach (Object item in content.Values)
             {
                 if (item is Marker)
