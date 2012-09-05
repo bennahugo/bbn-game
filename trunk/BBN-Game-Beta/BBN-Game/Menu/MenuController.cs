@@ -97,7 +97,7 @@ namespace BBN_Game.Menu
             generalMenuFont = Content.Load<SpriteFont>("Fonts/menuFont");
             selectedMenuFont = Content.Load<SpriteFont>("Fonts/selectedFont");
             pauseMenuFont = Content.Load<SpriteFont>("Fonts/pause_menu");
-            tradeMenuFont = Content.Load<SpriteFont>("Fonts/pause_menu");
+            tradeMenuFont = Content.Load<SpriteFont>("Fonts/trade_menu");
         }
 
         public void unloadContent()
@@ -113,6 +113,8 @@ namespace BBN_Game.Menu
 
             if (currentState == GameState.MainMenu)
             {
+                #region Main menu
+
                 if (keyState.IsKeyDown(Keys.Down) && prevKeyState.IsKeyUp(Keys.Down))//move down menu
                     if (currentMenuOption < 4)
                         currentMenuOption++;
@@ -130,7 +132,11 @@ namespace BBN_Game.Menu
                     }
                     else if (currentMenuOption == 2)
                     {
-                        //start new multiplayer game TODO
+                        //start new multiplayer game
+                        Controller.GameController.NumberOfPlayers = Players.two;
+                        currentState = GameState.Playing;
+                        gameController.CurrentGameState = GameState.Playing;
+                        currentMenuOption = 1;
                     }
                     else if (currentMenuOption == 3)//look at and modify game options
                     {
@@ -140,10 +146,11 @@ namespace BBN_Game.Menu
                     else if (currentMenuOption == 4)//exit game
                         game.Exit();
                 }
+                #endregion
             }
             else if (currentState == GameState.OptionsMenu)
             {
-                //selecting menu options
+                //selecting menu options TODO
                 if (keyState.IsKeyDown(Keys.Enter) && prevKeyState.IsKeyUp(Keys.Enter))
                 {
                     currentState = GameState.MainMenu;
@@ -151,6 +158,7 @@ namespace BBN_Game.Menu
             }
             else if (currentState == GameState.Paused)
             {
+                #region Pause menu
                 if (keyState.IsKeyDown(Keys.Down) && prevKeyState.IsKeyUp(Keys.Down))//move down menu
                     if (currentMenuOption < 4)
                         currentMenuOption++;
@@ -182,11 +190,11 @@ namespace BBN_Game.Menu
                     else if (currentMenuOption == 4)//exit game entirely
                         game.Exit();
                 }
+                #endregion
             }
             else if (currentState == GameState.notLoaded)
             {
-                //TODO - Trade menu here
-
+                //TODO 
             }
             prevKeyState = keyState;
         }
@@ -194,26 +202,173 @@ namespace BBN_Game.Menu
         //manage xbox controls
         GamePadState prevPadState1 = GamePad.GetState(PlayerIndex.One);
         GamePadState prevPadState2 = GamePad.GetState(PlayerIndex.Two);
+        int menuDelay = 7;
         private void handleXboxControls()
         {
             GamePadState padState1 = GamePad.GetState(PlayerIndex.One);
-            GamePadState padState2 = GamePad.GetState(PlayerIndex.Two);
+            GamePadState padState2 = GamePad.GetState(PlayerIndex.Two);           
 
-            // Allows the game to exit using XBox
-            if (padState1.Buttons.Start == ButtonState.Pressed)
-                game.Exit();
-
-            if (currentState == GameState.MainMenu)
+            if (currentState == GameState.MainMenu && menuDelay <= 0)
             {
+                #region Main Menu
 
+                #region Player 1
+                if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
+                    if (currentMenuOption < 4)
+                        currentMenuOption++;
+                if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
+                    if (currentMenuOption > 1)
+                        currentMenuOption--;
+                menuDelay = 7;
+
+                if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
+                {
+                    if (currentMenuOption == 1)//start new single player game
+                    {
+                        currentState = GameState.Playing;
+                        gameController.CurrentGameState = GameState.Playing;
+                    }
+                    else if (currentMenuOption == 2)
+                    {
+                        //start new multiplayer game
+                        Controller.GameController.NumberOfPlayers = Players.two;
+                        currentState = GameState.Playing;
+                        gameController.CurrentGameState = GameState.Playing;
+                        currentMenuOption = 1;
+                    }
+                    else if (currentMenuOption == 3)//look at and modify game options
+                    {
+                        currentMenuOption = 1;
+                        currentState = GameState.OptionsMenu;
+                    }
+                    else if (currentMenuOption == 4)//exit game
+                        game.Exit();
+                }
+
+                #endregion
+
+                #region Player 2
+                if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
+                    if (currentMenuOption < 4)
+                        currentMenuOption++;
+                if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
+                    if (currentMenuOption > 1)
+                        currentMenuOption--;
+                menuDelay = 7;
+
+                if (padState2.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
+                {
+                    if (currentMenuOption == 1)//start new single player game
+                    {
+                        currentState = GameState.Playing;
+                        gameController.CurrentGameState = GameState.Playing;
+                    }
+                    else if (currentMenuOption == 2)
+                    {
+                        //start new multiplayer game
+                        Controller.GameController.NumberOfPlayers = Players.two;
+                        currentState = GameState.Playing;
+                        gameController.CurrentGameState = GameState.Playing;
+                        currentMenuOption = 1;
+                    }
+                    else if (currentMenuOption == 3)//look at and modify game options
+                    {
+                        currentMenuOption = 1;
+                        currentState = GameState.OptionsMenu;
+                    }
+                    else if (currentMenuOption == 4)//exit game
+                        game.Exit();
+                }
+                #endregion
+
+                
+                #endregion
             }
             else if (currentState == GameState.OptionsMenu)
             {
+                if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
+                {
+                    currentState = GameState.MainMenu;
+                }
 
+                if (padState2.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
+                {
+                    currentState = GameState.MainMenu;
+                }
             }
-            else if (currentState == GameState.Paused)
+            else if (currentState == GameState.Paused && menuDelay <= 0)
             {
+                #region Pause Menu
 
+                #region Player 1
+                if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
+                    if (currentMenuOption < 4)
+                        currentMenuOption++;
+                if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
+                    if (currentMenuOption > 1)
+                        currentMenuOption--;
+                menuDelay = 7;
+
+                if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
+                {
+                    if (currentMenuOption == 1)//resume gameplay
+                    {
+                        currentState = GameState.Playing;
+                        gameController.CurrentGameState = GameState.Playing;
+                    }
+                    else if (currentMenuOption == 2)//quit current game & return to main menu
+                    {
+                        // TODO - quit current game
+
+                        currentMenuOption = 1;
+                        currentState = GameState.MainMenu;
+                    }
+                    else if (currentMenuOption == 3)//look at game controls
+                    {
+                        currentMenuOption = 1;
+                        currentState = GameState.OptionsMenu;
+                    }
+                    else if (currentMenuOption == 4)//exit game entirely
+                        game.Exit();
+                }
+
+                #endregion
+
+                #region Player 2
+                if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
+                    if (currentMenuOption < 4)
+                        currentMenuOption++;
+                if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
+                    if (currentMenuOption > 1)
+                        currentMenuOption--;
+                menuDelay = 7;
+
+                if (padState2.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
+                {
+                    if (currentMenuOption == 1)//resume gameplay
+                    {
+                        currentState = GameState.Playing;
+                        gameController.CurrentGameState = GameState.Playing;
+                    }
+                    else if (currentMenuOption == 2)//quit current game & return to main menu
+                    {
+                        // TODO - quit current game
+
+                        currentMenuOption = 1;
+                        currentState = GameState.MainMenu;
+                    }
+                    else if (currentMenuOption == 3)//look at game controls
+                    {
+                        currentMenuOption = 1;
+                        currentState = GameState.OptionsMenu;
+                    }
+                    else if (currentMenuOption == 4)//exit game entirely
+                        game.Exit();
+                }
+
+                #endregion
+
+                #endregion
             }
             else if (currentState == GameState.notLoaded)
             {
@@ -226,6 +381,9 @@ namespace BBN_Game.Menu
         //manage menu navigation
         public void updateMenu(GameTime gameTime)
         {
+            if (menuDelay > 0)
+                menuDelay--;
+
             if (GamePad.GetState(PlayerIndex.One).IsConnected)
                 handleXboxControls();
             else
@@ -234,14 +392,62 @@ namespace BBN_Game.Menu
         }
 
         //manage the pop-up menu for trading for ships and missiles
-        public void drawTradeMenu()
+        public void drawTradeMenu(Objects.playerObject player)
         {
             spriteBatch.Begin();
 
             //draw trade menu pop-up panel and menu outline for options
-            spriteBatch.Draw(tradeMenuTex, new Rectangle(screenWidth - 160, screenHeight - 300, 150, 276), Color.White);
+            spriteBatch.Draw(tradeMenuTex, new Rectangle(player.getViewport.Width - 160, player.getViewport.Height - 300, 150, 276), Color.White);
+            
+            String currency = "$10 000";
+            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 243), Color.Black);
+            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 244), Color.Black);
+            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 245), Color.Red);
 
+            #region draw menu options
+            if (player.TradeMenuOption == 1)
+            {
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 112, player.getViewport.Height - 218), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 111, player.getViewport.Height - 219), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110,player.getViewport.Height - 220), Color.Aqua);
 
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 164), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 165), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166), Color.Green);
+
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 108), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 109), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110), Color.Green);
+            }
+            else if (player.TradeMenuOption == 2)
+            {
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 218), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 219), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 220), Color.Green);
+
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 164), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 165), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166), Color.Aqua);
+
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 108), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 109), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110), Color.Green);
+            }
+            else if (player.TradeMenuOption == 3)
+            {
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 218), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 219), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 220), Color.Green);
+
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 164), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 165), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166), Color.Green);
+
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 108), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 109), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110), Color.Aqua);
+            }
+            #endregion  
 
             spriteBatch.End();
         }
@@ -408,14 +614,14 @@ namespace BBN_Game.Menu
                 //spriteBatch.Draw(mainMenuTex, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
                 spriteBatch.Draw(transparentBackgrnd, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
                 spriteBatch.Draw(pauseMenuTex, new Rectangle(screenWidth / 2 - 300, screenHeight / 2 - 300, 600, 600), Color.White);
-                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 87, 175), Color.Black);
-                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 88, 174), Color.Black);
-                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 89, 173), Color.Black);
-                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 90, 172), Color.Blue);
+                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 87, (screenHeight / 2) - 127), Color.Black);
+                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 88, (screenHeight / 2) - 128), Color.Black);
+                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 89, (screenHeight / 2) - 129), Color.Black);
+                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 90, (screenHeight / 2) - 130), Color.Blue);
 
                 //display menu options
                 String resume = "Resume Game";
-                String quiteCurrent = "Quite Current Game";
+                String quiteCurrent = "Quit Current Game";
                 String controls = "Controls";
                 String exitGame = "Exit Game";
                 if (currentMenuOption == 1)

@@ -151,9 +151,11 @@ namespace BBN_Game.Controller
             // issue here remember to talk to team (Note to self)...
         }
 
+        //handle keyboard controls for pause and trade menu interaction
         KeyboardState prevKeyState = Keyboard.GetState();
-        Boolean tradePanelUp = false;
-        public void handleOtherControls()
+        Boolean tradePanelUp1 = false;
+        Boolean tradePanelUp2 = false;
+        public void handleKeyControls()
         {
             KeyboardState keyState = Keyboard.GetState();
 
@@ -165,15 +167,108 @@ namespace BBN_Game.Controller
                     menuController.updateState();
                 }
 
+                //player 1 trade menu
+                if (keyState.IsKeyDown(Keys.Z) && prevKeyState.IsKeyUp(Keys.Z) && Player1.TradeMenuOption > 1)
+                    Player1.TradeMenuOption--;
+                if (keyState.IsKeyDown(Keys.X) && prevKeyState.IsKeyUp(Keys.X) && Player1.TradeMenuOption < 3)
+                    Player1.TradeMenuOption++;
+                //player 2 trade menu
+                if (keyState.IsKeyDown(Keys.NumPad2) && prevKeyState.IsKeyUp(Keys.NumPad2) && Player2.TradeMenuOption > 1)
+                    Player2.TradeMenuOption--;
+                if (keyState.IsKeyDown(Keys.NumPad3) && prevKeyState.IsKeyUp(Keys.NumPad3) && Player2.TradeMenuOption < 3)
+                    Player2.TradeMenuOption++;
+
                 if (keyState.IsKeyDown(Keys.Q) && prevKeyState.IsKeyUp(Keys.Q))
                 {
-                    if (tradePanelUp)
-                        tradePanelUp = false;
+                    if (tradePanelUp1)
+                        tradePanelUp1 = false;
                     else
-                        tradePanelUp = true;
+                    {
+                        tradePanelUp1 = true;
+                        Player1.TradeMenuOption = 1;
+                    }
                 }
+                if (numPlayers.Equals(Players.two))
+                {
+                    if (keyState.IsKeyDown(Keys.M) && prevKeyState.IsKeyUp(Keys.M))
+                    {
+                        if (tradePanelUp2)
+                            tradePanelUp2 = false;
+                        else
+                        {
+                            tradePanelUp2 = true;
+                            Player2.TradeMenuOption = 1;
+                        }
+                    }
+                }
+
                 prevKeyState = keyState;
             }
+        }
+
+        //XBox controls for pause and trade menu interaction
+        GamePadState prevPadState1 = GamePad.GetState(PlayerIndex.One);
+        GamePadState prevPadState2 = GamePad.GetState(PlayerIndex.Two);
+        public void handleXboxControls()
+        {
+            GamePadState pad1State = GamePad.GetState(PlayerIndex.One);
+            GamePadState pad2State = GamePad.GetState(PlayerIndex.Two);
+
+            #region Player 1
+            //bring up pause menu
+            if (pad1State.Buttons.Back == ButtonState.Pressed)//Player 1 pauses game
+            {
+                gameState = GameState.Paused;
+                menuController.updateState();
+            }
+            //bring up trade menus
+            if (pad1State.Buttons.RightShoulder == ButtonState.Pressed && prevPadState1.Buttons.RightShoulder != ButtonState.Pressed)//player1
+            {
+                if (tradePanelUp1)
+                    tradePanelUp1 = false;
+                else
+                {
+                    tradePanelUp1 = true;
+                    Player1.TradeMenuOption = 1;
+                }
+            }
+            //traverse trade menu
+            if (pad1State.DPad.Down == ButtonState.Pressed && prevPadState1.DPad.Down == ButtonState.Released && Player1.TradeMenuOption < 3)
+                Player1.TradeMenuOption++;
+            if (pad1State.DPad.Up == ButtonState.Pressed && prevPadState1.DPad.Up == ButtonState.Released && Player1.TradeMenuOption > 1)
+                Player1.TradeMenuOption--;
+            #endregion
+
+            #region Player 2
+            if (numPlayers.Equals(Players.two) && GamePad.GetState(PlayerIndex.Two).IsConnected)
+            {
+                //bring up pause menu
+                if (pad2State.Buttons.Back == ButtonState.Pressed)//Player 2 pauses game
+                {
+                    gameState = GameState.Paused;
+                    menuController.updateState();
+                }
+                //bring up trade menus
+                if (pad2State.Buttons.RightShoulder == ButtonState.Pressed && prevPadState2.Buttons.RightShoulder == ButtonState.Released)//player2
+                {
+                    if (tradePanelUp2)
+                        tradePanelUp2 = false;
+                    else
+                    {
+                        tradePanelUp2 = true;
+                        Player2.TradeMenuOption = 1;
+                    }
+                }
+                //traverse trade menu
+                if (pad2State.DPad.Down == ButtonState.Pressed && prevPadState2.DPad.Down == ButtonState.Released && Player2.TradeMenuOption < 3)
+                    Player2.TradeMenuOption++;
+                if (pad2State.DPad.Up == ButtonState.Pressed && prevPadState2.DPad.Up == ButtonState.Released && Player2.TradeMenuOption > 1)
+                    Player2.TradeMenuOption--;
+            }
+            #endregion            
+            
+            prevPadState1 = pad1State;
+            prevPadState2 = pad2State;
         }
 
         public void Update(GameTime gameTime)
@@ -187,7 +282,10 @@ namespace BBN_Game.Controller
 
                     SkyBox.Update(gameTime);
 
-                    handleOtherControls();
+                    if (GamePad.GetState(PlayerIndex.One).IsConnected)
+                        handleXboxControls();
+                    else
+                        handleKeyControls();
 
                     checkCollision();
                     RemoveDeadObjects();
@@ -206,31 +304,35 @@ namespace BBN_Game.Controller
 
         public void Draw(GameTime gameTime)
         {
-            if (gameState.Equals(GameState.Playing))
+            if (gameState.Equals(GameState.MainMenu) || gameState.Equals(GameState.OptionsMenu))
+            {
+                menuController.drawMenu(gameTime);
+            }
+            else 
             {
                 if (ObjectsLoaded)
                 {
                     #region "Player 1"
                     drawObjects(gameTime, Player1);
+                    if (tradePanelUp1)//handle trade panel poping up                    
+                        menuController.drawTradeMenu(Player1);                    
                     #endregion
 
                     #region "Player 2"
                     if (numPlayers.Equals(Players.two))
+                    {
                         drawObjects(gameTime, Player2);
+                        if(tradePanelUp2)
+                            menuController.drawTradeMenu(Player2);
+                    }
                     #endregion
 
                     // set the graphics device back to normal
-                    game.GraphicsDevice.Viewport = Origional;
-
-                    if (tradePanelUp)//handle trade panel poping up
-                    {
-                        menuController.drawTradeMenu();
-                    }
+                    game.GraphicsDevice.Viewport = Origional;                    
                 }
-            }
-            else
-            {
-                menuController.drawMenu(gameTime);
+
+                if(gameState.Equals(GameState.Paused))
+                    menuController.drawMenu(gameTime);
             }
         }
 
