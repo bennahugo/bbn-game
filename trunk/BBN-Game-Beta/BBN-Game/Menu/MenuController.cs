@@ -452,6 +452,18 @@ namespace BBN_Game.Menu
             spriteBatch.End();
         }
 
+        public void drawTradeStats(Objects.playerObject player)
+        {
+            spriteBatch.Begin();
+
+            //draw icons for ship-counts and missile-counts
+            spriteBatch.Draw(tradeMenuTex, new Rectangle(player.getViewport.Width - 160, player.getViewport.Height - 300, 150, 276), Color.White);
+            spriteBatch.Draw(tradeMenuTex, new Rectangle(player.getViewport.Width - 160, player.getViewport.Height - 300, 150, 276), Color.White);
+            spriteBatch.Draw(tradeMenuTex, new Rectangle(player.getViewport.Width - 160, player.getViewport.Height - 300, 150, 276), Color.White);
+
+            spriteBatch.End();
+        }
+
         //update what menu is currently being displayed
         public void drawMenu(GameTime gameTime)
         {

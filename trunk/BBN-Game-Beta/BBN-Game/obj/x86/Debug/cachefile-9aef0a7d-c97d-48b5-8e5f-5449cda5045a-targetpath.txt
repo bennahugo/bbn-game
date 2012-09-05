@@ -27,3 +27,4 @@ Content\Fonts\pause_menu.xnb
 Content\Menu\trade_menu_new.xnb
 Content\Menu\pause_menu.xnb
 Content\Menu\dark_trans.xnb
+Content\Fonts\trade_menu.xnb
