@@ -202,6 +202,43 @@ namespace BBN_Game.Controller
                     }
                 }
 
+                //trade menu selection
+                if (keyState.IsKeyDown(Keys.C) && keyState.IsKeyUp(Keys.C))
+                {
+                    if (Player1.TradeMenuOption == 1)
+                    {
+                        //TODO - buy destroyers here
+                    }
+                    else if (Player1.TradeMenuOption == 2)
+                    {
+                        //TODO - buy fighters here
+                    }
+                    else if (Player1.TradeMenuOption == 3)
+                    {
+                        //buy missiles for player
+                        Player1.Missiles++;
+                        //TODO deduct funds off of account
+                    }
+                }
+
+                if (keyState.IsKeyDown(Keys.N) && keyState.IsKeyUp(Keys.N))
+                {
+                    if (Player2.TradeMenuOption == 1)
+                    {
+                        //TODO - buy destroyers here
+                    }
+                    else if (Player2.TradeMenuOption == 2)
+                    {
+                        //TODO - buy fighters here
+                    }
+                    else if (Player2.TradeMenuOption == 3)
+                    {
+                        //buy missiles for player
+                        Player2.Missiles++;
+                        //TODO deduct funds off of account
+                    }
+                }
+
                 prevKeyState = keyState;
             }
         }
@@ -237,6 +274,24 @@ namespace BBN_Game.Controller
                 Player1.TradeMenuOption++;
             if (pad1State.DPad.Up == ButtonState.Pressed && prevPadState1.DPad.Up == ButtonState.Released && Player1.TradeMenuOption > 1)
                 Player1.TradeMenuOption--;
+            //menu option selection
+            if (pad1State.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
+            {
+                if (Player1.TradeMenuOption == 1)
+                {
+                    //TODO - buy destroyers here
+                }
+                else if (Player1.TradeMenuOption == 2)
+                {
+                    //TODO - buy fighters here
+                }
+                else if (Player1.TradeMenuOption == 3)
+                {
+                    //buy missiles for player
+                    Player1.Missiles++;
+                    //TODO deduct funds off of account
+                }
+            }
             #endregion
 
             #region Player 2
@@ -264,6 +319,24 @@ namespace BBN_Game.Controller
                     Player2.TradeMenuOption++;
                 if (pad2State.DPad.Up == ButtonState.Pressed && prevPadState2.DPad.Up == ButtonState.Released && Player2.TradeMenuOption > 1)
                     Player2.TradeMenuOption--;
+                //menu option selection
+                if (pad2State.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
+                {
+                    if (Player2.TradeMenuOption == 1)
+                    {
+                        //TODO - buy destroyers here
+                    }
+                    else if (Player2.TradeMenuOption == 2)
+                    {
+                        //TODO - buy fighters here
+                    }
+                    else if (Player2.TradeMenuOption == 3)
+                    {
+                        //buy missiles for player
+                        Player2.Missiles++;
+                        //TODO deduct funds off of account
+                    }
+                }
             }
             #endregion            
             
@@ -315,15 +388,19 @@ namespace BBN_Game.Controller
                     #region "Player 1"
                     drawObjects(gameTime, Player1);
                     if (tradePanelUp1)//handle trade panel poping up                    
-                        menuController.drawTradeMenu(Player1);                    
+                        menuController.drawTradeMenu(Player1);
+                    else
+                        menuController.drawTradeStats(Player1);
                     #endregion
 
                     #region "Player 2"
                     if (numPlayers.Equals(Players.two))
                     {
                         drawObjects(gameTime, Player2);
-                        if(tradePanelUp2)
+                        if (tradePanelUp2)
                             menuController.drawTradeMenu(Player2);
+                        else
+                            menuController.drawTradeStats(Player2);
                     }
                     #endregion
 

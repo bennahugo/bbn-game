@@ -317,6 +317,15 @@
       <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\dark_trans.xnb</Output>
       <Time>2012-09-05T13:42:08.7979818+02:00</Time>
     </Item>
+    <Item>
+      <Source>Fonts\trade_menu.spritefont</Source>
+      <Name>Fonts\trade_menu</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\trade_menu.xnb</Output>
+      <Time>2012-09-05T23:05:27.6098818+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

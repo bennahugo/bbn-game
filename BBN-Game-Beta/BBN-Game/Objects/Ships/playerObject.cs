@@ -67,6 +67,13 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Getter and setter
         /// </summary>
+        /// 
+        private int numMissiles = 5;
+        public int Missiles
+        {
+            get { return numMissiles; }
+            set { numMissiles = value; }
+        }
         public Camera.CameraMatrices Camera
         {
             get { return cameraType.Equals(CurrentCam.Chase) ? new Camera.CameraMatrices(chaseCamera.view, chaseCamera.proj, chaseCamera.position, chaseCamera.viewingAnle) : new Camera.CameraMatrices(fpCamera.view, fpCamera.proj, fpCamera.Position, fpCamera.viewingAnle); }
@@ -193,6 +200,11 @@ namespace BBN_Game.Objects
         /// <param name="gt">Game time variable</param>
         public override void controller(GameTime gt)
         {
+            if (GamePad.GetState(PlayerIndex.One).IsConnected)
+                xboxControls((float)gt.ElapsedGameTime.TotalSeconds);
+            else
+                keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);
+
             if (twoPlayer)
             {
                 if (GamePad.GetState(PlayerIndex.Two).IsConnected)
@@ -200,13 +212,6 @@ namespace BBN_Game.Objects
                 else
                     keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);
             }
-            else
-            {
-                if (GamePad.GetState(PlayerIndex.One).IsConnected)
-                    xboxControls((float)gt.ElapsedGameTime.TotalSeconds);
-                else
-                    keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);
-            }            
 
             base.controller(gt);
         }
@@ -299,10 +304,11 @@ namespace BBN_Game.Objects
                 #region "Guns"
                 if (state.IsKeyDown(Keys.F))
                 {
-                    if (reloadTimer[1] <= 0)
+                    if (reloadTimer[1] <= 0 && numMissiles > 0)
                     {
                         Controller.GameController.addObject(new Objects.Missile(Game, this.target, this));
                         reloadTimer[1] = MissileReload;
+                        numMissiles--;
                     }
                 }
                 if (state.IsKeyDown(Keys.E))
@@ -391,10 +397,11 @@ namespace BBN_Game.Objects
                 #region "Guns"
                 if (state.IsKeyDown(Keys.NumPad1))
                 {
-                    if (reloadTimer[1] <= 0)
+                    if (reloadTimer[1] <= 0 && numMissiles > 0)
                     {
                         Controller.GameController.addObject(new Objects.Missile(Game, this.target, this));
                         reloadTimer[1] = MissileReload;
+                        numMissiles--;
                     }
                 }
             }
@@ -417,7 +424,7 @@ namespace BBN_Game.Objects
             GamePadState pad1State = GamePad.GetState(PlayerIndex.One);
             GamePadState pad2State = GamePad.GetState(PlayerIndex.Two);
 
-            if (! twoPlayer)
+            if (index == PlayerIndex.One)
             {
                 // Allows the game to exit using XBox
                 if (pad1State.Buttons.Start == ButtonState.Pressed)
@@ -508,10 +515,11 @@ namespace BBN_Game.Objects
                 //fire missile
                 if (pad1State.Buttons.B == ButtonState.Pressed && prevPadState1.Buttons.B == ButtonState.Released)
                 {
-                    if (reloadTimer[1] <= 0)
+                    if (reloadTimer[1] <= 0 && numMissiles > 0)
                     {
                         Controller.GameController.addObject(new Objects.Missile(Game, this.target, this));
                         reloadTimer[1] = MissileReload;
+                        numMissiles--;
                     }
                 }
 
@@ -618,10 +626,11 @@ namespace BBN_Game.Objects
                 //fire missile
                 if (pad2State.Buttons.B == ButtonState.Pressed && prevPadState2.Buttons.B == ButtonState.Released)
                 {
-                    if (reloadTimer[1] <= 0)
+                    if (reloadTimer[1] <= 0 && numMissiles > 0)
                     {
                         Controller.GameController.addObject(new Objects.Missile(Game, this.target, this));
                         reloadTimer[1] = MissileReload;
+                        numMissiles--;
                     }
                 }
 

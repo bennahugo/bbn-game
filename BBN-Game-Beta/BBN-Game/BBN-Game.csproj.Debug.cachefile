@@ -5,6 +5,7 @@ Content\Menu\industrial.xnb
 Content\Models\Projectiles\Missile.xnb
 Content\Skybox\space5.xnb
 Content\Menu\trade_menu_new.xnb
+Content\Fonts\trade_menu.xnb
 Content\Fonts\selectedFont.xnb
 Content\Fonts\menuFont.xnb
 Content\HudTextures\HealthBarHolder.xnb
