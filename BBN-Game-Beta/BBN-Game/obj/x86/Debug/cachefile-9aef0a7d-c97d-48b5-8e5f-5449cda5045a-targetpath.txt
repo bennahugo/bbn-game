@@ -28,3 +28,8 @@ Content\Menu\trade_menu_new.xnb
 Content\Menu\pause_menu.xnb
 Content\Menu\dark_trans.xnb
 Content\Fonts\trade_menu.xnb
+Content\stats_icons\destroyer2_small.xnb
+Content\stats_icons\destroyer_small.xnb
+Content\stats_icons\fighter_small.xnb
+Content\stats_icons\malpha_small.xnb
+Content\stats_icons\missile_small.xnb
