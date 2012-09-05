@@ -56,6 +56,7 @@
             this.tvwToolbox = new System.Windows.Forms.TreeView();
             this.ofdMainWindow = new System.Windows.Forms.OpenFileDialog();
             this.sfdMainWindow = new System.Windows.Forms.SaveFileDialog();
+            this.tsbPlayerSpawnpoint = new System.Windows.Forms.ToolStripButton();
             this.tspMain.SuspendLayout();
             this.scrMainLayout.Panel1.SuspendLayout();
             this.scrMainLayout.SuspendLayout();
@@ -82,13 +83,14 @@
             this.tsbAddPathNode,
             this.tsbConnectPathNodes,
             this.tsbAddSpawnPoint,
+            this.tsbPlayerSpawnpoint,
             this.tspOther,
             this.tsbSkybox,
             this.tsbSetMapRadius,
             this.tsbOpenGuide});
             this.tspMain.Location = new System.Drawing.Point(0, 0);
             this.tspMain.Name = "tspMain";
-            this.tspMain.Size = new System.Drawing.Size(1016, 44);
+            this.tspMain.Size = new System.Drawing.Size(1432, 44);
             this.tspMain.TabIndex = 1;
             this.tspMain.Text = "toolStrip1";
             // 
@@ -265,8 +267,8 @@
             this.scrMainLayout.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.scrMainLayout_Panel2_MouseDown);
             this.scrMainLayout.Panel2.Resize += new System.EventHandler(this.splitContainer1_Panel2_Resize);
             this.scrMainLayout.Panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.scrMainLayout_Panel2_MouseUp);
-            this.scrMainLayout.Size = new System.Drawing.Size(1016, 653);
-            this.scrMainLayout.SplitterDistance = 337;
+            this.scrMainLayout.Size = new System.Drawing.Size(1432, 829);
+            this.scrMainLayout.SplitterDistance = 474;
             this.scrMainLayout.TabIndex = 2;
             // 
             // scrLeftSplitView
@@ -287,8 +289,8 @@
             // scrLeftSplitView.Panel2
             // 
             this.scrLeftSplitView.Panel2.Controls.Add(this.tvwToolbox);
-            this.scrLeftSplitView.Size = new System.Drawing.Size(337, 653);
-            this.scrLeftSplitView.SplitterDistance = 296;
+            this.scrLeftSplitView.Size = new System.Drawing.Size(474, 829);
+            this.scrLeftSplitView.SplitterDistance = 375;
             this.scrLeftSplitView.TabIndex = 0;
             // 
             // lblProperties
@@ -307,9 +309,9 @@
             this.cbxMapItems.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cbxMapItems.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMapItems.FormattingEnabled = true;
-            this.cbxMapItems.Location = new System.Drawing.Point(0, 23);
+            this.cbxMapItems.Location = new System.Drawing.Point(0, 15);
             this.cbxMapItems.Name = "cbxMapItems";
-            this.cbxMapItems.Size = new System.Drawing.Size(337, 21);
+            this.cbxMapItems.Size = new System.Drawing.Size(474, 21);
             this.cbxMapItems.TabIndex = 1;
             this.cbxMapItems.SelectedIndexChanged += new System.EventHandler(this.cbxMapItems_SelectedIndexChanged);
             // 
@@ -322,10 +324,10 @@
             this.Properties,
             this.Values});
             this.dgvProperties.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvProperties.Location = new System.Drawing.Point(0, 44);
+            this.dgvProperties.Location = new System.Drawing.Point(0, 36);
             this.dgvProperties.MultiSelect = false;
             this.dgvProperties.Name = "dgvProperties";
-            this.dgvProperties.Size = new System.Drawing.Size(337, 252);
+            this.dgvProperties.Size = new System.Drawing.Size(474, 339);
             this.dgvProperties.TabIndex = 0;
             this.dgvProperties.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProperties_CellEndEdit);
             // 
@@ -350,7 +352,7 @@
             this.tvwToolbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvwToolbox.Location = new System.Drawing.Point(0, 0);
             this.tvwToolbox.Name = "tvwToolbox";
-            this.tvwToolbox.Size = new System.Drawing.Size(337, 353);
+            this.tvwToolbox.Size = new System.Drawing.Size(474, 450);
             this.tvwToolbox.TabIndex = 0;
             this.tvwToolbox.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvwToolbox_AfterSelect);
             // 
@@ -363,18 +365,29 @@
             this.sfdMainWindow.DefaultExt = "xml";
             this.sfdMainWindow.Filter = "Map XML file|*.xml";
             // 
+            // tsbPlayerSpawnpoint
+            // 
+            this.tsbPlayerSpawnpoint.Image = global::Editor.Properties.Resources.spawn;
+            this.tsbPlayerSpawnpoint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPlayerSpawnpoint.Name = "tsbPlayerSpawnpoint";
+            this.tsbPlayerSpawnpoint.Size = new System.Drawing.Size(124, 41);
+            this.tsbPlayerSpawnpoint.Text = "Add player spawn point";
+            this.tsbPlayerSpawnpoint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbPlayerSpawnpoint.Click += new System.EventHandler(this.tsbPlayerSpawnpoint_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 697);
+            this.ClientSize = new System.Drawing.Size(1432, 873);
             this.Controls.Add(this.scrMainLayout);
             this.Controls.Add(this.tspMain);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1024, 724);
+            this.MaximumSize = new System.Drawing.Size(1440, 900);
             this.MinimumSize = new System.Drawing.Size(1024, 724);
             this.Name = "frmMain";
             this.Text = "BBN World Editor";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.tspMain.ResumeLayout(false);
@@ -421,5 +434,6 @@
         private System.Windows.Forms.OpenFileDialog ofdMainWindow;
         private System.Windows.Forms.SaveFileDialog sfdMainWindow;
         private System.Windows.Forms.ToolStripButton tsbSetMapRadius;
+        private System.Windows.Forms.ToolStripButton tsbPlayerSpawnpoint;
     }
 }

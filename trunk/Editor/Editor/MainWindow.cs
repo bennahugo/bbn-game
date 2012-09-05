@@ -908,6 +908,20 @@ namespace Editor
                 MessageBox.Show("Could not set radius.\nReason: " + ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
+        private void tsbPlayerSpawnpoint_Click(object sender, EventArgs e)
+        {
+            SpawnPoint s = new SpawnPoint(cameraFocus, -1);
+            s.className = "PlayerSpawnPoint";
+            s.type = "Marker";
+            String id = Convert.ToString(BBNMap.content.Count);
+            for (int i = 0; BBNMap.content.Keys.Contains(id); i++)
+            {
+                id = Convert.ToString(BBNMap.content.Count + i);
+            }
+            s.id = id;
+            BBNMap.content.Add(s.id, s);
+            cbxMapItems.SelectedIndex = cbxMapItems.Items.Add(s.id + " : PlayerSpawnPoint");
+        }
 #endregion
 #region 3D controls event handlers
         private void scrMainLayout_Panel2_Click(object sender, EventArgs e)
