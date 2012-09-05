@@ -326,6 +326,51 @@
       <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\trade_menu.xnb</Output>
       <Time>2012-09-05T23:05:27.6098818+02:00</Time>
     </Item>
+    <Item>
+      <Source>stats_icons\destroyer2_small.png</Source>
+      <Name>stats_icons\destroyer2_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\destroyer2_small.xnb</Output>
+      <Time>2012-09-06T00:37:25.6534958+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\destroyer_small.png</Source>
+      <Name>stats_icons\destroyer_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\destroyer_small.xnb</Output>
+      <Time>2012-09-06T00:37:25.6454954+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\fighter_small.png</Source>
+      <Name>stats_icons\fighter_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\fighter_small.xnb</Output>
+      <Time>2012-09-06T00:37:25.6274944+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\malpha_small.png</Source>
+      <Name>stats_icons\malpha_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\malpha_small.xnb</Output>
+      <Time>2012-09-06T00:37:25.6344948+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\missile_small.png</Source>
+      <Name>stats_icons\missile_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\missile_small.xnb</Output>
+      <Time>2012-09-06T00:40:26.0378132+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

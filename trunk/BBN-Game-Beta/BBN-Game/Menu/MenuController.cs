@@ -53,6 +53,11 @@ namespace BBN_Game.Menu
         private Texture2D tradeMenuTex;
         private Texture2D transparentBackgrnd;
 
+        //stats icons
+        private Texture2D fighterTex;
+        private Texture2D destroyerTex;
+        private Texture2D missileTex;
+
         //menu fonts
         SpriteFont generalMenuFont;
         SpriteFont selectedMenuFont;
@@ -92,6 +97,11 @@ namespace BBN_Game.Menu
             optionsMenuTex = Content.Load<Texture2D>("Menu/industrial");
             tradeMenuTex = Content.Load<Texture2D>("Menu/trade_menu_new");
             transparentBackgrnd = Content.Load<Texture2D>("Menu/dark_trans");
+
+            //load stats icons
+            destroyerTex = Content.Load<Texture2D>("stats_icons/destroyer_small");
+            fighterTex = Content.Load<Texture2D>("stats_icons/fighter_small");
+            missileTex = Content.Load<Texture2D>("stats_icons/missile_small");
 
             //load fonts
             generalMenuFont = Content.Load<SpriteFont>("Fonts/menuFont");
@@ -449,6 +459,14 @@ namespace BBN_Game.Menu
             }
             #endregion  
 
+            #region Draw menu values
+
+            spriteBatch.DrawString(tradeMenuFont, "You have: "+2, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 195), Color.Red);
+            spriteBatch.DrawString(tradeMenuFont, "You have: "+3, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 141), Color.Red);
+            spriteBatch.DrawString(tradeMenuFont, "You have: "+player.Missiles, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 85), Color.Red);
+
+            #endregion
+
             spriteBatch.End();
         }
 
@@ -457,9 +475,12 @@ namespace BBN_Game.Menu
             spriteBatch.Begin();
 
             //draw icons for ship-counts and missile-counts
-            spriteBatch.Draw(tradeMenuTex, new Rectangle(player.getViewport.Width - 160, player.getViewport.Height - 300, 150, 276), Color.White);
-            spriteBatch.Draw(tradeMenuTex, new Rectangle(player.getViewport.Width - 160, player.getViewport.Height - 300, 150, 276), Color.White);
-            spriteBatch.Draw(tradeMenuTex, new Rectangle(player.getViewport.Width - 160, player.getViewport.Height - 300, 150, 276), Color.White);
+            spriteBatch.Draw(destroyerTex, new Rectangle(player.getViewport.Width - 280, player.getViewport.Height - 50, 64, 36), Color.White);
+            spriteBatch.DrawString(tradeMenuFont, "2", new Vector2(player.getViewport.Width - 290, player.getViewport.Height - 50), Color.Red);
+            spriteBatch.Draw(fighterTex, new Rectangle(player.getViewport.Width - 180, player.getViewport.Height - 50, 64, 41), Color.White);
+            spriteBatch.DrawString(tradeMenuFont, "3", new Vector2(player.getViewport.Width - 190, player.getViewport.Height - 50), Color.Red);
+            spriteBatch.Draw(missileTex, new Rectangle(player.getViewport.Width - 70, player.getViewport.Height - 50, 64, 48), Color.White);
+            spriteBatch.DrawString(tradeMenuFont, ""+player.Missiles, new Vector2(player.getViewport.Width - 80, player.getViewport.Height - 50), Color.Red);
 
             spriteBatch.End();
         }
