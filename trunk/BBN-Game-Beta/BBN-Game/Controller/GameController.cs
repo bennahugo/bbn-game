@@ -178,6 +178,26 @@ namespace BBN_Game.Controller
                 if (keyState.IsKeyDown(Keys.NumPad3) && prevKeyState.IsKeyUp(Keys.NumPad3) && Player2.TradeMenuOption < 3)
                     Player2.TradeMenuOption++;
 
+                //trade menu selection
+                if (keyState.IsKeyDown(Keys.C) && prevKeyState.IsKeyUp(Keys.C))
+                {
+                    if (Player1.TradeMenuOption == 1)
+                    {
+                        //TODO - buy destroyers here
+                    }
+                    else if (Player1.TradeMenuOption == 2)
+                    {
+                        //TODO - buy fighters here
+                    }
+                    else if (Player1.TradeMenuOption == 3)
+                    {
+                        //buy missiles for player
+                        Player1.Missiles++;
+                        //System.Diagnostics.Debug.WriteLine("Missiles added HERE...");
+                        //TODO deduct funds off of account
+                    }
+                }
+
                 if (keyState.IsKeyDown(Keys.Q) && prevKeyState.IsKeyUp(Keys.Q))
                 {
                     if (tradePanelUp1)
@@ -200,44 +220,25 @@ namespace BBN_Game.Controller
                             Player2.TradeMenuOption = 1;
                         }
                     }
-                }
 
-                //trade menu selection
-                if (keyState.IsKeyDown(Keys.C) && keyState.IsKeyUp(Keys.C))
-                {
-                    if (Player1.TradeMenuOption == 1)
+                    if (keyState.IsKeyDown(Keys.N) && prevKeyState.IsKeyUp(Keys.N))
                     {
-                        //TODO - buy destroyers here
+                        if (Player2.TradeMenuOption == 1)
+                        {
+                            //TODO - buy destroyers here
+                        }
+                        else if (Player2.TradeMenuOption == 2)
+                        {
+                            //TODO - buy fighters here
+                        }
+                        else if (Player2.TradeMenuOption == 3)
+                        {
+                            //buy missiles for player
+                            Player2.Missiles++;
+                            //TODO deduct funds off of account
+                        }
                     }
-                    else if (Player1.TradeMenuOption == 2)
-                    {
-                        //TODO - buy fighters here
-                    }
-                    else if (Player1.TradeMenuOption == 3)
-                    {
-                        //buy missiles for player
-                        Player1.Missiles++;
-                        //TODO deduct funds off of account
-                    }
-                }
-
-                if (keyState.IsKeyDown(Keys.N) && keyState.IsKeyUp(Keys.N))
-                {
-                    if (Player2.TradeMenuOption == 1)
-                    {
-                        //TODO - buy destroyers here
-                    }
-                    else if (Player2.TradeMenuOption == 2)
-                    {
-                        //TODO - buy fighters here
-                    }
-                    else if (Player2.TradeMenuOption == 3)
-                    {
-                        //buy missiles for player
-                        Player2.Missiles++;
-                        //TODO deduct funds off of account
-                    }
-                }
+                }                               
 
                 prevKeyState = keyState;
             }
