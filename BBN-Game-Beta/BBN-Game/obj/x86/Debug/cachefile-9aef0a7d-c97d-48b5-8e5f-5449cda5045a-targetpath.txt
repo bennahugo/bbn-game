@@ -1,5 +1,7 @@
 Content\SpriteFont1.xnb
 Content\Fonts\distanceFont.xnb
+Content\Fonts\menuFont.xnb
+Content\Fonts\selectedFont.xnb
 Content\Models\Ships\FighterBlue.xnb
 Content\Models\Ships\FighterRed.xnb
 Content\Models\Ships\PlayerBlue.xnb
@@ -15,3 +17,13 @@ Content\Skybox\space4.xnb
 Content\Skybox\space5.xnb
 Content\HudTextures\HealthBar.xnb
 Content\HudTextures\HealthBarHolder.xnb
+Content\Menu\industrial.xnb
+Content\Menu\nebula_blue.xnb
+Content\Menu\purple.xnb
+Content\Menu\star_destroyer_bridge.xnb
+Content\Menu\sunrise_in_space.xnb
+Content\Menu\waterfall_city.xnb
+Content\Fonts\pause_menu.xnb
+Content\Menu\trade_menu_new.xnb
+Content\Menu\pause_menu.xnb
+Content\Menu\dark_trans.xnb

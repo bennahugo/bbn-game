@@ -140,15 +140,40 @@ namespace BBN_Game.Controller
             else
             {
                 game.Content.Unload();
-
-                menuController.loadContent();
+                                
                 ObjectsLoaded = false;
             }
+            menuController.loadContent();
         }
 
         public void unloadContent()
         {
             // issue here remember to talk to team (Note to self)...
+        }
+
+        KeyboardState prevKeyState = Keyboard.GetState();
+        Boolean tradePanelUp = false;
+        public void handleOtherControls()
+        {
+            KeyboardState keyState = Keyboard.GetState();
+
+            if (gameState.Equals(GameState.Playing))
+            {
+                if (keyState.IsKeyDown(Keys.P) && prevKeyState.IsKeyUp(Keys.P))//pause game
+                {
+                    gameState = GameState.Paused;
+                    menuController.updateState();
+                }
+
+                if (keyState.IsKeyDown(Keys.Q) && prevKeyState.IsKeyUp(Keys.Q))
+                {
+                    if (tradePanelUp)
+                        tradePanelUp = false;
+                    else
+                        tradePanelUp = true;
+                }
+                prevKeyState = keyState;
+            }
         }
 
         public void Update(GameTime gameTime)
@@ -162,6 +187,7 @@ namespace BBN_Game.Controller
 
                     SkyBox.Update(gameTime);
 
+                    handleOtherControls();
 
                     checkCollision();
                     RemoveDeadObjects();
@@ -195,6 +221,11 @@ namespace BBN_Game.Controller
 
                     // set the graphics device back to normal
                     game.GraphicsDevice.Viewport = Origional;
+
+                    if (tradePanelUp)//handle trade panel poping up
+                    {
+                        menuController.drawTradeMenu();
+                    }
                 }
             }
             else
