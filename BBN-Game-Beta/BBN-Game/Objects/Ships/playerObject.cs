@@ -80,6 +80,13 @@ namespace BBN_Game.Objects
             get { return target; }
             set { target = value; }
         }
+        private int tradeMenuOption = 1;
+        public int TradeMenuOption
+        {
+            get { return tradeMenuOption; }
+            set { tradeMenuOption = value; }
+        }
+
         #endregion
 
         #region "Constructors - Data setting"
@@ -186,7 +193,20 @@ namespace BBN_Game.Objects
         /// <param name="gt">Game time variable</param>
         public override void controller(GameTime gt)
         {
-            keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);
+            if (twoPlayer)
+            {
+                if (GamePad.GetState(PlayerIndex.Two).IsConnected)
+                    xboxControls((float)gt.ElapsedGameTime.TotalSeconds);
+                else
+                    keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);
+            }
+            else
+            {
+                if (GamePad.GetState(PlayerIndex.One).IsConnected)
+                    xboxControls((float)gt.ElapsedGameTime.TotalSeconds);
+                else
+                    keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);
+            }            
 
             base.controller(gt);
         }
@@ -197,8 +217,7 @@ namespace BBN_Game.Objects
         public void keyBoardChecks(float time)
         {
             KeyboardState state = Keyboard.GetState();
-
-
+            
             #region "Player 1"
             if (index == PlayerIndex.One)
             {
@@ -388,6 +407,239 @@ namespace BBN_Game.Objects
             #endregion
 
             oldState = state;
+        }
+
+        //TODO - Xbox controls
+        GamePadState prevPadState1 = GamePad.GetState(PlayerIndex.One);
+        GamePadState prevPadState2 = GamePad.GetState(PlayerIndex.Two);
+        public void xboxControls(float time)
+        {
+            GamePadState pad1State = GamePad.GetState(PlayerIndex.One);
+            GamePadState pad2State = GamePad.GetState(PlayerIndex.Two);
+
+            if (! twoPlayer)
+            {
+                // Allows the game to exit using XBox
+                if (pad1State.Buttons.Start == ButtonState.Pressed)
+                   this.Game.Exit();
+
+                #region Extra Controls: Turret Capture & Camera
+
+                if (pad1State.Buttons.LeftShoulder == ButtonState.Pressed && prevPadState1.Buttons.LeftShoulder == ButtonState.Released)
+                    cameraType = cameraType.Equals(CurrentCam.Chase) ? CurrentCam.FirstPerson : CurrentCam.Chase;
+                if(pad1State.Buttons.X == ButtonState.Pressed && prevPadState1.Buttons.X == ButtonState.Released)
+                    Controller.GridDataCollection.tryCaptureTower(this);
+
+                #endregion
+
+                #region Rotations
+
+                #region yaw
+
+                if (pad1State.ThumbSticks.Left.X <= -0.5)
+                {
+                    shipData.yaw += yawSpeed * time;
+                }
+                if (pad1State.ThumbSticks.Left.X >= 0.5)
+                {
+                    shipData.yaw -= yawSpeed * time;
+                }                
+
+                #endregion
+
+                #region Pitch & Roll
+
+                float pitch = 0;
+                float roll = 0;
+
+                if (pad1State.ThumbSticks.Right.Y >= 0.5)
+                    pitch = pitchSpeed * time;
+                else if (pad1State.ThumbSticks.Right.Y <= -0.5)
+                    pitch = -pitchSpeed * time;
+
+                if (pad1State.ThumbSticks.Right.X <= -0.5)
+                    roll = (rollSpeed) * time;
+                else if (pad1State.ThumbSticks.Right.X >= 0.5)
+                    roll = -(rollSpeed) * time;
+
+                shipData.roll -= roll;
+                shipData.pitch = mouseInverted ? shipData.pitch + pitch : shipData.pitch - pitch;
+
+                #endregion
+                               
+                #endregion
+
+                #region Accel Deccel checks
+                if (pad1State.ThumbSticks.Left.Y >= 0.5)
+                {
+                    if (shipData.speed < maxSpeed)
+                    {
+                        shipData.speed += acceleration * time;
+                    }
+                }
+                else if (pad1State.ThumbSticks.Left.Y <= -0.5)
+                {
+                    if (shipData.speed > minSpeed)
+                    {
+                        shipData.speed -= deceleration * time;
+                    }
+                }
+                else
+                {
+                    if (shipData.speed > 0)
+                    {
+                        shipData.speed -= deceleration * time * 2;
+
+                        if (shipData.speed < 0)
+                            shipData.speed = 0;
+                    }
+                    else if (shipData.speed < 0)
+                    {
+                        shipData.speed += acceleration * time;
+
+                        if (shipData.speed > 0)
+                            shipData.speed = 0;
+                    }
+                }
+                #endregion
+
+                #region Guns
+
+                //fire missile
+                if (pad1State.Buttons.B == ButtonState.Pressed && prevPadState1.Buttons.B == ButtonState.Released)
+                {
+                    if (reloadTimer[1] <= 0)
+                    {
+                        Controller.GameController.addObject(new Objects.Missile(Game, this.target, this));
+                        reloadTimer[1] = MissileReload;
+                    }
+                }
+
+                //fire cannon
+                if(pad1State.Triggers.Right >= 0.6)
+                {
+                    if (reloadTimer[0] <= 0)
+                    {
+                        Controller.GameController.addObject(new Objects.Bullet(Game, this.target, this));
+                        reloadTimer[0] = MechinegunReload;
+                    }
+                }
+
+                #endregion
+            }
+            else
+            {
+                // Allows the game to exit using XBox
+                if (pad2State.Buttons.Start == ButtonState.Pressed)
+                    this.Game.Exit();
+
+                #region Extra Controls: Turret Capture & Camera
+
+                if (pad2State.Buttons.LeftShoulder == ButtonState.Pressed && prevPadState2.Buttons.LeftShoulder == ButtonState.Released)
+                    cameraType = cameraType.Equals(CurrentCam.Chase) ? CurrentCam.FirstPerson : CurrentCam.Chase;
+                if (pad2State.Buttons.X == ButtonState.Pressed && prevPadState2.Buttons.X == ButtonState.Released)
+                    Controller.GridDataCollection.tryCaptureTower(this);
+
+                #endregion
+
+                #region Rotations
+
+                #region yaw
+
+                if (pad2State.ThumbSticks.Left.X <= -0.5)
+                {
+                    shipData.yaw += yawSpeed * time;
+                }
+                if (pad2State.ThumbSticks.Left.X >= 0.5)
+                {
+                    shipData.yaw -= yawSpeed * time;
+                }
+
+                #endregion
+
+                #region Pitch & Roll
+
+                float pitch = 0;
+                float roll = 0;
+
+                if (pad2State.ThumbSticks.Right.Y >= 0.5)
+                    pitch = pitchSpeed * time;
+                else if (pad2State.ThumbSticks.Right.Y <= -0.5)
+                    pitch = -pitchSpeed * time;
+
+                if (pad2State.ThumbSticks.Right.X <= -0.5)
+                    roll = (rollSpeed) * time;
+                else if (pad2State.ThumbSticks.Right.X >= 0.5)
+                    roll = -(rollSpeed) * time;
+
+                shipData.roll -= roll;
+                shipData.pitch = mouseInverted ? shipData.pitch + pitch : shipData.pitch - pitch;
+
+                #endregion
+
+                #endregion
+
+                #region Accel Deccel checks
+                if (pad2State.ThumbSticks.Left.Y >= 0.5)
+                {
+                    if (shipData.speed < maxSpeed)
+                    {
+                        shipData.speed += acceleration * time;
+                    }
+                }
+                else if (pad2State.ThumbSticks.Left.Y <= -0.5)
+                {
+                    if (shipData.speed > minSpeed)
+                    {
+                        shipData.speed -= deceleration * time;
+                    }
+                }
+                else
+                {
+                    if (shipData.speed > 0)
+                    {
+                        shipData.speed -= deceleration * time * 2;
+
+                        if (shipData.speed < 0)
+                            shipData.speed = 0;
+                    }
+                    else if (shipData.speed < 0)
+                    {
+                        shipData.speed += acceleration * time;
+
+                        if (shipData.speed > 0)
+                            shipData.speed = 0;
+                    }
+                }
+                #endregion
+
+                #region Guns
+
+                //fire missile
+                if (pad2State.Buttons.B == ButtonState.Pressed && prevPadState2.Buttons.B == ButtonState.Released)
+                {
+                    if (reloadTimer[1] <= 0)
+                    {
+                        Controller.GameController.addObject(new Objects.Missile(Game, this.target, this));
+                        reloadTimer[1] = MissileReload;
+                    }
+                }
+
+                //fire cannon
+                if (pad2State.Triggers.Right >= 0.6)
+                {
+                    if (reloadTimer[0] <= 0)
+                    {
+                        Controller.GameController.addObject(new Objects.Bullet(Game, this.target, this));
+                        reloadTimer[0] = MechinegunReload;
+                    }
+                }
+
+                #endregion
+            }
+            
+            prevPadState1 = pad1State;
+            prevPadState2 = pad2State;
         }
 
         #endregion
