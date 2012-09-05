@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>FighterBlue:pCube1</Name>
     <Identity>
-      <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
+      <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\N-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -81,7 +81,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>FighterBlue:phongE7</Name>
       <Identity>
-        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
+        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\N-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -95,7 +95,7 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>FighterBlue:phongE2</Name>
       <Identity>
-        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
+        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\N-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -109,7 +109,7 @@
     <Resource ID="#Resource3" Type="Graphics:BasicMaterialContent">
       <Name>FighterBlue:phongE3</Name>
       <Identity>
-        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
+        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\N-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -123,7 +123,7 @@
     <Resource ID="#Resource4" Type="Graphics:BasicMaterialContent">
       <Name>FighterBlue:phongE9</Name>
       <Identity>
-        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
+        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\N-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -137,7 +137,7 @@
     <Resource ID="#Resource5" Type="Graphics:BasicMaterialContent">
       <Name>FighterBlue:phongE8</Name>
       <Identity>
-        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
+        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\N-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -151,7 +151,7 @@
     <Resource ID="#Resource6" Type="Graphics:BasicMaterialContent">
       <Name>FighterBlue:phong1</Name>
       <Identity>
-        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
+        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\N-Game\BBN-Game\Content\Models\Ships\FighterBlue.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

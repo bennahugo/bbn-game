@@ -100,6 +100,7 @@
     <Compile Include="Grid\GridObjectInterface.cs" />
     <Compile Include="Grid\GridStructure.cs" />
     <Compile Include="Controller\MathEuler.cs" />
+    <Compile Include="Menu\MenuController.cs" />
     <Compile Include="Objects\Projectiles\Bullet.cs" />
     <Compile Include="Objects\Projectiles\Missile.cs" />
     <Compile Include="Objects\Ships\Base.cs" />

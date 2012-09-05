@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -67,6 +66,8 @@ namespace BBN_Game.Controller
         static int i;
         #endregion
 
+        Menu.MenuController menuSystem;
+
         #region "XNA Required"
         public GameController(BBN_Game.BBNGame game)
         {
@@ -101,11 +102,12 @@ namespace BBN_Game.Controller
             Origional = game.GraphicsDevice.Viewport;
             #endregion
 
+            menuSystem = new Menu.MenuController(this,this.game);
         }
 
         public void loadContent()
         {
-            // laod data if needed etc etc
+            // load data if needed etc etc
             if (gameState.Equals(GameState.Playing))
             {
                 if (!(prevGameState.Equals(GameState.Playing)))
@@ -121,11 +123,36 @@ namespace BBN_Game.Controller
                     Player1.Target = Player2;
                 }
             }
+            menuSystem.loadContent();
         }
 
         public void unloadContent()
         {
             // issue here remember to talk to team (Note to self)...
+        }
+
+        KeyboardState prevKeyState = Keyboard.GetState();
+        Boolean tradePanelUp = false;
+        public void handleOtherControls()
+        {
+            KeyboardState keyState = Keyboard.GetState();
+
+            if (gameState.Equals(GameState.Playing))
+            {
+                if (keyState.IsKeyDown(Keys.P) && prevKeyState.IsKeyUp(Keys.P))//pause game
+                {
+                    gameState = GameState.Paused;
+                    menuSystem.updateState();
+                }
+
+                if (keyState.IsKeyDown(Keys.Q) && prevKeyState.IsKeyUp(Keys.Q))
+                {
+                    if (tradePanelUp)
+                        tradePanelUp = false;
+                    else
+                        tradePanelUp = true;
+                }
+            }
         }
 
         public void Update(GameTime gameTime)
@@ -137,11 +164,14 @@ namespace BBN_Game.Controller
 
                 SkyBox.Update(gameTime);
 
+                handleOtherControls();
 
                 checkCollision();
                 RemoveDeadObjects();
                 moveObjectsInGrid();
             }
+            else
+                menuSystem.updateMenu(gameTime);
         }
 
         public void Draw(GameTime gameTime)
@@ -160,6 +190,17 @@ namespace BBN_Game.Controller
 
                 // set the graphics device back to normal
                 game.GraphicsDevice.Viewport = Origional;
+
+                if (tradePanelUp)//handle trade panel poping up
+                {
+                    menuSystem.drawTradeMenu();
+                }
+            }
+            else
+            {
+                //menuSystem.drawTradeMenu();
+                
+                menuSystem.drawMenu(gameTime);
             }
         }
 
