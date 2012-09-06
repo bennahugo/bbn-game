@@ -99,7 +99,7 @@ namespace BBN_Game.Menu
             //load menu backgrounds
             mainMenuTex = Content.Load<Texture2D>("Menu/nebula_blue");
             pauseMenuTex = Content.Load<Texture2D>("Menu/pause_menu");
-            controlsMenuTex = Content.Load<Texture2D>("Menu/industrial");
+            controlsMenuTex = Content.Load<Texture2D>("Menu/control_menu");
             xboxControlsTex = Content.Load<Texture2D>("Menu/xbox_controls");
             keybrdControlsTex = Content.Load<Texture2D>("Menu/keyboard_controls");
             tradeMenuTex = Content.Load<Texture2D>("Menu/trade_menu_newest");
@@ -499,45 +499,45 @@ namespace BBN_Game.Menu
             #region draw menu options
             if (player.TradeMenuOption == 1)
             {
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 112, player.getViewport.Height - 218 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 111, player.getViewport.Height - 219 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 220 + player.UpFactor), Color.Aqua);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 112, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 111, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 222 + player.UpFactor), Color.Aqua);
 
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 164 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 167 + player.UpFactor), Color.Green);
 
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 108 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 111 + player.UpFactor), Color.Green);
             }
             else if (player.TradeMenuOption == 2)
             {
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 218 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 219 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 220 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 222 + player.UpFactor), Color.Green);
 
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 164 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166 + player.UpFactor), Color.Aqua);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 167 + player.UpFactor), Color.Aqua);
 
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 108 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 111 + player.UpFactor), Color.Green);
             }
             else if (player.TradeMenuOption == 3)
             {
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 218 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 219 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 220 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 222 + player.UpFactor), Color.Green);
 
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 164 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 167 + player.UpFactor), Color.Green);
 
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 108 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110 + player.UpFactor), Color.Aqua);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 111 + player.UpFactor), Color.Aqua);
             }
             #endregion
 
@@ -578,117 +578,105 @@ namespace BBN_Game.Menu
 
                 //draw main menu background and menu outline for options
                 spriteBatch.Draw(mainMenuTex, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
-                spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 47, 69), Color.Black);
-                spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 48, 68), Color.Black);
-                spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 49, 67), Color.Black);
-                spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 50, 66), Color.Black);
-                spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 51, 65), Color.Blue);
+                spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 107, 69), Color.Black);
+                spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 108, 68), Color.Black);
+                spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 109, 67), Color.Black);
+                spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 110, 66), Color.Black);
+                spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 111, 65), Color.Blue);
+                
+                //draw menu outline
+                spriteBatch.Draw(pauseMenuTex, new Rectangle(screenWidth - 600, 100, 600, 600), Color.White);
 
-                //display menu options
+                #region display menu options
                 if (currentMenuOption == 1)
                 {
-                    spriteBatch.DrawString(selectedMenuFont, "Single Player", new Vector2(screenWidth - 244, (screenHeight / 2) - 46), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Single Player", new Vector2(screenWidth - 243, (screenHeight / 2) - 47), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Single Player", new Vector2(screenWidth - 242, (screenHeight / 2) - 48), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Single Player", new Vector2(screenWidth - 241, (screenHeight / 2) - 49), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Single Player", new Vector2(screenWidth - 240, (screenHeight / 2) - 50), Color.Aqua);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 361, 321), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 360, 320), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 359, 319), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 358, 318), Color.Aqua);
 
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 196, (screenHeight / 2) + 4), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 197, (screenHeight / 2) + 3), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 198, (screenHeight / 2) + 2), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 199, (screenHeight / 2) + 1), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 200, (screenHeight / 2)), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 349, 369), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 350, 368), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 351, 367), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 352, 366), Color.Blue);
 
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 196, (screenHeight / 2) + 54), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 197, (screenHeight / 2) + 53), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 198, (screenHeight / 2) + 52), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 199, (screenHeight / 2) + 51), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 200, (screenHeight / 2) + 50), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 332, 421), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 333, 420), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 334, 419), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 335, 418), Color.Blue);
 
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 196, (screenHeight / 2) + 104), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 197, (screenHeight / 2) + 103), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 198, (screenHeight / 2) + 102), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 199, (screenHeight / 2) + 101), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 200, (screenHeight / 2) + 100), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 341, 476), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 342, 475), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 343, 474), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 473), Color.Blue);
                 }
                 else if (currentMenuOption == 2)
                 {
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 196, (screenHeight / 2) - 46), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 197, (screenHeight / 2) - 47), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 198, (screenHeight / 2) - 48), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 199, (screenHeight / 2) - 49), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 200, (screenHeight / 2) - 50), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 355, 321), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 356, 320), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 357, 319), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 358, 318), Color.Blue);
 
-                    spriteBatch.DrawString(selectedMenuFont, "MultiPlayer", new Vector2(screenWidth - 244, (screenHeight / 2) + 4), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "MultiPlayer", new Vector2(screenWidth - 243, (screenHeight / 2) + 3), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "MultiPlayer", new Vector2(screenWidth - 242, (screenHeight / 2) + 2), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "MultiPlayer", new Vector2(screenWidth - 241, (screenHeight / 2) + 1), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "MultiPlayer", new Vector2(screenWidth - 240, (screenHeight / 2)), Color.Aqua);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 355, 369), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 354, 368), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 353, 367), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 352, 366), Color.Aqua);
 
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 196, (screenHeight / 2) + 54), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 197, (screenHeight / 2) + 53), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 198, (screenHeight / 2) + 52), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 199, (screenHeight / 2) + 51), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 200, (screenHeight / 2) + 50), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 332, 421), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 333, 420), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 334, 419), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 335, 418), Color.Blue);
 
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 196, (screenHeight / 2) + 104), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 197, (screenHeight / 2) + 103), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 198, (screenHeight / 2) + 102), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 199, (screenHeight / 2) + 101), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 200, (screenHeight / 2) + 100), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 341, 476), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 342, 475), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 343, 474), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 473), Color.Blue);
                 }
                 else if (currentMenuOption == 3)
                 {
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 196, (screenHeight / 2) - 46), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 197, (screenHeight / 2) - 47), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 198, (screenHeight / 2) - 48), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 199, (screenHeight / 2) - 49), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 200, (screenHeight / 2) - 50), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 355, 321), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 356, 320), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 357, 319), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 358, 318), Color.Blue);
 
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 196, (screenHeight / 2) + 4), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 197, (screenHeight / 2) + 3), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 198, (screenHeight / 2) + 2), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 199, (screenHeight / 2) + 1), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 200, (screenHeight / 2)), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 349, 369), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 350, 368), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 351, 367), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 352, 366), Color.Blue);
 
-                    spriteBatch.DrawString(selectedMenuFont, "Controls", new Vector2(screenWidth - 244, (screenHeight / 2) + 54), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Controls", new Vector2(screenWidth - 243, (screenHeight / 2) + 53), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Controls", new Vector2(screenWidth - 242, (screenHeight / 2) + 52), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Controls", new Vector2(screenWidth - 241, (screenHeight / 2) + 51), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Controls", new Vector2(screenWidth - 240, (screenHeight / 2) + 50), Color.Aqua);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 338, 421), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 337, 420), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 336, 419), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 335, 418), Color.Aqua);
 
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 196, (screenHeight / 2) + 104), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 197, (screenHeight / 2) + 103), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 198, (screenHeight / 2) + 102), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 199, (screenHeight / 2) + 101), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 200, (screenHeight / 2) + 100), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 341, 476), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 342, 475), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 343, 474), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 473), Color.Blue);
                 }
                 else if (currentMenuOption == 4)
                 {
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 196, (screenHeight / 2) - 46), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 197, (screenHeight / 2) - 47), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 198, (screenHeight / 2) - 48), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 199, (screenHeight / 2) - 49), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 200, (screenHeight / 2) - 50), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 355, 321), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 356, 320), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 357, 319), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 358, 318), Color.Blue);
 
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 196, (screenHeight / 2) + 4), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 197, (screenHeight / 2) + 3), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 198, (screenHeight / 2) + 2), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 199, (screenHeight / 2) + 1), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 200, (screenHeight / 2)), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 349, 369), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 350, 368), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 351, 367), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 352, 366), Color.Blue);
 
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 196, (screenHeight / 2) + 54), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 197, (screenHeight / 2) + 53), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 198, (screenHeight / 2) + 52), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 199, (screenHeight / 2) + 51), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 200, (screenHeight / 2) + 50), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 332, 421), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 333, 420), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 334, 419), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 335, 418), Color.Blue);
 
-                    spriteBatch.DrawString(selectedMenuFont, "Exit Game", new Vector2(screenWidth - 244, (screenHeight / 2) + 104), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Exit Game", new Vector2(screenWidth - 243, (screenHeight / 2) + 103), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Exit Game", new Vector2(screenWidth - 242, (screenHeight / 2) + 102), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Exit Game", new Vector2(screenWidth - 241, (screenHeight / 2) + 101), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Exit Game", new Vector2(screenWidth - 240, (screenHeight / 2) + 100), Color.Aqua);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 347, 476), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 346, 475), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 345, 474), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 473), Color.Aqua);
                 }
+                #endregion
 
                 spriteBatch.End();
 
@@ -697,76 +685,81 @@ namespace BBN_Game.Menu
             else if (currentState == GameState.OptionsMenu)
             {
                 #region Controls Menu
-                graphics.Clear(Color.Black);
+                graphics.Clear(Color.Gray);
                 spriteBatch.Begin();
 
                 //draw main menu background and menu outline for options
-                if (! displayXboxControls)
+                if (!displayXboxControls)
                 {
-                    spriteBatch.Draw(controlsMenuTex, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
-                    spriteBatch.Draw(keybrdControlsTex, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    graphics.Clear(Color.Gray);
+                    //spriteBatch.Draw(mainMenuTex, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    spriteBatch.Draw(keybrdControlsTex, new Rectangle(350, 0, screenWidth - 350, screenHeight), Color.White);
                 }
-                else                
-                    spriteBatch.Draw(xboxControlsTex, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);                
+                else
+                {
+                    graphics.Clear(Color.Black);
+                    spriteBatch.Draw(xboxControlsTex, new Rectangle(350, 50, screenWidth - 350, screenHeight - 50), Color.White);
+                }
                 
-                //spriteBatch.Draw(transparentBackgrnd, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
-                spriteBatch.DrawString(selectedMenuFont, "Game Controls", new Vector2(7, 2), Color.Black);
-                spriteBatch.DrawString(selectedMenuFont, "Game Controls", new Vector2(8, 3), Color.Black);
-                spriteBatch.DrawString(selectedMenuFont, "Game Controls", new Vector2(9, 4), Color.Black);
-                spriteBatch.DrawString(selectedMenuFont, "Game Controls", new Vector2(10, 5), Color.Blue);
+                spriteBatch.Draw(controlsMenuTex, new Rectangle(10, 100, 275, 510), Color.White);
+
+                spriteBatch.DrawString(selectedMenuFont, "Game Controls", new Vector2(7, 22), Color.Black);
+                spriteBatch.DrawString(selectedMenuFont, "Game Controls", new Vector2(8, 23), Color.Black);
+                spriteBatch.DrawString(selectedMenuFont, "Game Controls", new Vector2(9, 24), Color.Black);
+                spriteBatch.DrawString(selectedMenuFont, "Game Controls", new Vector2(10, 25), Color.Blue);
 
                 #region Draw menu options
 
                 if (currentMenuOption == 1)
                 {
-                    spriteBatch.DrawString(selectedMenuFont, "Keyboard Controls", new Vector2(13, 102), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Keyboard Controls", new Vector2(12, 103), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Keyboard Controls", new Vector2(11, 104), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Keyboard Controls", new Vector2(10, 105), Color.Aqua);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(89, 248), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(90, 247), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(91, 246), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(92, 245), Color.Aqua);
 
-                    spriteBatch.DrawString(generalMenuFont, "Xbox Controls", new Vector2(7, 152), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Xbox Controls", new Vector2(8, 153), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Xbox Controls", new Vector2(9, 154), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Xbox Controls", new Vector2(10, 155), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(123, 351), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(122, 350), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(121, 349), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(120, 348), Color.Blue);
 
-                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(7, 202), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(8, 203), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(9, 204), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(10, 205), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(125, 453), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(124, 452), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(123, 451), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(122, 450), Color.Blue);
                 }
                 else if (currentMenuOption == 2)
                 {
-                    spriteBatch.DrawString(generalMenuFont, "Keyboard Controls", new Vector2(7, 102), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Keyboard Controls", new Vector2(8, 103), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Keyboard Controls", new Vector2(9, 104), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Keyboard Controls", new Vector2(10, 105), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(95, 248), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(94, 247), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(93, 246), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(92, 245), Color.Blue);
 
-                    spriteBatch.DrawString(selectedMenuFont, "Xbox Controls", new Vector2(13, 152), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Xbox Controls", new Vector2(12, 153), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Xbox Controls", new Vector2(11, 154), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Xbox Controls", new Vector2(10, 155), Color.Aqua);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(117, 351), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(118, 350), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(119, 349), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(120, 348), Color.Aqua);
 
-                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(7, 202), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(8, 203), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(9, 204), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(10, 205), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(125, 453), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(124, 452), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(123, 451), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(122, 450), Color.Blue);
                 }
                 else if (currentMenuOption == 3)
                 {
-                    spriteBatch.DrawString(generalMenuFont, "Keyboard Controls", new Vector2(7, 102), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Keyboard Controls", new Vector2(8, 103), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Keyboard Controls", new Vector2(9, 104), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Keyboard Controls", new Vector2(10, 105), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(95, 248), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(94, 247), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(93, 246), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Keyboard", new Vector2(92, 245), Color.Blue);
 
-                    spriteBatch.DrawString(generalMenuFont, "Xbox Controls", new Vector2(7, 152), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Xbox Controls", new Vector2(8, 153), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Xbox Controls", new Vector2(9, 154), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Xbox Controls", new Vector2(10, 155), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(123, 351), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(122, 350), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(121, 349), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Xbox", new Vector2(120, 348), Color.Blue);
 
-                    spriteBatch.DrawString(selectedMenuFont, "Back", new Vector2(13, 202), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Back", new Vector2(12, 203), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Back", new Vector2(11, 204), Color.Black);
-                    spriteBatch.DrawString(selectedMenuFont, "Back", new Vector2(10, 205), Color.Aqua);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(119, 453), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(120, 452), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(121, 451), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Back", new Vector2(122, 450), Color.Aqua);
                 }
 
                 #endregion
@@ -786,10 +779,10 @@ namespace BBN_Game.Menu
                 //spriteBatch.Draw(mainMenuTex, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
                 spriteBatch.Draw(transparentBackgrnd, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
                 spriteBatch.Draw(pauseMenuTex, new Rectangle(screenWidth / 2 - 300, screenHeight / 2 - 300, 600, 600), Color.White);
-                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 87, (screenHeight / 2) - 127), Color.Black);
-                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 88, (screenHeight / 2) - 128), Color.Black);
-                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 89, (screenHeight / 2) - 129), Color.Black);
-                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 90, (screenHeight / 2) - 130), Color.Blue);
+                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 62, (screenHeight / 2) - 122), Color.Black);
+                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 63, (screenHeight / 2) - 123), Color.Black);
+                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 64, (screenHeight / 2) - 124), Color.Black);
+                spriteBatch.DrawString(generalMenuFont, pauseTitle, new Vector2((screenWidth / 2) - pauseTitle.Length - 65, (screenHeight / 2) - 125), Color.Blue);
 
                 //display menu options
                 String resume = "Resume Game";

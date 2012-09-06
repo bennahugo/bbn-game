@@ -2,13 +2,10 @@ Content\Models\Ships\FighterBlue.xnb
 Content\Menu\dark_trans.xnb
 Content\Menu\keyboard_controls.xnb
 Content\stats_icons\fighter_small.xnb
-Content\Menu\sunrise_in_space.xnb
 Content\stats_icons\missile_small.xnb
-Content\Fonts\distanceFont.xnb
 Content\Fonts\pause_menu.xnb
 Content\Shader\skyBoxEffect.xnb
 Content\stats_icons\destroyer2_small.xnb
-Content\Menu\star_destroyer_bridge.xnb
 Content\Skybox\space1.xnb
 Content\Fonts\selectedFont.xnb
 Content\Menu\trade_menu_newest.xnb
@@ -18,9 +15,9 @@ Content\Skybox\space4.xnb
 Content\Shader\targetBox.xnb
 Content\Models\Ships\PlayerBlue.xnb
 Content\Skybox\space3.xnb
-Content\Menu\purple.xnb
 Content\Models\Projectiles\Missile.xnb
 Content\stats_icons\destroyer_small.xnb
+Content\Menu\control_menu.xnb
 Content\Menu\pause_menu.xnb
 Content\SpriteFont1.xnb
 Content\Models\Ships\PlayerRed.xnb
@@ -32,8 +29,8 @@ Content\Fonts\menuFont.xnb
 Content\stats_icons\malpha_small.xnb
 Content\Menu\waterfall_city.xnb
 Content\Menu\nebula_blue.xnb
-Content\Menu\industrial.xnb
 Content\Models\Ships\FighterRed.xnb
 Content\Skybox\space5.xnb
 Content\HudTextures\HealthBarHolder.xnb
+Content\Fonts\distanceFont.xnb
 Content\Menu\dark_trans_new.xnb
