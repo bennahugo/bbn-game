@@ -26,7 +26,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\menuFont.xnb</Output>
-      <Time>2012-08-10T11:28:58.4547208+02:00</Time>
+      <Time>2012-09-06T17:10:16.6753092+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\selectedFont.spritefont</Source>
@@ -35,7 +35,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\selectedFont.xnb</Output>
-      <Time>2012-08-10T11:28:58.4987234+02:00</Time>
+      <Time>2012-09-06T17:12:51.3441558+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\FighterBlue.fbx</Source>
@@ -193,15 +193,6 @@
       <Time>2012-07-23T11:37:54.7106154+02:00</Time>
     </Item>
     <Item>
-      <Source>Menu\industrial.jpg</Source>
-      <Name>Menu\industrial</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\industrial.xnb</Output>
-      <Time>2012-08-10T11:28:58.2537093+02:00</Time>
-    </Item>
-    <Item>
       <Source>Menu\nebula_blue.jpg</Source>
       <Name>Menu\nebula_blue</Name>
       <Importer>TextureImporter</Importer>
@@ -209,33 +200,6 @@
       <Options>None</Options>
       <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\nebula_blue.xnb</Output>
       <Time>2012-08-10T11:28:58.1937059+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\purple.jpg</Source>
-      <Name>Menu\purple</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\purple.xnb</Output>
-      <Time>2012-08-10T11:28:57.9956946+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\star_destroyer_bridge.jpg</Source>
-      <Name>Menu\star_destroyer_bridge</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\star_destroyer_bridge.xnb</Output>
-      <Time>2012-08-10T11:28:57.8906886+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\sunrise_in_space.jpg</Source>
-      <Name>Menu\sunrise_in_space</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\sunrise_in_space.xnb</Output>
-      <Time>2012-08-10T11:28:58.1307023+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\waterfall_city.jpg</Source>
@@ -378,7 +342,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\keyboard_controls.xnb</Output>
-      <Time>2012-09-06T14:40:28.3907964+02:00</Time>
+      <Time>2012-09-06T17:11:12.9755294+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\xbox_controls.png</Source>
@@ -387,7 +351,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\xbox_controls.xnb</Output>
-      <Time>2012-09-06T14:40:35.6142096+02:00</Time>
+      <Time>2012-09-06T17:11:19.6989139+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\dark_trans_new.png</Source>
@@ -406,6 +370,15 @@
       <Options>None</Options>
       <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\trade_menu_newest.xnb</Output>
       <Time>2012-09-06T14:41:39.7808797+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\control_menu.png</Source>
+      <Name>Menu\control_menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\control_menu.xnb</Output>
+      <Time>2012-09-06T17:11:01.6808834+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
