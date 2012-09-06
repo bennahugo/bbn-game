@@ -1,5 +1,6 @@
 Content\Models\Ships\FighterBlue.xnb
 Content\Menu\dark_trans.xnb
+Content\Menu\keyboard_controls.xnb
 Content\stats_icons\fighter_small.xnb
 Content\Menu\sunrise_in_space.xnb
 Content\stats_icons\missile_small.xnb
@@ -10,6 +11,7 @@ Content\stats_icons\destroyer2_small.xnb
 Content\Menu\star_destroyer_bridge.xnb
 Content\Skybox\space1.xnb
 Content\Fonts\selectedFont.xnb
+Content\Menu\trade_menu_newest.xnb
 Content\Skybox\space2.xnb
 Content\Menu\trade_menu_new.xnb
 Content\Skybox\space4.xnb
@@ -24,6 +26,7 @@ Content\SpriteFont1.xnb
 Content\Models\Ships\PlayerRed.xnb
 Content\HudTextures\HealthBar.xnb
 Content\Skybox\Starfield.xnb
+Content\Menu\xbox_controls.xnb
 Content\Fonts\trade_menu.xnb
 Content\Fonts\menuFont.xnb
 Content\stats_icons\malpha_small.xnb
@@ -33,3 +36,4 @@ Content\Menu\industrial.xnb
 Content\Models\Ships\FighterRed.xnb
 Content\Skybox\space5.xnb
 Content\HudTextures\HealthBarHolder.xnb
+Content\Menu\dark_trans_new.xnb

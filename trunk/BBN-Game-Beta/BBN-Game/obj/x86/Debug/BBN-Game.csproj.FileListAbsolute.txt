@@ -62,3 +62,7 @@ C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Deb
 C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\destroyer2_small.xnb
 C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\destroyer_small.xnb
 C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\malpha_small.xnb
+C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\keyboard_controls.xnb
+C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\xbox_controls.xnb
+C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\dark_trans_new.xnb
+C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\trade_menu_newest.xnb

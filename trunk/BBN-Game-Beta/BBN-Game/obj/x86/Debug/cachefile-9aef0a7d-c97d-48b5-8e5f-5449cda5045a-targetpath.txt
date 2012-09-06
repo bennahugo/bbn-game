@@ -33,3 +33,7 @@ Content\stats_icons\destroyer_small.xnb
 Content\stats_icons\fighter_small.xnb
 Content\stats_icons\malpha_small.xnb
 Content\stats_icons\missile_small.xnb
+Content\Menu\keyboard_controls.xnb
+Content\Menu\xbox_controls.xnb
+Content\Menu\dark_trans_new.xnb
+Content\Menu\trade_menu_newest.xnb
