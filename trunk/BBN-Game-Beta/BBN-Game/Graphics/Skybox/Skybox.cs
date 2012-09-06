@@ -44,6 +44,7 @@ namespace BBN_Game.Graphics.Skybox
             : base(game)
         {
             this.texName = texName;
+            text = game.Content.Load<Texture2D>(texName);
             rad = radius;
             repeat = repeatcount;
         }
@@ -65,8 +66,6 @@ namespace BBN_Game.Graphics.Skybox
         /// </summary>
         public void loadContent()
         {
-            text = Game.Content.Load<Texture2D>("Skybox/" + texName);
-
             e = Game.Content.Load<Effect>("Shader/skyBoxEffect");
 
             world = e.Parameters["World"];
