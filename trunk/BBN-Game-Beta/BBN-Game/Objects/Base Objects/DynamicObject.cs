@@ -23,7 +23,8 @@ namespace BBN_Game.Objects
         /// Extra variables that the static class did not require
         /// </summary>
         protected float maxSpeed, minSpeed;
-
+        protected Vector3 prevPos;
+        public Vector3 bumpVelocity = Vector3.Zero;
         /// <summary>
         /// Getters and setters
         /// </summary>
@@ -35,6 +36,14 @@ namespace BBN_Game.Objects
         {
             get { return minSpeed; }
         }
+        public float getMass
+        {
+            get { return mass; }
+        }
+        public Vector3 getPreviousPosition
+        {
+            get { return prevPos; }
+        }
         #endregion
 
         #region "Constructors"
@@ -45,6 +54,7 @@ namespace BBN_Game.Objects
         /// <param name="game">The Game</param>
         public DynamicObject (Game game, Team team, Vector3 position) : base(game, team, position)
         {
+            prevPos = position;
         }
 
         /// <summary>
@@ -54,6 +64,7 @@ namespace BBN_Game.Objects
         {
             this.maxSpeed = 50;
             this.minSpeed = -10;
+            this.mass = 1000;
             base.setData();
         }
         #endregion
@@ -96,8 +107,9 @@ namespace BBN_Game.Objects
         /// <param name="m">The matrix rotation that has occured</param>
         public override void  setWorldMatrix(float time, Matrix m)
         {
-            Position -= m.Forward * shipData.speed * time;
-
+            prevPos = Position;
+            Position -= m.Forward * shipData.speed * time + bumpVelocity;
+            bumpVelocity = bumpVelocity * 0.85f;
             base.setWorldMatrix(time, m);
         }
         #endregion

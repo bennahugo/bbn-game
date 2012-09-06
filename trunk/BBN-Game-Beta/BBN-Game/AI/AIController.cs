@@ -28,9 +28,9 @@ namespace BBN_Game.AI
         public const int FIGHTERS_TO_SCRAMBLE_FOR_PLAYER = 6;
         public const int FIGHTERS_TO_SCRAMBLE_FOR_DESTROYER = 3;
         public const int FIGHTER_GUNS_COOLDOWN = 50;
-        public const int DESTROYER_GUNS_COOLDOWN = 40;
+        public const int DESTROYER_GUNS_COOLDOWN = 150;
         public const int PLAYER_GUNS_COOLDOWN = 55;
-        public const int TURRET_GUNS_COOLDOWN = 25;
+        public const int TURRET_GUNS_COOLDOWN = 120;
         public const float DETECTION_RADIUS = 250;
         public const float DISTANCE_WHEN_CLOSE_TO_TURRET = 60;
         public const float LINE_OF_SIGHT_CLOSE_DIST_MULTIPLYER = 2;
@@ -102,6 +102,8 @@ namespace BBN_Game.AI
             this.playerEngageTarget();
             this.returnVictoriousPlayerToDisengagedState();
             this.rotatePlayerForAiming(gameTime);
+            //Return all victorius turrets to an inactive state:
+            this.returnVictoriusTurretsToDisengagedState();
             //Execute shooting code:
             this.shootAtTargets();
             //Do garbage collection:
@@ -722,7 +724,6 @@ namespace BBN_Game.AI
                     d.Initialize();
                     d.LoadContent();
                     ti.spawnQueue.Add(d);
-                    ti.teamDestroyers.Add(d);
                     ti.teamCredits -= TradingInformation.destroyerCost;
                 }
                 for (int i = 0; i < numFightersToBuy; ++i)
@@ -731,7 +732,6 @@ namespace BBN_Game.AI
                     f.Initialize();
                     f.LoadContent();
                     ti.spawnQueue.Add(f);
-                    ti.teamFighters.Add(f);
                     ti.teamCredits -= TradingInformation.fighterCost;
                 }
             }
@@ -764,6 +764,10 @@ namespace BBN_Game.AI
                                 }
                             if (bCanSpawn)
                             {
+                                if (obj is Fighter)
+                                    ti.teamFighters.Add(obj as Fighter);
+                                else if (obj is Destroyer)
+                                    ti.teamDestroyers.Add(obj as Destroyer);
                                 spawnedList.Add(obj);
                                 GameController.addObject(obj);
                                 obj.Position = sp.Position;
@@ -777,7 +781,9 @@ namespace BBN_Game.AI
                 //Spawn player if he is dead!
                 if (ti.teamPlayer.getHealth <= 0)
                 {
-                    //Controller.GameController.addObject(new playerObject(,ti.
+                    ti.teamPlayer.killObject();
+                    Controller.GameController.removeObject(ti.teamPlayer);
+                    ti.teamPlayer = Controller.GameController.spawnPlayer(ti.teamId, ti.teamPlayer.Game);
                     ti.playerObjective = null;
                     ti.playerTarget = null;
                 }
@@ -803,6 +809,18 @@ namespace BBN_Game.AI
                     if (ti.turretBattleList.Keys.Contains(t))
                         ti.turretBattleList.Remove(t);
                 }
+            }
+        }
+        private void returnVictoriusTurretsToDisengagedState()
+        {
+            foreach (TeamInformation ti in infoOnTeams)
+            {
+                List<Turret> removalList = new List<Turret>();
+                foreach (Turret t in ti.turretBattleList.Keys)
+                    if (ti.turretBattleList[t].getHealth <= 0 || (t.Position - ti.turretBattleList[t].Position).Length() > DETECTION_RADIUS)
+                        removalList.Add(t);
+                foreach (Turret t in removalList)
+                    ti.turretBattleList.Remove(t);
             }
         }
         #endregion

@@ -39,6 +39,9 @@ namespace BBN_Game.Controller
         private const int GRID_CUBE_SIZE = 50;
         private const int MAX_NUM_FIGHTERS_PER_TEAM = 10;
         private const int MAX_NUM_DESTROYERS_PER_TEAM = 10;
+        private const float MAP_SCALE_VALUE = 2;
+        private const float COLLISION_SPEED_PRESERVATION = 0.025f;
+        private const float YAW_PITCH_ROLL_SPEED_FACTOR_FOR_AI_PLAYER = 0.0166f;
         #endregion
 
         #region "Object holders"
@@ -420,6 +423,10 @@ namespace BBN_Game.Controller
                     checkCollision();
                     RemoveDeadObjects();
                     moveObjectsInGrid();
+
+                    //Update AI and navigation:
+                    aiController.update(gameTime, game);
+                    navComputer.updateAIMovement(gameTime);
                 }
                 else
                 {
@@ -498,6 +505,9 @@ namespace BBN_Game.Controller
 
             //draw the players hud now (so that the target boxes wont obscure them)
             player.drawHud(DynamicObjs);
+            
+            //TODO DEBUG: draw the paths of the AI
+            drawPaths(gameTime, player.Camera, new BasicEffect(game.GraphicsDevice, null), game.GraphicsDevice);
         }
         #endregion
 
@@ -517,7 +527,9 @@ namespace BBN_Game.Controller
             for (i = 0; i < AllObjects.Count; i++)
             {
                 if (AllObjects.ElementAt(i).getHealth <= 0)
+                {
                     AllObjects.ElementAt(i).killObject();
+                }
             }
         }
 
@@ -597,16 +609,22 @@ namespace BBN_Game.Controller
         /// Sets the system to use new instances of player objects
         /// </summary>
         /// <param name="playerIndex">Either Red or Blue</param>
-        public static void spawnPlayer(Objects.Team playerIndex, Game game)
+        public static Objects.playerObject spawnPlayer(Objects.Team playerIndex, Game game)
         {
             switch (playerIndex)
             {
                 case Objects.Team.Red:
                     addObject(Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, Team1SpawnPoint.Position, new Vector3(0, 0, -1), numPlayers.Equals(Players.single) ? false : true));
-                    break;
+                    return Player1;
                 case Objects.Team.Blue:
                     addObject(Player2 = new BBN_Game.Objects.playerObject(game, Objects.Team.Blue, Team2SpawnPoint.Position, new Vector3(0, 0, 1), numPlayers.Equals(Players.single) ? false : true));
-                    break;
+                    if (numPlayers.Equals(Players.single))
+                    {
+                        Player2.setYawSpeed = Player2.getYawSpeed * YAW_PITCH_ROLL_SPEED_FACTOR_FOR_AI_PLAYER;
+                        Player2.setpitchSpeed = Player2.getpitchSpeed * YAW_PITCH_ROLL_SPEED_FACTOR_FOR_AI_PLAYER;
+                        Player2.setRollSpeed = Player2.getRollSpeed * YAW_PITCH_ROLL_SPEED_FACTOR_FOR_AI_PLAYER;
+                    }
+                    return Player2;
                 default:
                     throw new Exception("System only supports index 1 or 2");
             }
@@ -739,11 +757,13 @@ namespace BBN_Game.Controller
                     AI.Node n = new AI.Node(new Vector3(x, y, z), owningTeam);
                     n.id = id;
                     pathNodes.Add(id,n);
+                    gameGrid.registerObject(n);
                     break;
                 case "SpawnPoint":
                     AI.SpawnPoint sp = new AI.SpawnPoint(new Vector3(x, y, z), owningTeam);
                     sp.id = id;
                     spawnPoints.Add(sp);
+                    gameGrid.registerObject(sp);
                     break;
                 case "PlayerSpawnPoint":
                     AI.PlayerSpawnPoint psp = new AI.PlayerSpawnPoint(new Vector3(x, y, z), owningTeam);
@@ -752,6 +772,7 @@ namespace BBN_Game.Controller
                         Team1SpawnPoint = psp;
                     else if (owningTeam == 1)
                         Team2SpawnPoint = psp;
+                    gameGrid.registerObject(psp);
                     break;
             }
         }
@@ -813,6 +834,10 @@ namespace BBN_Game.Controller
                     Objects.Base b = new Objects.Base(game, getTeamFromMapTeamId(owningTeam), new Vector3(x, y, z));
                     b.rotation = Quaternion.CreateFromYawPitchRoll(yaw, pitch, roll);
                     addObject(b);
+                    if (b.Team == BBN_Game.Objects.Team.Red)
+                        Team1Base = b;
+                    else if (b.Team == BBN_Game.Objects.Team.Blue)
+                        Team2Base = b;
                     break;
                 case "Tower":
                     Objects.Turret t = new Objects.Turret(game, getTeamFromMapTeamId(owningTeam), new Vector3(x, y, z));
@@ -872,14 +897,15 @@ namespace BBN_Game.Controller
                 List<Grid.GridObjectInterface> list = gameGrid.checkNeighbouringBlocks(obj);
 
                 foreach (Grid.GridObjectInterface other in list)
-                {
-                    if ( !other.Equals(obj))
-                    if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld))
+                    if (other is Objects.StaticObject)
                     {
-                        // Collision occured call on the checker
-                        checkTwoObjects(obj, ((Objects.StaticObject)other));
+                        if (!other.Equals(obj))
+                            if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld))
+                            {
+                                // Collision occured call on the checker
+                                checkTwoObjects(obj, ((Objects.StaticObject)other));
+                            }
                     }
-                }
             }
         }
 
@@ -901,6 +927,25 @@ namespace BBN_Game.Controller
             else
             {
                 // add object collision settings
+                if (obj1 is Objects.DynamicObject && obj2 is Objects.DynamicObject)
+                {
+                    Objects.DynamicObject d1 = obj1 as Objects.DynamicObject;
+                    Objects.DynamicObject d2 = obj2 as Objects.DynamicObject;
+                    d1.bumpVelocity += Vector3.Normalize(Matrix.CreateFromQuaternion(d2.rotation).Forward) * d2.Mass * d2.ShipMovementInfo.speed / d1.Mass * COLLISION_SPEED_PRESERVATION;
+                    d2.bumpVelocity += Vector3.Normalize(Matrix.CreateFromQuaternion(d1.rotation).Forward) * d1.Mass * d1.ShipMovementInfo.speed / d2.Mass * COLLISION_SPEED_PRESERVATION;
+                }
+                else if (obj1 is Objects.DynamicObject)
+                {
+                    Objects.DynamicObject d = obj1 as Objects.DynamicObject;
+                    d.bumpVelocity += Vector3.Normalize(Matrix.CreateFromQuaternion(d.rotation).Backward) * d.ShipMovementInfo.speed * COLLISION_SPEED_PRESERVATION;
+                }
+                else if (obj2 is Objects.DynamicObject)
+                {
+                    Objects.DynamicObject d = obj2 as Objects.DynamicObject;
+                    d.bumpVelocity += Vector3.Normalize(Matrix.CreateFromQuaternion(d.rotation).Backward) * d.ShipMovementInfo.speed * COLLISION_SPEED_PRESERVATION;
+                }
+                obj1.ShipMovementInfo.speed = 0;
+                obj2.ShipMovementInfo.speed = 0;
             }
         }
 
@@ -910,6 +955,36 @@ namespace BBN_Game.Controller
         public static int getNumberAround(Objects.StaticObject obj)
         {
             return gameGrid.checkNeighbouringBlocks(obj).Count;
+        }
+
+        public static void drawPath(Objects.DynamicObject obj, Camera.CameraMatrices chasCam, BasicEffect bf, GraphicsDevice gd)
+        {
+            List<AI.Node> path = navComputer.isObjectRegistered(obj) ? navComputer.getPath(obj) : new List<AI.Node>();
+
+            if (path.Count > 0)
+            {
+                AI.Node nextWaypoint = path.Last();
+                for (int i = 0; i < path.Count - 1; ++i)
+                {
+                    Utils.Algorithms.Draw3DLine(Color.Yellow, path.ElementAt(i).Position, path.ElementAt(i + 1).Position,
+                        bf, gd, chasCam.Projection, chasCam.View, Matrix.Identity);
+                }
+                Utils.Algorithms.Draw3DLine(Color.Green, path.Last().Position, obj.Position,
+                    bf, gd, chasCam.Projection, chasCam.View, Matrix.Identity);
+            }
+        }
+        public static void drawPaths(GameTime gameTime, Camera.CameraMatrices chasCam, BasicEffect bf, GraphicsDevice gd)
+        {
+            for (int team = 0; team < aiController.getTeamCount(); ++team)
+            {
+                AI.TeamInformation ti = aiController.getTeam(team);
+
+                drawPath(ti.teamPlayer, chasCam, bf, gd);
+                foreach (Objects.Destroyer d in ti.teamDestroyers)
+                    drawPath(d, chasCam, bf, gd);
+                foreach (Objects.Fighter f in ti.teamFighters)
+                    drawPath(f, chasCam, bf, gd);
+            }
         }
     }
 }
