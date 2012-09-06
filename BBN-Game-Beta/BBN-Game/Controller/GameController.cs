@@ -167,17 +167,12 @@ namespace BBN_Game.Controller
                     menuController.updateState();
                 }
 
+                #region Player 1
                 //player 1 trade menu
                 if (keyState.IsKeyDown(Keys.Z) && prevKeyState.IsKeyUp(Keys.Z) && Player1.TradeMenuOption > 1)
                     Player1.TradeMenuOption--;
                 if (keyState.IsKeyDown(Keys.X) && prevKeyState.IsKeyUp(Keys.X) && Player1.TradeMenuOption < 3)
                     Player1.TradeMenuOption++;
-                //player 2 trade menu
-                if (keyState.IsKeyDown(Keys.NumPad2) && prevKeyState.IsKeyUp(Keys.NumPad2) && Player2.TradeMenuOption > 1)
-                    Player2.TradeMenuOption--;
-                if (keyState.IsKeyDown(Keys.NumPad3) && prevKeyState.IsKeyUp(Keys.NumPad3) && Player2.TradeMenuOption < 3)
-                    Player2.TradeMenuOption++;
-
                 //trade menu selection
                 if (keyState.IsKeyDown(Keys.C) && prevKeyState.IsKeyUp(Keys.C))
                 {
@@ -201,23 +196,42 @@ namespace BBN_Game.Controller
                 if (keyState.IsKeyDown(Keys.Q) && prevKeyState.IsKeyUp(Keys.Q))
                 {
                     if (tradePanelUp1)
+                    {
                         tradePanelUp1 = false;
+                        Player1.GoingUp = false;
+                    }
                     else
                     {
                         tradePanelUp1 = true;
-                        Player1.TradeMenuOption = 1;
+                        Player1.GoingUp = true;
+                        if(Player1.UpFactor >= 150)
+                            Player1.TradeMenuOption = 1;
                     }
                 }
+
+                #endregion
+
+                #region Player 2
                 if (numPlayers.Equals(Players.two))
-                {
+                {                    
+                    //player 2 trade menu
+                    if (keyState.IsKeyDown(Keys.NumPad2) && prevKeyState.IsKeyUp(Keys.NumPad2) && Player2.TradeMenuOption > 1)
+                        Player2.TradeMenuOption--;
+                    if (keyState.IsKeyDown(Keys.NumPad3) && prevKeyState.IsKeyUp(Keys.NumPad3) && Player2.TradeMenuOption < 3)
+                        Player2.TradeMenuOption++;
                     if (keyState.IsKeyDown(Keys.M) && prevKeyState.IsKeyUp(Keys.M))
                     {
                         if (tradePanelUp2)
+                        {
                             tradePanelUp2 = false;
+                            Player2.GoingUp = false;
+                        }
                         else
                         {
                             tradePanelUp2 = true;
-                            Player2.TradeMenuOption = 1;
+                            Player2.GoingUp = true;
+                            if (Player2.UpFactor >= 150)
+                                Player2.TradeMenuOption = 1;
                         }
                     }
 
@@ -238,7 +252,8 @@ namespace BBN_Game.Controller
                             //TODO deduct funds off of account
                         }
                     }
-                }                               
+                }
+                #endregion
 
                 prevKeyState = keyState;
             }
@@ -263,11 +278,16 @@ namespace BBN_Game.Controller
             if (pad1State.Buttons.RightShoulder == ButtonState.Pressed && prevPadState1.Buttons.RightShoulder != ButtonState.Pressed)//player1
             {
                 if (tradePanelUp1)
+                {
                     tradePanelUp1 = false;
+                    Player1.GoingUp = false;
+                }
                 else
                 {
                     tradePanelUp1 = true;
-                    Player1.TradeMenuOption = 1;
+                    Player1.GoingUp = true;
+                    if (Player1.UpFactor >= 150)
+                        Player1.TradeMenuOption = 1;
                 }
             }
             //traverse trade menu
@@ -308,11 +328,16 @@ namespace BBN_Game.Controller
                 if (pad2State.Buttons.RightShoulder == ButtonState.Pressed && prevPadState2.Buttons.RightShoulder == ButtonState.Released)//player2
                 {
                     if (tradePanelUp2)
+                    {
                         tradePanelUp2 = false;
+                        Player2.GoingUp = false;
+                    }
                     else
                     {
                         tradePanelUp2 = true;
-                        Player2.TradeMenuOption = 1;
+                        Player2.GoingUp = true;
+                        if (Player2.UpFactor >= 150)
+                            Player2.TradeMenuOption = 1;
                     }
                 }
                 //traverse trade menu
@@ -390,6 +415,8 @@ namespace BBN_Game.Controller
                     drawObjects(gameTime, Player1);
                     if (tradePanelUp1)//handle trade panel poping up                    
                         menuController.drawTradeMenu(Player1);
+                    else if(Player1.UpFactor < 150)
+                        menuController.drawTradeMenu(Player1);
                     else
                         menuController.drawTradeStats(Player1);
                     #endregion
@@ -399,6 +426,8 @@ namespace BBN_Game.Controller
                     {
                         drawObjects(gameTime, Player2);
                         if (tradePanelUp2)
+                            menuController.drawTradeMenu(Player2);
+                        else if (Player2.UpFactor < 150)
                             menuController.drawTradeMenu(Player2);
                         else
                             menuController.drawTradeStats(Player2);
