@@ -42,6 +42,7 @@
             this.tsbAddPathNode = new System.Windows.Forms.ToolStripButton();
             this.tsbConnectPathNodes = new System.Windows.Forms.ToolStripButton();
             this.tsbAddSpawnPoint = new System.Windows.Forms.ToolStripButton();
+            this.tsbPlayerSpawnpoint = new System.Windows.Forms.ToolStripButton();
             this.tspOther = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSkybox = new System.Windows.Forms.ToolStripButton();
             this.tsbSetMapRadius = new System.Windows.Forms.ToolStripButton();
@@ -56,7 +57,6 @@
             this.tvwToolbox = new System.Windows.Forms.TreeView();
             this.ofdMainWindow = new System.Windows.Forms.OpenFileDialog();
             this.sfdMainWindow = new System.Windows.Forms.SaveFileDialog();
-            this.tsbPlayerSpawnpoint = new System.Windows.Forms.ToolStripButton();
             this.tspMain.SuspendLayout();
             this.scrMainLayout.Panel1.SuspendLayout();
             this.scrMainLayout.SuspendLayout();
@@ -214,6 +214,16 @@
             this.tsbAddSpawnPoint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbAddSpawnPoint.Click += new System.EventHandler(this.tsbAddSpawnPoint_Click);
             // 
+            // tsbPlayerSpawnpoint
+            // 
+            this.tsbPlayerSpawnpoint.Image = global::Editor.Properties.Resources.spawn;
+            this.tsbPlayerSpawnpoint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPlayerSpawnpoint.Name = "tsbPlayerSpawnpoint";
+            this.tsbPlayerSpawnpoint.Size = new System.Drawing.Size(124, 41);
+            this.tsbPlayerSpawnpoint.Text = "Add player spawn point";
+            this.tsbPlayerSpawnpoint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbPlayerSpawnpoint.Click += new System.EventHandler(this.tsbPlayerSpawnpoint_Click);
+            // 
             // tspOther
             // 
             this.tspOther.Name = "tspOther";
@@ -364,16 +374,6 @@
             // 
             this.sfdMainWindow.DefaultExt = "xml";
             this.sfdMainWindow.Filter = "Map XML file|*.xml";
-            // 
-            // tsbPlayerSpawnpoint
-            // 
-            this.tsbPlayerSpawnpoint.Image = global::Editor.Properties.Resources.spawn;
-            this.tsbPlayerSpawnpoint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPlayerSpawnpoint.Name = "tsbPlayerSpawnpoint";
-            this.tsbPlayerSpawnpoint.Size = new System.Drawing.Size(124, 41);
-            this.tsbPlayerSpawnpoint.Text = "Add player spawn point";
-            this.tsbPlayerSpawnpoint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbPlayerSpawnpoint.Click += new System.EventHandler(this.tsbPlayerSpawnpoint_Click);
             // 
             // frmMain
             // 

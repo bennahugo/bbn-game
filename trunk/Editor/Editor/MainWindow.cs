@@ -92,9 +92,8 @@ namespace Editor
             GameServiceContainer services = new GameServiceContainer();
             services.AddService(typeof(IGraphicsDeviceService), gfxService);
             contentMgr = new ContentManager(services,"Content");
-            gfxDevice = gfxService.GraphicsDevice;
             spriteBatch = new SpriteBatch(gfxDevice);
-            basicEffect = new BasicEffect(gfxDevice, null);
+            basicEffect = new BasicEffect(gfxDevice, new EffectPool());
             basicEffect.VertexColorEnabled = true;
             Initialize();
             // attach game and control loops
@@ -111,25 +110,22 @@ namespace Editor
         /// Method to instantiate and initialize a graphics device
         /// </summary>
         private void CreateDevice()
-        {
-            PresentationParameters presentation = new PresentationParameters();
-            presentation.AutoDepthStencilFormat = DepthFormat.Depth24;
-            presentation.BackBufferCount = 1;
-            presentation.BackBufferFormat = SurfaceFormat.Color;
-            presentation.BackBufferWidth = this.scrMainLayout.Panel2.Width;
-            presentation.BackBufferHeight = this.scrMainLayout.Panel2.Height;
-            presentation.DeviceWindowHandle = this.Handle;
-            presentation.EnableAutoDepthStencil = true;
-            presentation.FullScreenRefreshRateInHz = 0;
-            presentation.IsFullScreen = false;
-            presentation.MultiSampleQuality = 0;
-            presentation.MultiSampleType = MultiSampleType.None;
-            presentation.PresentationInterval = PresentInterval.One;
-            presentation.PresentOptions = PresentOptions.None;
-            presentation.SwapEffect = SwapEffect.Discard;
-            presentation.RenderTargetUsage = RenderTargetUsage.DiscardContents;
+        { 
+            PresentationParameters pp = new PresentationParameters();
+            pp.BackBufferCount = 1;
+            pp.IsFullScreen = false;
+            pp.SwapEffect = SwapEffect.Discard;
+            pp.BackBufferWidth = this.scrMainLayout.Panel2.Width;
+            pp.BackBufferHeight = this.scrMainLayout.Panel2.Height;
+            pp.AutoDepthStencilFormat = DepthFormat.Depth24Stencil8;
+            pp.EnableAutoDepthStencil = true;
+            pp.PresentationInterval = PresentInterval.Default;
+            pp.BackBufferFormat = SurfaceFormat.Unknown;
+            pp.MultiSampleType = MultiSampleType.None;
             gfxDevice = new GraphicsDevice(GraphicsAdapter.DefaultAdapter, DeviceType.Hardware, this.scrMainLayout.Panel2.Handle,
-                presentation);
+                pp);
+            gfxDevice.RenderState.CullMode = CullMode.None;
+            gfxDevice.Reset();
             //Setup cliping frustum
             Viewport v = gfxDevice.Viewport;
             v.MinDepth = nearClip;
@@ -209,18 +205,14 @@ namespace Editor
         /// </summary>
         protected void draw()
         {
-            //Setup graphics device:
-            gfxDevice.RenderState.CullMode = CullMode.CullCounterClockwiseFace;
-            gfxDevice.RenderState.DepthBufferEnable = true;
-            gfxDevice.RenderState.DepthBufferFunction = CompareFunction.LessEqual;
-            gfxDevice.RenderState.DepthBufferWriteEnable = true;
-            gfxDevice.RenderState.FillMode = FillMode.Solid;
-            ClearOptions options = ClearOptions.Target | ClearOptions.DepthBuffer;
             Microsoft.Xna.Framework.Graphics.Color clearColor = Microsoft.Xna.Framework.Graphics.Color.Black;
-            float depth = 1;
-            int stencil = 128;
+            gfxDevice.Clear(clearColor);
+            gfxDevice.RenderState.DepthBufferEnable = true;
+            gfxDevice.RenderState.FillMode = FillMode.Solid;
+            gfxDevice.RenderState.DepthBufferWriteEnable = true;
+            gfxDevice.RenderState.DepthBufferFunction = CompareFunction.LessEqual;
+
             //Draw all objects in map:
-            gfxDevice.Clear(options, clearColor, depth, stencil);
             BBNMap.DrawMap(gfxDevice, projection,contentMgr, view, lightsSetup, fogColor, fogSetup, basicEffect, cameraPos);
             //Draw 3D lines:
             if (selectedXMoveLine || selectedYMoveLine || selectedZMoveLine)
@@ -286,9 +278,7 @@ namespace Editor
                 
             spriteBatch.End();
             //Swap buffers:
-            gfxDevice.Present(new Microsoft.Xna.Framework.Rectangle(this.scrMainLayout.Panel2.ClientRectangle.X,this.scrMainLayout.Panel2.ClientRectangle.Y,
-                                                                    this.scrMainLayout.Panel2.ClientRectangle.Width,this.scrMainLayout.Panel2.ClientRectangle.Height),
-                                 null,this.scrMainLayout.Panel2.Handle);
+            gfxDevice.Present(this.scrMainLayout.Panel2.Handle);
         }
         /// <summary>
         /// XNA update method
