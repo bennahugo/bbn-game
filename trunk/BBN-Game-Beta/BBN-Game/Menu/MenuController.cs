@@ -404,66 +404,71 @@ namespace BBN_Game.Menu
         //manage the pop-up menu for trading for ships and missiles
         public void drawTradeMenu(Objects.playerObject player)
         {
+            if (player.UpFactor > 0 && player.GoingUp)
+                player.UpFactor -= 2;
+            else if ((!player.GoingUp) && player.UpFactor < 150)
+                player.UpFactor += 2;
+
             spriteBatch.Begin();
 
             //draw trade menu pop-up panel and menu outline for options
-            spriteBatch.Draw(tradeMenuTex, new Rectangle(player.getViewport.Width - 160, player.getViewport.Height - 300, 150, 276), Color.White);
+            spriteBatch.Draw(tradeMenuTex, new Rectangle(player.getViewport.Width - 160, player.getViewport.Height - 300 + player.UpFactor, 150, 276), Color.White);
             
             String currency = "$10 000";
-            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 243), Color.Black);
-            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 244), Color.Black);
-            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 245), Color.Red);
+            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 243 + player.UpFactor), Color.Black);
+            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 244 + player.UpFactor), Color.Black);
+            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 245 + player.UpFactor), Color.Red);
 
             #region draw menu options
             if (player.TradeMenuOption == 1)
             {
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 112, player.getViewport.Height - 218), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 111, player.getViewport.Height - 219), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110,player.getViewport.Height - 220), Color.Aqua);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 112, player.getViewport.Height - 218 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 111, player.getViewport.Height - 219 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 220 + player.UpFactor), Color.Aqua);
 
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 164), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 165), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 164 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166 + player.UpFactor), Color.Green);
 
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 108), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 109), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 108 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110 + player.UpFactor), Color.Green);
             }
             else if (player.TradeMenuOption == 2)
             {
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 218), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 219), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 220), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 218 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 219 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 220 + player.UpFactor), Color.Green);
 
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 164), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 165), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166), Color.Aqua);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 164 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166 + player.UpFactor), Color.Aqua);
 
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 108), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 109), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 108 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110 + player.UpFactor), Color.Green);
             }
             else if (player.TradeMenuOption == 3)
             {
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 218), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 219), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 220), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 218 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 219 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 220 + player.UpFactor), Color.Green);
 
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 164), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 165), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 164 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 166 + player.UpFactor), Color.Green);
 
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 108), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 109), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110), Color.Aqua);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 108 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 110 + player.UpFactor), Color.Aqua);
             }
             #endregion  
 
             #region Draw menu values
 
-            spriteBatch.DrawString(tradeMenuFont, "You have: "+2, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 195), Color.Red);
-            spriteBatch.DrawString(tradeMenuFont, "You have: "+3, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 141), Color.Red);
-            spriteBatch.DrawString(tradeMenuFont, "You have: "+player.Missiles, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 85), Color.Red);
+            spriteBatch.DrawString(tradeMenuFont, "You have: " + 2, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 195 + player.UpFactor), Color.Red);
+            spriteBatch.DrawString(tradeMenuFont, "You have: " + 3, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 141 + player.UpFactor), Color.Red);
+            spriteBatch.DrawString(tradeMenuFont, "You have: " + player.Missiles, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 85 + player.UpFactor), Color.Red);
 
             #endregion
 

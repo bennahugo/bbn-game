@@ -68,6 +68,24 @@ namespace BBN_Game.Objects
         /// Getter and setter
         /// </summary>
         /// 
+        #region manage the pop-up menu for trading ships and missiles
+        private int upFactor = 150;
+        public int UpFactor
+        {
+            get { return upFactor; }
+            set { upFactor = value; }
+        }
+        Boolean isGoingUp = true;
+        public Boolean GoingUp
+        {
+            get { return isGoingUp; }
+            set { isGoingUp = value; }
+        }
+
+
+        #endregion
+
+
         private int numMissiles = 5;
         public int Missiles
         {
@@ -416,7 +434,6 @@ namespace BBN_Game.Objects
             oldState = state;
         }
 
-        //TODO - Xbox controls
         GamePadState prevPadState1 = GamePad.GetState(PlayerIndex.One);
         GamePadState prevPadState2 = GamePad.GetState(PlayerIndex.Two);
         public void xboxControls(float time)
