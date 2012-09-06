@@ -123,8 +123,8 @@ namespace Editor
                 foreach (BasicEffect e in mesh.Effects)
                 {
                     e.EnableDefaultLighting();
-                    e.PreferPerPixelLighting = true;
-
+                    
+                    
                     e.LightingEnabled = true;
                     e.DirectionalLight0.Direction = Lighting[0];
                     e.DirectionalLight0.DiffuseColor = Lighting[1];
@@ -136,11 +136,8 @@ namespace Editor
                     e.DirectionalLight2.DiffuseColor = Lighting[7];
                     e.DirectionalLight2.SpecularColor = Lighting[8];
 
-                    e.FogEnabled = true;
-                    e.FogColor = fogColour;
-                    e.FogStart = fogVariables[0];
-                    e.FogEnd = fogVariables[1];
-
+                    e.Alpha = 1.0f;
+                    e.TextureEnabled = false;
                     e.World = world;
                     e.View = view;
                     e.Projection = Projection;
