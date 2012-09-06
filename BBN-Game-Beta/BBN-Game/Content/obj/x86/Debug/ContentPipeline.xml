@@ -371,6 +371,42 @@
       <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\missile_small.xnb</Output>
       <Time>2012-09-06T00:40:26.0378132+02:00</Time>
     </Item>
+    <Item>
+      <Source>Menu\keyboard_controls.png</Source>
+      <Name>Menu\keyboard_controls</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\keyboard_controls.xnb</Output>
+      <Time>2012-09-06T14:40:28.3907964+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\xbox_controls.png</Source>
+      <Name>Menu\xbox_controls</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\xbox_controls.xnb</Output>
+      <Time>2012-09-06T14:40:35.6142096+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\dark_trans_new.png</Source>
+      <Name>Menu\dark_trans_new</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\dark_trans_new.xnb</Output>
+      <Time>2012-09-06T14:40:43.4846597+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\trade_menu_newest.png</Source>
+      <Name>Menu\trade_menu_newest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\trade_menu_newest.xnb</Output>
+      <Time>2012-09-06T14:41:39.7808797+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
