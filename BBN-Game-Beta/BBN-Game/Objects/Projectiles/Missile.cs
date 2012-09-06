@@ -100,14 +100,11 @@ namespace BBN_Game.Objects
                 if (Math.Abs(diffy) > Math.Abs(yawSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds))
                     diffy = Math.Sign(diffy) * Math.Abs(yawSpeed) * (float)(gt.ElapsedGameTime.TotalSeconds);
 
-                Matrix m = Matrix.CreateFromQuaternion(rotation);
-                Quaternion pitch = Quaternion.CreateFromAxisAngle(m.Right, diffp);
-                Quaternion yaw = Quaternion.CreateFromAxisAngle(m.Up, diffy);
                 //special case: deal with the pitch if its PI/2 or -PI/2, because if its slightly off it causes problems:
                 if (Math.Abs(Math.Abs(tpitch) - Math.PI / 2) <= EPSILON_DISTANCE && !(Math.Abs(diffy) <= EPSILON_DISTANCE))
                     rotation = Quaternion.CreateFromYawPitchRoll(tyaw, tpitch, 0);
                 else
-                    rotation = yaw * pitch * rotation;
+                    rotation = Quaternion.CreateFromYawPitchRoll(cyaw + diffy, cpitch + diffp, 0);
                 #endregion
 
                 #region "Speed"

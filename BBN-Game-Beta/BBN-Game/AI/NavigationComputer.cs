@@ -19,10 +19,11 @@ namespace BBN_Game.AI
         private const int YIELD_TICKS = 30;
         private const int DODGE_DISTANCE_MULTIPLIER = 2; //multiplies the sum of the two radi of the objects and controls the minimum distance when the ai will start dodging
         private const float DOT_ANGLE_TO_STOP_DOGFIGHT_MOVE = 0.6f;
-        private const int RADIUS_FACTOR_TO_GO_ABOVE_TARGET = 2;
-        private const int RADIUS_MULTIPLIER_TO_GO_BEHIND_TARGET = 6;
-        private const int TARGET_WP_BUFFER = 50;
+        private const int RADIUS_FACTOR_TO_GO_ABOVE_TARGET = 4;
+        private const int RADIUS_MULTIPLIER_TO_GO_BEHIND_TARGET = 10;
+        private const int TARGET_WP_BUFFER = 120;
         private const float CHASE_WHEN_FURTHER = 70;
+        private const float ASTAR_RANDOM_FACTOR = 50;
 
         private GridStructure spatialGrid;
         internal Dictionary<DynamicObject, PathInformation> objectPaths;
@@ -447,7 +448,7 @@ namespace BBN_Game.AI
                     visitedList.Add(neighbour);
                     Random randomizer = new Random();
                     double distToNeighbour = addRandomFactor ?
-                        neighbourEdge.distance + neighbourEdge.weight + randomizer.NextDouble() * neighbourEdge.distance : neighbourEdge.distance + neighbourEdge.weight;
+                        neighbourEdge.distance + neighbourEdge.weight + randomizer.NextDouble() * ASTAR_RANDOM_FACTOR * neighbourEdge.distance : neighbourEdge.distance + neighbourEdge.weight;
                     double newMoveLength = distToNeighbour + bestChoice.pathCost;
                     neighbour.heuristic = (neighbour.Position - end.Position).Length();
                     Boolean shouldMove = false;

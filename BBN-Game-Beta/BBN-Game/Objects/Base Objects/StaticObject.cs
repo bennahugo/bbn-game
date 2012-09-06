@@ -107,6 +107,18 @@ namespace BBN_Game.Objects
         {
             get { return yawSpeed; }
         }
+        public float setRollSpeed
+        {
+            set { rollSpeed = value; }
+        }
+        public float setpitchSpeed
+        {
+            set { pitchSpeed = value; }
+        }
+        public float setYawSpeed
+        {
+            set { yawSpeed = value; }
+        }
         public Vector3 Position
         {
             get { return shipData.position; }

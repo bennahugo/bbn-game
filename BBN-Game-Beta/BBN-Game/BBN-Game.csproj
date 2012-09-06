@@ -125,6 +125,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="BBNGame.cs" />
     <Compile Include="TradingInformation.cs" />
+    <Compile Include="Utils\Algorithms.cs" />
     <Compile Include="Utils\PriorityQueue.cs" />
   </ItemGroup>
   <ItemGroup>

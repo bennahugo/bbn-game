@@ -115,7 +115,6 @@ namespace BBN_Game.Objects
         #endregion
 
         #region "Constructors - Data setting"
-
         /// <summary>
         /// Ovveride to set the data for rotation speeds etc...
         /// </summary>
@@ -127,7 +126,7 @@ namespace BBN_Game.Objects
             this.mass = 10;
             this.pitchSpeed = 40;
             this.rollSpeed = pitchSpeed * 1.5f;
-            this.yawSpeed = pitchSpeed * 0.75f;
+            this.yawSpeed = pitchSpeed * 1.05f;
             this.maxSpeed = 50;
             this.minSpeed = -10;
             this.greatestLength = 6f;

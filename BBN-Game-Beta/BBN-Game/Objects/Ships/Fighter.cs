@@ -22,9 +22,9 @@ namespace BBN_Game.Objects
         protected override void setData()
         {
             this.rollSpeed = 5;
-            this.pitchSpeed = 10;
-            this.yawSpeed = 5;
-            this.maxSpeed = 300;
+            this.pitchSpeed = 1;
+            this.yawSpeed = 1;
+            this.maxSpeed = 40;
             this.minSpeed = -25;
             this.greatestLength = 6f;
             numHudLines = 8;

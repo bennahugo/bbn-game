@@ -21,10 +21,10 @@ namespace BBN_Game.Objects
         #region "Constructors"
         protected override void setData()
         {
-            this.rollSpeed = 5;
+            this.rollSpeed = 0.5f;
             this.pitchSpeed = 10;
-            this.yawSpeed = 5;
-            this.maxSpeed = 300;
+            this.yawSpeed = 0.5f;
+            this.maxSpeed = 20;
             this.minSpeed = -25;
             this.greatestLength = 6f;
             numHudLines = 4;
