@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Xml;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -34,11 +34,25 @@ namespace BBN_Game.Controller
 
     class GameController
     {
+        #region "Constants"
+        private const string INITIAL_MAP = "Content/Maps/Death Zone.xml";
+        private const int GRID_CUBE_SIZE = 50;
+        private const int MAX_NUM_FIGHTERS_PER_TEAM = 10;
+        private const int MAX_NUM_DESTROYERS_PER_TEAM = 10;
+        #endregion
+
         #region "Object holders"
         static List<Objects.StaticObject> AllObjects, DynamicObjs, Fighters, Destroyers, Towers, Asteroids, Projectiles;
+        static List<AI.Marker> spawnPoints = new List<AI.Marker>();
+        static Dictionary<String, AI.Node> pathNodes = new Dictionary<string,BBN_Game.AI.Node>(); 
+        static Objects.playerObject Player1, Player2;
+        static Objects.Base Team1Base, Team2Base;
 
-        Objects.playerObject Player1, Player2;
-        Objects.Base Team1Base, Team2Base;
+        static AI.PlayerSpawnPoint Team1SpawnPoint;
+        static AI.PlayerSpawnPoint Team2SpawnPoint;
+
+        public static AI.TeamInformation team1 { get; internal set; }
+        public static AI.TeamInformation team2 { get; internal set; }
         #endregion
 
         #region "Graphics Devices"
@@ -47,14 +61,23 @@ namespace BBN_Game.Controller
 
         #region "Game Controllers"
         GameState gameState, prevGameState;
+        public static string currentMap { get; private set; }
+        public static float mapRadius { get; internal set; }
+        public static float skyboxRepeat { get; internal set; }
+        public static String skyboxTexture { get; internal set; }
         public GameState CurrentGameState
         {
             get { return gameState; }
             set { gameState = value; }
         }
         static Players numPlayers;
+        
         static Grid.GridStructure gameGrid;
-        protected Menu.MenuController menuController;
+        
+        //Controler objects:
+        static AI.NavigationComputer navComputer;
+        static AI.AIController aiController;
+        static Menu.MenuController menuController;
 
         public static Players NumberOfPlayers
         {
@@ -64,6 +87,14 @@ namespace BBN_Game.Controller
         public static Grid.GridStructure Grid
         {
             get { return gameGrid; }
+        }
+        public static AI.NavigationComputer navigationComputer
+        {
+            get { return navComputer; }
+        }
+        public static AI.AIController AIController
+        {
+            get { return aiController; }
         }
         #endregion
 
@@ -124,7 +155,7 @@ namespace BBN_Game.Controller
                 {
                     game.Content.Unload();
 
-                    loadMap("temp not used yet");
+                    loadMap(INITIAL_MAP);
 
                     SkyBox.Initialize();
                     SkyBox.loadContent();
@@ -411,6 +442,11 @@ namespace BBN_Game.Controller
             {
                 if (ObjectsLoaded)
                 {
+                    //reset graphics device state to draw 3D correctly (after spritebatch has drawn the system is in an invalid state)
+                    game.GraphicsDevice.RenderState.AlphaBlendEnable = false;
+                    game.GraphicsDevice.RenderState.AlphaTestEnable = false;
+                    game.GraphicsDevice.RenderState.DepthBufferEnable = true;
+                    game.GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
                     #region "Player 1"
                     drawObjects(gameTime, Player1);
                     if (tradePanelUp1)//handle trade panel poping up                    
@@ -557,34 +593,275 @@ namespace BBN_Game.Controller
             AllObjects.Remove(Object);
             --i;
         }
-
+        /// <summary>
+        /// Sets the system to use new instances of player objects
+        /// </summary>
+        /// <param name="playerIndex">Either Red or Blue</param>
+        public static void spawnPlayer(Objects.Team playerIndex, Game game)
+        {
+            switch (playerIndex)
+            {
+                case Objects.Team.Red:
+                    addObject(Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, Team1SpawnPoint.Position, new Vector3(0, 0, -1), numPlayers.Equals(Players.single) ? false : true));
+                    break;
+                case Objects.Team.Blue:
+                    addObject(Player2 = new BBN_Game.Objects.playerObject(game, Objects.Team.Blue, Team2SpawnPoint.Position, new Vector3(0, 0, 1), numPlayers.Equals(Players.single) ? false : true));
+                    break;
+                default:
+                    throw new Exception("System only supports index 1 or 2");
+            }
+                
+        }
         #endregion
 
         #region "Map loader"
 
         protected void loadMap(string mapName)
         {
-            gameGrid = new BBN_Game.Grid.GridStructure(2000, 50);
-            
-            // hardcoded for now
-            // players
-            addObject(Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, new Vector3(0, 0, -500), new Vector3(0, 0, 1), numPlayers.Equals(Players.single) ? false : true));
-            addObject(Player2 = new BBN_Game.Objects.playerObject(game, Objects.Team.Blue, new Vector3(0, 0, 500), new Vector3(0, 0, -1), numPlayers.Equals(Players.single) ? false : true));
-          
-            // Bases
-            addObject(Team1Base = new BBN_Game.Objects.Base(game, Objects.Team.Red, new Vector3(-100, 10, -500)));
-            addObject(Team2Base = new BBN_Game.Objects.Base(game, Objects.Team.Blue, new Vector3(100, -10, 500)));
+            //First read in map:
+            XmlReader reader = XmlReader.Create(mapName);
+            while (reader.Read())
+                if (reader.NodeType == XmlNodeType.Element)
+                    if (reader.Name == "Map")
+                        readMapContent(reader.ReadSubtree());
+                    else throw new Exception("Expected Token: Map");
+            reader.Close();
 
-            // add a few turrets
-            addObject(new Objects.Turret(game, Objects.Team.nutral, new Vector3(-50, 100, -500)));
-            addObject(new Objects.Turret(game, Objects.Team.Blue, new Vector3(50, -100, 500)));
+            //Setup controllers:
+            navComputer = new AI.NavigationComputer(gameGrid);
+            aiController = new AI.AIController(gameGrid, navComputer, this, Towers);
 
-            // skybox
-            SkyBox = new BBN_Game.Graphics.Skybox.Skybox(game, "Starfield", 100000, 10);
+            //Initially Spawn players:
+            spawnPlayer(Objects.Team.Red, game);
+            spawnPlayer(Objects.Team.Blue, game);
+
+            //Setup teams:
+            List<Objects.Turret> team1InitialTurrets = new List<Objects.Turret>();
+            List<Objects.Turret> team2InitialTurrets = new List<Objects.Turret>();
+            foreach (Objects.Turret tr in Towers)
+                if (tr.Team == Objects.Team.Red)
+                    team1InitialTurrets.Add(tr);
+                else if (tr.Team == Objects.Team.Blue)
+                    team2InitialTurrets.Add(tr);
+            List<AI.Node> team1OwnedNodes = new List<AI.Node>();
+            List<AI.Node> team2OwnedNodes = new List<AI.Node>();
+            foreach (AI.Node n in pathNodes.Values)
+                if (n.OwningTeam == 0)
+                    team1OwnedNodes.Add(n);
+                else if (n.OwningTeam == 1)
+                    team2OwnedNodes.Add(n);
+            List<AI.SpawnPoint> team1OwnedSpawnPoints = new List<AI.SpawnPoint>();
+            List<AI.SpawnPoint> team2OwnedSpawnPoints = new List<AI.SpawnPoint>();
+            foreach (AI.SpawnPoint n in spawnPoints)
+                if (n.OwningTeam == 0)
+                    team1OwnedSpawnPoints.Add(n);
+                else if (n.OwningTeam == 1)
+                    team2OwnedSpawnPoints.Add(n);
+            team1 = new AI.TeamInformation(Objects.Team.Red, false, team1InitialTurrets, TradingInformation.startingCreditsPerTeam, Player1, team1OwnedNodes,
+                team1OwnedSpawnPoints, MAX_NUM_FIGHTERS_PER_TEAM, MAX_NUM_DESTROYERS_PER_TEAM, Team1Base, Team1SpawnPoint);
+            team2 = new AI.TeamInformation(Objects.Team.Blue, numPlayers.Equals(Players.single) ? true : false, team2InitialTurrets, 
+                TradingInformation.startingCreditsPerTeam, Player2, team2OwnedNodes,
+                team2OwnedSpawnPoints, MAX_NUM_FIGHTERS_PER_TEAM, MAX_NUM_DESTROYERS_PER_TEAM, Team2Base, Team2SpawnPoint);
+            aiController.registerTeam(team1);
+            aiController.registerTeam(team2);
+        }
+        /// <summary>
+        /// Reads the Map subtree of the XML file
+        /// </summary>
+        /// <param name="reader">XML Reader @ Map</param>
+        private void readMapContent(XmlReader reader)
+        {
+            while (reader.Read())
+                if (reader.NodeType == XmlNodeType.Element)
+                    switch (reader.Name) //send for the correct subroutine to load the rest of the tree
+                    {
+                        case "Map":
+                            mapRadius = Convert.ToSingle(reader.GetAttribute("mapRadius"));
+                            gameGrid = new BBN_Game.Grid.GridStructure((int)mapRadius, GRID_CUBE_SIZE);
+                            break;
+                        case "Skybox":
+                            readSkyboxData(reader);
+                            break;
+                        case "Marker":
+                            readMarkerData(reader);
+                            break;
+                        case "ContentItem":
+                            readContentItemData(reader);
+                            break;
+                        case "PathEdge":
+                            readEdgeData(reader);
+                            break;
+                        default:
+                            throw new Exception("Error in Map file. Unknown Token");
+                    }
+        }
+        /// <summary>
+        /// Loads skybox subtree of Map tree
+        /// </summary>
+        /// <param name="reader">XML reader @ skybox</param>
+        private void readSkyboxData(XmlReader reader)
+        {
+            skyboxTexture = reader.GetAttribute("texture");
+            skyboxRepeat = Convert.ToSingle(reader.GetAttribute("repeat"));
+            // set up skybox
+            SkyBox = new BBN_Game.Graphics.Skybox.Skybox(game, skyboxTexture, mapRadius*2, (int)skyboxRepeat);
             game.Components.Add(SkyBox);
         }
+        /// <summary>
+        /// Loads marker subtree of Map tree
+        /// </summary>
+        /// <param name="reader">XML reader @ marker</param>
+        private void readMarkerData(XmlReader reader)
+        {
+            String id = reader.GetAttribute("id");
+            String className = reader.GetAttribute("className");
+            int owningTeam = Convert.ToInt32(reader.GetAttribute("owningTeam"));
+            float x = 0, y = 0, z = 0;
+            XmlReader subtree = reader.ReadSubtree();
+            while (subtree.Read())
+                if (subtree.NodeType == XmlNodeType.Element)
+                    switch (subtree.Name)
+                    {
+                        case "x":
+                            x = Convert.ToSingle(subtree.ReadString());
+                            break;
+                        case "y":
+                            y = Convert.ToSingle(subtree.ReadString());
+                            break;
+                        case "z":
+                            z = Convert.ToSingle(subtree.ReadString());
+                            break;
+                    }
+            //Now write them into the correct lists:
+            switch (className)
+            {
+                case "PathNode":
+                    AI.Node n = new AI.Node(new Vector3(x, y, z), owningTeam);
+                    n.id = id;
+                    pathNodes.Add(id,n);
+                    break;
+                case "SpawnPoint":
+                    AI.SpawnPoint sp = new AI.SpawnPoint(new Vector3(x, y, z), owningTeam);
+                    sp.id = id;
+                    spawnPoints.Add(sp);
+                    break;
+                case "PlayerSpawnPoint":
+                    AI.PlayerSpawnPoint psp = new AI.PlayerSpawnPoint(new Vector3(x, y, z), owningTeam);
+                    psp.id = id;
+                    if (owningTeam == 0)
+                        Team1SpawnPoint = psp;
+                    else if (owningTeam == 1)
+                        Team2SpawnPoint = psp;
+                    break;
+            }
+        }
+        /// <summary>
+        /// Loads content item subtree from Map tree
+        /// </summary>
+        /// <param name="reader">XML Reader @ contentItem</param>
+        private void readContentItemData(XmlReader reader)
+        {
+            String id = reader.GetAttribute("id");
+            String className = reader.GetAttribute("className");
+            String type = reader.GetAttribute("type");
+            int owningTeam = 0;
+            float x = 0, y = 0, z = 0, yaw = 0, pitch = 0, roll = 0, scaleX = 0, scaleY = 0, scaleZ = 0;
+            String modelName = "";
+            XmlReader subtree = reader.ReadSubtree();
+            while (subtree.Read())
+                if (subtree.NodeType == XmlNodeType.Element)
+                    switch (subtree.Name)
+                    {
+                        case "x":
+                            x = Convert.ToSingle(subtree.ReadString());
+                            break;
+                        case "y":
+                            y = Convert.ToSingle(subtree.ReadString());
+                            break;
+                        case "z":
+                            z = Convert.ToSingle(subtree.ReadString());
+                            break;
+                        case "yaw":
+                            yaw = Convert.ToSingle(subtree.ReadString());
+                            break;
+                        case "pitch":
+                            pitch = Convert.ToSingle(subtree.ReadString());
+                            break;
+                        case "roll":
+                            roll = Convert.ToSingle(subtree.ReadString());
+                            break;
+                        case "scaleX":
+                            scaleX = Convert.ToSingle(subtree.ReadString());
+                            break;
+                        case "scaleY":
+                            scaleY = Convert.ToSingle(subtree.ReadString());
+                            break;
+                        case "scaleZ":
+                            scaleZ = Convert.ToSingle(subtree.ReadString());
+                            break;
+                        case "modelName":
+                            modelName = subtree.ReadString();
+                            break;
+                        case "owningTeam":
+                            owningTeam = Convert.ToInt32(subtree.ReadString());
+                            break;
+                    }
+            //now just make them into objects:
+            switch (className)
+            {
+                case "Base":
+                    Objects.Base b = new Objects.Base(game, getTeamFromMapTeamId(owningTeam), new Vector3(x, y, z));
+                    b.rotation = Quaternion.CreateFromYawPitchRoll(yaw, pitch, roll);
+                    addObject(b);
+                    break;
+                case "Tower":
+                    Objects.Turret t = new Objects.Turret(game, getTeamFromMapTeamId(owningTeam), new Vector3(x, y, z));
+                    t.rotation = Quaternion.CreateFromYawPitchRoll(yaw, pitch, roll);
+                    addObject(t);
+                    break;
+            }
+        }
+        /// <summary>
+        /// Loads edge subtree from map tree
+        /// </summary>
+        /// <param name="reader">XML Reader @ edge</param>
+        private void readEdgeData(XmlReader reader)
+        {
+            float weight = Convert.ToSingle(reader.GetAttribute("weight"));
+            float distance = Convert.ToSingle(reader.GetAttribute("distance"));
 
-
+            String firstNode = "-1", secondNode = "-1";
+            XmlReader subtree = reader.ReadSubtree();
+            while (subtree.Read())
+                if (subtree.NodeType == XmlNodeType.Element)
+                    switch (subtree.Name)
+                    {
+                        case "firstNodeId":
+                            firstNode = subtree.ReadString();
+                            break;
+                        case "secondNodeId":
+                            secondNode = subtree.ReadString();
+                            break;
+                    }
+            //Now connect the two nodes:
+            if (!(pathNodes.Keys.Contains(firstNode) && pathNodes.Keys.Contains(secondNode)))
+                throw new Exception("Map is corrupt: invalid link between pathnodes");
+            AI.Node n1 = pathNodes[firstNode];
+            AI.Node n2 = pathNodes[secondNode];
+            AI.Edge e = new AI.Edge(n1,n2,weight);
+            e.distance = distance;
+            pathNodes[firstNode].connectedEdges.Add(e);
+            pathNodes[secondNode].connectedEdges.Add(e);
+        }
+        /// <summary>
+        /// Converts map team id to Objects.Team enumeration instance (0 is red, 1 is blue, otherwise neutral)
+        /// </summary>
+        /// <param name="team">integer indicating the team's id</param>
+        /// <returns>Objects.Team instance</returns>
+        private static Objects.Team getTeamFromMapTeamId(int team)
+        {
+            return team == -1 ? Objects.Team.nutral : (team == 0 ? Objects.Team.Red : (team == 1 ? Objects.Team.Blue : Objects.Team.nutral));
+        }
         #endregion
 
         #region "Collision Detection"
