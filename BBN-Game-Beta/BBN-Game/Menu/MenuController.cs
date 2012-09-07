@@ -518,9 +518,9 @@ namespace BBN_Game.Menu
         {
             //for slide-up animation
             if (player.UpFactor > 0 && player.GoingUp)
-                player.UpFactor -= 10;
+                player.UpFactor -= 2;
             else if ((!player.GoingUp) && player.UpFactor < 150)
-                player.UpFactor += 10;
+                player.UpFactor += 2;
 
             spriteBatch.Begin();
 
