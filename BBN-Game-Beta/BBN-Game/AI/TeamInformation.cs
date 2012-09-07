@@ -27,7 +27,7 @@ namespace BBN_Game.AI
         public Dictionary<Destroyer, StaticObject> destroyerBattleList { get; internal set; }
         public Dictionary<Turret, StaticObject> turretBattleList { get; internal set; }
         public StaticObject playerTarget { get; internal set; }
-        public StaticObject playerObjective { get; internal set; }
+        public Turret playerObjective { get; internal set; }
         public PowerDataStructures.PriorityQueue<int, StaticObject> scrambleQueue { get; internal set; }
         public List<DynamicObject> spawnQueue { get; internal set; }
         internal Dictionary<StaticObject, int> gunsCoolDown { get; set; }

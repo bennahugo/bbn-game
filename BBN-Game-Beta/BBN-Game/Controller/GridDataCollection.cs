@@ -7,7 +7,7 @@ namespace BBN_Game.Controller
 {
     class GridDataCollection
     {
-        private static float MAX_CAPTURE_DISTANCE = 50;
+        public static float MAX_CAPTURE_DISTANCE = 50;
         public static void tryCaptureTower(Objects.playerObject player)
         {
             List<Grid.GridObjectInterface> list = GameController.Grid.checkNeighbouringBlocks(player);
@@ -21,6 +21,10 @@ namespace BBN_Game.Controller
                     {
                         turret.changeTeam(player.Team);
                         GameController.AIController.registerTurretOnTeam(turret, player.Team);
+                        if (player.Team == Objects.Team.Red) 
+                            Controller.GameController.team1.teamCredits += TradingInformation.creditsForCapturingTower;
+                        else
+                            Controller.GameController.team2.teamCredits += TradingInformation.creditsForCapturingTower;
                         break;
                     }
                 }
