@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>pCylinder1</Name>
     <Identity>
-      <SourceFilename>C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
+      <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>0.002957486 0.289801151 0.00166710059 0 -0.2898052 0.0029612116 -0.000640447834 0 -0.0006574373 -0.001660474 0.289815515 0 0 0 0 1</Transform>
@@ -70,7 +70,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>phongE2</Name>
       <Identity>
-        <SourceFilename>C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
+        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -84,7 +84,7 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>phongE1</Name>
       <Identity>
-        <SourceFilename>C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
+        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -98,7 +98,7 @@
     <Resource ID="#Resource3" Type="Graphics:BasicMaterialContent">
       <Name>phongE3</Name>
       <Identity>
-        <SourceFilename>C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
+        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -112,7 +112,7 @@
     <Resource ID="#Resource4" Type="Graphics:BasicMaterialContent">
       <Name>phongE5</Name>
       <Identity>
-        <SourceFilename>C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
+        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -126,7 +126,7 @@
     <Resource ID="#Resource5" Type="Graphics:BasicMaterialContent">
       <Name>phongE4</Name>
       <Identity>
-        <SourceFilename>C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
+        <SourceFilename>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Missile.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

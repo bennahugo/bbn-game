@@ -205,8 +205,12 @@ namespace BBN_Game.Controller
                 //player 1 trade menu
                 if (keyState.IsKeyDown(Keys.Z) && prevKeyState.IsKeyUp(Keys.Z) && Player1.TradeMenuOption > 1)
                     Player1.TradeMenuOption--;
+                else if(keyState.IsKeyDown(Keys.Z) && prevKeyState.IsKeyUp(Keys.Z) && Player1.TradeMenuOption == 1)
+                    Player1.TradeMenuOption = 3;
                 if (keyState.IsKeyDown(Keys.X) && prevKeyState.IsKeyUp(Keys.X) && Player1.TradeMenuOption < 3)
                     Player1.TradeMenuOption++;
+                else if (keyState.IsKeyDown(Keys.X) && prevKeyState.IsKeyUp(Keys.X) && Player1.TradeMenuOption == 3)
+                    Player1.TradeMenuOption = 1;
                 //trade menu selection
                 if (keyState.IsKeyDown(Keys.C) && prevKeyState.IsKeyUp(Keys.C))
                     makePurchase(Player1, team1);
@@ -235,8 +239,12 @@ namespace BBN_Game.Controller
                     //player 2 trade menu
                     if (keyState.IsKeyDown(Keys.NumPad2) && prevKeyState.IsKeyUp(Keys.NumPad2) && Player2.TradeMenuOption > 1)
                         Player2.TradeMenuOption--;
+                    else if (keyState.IsKeyDown(Keys.NumPad2) && prevKeyState.IsKeyUp(Keys.NumPad2) && Player2.TradeMenuOption == 1)
+                        Player2.TradeMenuOption = 3;
                     if (keyState.IsKeyDown(Keys.NumPad3) && prevKeyState.IsKeyUp(Keys.NumPad3) && Player2.TradeMenuOption < 3)
                         Player2.TradeMenuOption++;
+                    else if (keyState.IsKeyDown(Keys.NumPad3) && prevKeyState.IsKeyUp(Keys.NumPad3) && Player2.TradeMenuOption == 3)
+                        Player2.TradeMenuOption = 1;
                     if (keyState.IsKeyDown(Keys.M) && prevKeyState.IsKeyUp(Keys.M))
                     {
                         if (tradePanelUp2)

@@ -106,3 +106,4 @@ C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\obj\x86\Debug\Mic
 C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\obj\x86\Debug\BBN-Game.exe
 C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\obj\x86\Debug\BBN-Game.pdb
 C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Maps\Death Zone.xml
+C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Maps\Death Zone.xml

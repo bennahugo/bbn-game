@@ -136,9 +136,13 @@ namespace BBN_Game.Menu
                 if (keyState.IsKeyDown(Keys.Down) && prevKeyState.IsKeyUp(Keys.Down))//move down menu
                     if (currentMenuOption < 4)
                         currentMenuOption++;
+                    else if (currentMenuOption == 4)
+                        currentMenuOption = 1;
                 if (keyState.IsKeyDown(Keys.Up) && prevKeyState.IsKeyUp(Keys.Up))//move up menu
                     if (currentMenuOption > 1)
                         currentMenuOption--;
+                    else if (currentMenuOption == 1)
+                        currentMenuOption = 4;
 
                 //selecting menu options
                 if (keyState.IsKeyDown(Keys.Enter) && prevKeyState.IsKeyUp(Keys.Enter))
@@ -173,9 +177,13 @@ namespace BBN_Game.Menu
                 if (keyState.IsKeyDown(Keys.Down) && prevKeyState.IsKeyUp(Keys.Down))//move down menu
                     if (currentMenuOption < 3)
                         currentMenuOption++;
+                    else if (currentMenuOption == 3)
+                        currentMenuOption = 1;
                 if (keyState.IsKeyDown(Keys.Up) && prevKeyState.IsKeyUp(Keys.Up))//move up menu
                     if (currentMenuOption > 1)
                         currentMenuOption--;
+                    else if (currentMenuOption == 1)
+                        currentMenuOption = 3;
 
                 //selecting menu options TODO
                 if (keyState.IsKeyDown(Keys.Enter) && prevKeyState.IsKeyUp(Keys.Enter))
@@ -202,9 +210,13 @@ namespace BBN_Game.Menu
                 if (keyState.IsKeyDown(Keys.Down) && prevKeyState.IsKeyUp(Keys.Down))//move down menu
                     if (currentMenuOption < 5)
                         currentMenuOption++;
+                    else if (currentMenuOption == 5)
+                        currentMenuOption = 1;
                 if (keyState.IsKeyDown(Keys.Up) && prevKeyState.IsKeyUp(Keys.Up))//move up menu
                     if (currentMenuOption > 1)
                         currentMenuOption--;
+                    else if (currentMenuOption == 1)
+                        currentMenuOption = 5;
 
                 //selecting menu options
                 if (keyState.IsKeyDown(Keys.Enter) && prevKeyState.IsKeyUp(Keys.Enter))
@@ -261,9 +273,13 @@ namespace BBN_Game.Menu
                 if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
                     if (currentMenuOption < 4)
                         currentMenuOption++;
+                    else if (currentMenuOption == 4)
+                        currentMenuOption = 1;
                 if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
                     if (currentMenuOption > 1)
                         currentMenuOption--;
+                    else if (currentMenuOption == 1)
+                        currentMenuOption = 4;
                 menuDelay = 7;
 
                 if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
@@ -296,9 +312,13 @@ namespace BBN_Game.Menu
                 if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
                     if (currentMenuOption < 4)
                         currentMenuOption++;
+                    else if (currentMenuOption == 4)
+                        currentMenuOption = 1;
                 if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
                     if (currentMenuOption > 1)
                         currentMenuOption--;
+                    else if (currentMenuOption == 1)
+                        currentMenuOption = 4;
                 menuDelay = 7;
 
                 if (padState2.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
@@ -335,11 +355,15 @@ namespace BBN_Game.Menu
 
                 #region player 1
                 if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
-                    if (currentMenuOption < 4)
+                    if (currentMenuOption < 3)
                         currentMenuOption++;
+                    else if (currentMenuOption == 3)
+                        currentMenuOption = 1;
                 if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
                     if (currentMenuOption > 1)
                         currentMenuOption--;
+                    else if (currentMenuOption == 1)
+                        currentMenuOption = 3;
                 menuDelay = 7;
 
                 if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
@@ -358,11 +382,15 @@ namespace BBN_Game.Menu
 
                 #region player 2
                 if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
-                    if (currentMenuOption < 4)
+                    if (currentMenuOption < 3)
                         currentMenuOption++;
+                    else if (currentMenuOption == 3)
+                        currentMenuOption = 1;
                 if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
                     if (currentMenuOption > 1)
                         currentMenuOption--;
+                    else if (currentMenuOption == 1)
+                        currentMenuOption = 3;
                 menuDelay = 7;
 
                 if (padState2.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
@@ -387,11 +415,15 @@ namespace BBN_Game.Menu
 
                 #region Player 1
                 if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
-                    if (currentMenuOption < 4)
+                    if (currentMenuOption < 5)
                         currentMenuOption++;
+                    else if (currentMenuOption == 5)
+                        currentMenuOption = 1;
                 if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
                     if (currentMenuOption > 1)
                         currentMenuOption--;
+                    else if (currentMenuOption == 1)
+                        currentMenuOption = 5;
                 menuDelay = 7;
 
                 if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
@@ -421,11 +453,15 @@ namespace BBN_Game.Menu
 
                 #region Player 2
                 if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
-                    if (currentMenuOption < 4)
+                    if (currentMenuOption < 5)
                         currentMenuOption++;
+                    else if (currentMenuOption == 5)
+                        currentMenuOption = 1;
                 if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
                     if (currentMenuOption > 1)
                         currentMenuOption--;
+                    else if (currentMenuOption == 1)
+                        currentMenuOption = 5;
                 menuDelay = 7;
 
                 if (padState2.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
@@ -482,9 +518,9 @@ namespace BBN_Game.Menu
         {
             //for slide-up animation
             if (player.UpFactor > 0 && player.GoingUp)
-                player.UpFactor -= 2;
+                player.UpFactor -= 10;
             else if ((!player.GoingUp) && player.UpFactor < 150)
-                player.UpFactor += 2;
+                player.UpFactor += 10;
 
             spriteBatch.Begin();
 
@@ -501,9 +537,9 @@ namespace BBN_Game.Menu
             if (player.TradeMenuOption == 1)
             {
                 spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost, 
-                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
+                    new Vector2(player.getViewport.Width - 132, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
                 spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost, 
-                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
+                    new Vector2(player.getViewport.Width - 133, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
                 spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost,
                     new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 222 + player.UpFactor), iCurrency >= TradingInformation.destroyerCost ? Color.Aqua : Color.Red);
 
@@ -531,9 +567,9 @@ namespace BBN_Game.Menu
                     new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 222 + player.UpFactor), iCurrency >= TradingInformation.destroyerCost ? Color.Green : Color.DarkRed);
 
                 spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
-                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
+                    new Vector2(player.getViewport.Width - 132, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
                 spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
-                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
+                    new Vector2(player.getViewport.Width - 133, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
                 spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
                     new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 167 + player.UpFactor), iCurrency >= TradingInformation.fighterCost ? Color.Aqua : Color.Red);
 
@@ -561,9 +597,9 @@ namespace BBN_Game.Menu
                     new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 167 + player.UpFactor), iCurrency >= TradingInformation.fighterCost ? Color.Green : Color.DarkRed);
 
                 spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
-                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
+                    new Vector2(player.getViewport.Width - 132, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
                 spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
-                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
+                    new Vector2(player.getViewport.Width - 133, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
                 spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
                     new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 111 + player.UpFactor), iCurrency >= TradingInformation.missileCost ? Color.Aqua : Color.Red);
             }
@@ -571,8 +607,10 @@ namespace BBN_Game.Menu
 
             #region Draw menu values
 
-            spriteBatch.DrawString(tradeMenuFont, "You have: " + 2, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 195 + player.UpFactor), Color.Red);
-            spriteBatch.DrawString(tradeMenuFont, "You have: " + 3, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 141 + player.UpFactor), Color.Red);
+            spriteBatch.DrawString(tradeMenuFont, "You have: " + (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamDestroyers.Count : Controller.GameController.team2.teamDestroyers.Count).ToString(), 
+                new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 195 + player.UpFactor), Color.Red);
+            spriteBatch.DrawString(tradeMenuFont, "You have: " + (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamFighters.Count : Controller.GameController.team2.teamFighters.Count).ToString(), 
+                new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 141 + player.UpFactor), Color.Red);
             spriteBatch.DrawString(tradeMenuFont, "You have: " + player.Missiles, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 85 + player.UpFactor), Color.Red);
 
             #endregion
