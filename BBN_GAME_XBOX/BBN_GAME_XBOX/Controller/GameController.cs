@@ -320,9 +320,11 @@ namespace BBN_Game.Controller
             //bring up pause menu
             if (pad1State.Buttons.Back == ButtonState.Pressed && prevPadState1.Buttons.Back == ButtonState.Released)//Player 1 pauses game
             {
+                prevGameState = gameState;
                 gameState = GameState.Paused;
                 menuController.updateState();
             }
+           
             //bring up trade menus
             if (pad1State.Buttons.RightShoulder == ButtonState.Pressed && prevPadState1.Buttons.RightShoulder != ButtonState.Pressed)//player1
             {
@@ -339,14 +341,18 @@ namespace BBN_Game.Controller
                         Player1.TradeMenuOption = 1;
                 }
             }
-            //traverse trade menu
-            if (pad1State.DPad.Down == ButtonState.Pressed && prevPadState1.DPad.Down == ButtonState.Released && Player1.TradeMenuOption < 3)
-                Player1.TradeMenuOption++;
-            if (pad1State.DPad.Up == ButtonState.Pressed && prevPadState1.DPad.Up == ButtonState.Released && Player1.TradeMenuOption > 1)
-                Player1.TradeMenuOption--;
-            //menu option selection
-            if (pad1State.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
-                makePurchase(Player1, team1);
+
+            if (tradePanelUp1)
+            {
+                //traverse trade menu
+                if (pad1State.DPad.Down == ButtonState.Pressed && prevPadState1.DPad.Down == ButtonState.Released && Player1.TradeMenuOption < 3)
+                    Player1.TradeMenuOption++;
+                if (pad1State.DPad.Up == ButtonState.Pressed && prevPadState1.DPad.Up == ButtonState.Released && Player1.TradeMenuOption > 1)
+                    Player1.TradeMenuOption--;
+                //menu option selection
+                if (pad1State.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
+                    makePurchase(Player1, team1);
+            }
             #endregion
 
             #region Player 2
@@ -355,6 +361,7 @@ namespace BBN_Game.Controller
                 //bring up pause menu
                 if (pad2State.Buttons.Back == ButtonState.Pressed && prevPadState2.Buttons.Back == ButtonState.Released)//Player 2 pauses game
                 {
+                    prevGameState = gameState;
                     gameState = GameState.Paused;
                     menuController.updateState();
                 }
@@ -374,14 +381,18 @@ namespace BBN_Game.Controller
                             Player2.TradeMenuOption = 1;
                     }
                 }
-                //traverse trade menu
-                if (pad2State.DPad.Down == ButtonState.Pressed && prevPadState2.DPad.Down == ButtonState.Released && Player2.TradeMenuOption < 3)
-                    Player2.TradeMenuOption++;
-                if (pad2State.DPad.Up == ButtonState.Pressed && prevPadState2.DPad.Up == ButtonState.Released && Player2.TradeMenuOption > 1)
-                    Player2.TradeMenuOption--;
-                //menu option selection
-                if (pad2State.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
-                    makePurchase(Player2, team2);
+
+                if (tradePanelUp2)
+                {
+                    //traverse trade menu
+                    if (pad2State.DPad.Down == ButtonState.Pressed && prevPadState2.DPad.Down == ButtonState.Released && Player2.TradeMenuOption < 3)
+                        Player2.TradeMenuOption++;
+                    if (pad2State.DPad.Up == ButtonState.Pressed && prevPadState2.DPad.Up == ButtonState.Released && Player2.TradeMenuOption > 1)
+                        Player2.TradeMenuOption--;
+                    //menu option selection
+                    if (pad2State.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
+                        makePurchase(Player2, team2);
+                }
             }
             #endregion            
             

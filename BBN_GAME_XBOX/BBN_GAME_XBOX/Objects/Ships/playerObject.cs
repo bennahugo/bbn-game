@@ -220,15 +220,7 @@ namespace BBN_Game.Objects
             if (GamePad.GetState(PlayerIndex.One).IsConnected)
                 xboxControls((float)gt.ElapsedGameTime.TotalSeconds);
             else
-                keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);
-
-            if (twoPlayer)
-            {
-                if (GamePad.GetState(PlayerIndex.Two).IsConnected)
-                    xboxControls((float)gt.ElapsedGameTime.TotalSeconds);
-                else
-                    keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);
-            }
+                keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);            
 
             base.controller(gt);
         }
@@ -448,11 +440,9 @@ namespace BBN_Game.Objects
             GamePadState pad1State = GamePad.GetState(PlayerIndex.One);
             GamePadState pad2State = GamePad.GetState(PlayerIndex.Two);
 
+            #region Player 1
             if (index == PlayerIndex.One)
             {
-                // Allows the game to exit using XBox
-                if (pad1State.Buttons.Start == ButtonState.Pressed)
-                   this.Game.Exit();
 
                 #region Extra Controls: Turret Capture & Camera
 
@@ -501,14 +491,14 @@ namespace BBN_Game.Objects
                 #endregion
 
                 #region Accel Deccel checks
-                if (pad1State.ThumbSticks.Left.Y >= 0.5)
+                if (pad1State.ThumbSticks.Left.Y >= 0.6)
                 {
                     if (shipData.speed < maxSpeed)
                     {
                         shipData.speed += acceleration * time;
                     }
                 }
-                else if (pad1State.ThumbSticks.Left.Y <= -0.5)
+                else if (pad1State.ThumbSticks.Left.Y <= -0.6)
                 {
                     if (shipData.speed > minSpeed)
                     {
@@ -537,7 +527,7 @@ namespace BBN_Game.Objects
                 #region Guns
 
                 //fire missile
-                if (pad1State.Buttons.B == ButtonState.Pressed && prevPadState1.Buttons.B == ButtonState.Released)
+                if (pad1State.Buttons.B == ButtonState.Pressed)
                 {
                     if (reloadTimer[1] <= 0 && numMissiles > 0)
                     {
@@ -548,7 +538,7 @@ namespace BBN_Game.Objects
                 }
 
                 //fire cannon
-                if(pad1State.Triggers.Right >= 0.5)
+                if(pad1State.Triggers.Right >= 0.6)
                 {
                     if (reloadTimer[0] <= 0)
                     {
@@ -559,7 +549,11 @@ namespace BBN_Game.Objects
 
                 #endregion
             }
-            else
+            #endregion
+
+            #region Player 2
+            if(twoPlayer)
+            if (index == PlayerIndex.Two)
             {
                 // Allows the game to exit using XBox
                 if (pad2State.Buttons.Start == ButtonState.Pressed)
@@ -612,14 +606,14 @@ namespace BBN_Game.Objects
                 #endregion
 
                 #region Accel Deccel checks
-                if (pad2State.ThumbSticks.Left.Y >= 0.5)
+                if (pad2State.ThumbSticks.Left.Y >= 0.6)
                 {
                     if (shipData.speed < maxSpeed)
                     {
                         shipData.speed += acceleration * time;
                     }
                 }
-                else if (pad2State.ThumbSticks.Left.Y <= -0.5)
+                else if (pad2State.ThumbSticks.Left.Y <= -0.6)
                 {
                     if (shipData.speed > minSpeed)
                     {
@@ -648,7 +642,7 @@ namespace BBN_Game.Objects
                 #region Guns
 
                 //fire missile
-                if (pad2State.Buttons.B == ButtonState.Pressed && prevPadState2.Buttons.B == ButtonState.Released)
+                if (pad2State.Buttons.B == ButtonState.Pressed)
                 {
                     if (reloadTimer[1] <= 0 && numMissiles > 0)
                     {
@@ -659,7 +653,7 @@ namespace BBN_Game.Objects
                 }
 
                 //fire cannon
-                if (pad2State.Triggers.Right >= 0.5)
+                if (pad2State.Triggers.Right >= 0.6)
                 {
                     if (reloadTimer[0] <= 0)
                     {
@@ -670,7 +664,11 @@ namespace BBN_Game.Objects
 
                 #endregion
             }
-            
+            // reset loader
+            for (int i = 0; i < 3; ++i)
+                reloadTimer[i] = reloadTimer[i] > 0 ? reloadTimer[i] - (1 * time) : 0;
+            #endregion
+
             prevPadState1 = pad1State;
             prevPadState2 = pad2State;
         }
