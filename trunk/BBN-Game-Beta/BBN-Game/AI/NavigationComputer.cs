@@ -13,7 +13,6 @@ namespace BBN_Game.AI
         private const float DISTANCE_TO_WAYPOINT_IN_SECONDS_WHEN_CLOSE = 0.5f;
         private const float DISTANCE_TO_WAYPOINT_IN_SECONDS_WHEN_VERY_CLOSE = 0.05f;
         private const double EPSILON_DISTANCE = 0.0001f;
-        private const int TURN_INTERPOLATION_STEPS = 10;
         private const float TURNING_SPEED_COEF = 1.13f;
         private const int RETAIN_DODGE_PATH_TICKS = 100;
         private const int YIELD_TICKS = 30;

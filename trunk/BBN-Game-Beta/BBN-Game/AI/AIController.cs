@@ -32,7 +32,6 @@ namespace BBN_Game.AI
         public const int PLAYER_GUNS_COOLDOWN = 55;
         public const int TURRET_GUNS_COOLDOWN = 120;
         public const float DETECTION_RADIUS = 250;
-        public const float DISTANCE_WHEN_CLOSE_TO_TURRET = 60;
         public const float LINE_OF_SIGHT_CLOSE_DIST_MULTIPLYER = 2;
         #endregion
         #region "Variables for unit"
@@ -101,6 +100,7 @@ namespace BBN_Game.AI
             //Make sure the player is either engaging or capturing turrets
             this.playerEngageTarget();
             this.returnVictoriousPlayerToDisengagedState();
+            this.playersGoCaptureTurretsOrDestroyEnemyBase();
             this.rotatePlayerForAiming(gameTime);
             //Return all victorius turrets to an inactive state:
             this.returnVictoriusTurretsToDisengagedState();
@@ -231,7 +231,7 @@ namespace BBN_Game.AI
             {
                 List<Fighter> tupplesMarkedForRemoval = new List<Fighter>();
                 foreach (Fighter fi in ti.fighterBattleList.Keys)
-                    if (ti.fighterBattleList[fi].getHealth <= 0)
+                    if (ti.fighterBattleList[fi].getHealth <= 0 || (fi.Position - ti.fighterBattleList[fi].Position).Length() > DETECTION_RADIUS)
                     {
                         tupplesMarkedForRemoval.Add(fi);
                         navComputer.setNewPathForRegisteredObject(fi, getRandomPatrolNode(ti), getRandomPatrolNode(ti));
@@ -501,7 +501,7 @@ namespace BBN_Game.AI
             {
                 List<Destroyer> removalList = new List<Destroyer>();
                 foreach (Destroyer ds in ti.destroyerBattleList.Keys)
-                    if (ti.destroyerBattleList[ds].getHealth <= 0)
+                    if (ti.destroyerBattleList[ds].getHealth <= 0 || (ds.Position - ti.destroyerBattleList[ds].Position).Length() > DETECTION_RADIUS)
                         removalList.Add(ds);
                 foreach (Destroyer ds in removalList)
                     ti.destroyerBattleList.Remove(ds);
@@ -580,14 +580,16 @@ namespace BBN_Game.AI
                             navComputer.turnAI(ref vWantDir, ref vLookDir, ti.teamPlayer, ti.playerTarget.Position, gt);
                         }
         }
+        #endregion
+        #region "Player Battle / Objective Control"
         private void returnVictoriousPlayerToDisengagedState()
         {
             foreach (TeamInformation ti in infoOnTeams)
                 if (ti.playerTarget != null)
-                    if (ti.playerTarget.getHealth <= 0)
+                    if (ti.playerTarget.getHealth <= 0 || (ti.teamPlayer.Position - ti.playerTarget.Position).Length() > DETECTION_RADIUS)
                         ti.playerTarget = null;
         }
-        private void playersGoCaptureTurretsOrEnemyBase()
+        private void playersGoCaptureTurretsOrDestroyEnemyBase()
         {
             foreach (TeamInformation ti in infoOnTeams)
                 if (ti.fullyAIControlled)
@@ -601,7 +603,7 @@ namespace BBN_Game.AI
                                 foreach (Turret tr in mapTurrets)
                                     if (tr.Team == Team.nutral && !tr.Repairing)
                                     {
-                                        float dist = (closestTurret.Position - ti.teamPlayer.Position).Length();
+                                        float dist = (tr.Position - ti.teamPlayer.Position).Length();
                                         if (closestTurret == null)
                                         {
                                             closestTurret = tr;
@@ -615,34 +617,9 @@ namespace BBN_Game.AI
                                     }
                                 if (closestTurret != null)
                                 {
-                                    ti.playerObjective = closestTurret;
-                                    List<GridObjectInterface> neighbouringObjects = this.spatialGrid.checkNeighbouringBlocks(closestTurret);
-                                    Node closeWaypointToTurret = null;
-                                    foreach (GridObjectInterface obj in neighbouringObjects)
-                                        if (obj is Node && (obj.Position - ti.playerObjective.Position).Length() <= DISTANCE_WHEN_CLOSE_TO_TURRET)
-                                        {
-                                            closeWaypointToTurret = obj as Node;
-                                            break;
-                                        }
-                                    neighbouringObjects = this.spatialGrid.checkNeighbouringBlocks(ti.teamPlayer);
-                                    Node closeWaypointToPlayer = null;
-                                    foreach (GridObjectInterface obj in neighbouringObjects)
-                                        if (obj is Node)
-                                        {
-                                            closeWaypointToPlayer = obj as Node;
-                                            break;
-                                        }
-                                    if (!(closeWaypointToTurret == null || closeWaypointToPlayer == null))
-                                        navComputer.setNewPathForRegisteredObject(ti.teamPlayer, closeWaypointToPlayer, closeWaypointToTurret);
-                                    else
-                                    {
-                                        List<Node> path = new List<Node>();
-                                        path.Add(new Node(ti.playerObjective.Position + Vector3.Normalize(Matrix.CreateFromQuaternion(ti.playerObjective.rotation).Forward) *
-                                            (ti.playerObjective.getGreatestLength + ti.teamPlayer.getGreatestLength) * LINE_OF_SIGHT_CLOSE_DIST_MULTIPLYER, -1));
-                                        navComputer.objectPaths[ti.teamPlayer].remainingPath = path;
-                                    }
+                                    routePlayerToTurret(ti,closestTurret);
                                 }
-                                else //no turrets to capture at this time, go destroy the enemy base!
+                                else if (navComputer.objectPaths[ti.teamPlayer].currentWaypoint == null) //no turrets to capture at this time, go destroy the enemy base!
                                 {
                                     int pickTeam = this.randomizer.Next(0, infoOnTeams.Count - 1);
                                     if (infoOnTeams.ElementAt(pickTeam) == ti)
@@ -682,17 +659,48 @@ namespace BBN_Game.AI
                         }
                         else //we are enroute to capture the next turret
                         {
+                            if (navComputer.objectPaths[ti.teamPlayer].currentWaypoint == null)
+                                routePlayerToTurret(ti, ti.playerObjective);
                             if (ti.playerObjective.Team != Team.nutral)
                             {
                                 ti.playerObjective = null;                //the other player captured our objective....... dang! NEXT!
                                 continue;
                             }
-                            else if ((ti.playerObjective.Position - ti.teamPlayer.Position).Length() <= DISTANCE_WHEN_CLOSE_TO_TURRET)
+                            else if ((ti.playerObjective.Position - ti.teamPlayer.Position).Length() <= GridDataCollection.MAX_CAPTURE_DISTANCE)
                             {
-                                //TODO: capture tower
-                                //ti.playerObjective.
+                                GridDataCollection.tryCaptureTower(ti.teamPlayer);
+                                ti.playerObjective = null;
                             }
                         }
+        }
+        private void routePlayerToTurret(TeamInformation ti, Turret turret)
+        {
+            ti.playerObjective = turret;
+            List<GridObjectInterface> neighbouringObjects = this.spatialGrid.checkNeighbouringBlocks(turret);
+            Node closeWaypointToTurret = null;
+            foreach (GridObjectInterface obj in neighbouringObjects)
+                if (obj is Node && (obj.Position - ti.playerObjective.Position).Length() <= GridDataCollection.MAX_CAPTURE_DISTANCE)
+                {
+                    closeWaypointToTurret = obj as Node;
+                    break;
+                }
+            neighbouringObjects = this.spatialGrid.checkNeighbouringBlocks(ti.teamPlayer);
+            Node closeWaypointToPlayer = null;
+            foreach (GridObjectInterface obj in neighbouringObjects)
+                if (obj is Node)
+                {
+                    closeWaypointToPlayer = obj as Node;
+                    break;
+                }
+            if (!(closeWaypointToTurret == null || closeWaypointToPlayer == null))
+                navComputer.setNewPathForRegisteredObject(ti.teamPlayer, closeWaypointToPlayer, closeWaypointToTurret);
+            else
+            {
+                List<Node> path = new List<Node>();
+                path.Add(new Node(ti.playerObjective.Position + Vector3.Normalize(Matrix.CreateFromQuaternion(ti.playerObjective.rotation).Forward) *
+                    (ti.playerObjective.getGreatestLength + ti.teamPlayer.getGreatestLength) * LINE_OF_SIGHT_CLOSE_DIST_MULTIPLYER, -1));
+                navComputer.objectPaths[ti.teamPlayer].remainingPath = path;
+            }
         }
         #endregion
         #region "Spawning Code"
@@ -831,7 +839,7 @@ namespace BBN_Game.AI
             {
                 //Make the fighters fire bullets at their enemies:
                 foreach (Fighter fi in ti.fighterBattleList.Keys)
-                {       
+                {   
                     if (ti.gunsCoolDown.Keys.Contains(fi))
                     {
                         if (ti.gunsCoolDown[fi]-- > 0)

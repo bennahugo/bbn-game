@@ -490,54 +490,82 @@ namespace BBN_Game.Menu
 
             //draw trade menu pop-up panel and menu outline for options
             spriteBatch.Draw(tradeMenuTex, new Rectangle(player.getViewport.Width - 160, player.getViewport.Height - 300 + player.UpFactor, 150, 276), Color.White);
-
-            String currency = "$10 000";
-            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 243 + player.UpFactor), Color.Black);
-            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 244 + player.UpFactor), Color.Black);
-            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 245 + player.UpFactor), Color.Red);
+            int iCurrency = (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamCredits : Controller.GameController.team2.teamCredits);
+            String currency = "Available: $" + iCurrency;
+            float currencyWidth = tradeMenuFont.MeasureString(currency).X;
+            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 84 - currencyWidth / 2, player.getViewport.Height - 243 + player.UpFactor), Color.Black);
+            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 85 - currencyWidth / 2, player.getViewport.Height - 244 + player.UpFactor), Color.Black);
+            spriteBatch.DrawString(tradeMenuFont, currency, new Vector2(player.getViewport.Width - 86 - currencyWidth / 2, player.getViewport.Height - 245 + player.UpFactor), Color.Yellow);
 
             #region draw menu options
             if (player.TradeMenuOption == 1)
             {
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 112, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 111, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 222 + player.UpFactor), Color.Aqua);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost, 
+                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost, 
+                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost,
+                    new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 222 + player.UpFactor), iCurrency >= TradingInformation.destroyerCost ? Color.Aqua : Color.Red);
 
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 167 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost, 
+                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost, 
+                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
+                    new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 167 + player.UpFactor), iCurrency >= TradingInformation.fighterCost ? Color.Green : Color.DarkRed);
 
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 111 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost, 
+                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost, 
+                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost, 
+                    new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 111 + player.UpFactor), iCurrency >= TradingInformation.missileCost ? Color.Green : Color.DarkRed);
             }
             else if (player.TradeMenuOption == 2)
             {
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 222 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost,
+                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost,
+                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost,
+                    new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 222 + player.UpFactor), iCurrency >= TradingInformation.destroyerCost ? Color.Green : Color.DarkRed);
 
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 167 + player.UpFactor), Color.Aqua);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
+                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
+                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
+                    new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 167 + player.UpFactor), iCurrency >= TradingInformation.fighterCost ? Color.Aqua : Color.Red);
 
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 111 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
+                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
+                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
+                    new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 111 + player.UpFactor), iCurrency >= TradingInformation.missileCost ? Color.Green : Color.DarkRed);
             }
             else if (player.TradeMenuOption == 3)
             {
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 108, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 109, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer", new Vector2(player.getViewport.Width - 110, player.getViewport.Height - 222 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost,
+                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost,
+                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost,
+                    new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 222 + player.UpFactor), iCurrency >= TradingInformation.destroyerCost ? Color.Green : Color.DarkRed);
 
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 100, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 101, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 167 + player.UpFactor), Color.Green);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
+                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
+                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
+                    new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 167 + player.UpFactor), iCurrency >= TradingInformation.fighterCost ? Color.Green : Color.DarkRed);
 
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 104, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 103, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile", new Vector2(player.getViewport.Width - 102, player.getViewport.Height - 111 + player.UpFactor), Color.Aqua);
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
+                    new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
+                    new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
+                    new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 111 + player.UpFactor), iCurrency >= TradingInformation.missileCost ? Color.Aqua : Color.Red);
             }
             #endregion
 
@@ -558,9 +586,13 @@ namespace BBN_Game.Menu
 
             //draw icons for ship-counts and missile-counts
             spriteBatch.Draw(destroyerTex, new Rectangle(player.getViewport.Width - 280, player.getViewport.Height - 50, 64, 36), Color.White);
-            spriteBatch.DrawString(tradeMenuFont, "2", new Vector2(player.getViewport.Width - 290, player.getViewport.Height - 50), Color.Red);
+            spriteBatch.DrawString(tradeMenuFont, 
+                (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamDestroyers.Count : Controller.GameController.team2.teamDestroyers.Count).ToString(), 
+                new Vector2(player.getViewport.Width - 290, player.getViewport.Height - 50), Color.Red);
             spriteBatch.Draw(fighterTex, new Rectangle(player.getViewport.Width - 180, player.getViewport.Height - 50, 64, 41), Color.White);
-            spriteBatch.DrawString(tradeMenuFont, "3", new Vector2(player.getViewport.Width - 190, player.getViewport.Height - 50), Color.Red);
+            spriteBatch.DrawString(tradeMenuFont,
+                (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamFighters.Count : Controller.GameController.team2.teamFighters.Count).ToString(), 
+                new Vector2(player.getViewport.Width - 190, player.getViewport.Height - 50), Color.Red);
             spriteBatch.Draw(missileTex, new Rectangle(player.getViewport.Width - 70, player.getViewport.Height - 50, 64, 48), Color.White);
             spriteBatch.DrawString(tradeMenuFont, "" + player.Missiles, new Vector2(player.getViewport.Width - 80, player.getViewport.Height - 50), Color.Red);
 

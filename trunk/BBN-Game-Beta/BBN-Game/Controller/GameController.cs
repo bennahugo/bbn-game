@@ -209,23 +209,7 @@ namespace BBN_Game.Controller
                     Player1.TradeMenuOption++;
                 //trade menu selection
                 if (keyState.IsKeyDown(Keys.C) && prevKeyState.IsKeyUp(Keys.C))
-                {
-                    if (Player1.TradeMenuOption == 1)
-                    {
-                        //TODO - buy destroyers here
-                    }
-                    else if (Player1.TradeMenuOption == 2)
-                    {
-                        //TODO - buy fighters here
-                    }
-                    else if (Player1.TradeMenuOption == 3)
-                    {
-                        //buy missiles for player
-                        Player1.Missiles++;
-                        //System.Diagnostics.Debug.WriteLine("Missiles added HERE...");
-                        //TODO deduct funds off of account
-                    }
-                }
+                    makePurchase(Player1, team1);
 
                 if (keyState.IsKeyDown(Keys.Q) && prevKeyState.IsKeyUp(Keys.Q))
                 {
@@ -270,29 +254,50 @@ namespace BBN_Game.Controller
                     }
 
                     if (keyState.IsKeyDown(Keys.N) && prevKeyState.IsKeyUp(Keys.N))
-                    {
-                        if (Player2.TradeMenuOption == 1)
-                        {
-                            //TODO - buy destroyers here
-                        }
-                        else if (Player2.TradeMenuOption == 2)
-                        {
-                            //TODO - buy fighters here
-                        }
-                        else if (Player2.TradeMenuOption == 3)
-                        {
-                            //buy missiles for player
-                            Player2.Missiles++;
-                            //TODO deduct funds off of account
-                        }
-                    }
+                        makePurchase(Player2, team2);
                 }
                 #endregion
 
                 prevKeyState = keyState;
             }
         }
-
+        /// <summary>
+        /// Handles a purchasing command from the trade menu
+        /// </summary>
+        /// <param name="player">player who has made selection</param>
+        /// <param name="team">team of the player who has made the selection</param>
+        private void makePurchase(Objects.playerObject player, AI.TeamInformation team)
+        {
+            if (player.TradeMenuOption == 1)
+            {
+                //buy destroyer
+                if (team.teamCredits > TradingInformation.destroyerCost)
+                {
+                    Objects.Destroyer ds = new Objects.Destroyer(game, Objects.Team.Red, Vector3.Zero);
+                    team.spawnQueue.Add(ds);
+                    team.teamCredits -= TradingInformation.destroyerCost;
+                }
+            }
+            else if (player.TradeMenuOption == 2)
+            {
+                //buy fighter
+                if (team.teamCredits > TradingInformation.fighterCost)
+                {
+                    Objects.Fighter fi = new Objects.Fighter(game, Objects.Team.Red, Vector3.Zero);
+                    team.spawnQueue.Add(fi);
+                    team.teamCredits -= TradingInformation.fighterCost;
+                }
+            }
+            else if (player.TradeMenuOption == 3)
+            {
+                //buy missiles for player
+                if (team.teamCredits > TradingInformation.missileCost)
+                {
+                    player.Missiles++;
+                    team.teamCredits -= TradingInformation.missileCost;
+                }
+            }
+        }
         //XBox controls for pause and trade menu interaction
         GamePadState prevPadState1 = GamePad.GetState(PlayerIndex.One);
         GamePadState prevPadState2 = GamePad.GetState(PlayerIndex.Two);
@@ -331,22 +336,7 @@ namespace BBN_Game.Controller
                 Player1.TradeMenuOption--;
             //menu option selection
             if (pad1State.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
-            {
-                if (Player1.TradeMenuOption == 1)
-                {
-                    //TODO - buy destroyers here
-                }
-                else if (Player1.TradeMenuOption == 2)
-                {
-                    //TODO - buy fighters here
-                }
-                else if (Player1.TradeMenuOption == 3)
-                {
-                    //buy missiles for player
-                    Player1.Missiles++;
-                    //TODO deduct funds off of account
-                }
-            }
+                makePurchase(Player1, team1);
             #endregion
 
             #region Player 2
@@ -381,22 +371,7 @@ namespace BBN_Game.Controller
                     Player2.TradeMenuOption--;
                 //menu option selection
                 if (pad2State.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
-                {
-                    if (Player2.TradeMenuOption == 1)
-                    {
-                        //TODO - buy destroyers here
-                    }
-                    else if (Player2.TradeMenuOption == 2)
-                    {
-                        //TODO - buy fighters here
-                    }
-                    else if (Player2.TradeMenuOption == 3)
-                    {
-                        //buy missiles for player
-                        Player2.Missiles++;
-                        //TODO deduct funds off of account
-                    }
-                }
+                    makePurchase(Player2, team2);
             }
             #endregion            
             
