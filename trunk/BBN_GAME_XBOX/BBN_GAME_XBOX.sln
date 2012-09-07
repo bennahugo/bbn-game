@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBN_GAME_XBOX", "BBN_GAME_XBOX\BBN_GAME_XBOX.csproj", "{B33F5DC1-0B88-4187-9AB0-EC57D46DDA95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Xbox 360 = Debug|Xbox 360
+		Release|Xbox 360 = Release|Xbox 360
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B33F5DC1-0B88-4187-9AB0-EC57D46DDA95}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
+		{B33F5DC1-0B88-4187-9AB0-EC57D46DDA95}.Debug|Xbox 360.Build.0 = Debug|Xbox 360
+		{B33F5DC1-0B88-4187-9AB0-EC57D46DDA95}.Debug|Xbox 360.Deploy.0 = Debug|Xbox 360
+		{B33F5DC1-0B88-4187-9AB0-EC57D46DDA95}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
+		{B33F5DC1-0B88-4187-9AB0-EC57D46DDA95}.Release|Xbox 360.Build.0 = Release|Xbox 360
+		{B33F5DC1-0B88-4187-9AB0-EC57D46DDA95}.Release|Xbox 360.Deploy.0 = Release|Xbox 360
+		{D3FB8A52-0FA6-413C-B919-2FB3031B8219}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
+		{D3FB8A52-0FA6-413C-B919-2FB3031B8219}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
