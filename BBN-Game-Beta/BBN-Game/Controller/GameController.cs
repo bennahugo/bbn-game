@@ -875,10 +875,10 @@ namespace BBN_Game.Controller
         #region "Collision Detection"
         public void checkCollision()
         {
-            foreach (Objects.StaticObject obj in DynamicObjs)
+            foreach (Objects.DynamicObject obj in DynamicObjs)
+                if (!obj.Position.Equals(obj.getPreviousPosition))
             {
                 List<Grid.GridObjectInterface> list = gameGrid.checkNeighbouringBlocks(obj);
-
                 foreach (Grid.GridObjectInterface other in list)
                     if (other is Objects.StaticObject)
                     {
