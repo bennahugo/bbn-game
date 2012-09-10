@@ -18,7 +18,7 @@ namespace BBN_Game.Collision_Detection
         /// Modify this const to set the number of vertices per bounding sphere. This may speed up
         /// collision detection at the cost of accuracy.
         /// </summary>
-        public const int NUM_VERTICES_PER_BOX = 30;
+        public const int NUM_VERTICES_PER_BOX = 50;
         public const float BLOCK_SIZE_FACTOR = 0.015f;
         /// <summary>
         /// Each model part will have several datastrutures associated with it so we need an array of objects to store them all
@@ -82,6 +82,7 @@ namespace BBN_Game.Collision_Detection
                                     results.Add(bs);
                                 }
                             }
+                    
                     //add bounding sphere over model part
                     BoundingSphere partsphere = results.First();
                     for (int i = 1; i < results.Count; ++i)
@@ -141,11 +142,14 @@ namespace BBN_Game.Collision_Detection
         /// <returns>transformed bounding box</returns>
         public static BoundingSphere TransformBox(BoundingSphere input, Matrix world)
         {
-            return input.Transform(world);
-            /*Vector3[] points = BoundingBox.CreateFromSphere(input).GetCorners();
-            for (int i = 0; i < points.Length; ++i)
-                points[i] = Vector3.Transform(points[i],world);
-            return BoundingSphere.CreateFromPoints(points);*/
+            Vector3 scale = Vector3.Zero;
+            Vector3 transform = Vector3.Zero;
+            Quaternion rot = Quaternion.Identity;
+            world.Decompose(out scale, out rot, out transform);
+            return new BoundingSphere(Vector3.Transform(input.Center, world),
+                Math.Max(Math.Max((input.Radius * Vector3.Up * scale.X).Length(), 
+                (input.Radius * Vector3.Right * scale.Y).Length()), 
+                (input.Radius * Vector3.Backward * scale.Z).Length()));
         }
 
         /// <summary>
@@ -230,7 +234,7 @@ namespace BBN_Game.Collision_Detection
         /// <param name="object1Transformation">Transformation of first object into world space</param>
         /// <param name="object2Transformation">Transformation of second object into world space</param>
         /// <returns>True if such a collision is detected, false otherwise</returns>
-        public static bool isObjectsCollidingOnMeshPartLevel(Model object1, Model object2, Matrix object1Transformation, Matrix object2Transformation)
+        public static bool isObjectsCollidingOnMeshPartLevel(Model object1, Model object2, Matrix object1Transformation, Matrix object2Transformation, Boolean testOnlyUptoOverAllMesh)
         {
             
             if (!(object1.Tag is BoundingSphere))
@@ -242,7 +246,8 @@ namespace BBN_Game.Collision_Detection
             if (!TransformBox((BoundingSphere)object1.Tag, object1Transformation).Intersects(
                TransformBox((BoundingSphere)object2.Tag, object2Transformation)))
                     return false;
-                
+            if (testOnlyUptoOverAllMesh) return true;
+ 
             //Check now if mesh bounding boxes intersect:
             foreach (ModelMesh mesh1 in object1.Meshes)
             {

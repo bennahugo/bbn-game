@@ -259,28 +259,31 @@ namespace BBN_Game.Menu
         //manage xbox controls
         GamePadState prevPadState1 = GamePad.GetState(PlayerIndex.One);
         GamePadState prevPadState2 = GamePad.GetState(PlayerIndex.Two);
-        int menuDelay = 7;
+        int menuDelay = 8;
         private void handleXboxControls()
         {
             GamePadState padState1 = GamePad.GetState(PlayerIndex.One);
-            GamePadState padState2 = GamePad.GetState(PlayerIndex.Two);           
+            GamePadState padState2 = GamePad.GetState(PlayerIndex.Two);
 
-            if (currentState == GameState.MainMenu && menuDelay <= 0)
+            if (currentState == GameState.MainMenu)
             {
                 #region Main Menu
 
                 #region Player 1
-                if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
-                    if (currentMenuOption < 4)
-                        currentMenuOption++;
-                    else if (currentMenuOption == 4)
-                        currentMenuOption = 1;
-                if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
-                    if (currentMenuOption > 1)
-                        currentMenuOption--;
-                    else if (currentMenuOption == 1)
-                        currentMenuOption = 4;
-                menuDelay = 7;
+                if (menuDelay <= 0)
+                {
+                    if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
+                        if (currentMenuOption < 4)
+                            currentMenuOption++;
+                        else if (currentMenuOption == 4)
+                            currentMenuOption = 1;
+                    if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
+                        if (currentMenuOption > 1)
+                            currentMenuOption--;
+                        else if (currentMenuOption == 1)
+                            currentMenuOption = 4;
+                    menuDelay = 8;
+                }
 
                 if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
                 {
@@ -309,17 +312,20 @@ namespace BBN_Game.Menu
                 #endregion
 
                 #region Player 2
-                if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
-                    if (currentMenuOption < 4)
-                        currentMenuOption++;
-                    else if (currentMenuOption == 4)
-                        currentMenuOption = 1;
-                if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
-                    if (currentMenuOption > 1)
-                        currentMenuOption--;
-                    else if (currentMenuOption == 1)
-                        currentMenuOption = 4;
-                menuDelay = 7;
+                if (menuDelay <= 0)
+                {
+                    if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
+                        if (currentMenuOption < 4)
+                            currentMenuOption++;
+                        else if (currentMenuOption == 4)
+                            currentMenuOption = 1;
+                    if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
+                        if (currentMenuOption > 1)
+                            currentMenuOption--;
+                        else if (currentMenuOption == 1)
+                            currentMenuOption = 4;
+                    menuDelay = 8;
+                }
 
                 if (padState2.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
                 {
@@ -349,22 +355,25 @@ namespace BBN_Game.Menu
                 
                 #endregion
             }
-            else if (currentState == GameState.OptionsMenu && menuDelay <= 0)
+            else if (currentState == GameState.OptionsMenu)
             {
                 #region Control Menu
 
                 #region player 1
-                if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
-                    if (currentMenuOption < 3)
-                        currentMenuOption++;
-                    else if (currentMenuOption == 3)
-                        currentMenuOption = 1;
-                if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
-                    if (currentMenuOption > 1)
-                        currentMenuOption--;
-                    else if (currentMenuOption == 1)
-                        currentMenuOption = 3;
-                menuDelay = 7;
+                if (menuDelay <= 0)
+                {
+                    if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
+                        if (currentMenuOption < 3)
+                            currentMenuOption++;
+                        else if (currentMenuOption == 3)
+                            currentMenuOption = 1;
+                    if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
+                        if (currentMenuOption > 1)
+                            currentMenuOption--;
+                        else if (currentMenuOption == 1)
+                            currentMenuOption = 3;
+                    menuDelay = 8;
+                }
 
                 if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
                 {
@@ -381,17 +390,20 @@ namespace BBN_Game.Menu
                 #endregion
 
                 #region player 2
-                if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
-                    if (currentMenuOption < 3)
-                        currentMenuOption++;
-                    else if (currentMenuOption == 3)
-                        currentMenuOption = 1;
-                if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
-                    if (currentMenuOption > 1)
-                        currentMenuOption--;
-                    else if (currentMenuOption == 1)
-                        currentMenuOption = 3;
-                menuDelay = 7;
+                if (menuDelay <= 0)
+                {
+                    if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
+                        if (currentMenuOption < 3)
+                            currentMenuOption++;
+                        else if (currentMenuOption == 3)
+                            currentMenuOption = 1;
+                    if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
+                        if (currentMenuOption > 1)
+                            currentMenuOption--;
+                        else if (currentMenuOption == 1)
+                            currentMenuOption = 3;
+                    menuDelay = 8;
+                }
 
                 if (padState2.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
                 {
@@ -409,81 +421,97 @@ namespace BBN_Game.Menu
                                 
                 #endregion
             }
-            else if (currentState == GameState.Paused && menuDelay <= 0)
+            else if (currentState == GameState.Paused)
             {
                 #region Pause Menu
 
                 #region Player 1
-                if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
-                    if (currentMenuOption < 5)
-                        currentMenuOption++;
-                    else if (currentMenuOption == 5)
-                        currentMenuOption = 1;
-                if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
-                    if (currentMenuOption > 1)
-                        currentMenuOption--;
-                    else if (currentMenuOption == 1)
-                        currentMenuOption = 5;
-                menuDelay = 7;
+                if (menuDelay <= 0)
+                {
+                    if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
+                        if (currentMenuOption < 5)
+                            currentMenuOption++;
+                        else if (currentMenuOption == 5)
+                            currentMenuOption = 1;
+
+                    if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
+                        if (currentMenuOption > 1)
+                            currentMenuOption--;
+                        else if (currentMenuOption == 1)
+                            currentMenuOption = 5;
+                    menuDelay = 8;
+                }
 
                 if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
                 {
+                    previousState = currentState;
                     if (currentMenuOption == 1)//resume gameplay
                     {
                         currentState = GameState.Playing;
                         gameController.CurrentGameState = GameState.Playing;
                     }
-                    else if (currentMenuOption == 2)//quit current game & return to main menu
+                    else if (currentMenuOption == 2)
+                    {
+                        //TODO Restart current game
+                    }
+                    else if (currentMenuOption == 3)//quit current game & return to main menu
                     {
                         // TODO - quit current game
-
                         currentMenuOption = 1;
                         currentState = GameState.MainMenu;
                     }
-                    else if (currentMenuOption == 3)//look at game controls
+                    else if (currentMenuOption == 4)//look at game controls
                     {
                         currentMenuOption = 1;
                         currentState = GameState.OptionsMenu;
                     }
-                    else if (currentMenuOption == 4)//exit game entirely
+                    else if (currentMenuOption == 5)//exit game entirely
                         game.Exit();
                 }
 
                 #endregion
 
                 #region Player 2
-                if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
-                    if (currentMenuOption < 5)
-                        currentMenuOption++;
-                    else if (currentMenuOption == 5)
-                        currentMenuOption = 1;
-                if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
-                    if (currentMenuOption > 1)
-                        currentMenuOption--;
-                    else if (currentMenuOption == 1)
-                        currentMenuOption = 5;
-                menuDelay = 7;
+                if (menuDelay <= 0)
+                {
+                    if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
+                        if (currentMenuOption < 5)
+                            currentMenuOption++;
+                        else if (currentMenuOption == 5)
+                            currentMenuOption = 1;
+                    if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
+                        if (currentMenuOption > 1)
+                            currentMenuOption--;
+                        else if (currentMenuOption == 1)
+                            currentMenuOption = 5;
+                    menuDelay = 8;
+                }
 
                 if (padState2.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
                 {
+                    previousState = currentState;
                     if (currentMenuOption == 1)//resume gameplay
                     {
                         currentState = GameState.Playing;
                         gameController.CurrentGameState = GameState.Playing;
                     }
-                    else if (currentMenuOption == 2)//quit current game & return to main menu
+                    else if (currentMenuOption == 2)
+                    {
+                        //TODO restart game
+                    }
+                    else if (currentMenuOption == 3)//quit current game & return to main menu
                     {
                         // TODO - quit current game
 
                         currentMenuOption = 1;
                         currentState = GameState.MainMenu;
                     }
-                    else if (currentMenuOption == 3)//look at game controls
+                    else if (currentMenuOption == 4)//look at game controls
                     {
                         currentMenuOption = 1;
                         currentState = GameState.OptionsMenu;
                     }
-                    else if (currentMenuOption == 4)//exit game entirely
+                    else if (currentMenuOption == 5)//exit game entirely
                         game.Exit();
                 }
 
@@ -518,9 +546,9 @@ namespace BBN_Game.Menu
         {
             //for slide-up animation
             if (player.UpFactor > 0 && player.GoingUp)
-                player.UpFactor -= 2;
+                player.UpFactor -= 10;
             else if ((!player.GoingUp) && player.UpFactor < 150)
-                player.UpFactor += 2;
+                player.UpFactor += 10;
 
             spriteBatch.Begin();
 

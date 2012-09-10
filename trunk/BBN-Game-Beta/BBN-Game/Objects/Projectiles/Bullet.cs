@@ -52,7 +52,7 @@ namespace BBN_Game.Objects
 
         protected override void resetModels()
         {
-            model = Game.Content.Load<Model>("Models/Projectiles/Missile");
+            model = Game.Content.Load<Model>("Models/Projectiles/Cube");
 
             base.resetModels();
         }
@@ -86,6 +86,7 @@ namespace BBN_Game.Objects
 
         public void chaseTarget(GameTime gt)
         {
+            if (target == null) return;
             float veryCloseToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_VERY_CLOSE;
             float closeToTarget = this.getMaxSpeed * DISTANCE_TO_TARGET_IN_SECONDS_WHEN_CLOSE;
             float distanceFromTarget = (target.Position - this.Position).Length();

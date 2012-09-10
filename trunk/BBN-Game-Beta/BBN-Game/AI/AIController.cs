@@ -27,10 +27,10 @@ namespace BBN_Game.AI
         public const int PRIORITY_FOR_ELIMINATING_BASE = 1;
         public const int FIGHTERS_TO_SCRAMBLE_FOR_PLAYER = 6;
         public const int FIGHTERS_TO_SCRAMBLE_FOR_DESTROYER = 3;
-        public const int FIGHTER_GUNS_COOLDOWN = 50;
-        public const int DESTROYER_GUNS_COOLDOWN = 150;
-        public const int PLAYER_GUNS_COOLDOWN = 55;
-        public const int TURRET_GUNS_COOLDOWN = 120;
+        public const int FIGHTER_GUNS_COOLDOWN = 20;
+        public const int DESTROYER_GUNS_COOLDOWN = 40;
+        public const int PLAYER_GUNS_COOLDOWN = 15;
+        public const int TURRET_GUNS_COOLDOWN = 30;
         public const float DETECTION_RADIUS = 250;
         public const float LINE_OF_SIGHT_CLOSE_DIST_MULTIPLYER = 2;
         #endregion
@@ -42,6 +42,7 @@ namespace BBN_Game.AI
         private GameController gameController;
         private Random randomizer;
         private List<StaticObject> mapTurrets;
+        private int instructionStep = 0;
         #endregion
         #region "Public methods"
         public AIController(GridStructure spatialGrid, NavigationComputer navComputer, GameController gameController, List<StaticObject> mapTurrets)
@@ -84,31 +85,53 @@ namespace BBN_Game.AI
             doSpawning();
             removeDestroyedTurretsFromTeamInfo();
             //Do a detection test to detect enemy, else make fighters and destroyers patrol
-            this.looseEnemies();
-            this.detectEnemyTargets();
+            if (instructionStep == 0)
+            {
+                this.looseEnemies();
+                this.detectEnemyTargets();
+            }
             //initiate or replenish battles:
-            this.enlistFightersToTargetDetectedEnemy();
-            this.topupAllBattles();
+            if (instructionStep == 5)
+            {
+                this.enlistFightersToTargetDetectedEnemy();
+                this.topupAllBattles();
+            }
             //make the fighters patrol or move to their targets:
-            this.returnVictoriousFightersToPatrol();
-            this.ensureIdlingFightersAreActivelyPatrolling();
-            this.fightersEngageTargets();
-            this.rotateFightersForAiming(gameTime);
+            if (instructionStep == 10)
+            {
+                this.returnVictoriousFightersToPatrol();
+                this.ensureIdlingFightersAreActivelyPatrolling();
+                this.fightersEngageTargets();
+                this.rotateFightersForAiming(gameTime);
+            }
             //Make sure the destroyers are moving towards the enemy or sweeping round it at all times (return them from battle mode to idling if the won a battle)
-            this.returnVictoriousDestroyersToDisengagedState();
-            this.ensureIdlingDestroyersAreMovingTowardsEnemyBase();
+            if (instructionStep == 5)
+            {
+                this.returnVictoriousDestroyersToDisengagedState();
+                this.ensureIdlingDestroyersAreMovingTowardsEnemyBase();
+            }
             //Make sure the player is either engaging or capturing turrets
-            this.playerEngageTarget();
-            this.returnVictoriousPlayerToDisengagedState();
-            this.playersGoCaptureTurretsOrDestroyEnemyBase();
-            this.rotatePlayerForAiming(gameTime);
-            //Return all victorius turrets to an inactive state:
-            this.returnVictoriusTurretsToDisengagedState();
+            if (instructionStep == 0)
+            {
+                this.playerEngageTarget();
+                this.returnVictoriousPlayerToDisengagedState();
+                this.playersGoCaptureTurretsOrDestroyEnemyBase();
+                this.rotatePlayerForAiming(gameTime);
+            }
+            if (instructionStep == 10)
+            {
+                //Return all victorius turrets to an inactive state:
+                this.returnVictoriusTurretsToDisengagedState();
+                //Do garbage collection:
+                foreach (TeamInformation ti in infoOnTeams)
+                    ti.garbageCollection();
+            }
             //Execute shooting code:
             this.shootAtTargets();
-            //Do garbage collection:
-            foreach (TeamInformation ti in infoOnTeams)
-                ti.garbageCollection();
+            if (instructionStep == 10)
+                instructionStep = 0;
+            else
+                instructionStep++;
         }
         #region "Team Information"
         public void registerTeam(TeamInformation ti)
@@ -712,20 +735,28 @@ namespace BBN_Game.AI
                     continue;
                 int numFightersToBuy = 0;
                 int numDestroyersToBuy = 0;
+                int numberOfFightersOnSpawnList = 0;
+                int numberOfDestroyersOnSpawnList = 0;
+                foreach (DynamicObject o in ti.spawnQueue)
+                    if (o is Fighter)
+                        numberOfFightersOnSpawnList++;
+                    else if (o is Destroyer)
+                        numberOfDestroyersOnSpawnList++;
                 if (ti.maxFighters > ti.teamFighters.Count)
                 {
                     if (ti.maxDestroyers <= ti.teamDestroyers.Count)
-                        numFightersToBuy = (int)Math.Min(ti.teamCredits / TradingInformation.fighterCost,ti.maxFighters);
+                        numFightersToBuy = (int)Math.Min(ti.teamCredits / TradingInformation.fighterCost, ti.maxFighters - ti.teamFighters.Count - numberOfFightersOnSpawnList);
                     else
                     {
-                        numFightersToBuy = (int)Math.Min((int)(ti.teamCredits * PERCENT_OF_CREDITS_TO_SPEND_ON_FIGHTERS_WHEN_SHORT_ON_BOTH / 
-                            TradingInformation.fighterCost), ti.maxFighters);
+                        numFightersToBuy = (int)Math.Min((int)(ti.teamCredits * PERCENT_OF_CREDITS_TO_SPEND_ON_FIGHTERS_WHEN_SHORT_ON_BOTH /
+                            TradingInformation.fighterCost), ti.maxFighters - ti.teamFighters.Count - numberOfFightersOnSpawnList);
                         numDestroyersToBuy = (int)Math.Min((int)(ti.teamCredits * PERCENT_OF_CREDITS_TO_SPEND_ON_DESTROYERS_WHEN_SHORT_ON_BOTH /
-                            TradingInformation.destroyerCost), ti.maxDestroyers);
+                            TradingInformation.destroyerCost), ti.maxDestroyers - ti.teamDestroyers.Count - numberOfDestroyersOnSpawnList);
                     }
                 }
                 else if (ti.maxDestroyers > ti.teamDestroyers.Count)
-                    numDestroyersToBuy = (int)Math.Min(ti.teamCredits / TradingInformation.destroyerCost,ti.maxDestroyers);
+                    numDestroyersToBuy = (int)Math.Min(ti.teamCredits / TradingInformation.destroyerCost,
+                        ti.maxDestroyers - ti.teamDestroyers.Count - numberOfDestroyersOnSpawnList);
                 for (int i = 0; i < numDestroyersToBuy; ++i)
                 {
                     Destroyer d = new Destroyer(game, ti.teamId, Vector3.Zero);
