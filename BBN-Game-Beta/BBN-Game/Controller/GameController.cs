@@ -36,12 +36,13 @@ namespace BBN_Game.Controller
     {
         #region "Constants"
         private const string INITIAL_MAP = "Content/Maps/Death Zone.xml";
-        private const int GRID_CUBE_SIZE = 50;
-        private const int MAX_NUM_FIGHTERS_PER_TEAM = 10;
-        private const int MAX_NUM_DESTROYERS_PER_TEAM = 10;
-        private const float MAP_SCALE_VALUE = 2;
+        private const int GRID_CUBE_SIZE = 200;
+        private const int MAX_NUM_FIGHTERS_PER_TEAM = 4;
+        private const int MAX_NUM_DESTROYERS_PER_TEAM = 2;
         private const float COLLISION_SPEED_PRESERVATION = 0.025f;
         private const float YAW_PITCH_ROLL_SPEED_FACTOR_FOR_AI_PLAYER = 0.0166f;
+        private const float DETAIL_CULL_DISTANCE = 550;
+        private const float HUD_DETAIL_CULL_DISTANCE = 650;
         #endregion
 
         #region "Object holders"
@@ -281,7 +282,7 @@ namespace BBN_Game.Controller
                 //buy destroyer
                 if (team.teamCredits > TradingInformation.destroyerCost)
                 {
-                    Objects.Destroyer ds = new Objects.Destroyer(game, Objects.Team.Red, Vector3.Zero);
+                    Objects.Destroyer ds = new Objects.Destroyer(game, team.teamId, Vector3.Zero);
                     team.spawnQueue.Add(ds);
                     team.teamCredits -= TradingInformation.destroyerCost;
                 }
@@ -291,7 +292,7 @@ namespace BBN_Game.Controller
                 //buy fighter
                 if (team.teamCredits > TradingInformation.fighterCost)
                 {
-                    Objects.Fighter fi = new Objects.Fighter(game, Objects.Team.Red, Vector3.Zero);
+                    Objects.Fighter fi = new Objects.Fighter(game, team.teamId, Vector3.Zero);
                     team.spawnQueue.Add(fi);
                     team.teamCredits -= TradingInformation.fighterCost;
                 }
@@ -316,11 +317,13 @@ namespace BBN_Game.Controller
 
             #region Player 1
             //bring up pause menu
-            if (pad1State.Buttons.Back == ButtonState.Pressed)//Player 1 pauses game
+            if (pad1State.Buttons.Back == ButtonState.Pressed && prevPadState1.Buttons.Back == ButtonState.Released)//Player 1 pauses game
             {
+                prevGameState = gameState;
                 gameState = GameState.Paused;
                 menuController.updateState();
             }
+           
             //bring up trade menus
             if (pad1State.Buttons.RightShoulder == ButtonState.Pressed && prevPadState1.Buttons.RightShoulder != ButtonState.Pressed)//player1
             {
@@ -337,22 +340,27 @@ namespace BBN_Game.Controller
                         Player1.TradeMenuOption = 1;
                 }
             }
-            //traverse trade menu
-            if (pad1State.DPad.Down == ButtonState.Pressed && prevPadState1.DPad.Down == ButtonState.Released && Player1.TradeMenuOption < 3)
-                Player1.TradeMenuOption++;
-            if (pad1State.DPad.Up == ButtonState.Pressed && prevPadState1.DPad.Up == ButtonState.Released && Player1.TradeMenuOption > 1)
-                Player1.TradeMenuOption--;
-            //menu option selection
-            if (pad1State.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
-                makePurchase(Player1, team1);
+
+            if (tradePanelUp1)
+            {
+                //traverse trade menu
+                if (pad1State.DPad.Down == ButtonState.Pressed && prevPadState1.DPad.Down == ButtonState.Released && Player1.TradeMenuOption < 3)
+                    Player1.TradeMenuOption++;
+                if (pad1State.DPad.Up == ButtonState.Pressed && prevPadState1.DPad.Up == ButtonState.Released && Player1.TradeMenuOption > 1)
+                    Player1.TradeMenuOption--;
+                //menu option selection
+                if (pad1State.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
+                    makePurchase(Player1, team1);
+            }
             #endregion
 
             #region Player 2
             if (numPlayers.Equals(Players.two) && GamePad.GetState(PlayerIndex.Two).IsConnected)
             {
                 //bring up pause menu
-                if (pad2State.Buttons.Back == ButtonState.Pressed)//Player 2 pauses game
+                if (pad2State.Buttons.Back == ButtonState.Pressed && prevPadState2.Buttons.Back == ButtonState.Released)//Player 2 pauses game
                 {
+                    prevGameState = gameState;
                     gameState = GameState.Paused;
                     menuController.updateState();
                 }
@@ -372,14 +380,18 @@ namespace BBN_Game.Controller
                             Player2.TradeMenuOption = 1;
                     }
                 }
-                //traverse trade menu
-                if (pad2State.DPad.Down == ButtonState.Pressed && prevPadState2.DPad.Down == ButtonState.Released && Player2.TradeMenuOption < 3)
-                    Player2.TradeMenuOption++;
-                if (pad2State.DPad.Up == ButtonState.Pressed && prevPadState2.DPad.Up == ButtonState.Released && Player2.TradeMenuOption > 1)
-                    Player2.TradeMenuOption--;
-                //menu option selection
-                if (pad2State.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
-                    makePurchase(Player2, team2);
+
+                if (tradePanelUp2)
+                {
+                    //traverse trade menu
+                    if (pad2State.DPad.Down == ButtonState.Pressed && prevPadState2.DPad.Down == ButtonState.Released && Player2.TradeMenuOption < 3)
+                        Player2.TradeMenuOption++;
+                    if (pad2State.DPad.Up == ButtonState.Pressed && prevPadState2.DPad.Up == ButtonState.Released && Player2.TradeMenuOption > 1)
+                        Player2.TradeMenuOption--;
+                    //menu option selection
+                    if (pad2State.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
+                        makePurchase(Player2, team2);
+                }
             }
             #endregion            
             
@@ -480,17 +492,19 @@ namespace BBN_Game.Controller
             SkyBox.Draw(gameTime, cam);
             // draw all other objects
             for (i = 0; i < AllObjects.Count; ++i)
-                AllObjects.ElementAt(i).Draw(gameTime, cam);
+                if ((AllObjects.ElementAt(i).Position - cam.Position).Length() < DETAIL_CULL_DISTANCE)
+                    AllObjects.ElementAt(i).Draw(gameTime, cam);
 
             // we have to draw the huds afterward so that in third person camera the huds will draw above the player (as the dpth buffer is removed)
             for (i = 0; i < AllObjects.Count; ++i)
+                if ((AllObjects.ElementAt(i).Position - cam.Position).Length() < HUD_DETAIL_CULL_DISTANCE)
                     AllObjects.ElementAt(i).drawSuroundingBox(cam, player);
 
             //draw the players hud now (so that the target boxes wont obscure them)
             player.drawHud(DynamicObjs);
             
             //TODO DEBUG: draw the paths of the AI
-            drawPaths(gameTime, player.Camera, new BasicEffect(game.GraphicsDevice, null), game.GraphicsDevice);
+            //drawPaths(gameTime, player.Camera, new BasicEffect(game.GraphicsDevice, null), game.GraphicsDevice);
         }
         #endregion
 
@@ -883,11 +897,17 @@ namespace BBN_Game.Controller
                     if (other is Objects.StaticObject)
                     {
                         if (!other.Equals(obj))
-                            if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld))
+                        {
+                            if ((obj is Objects.DynamicObject ? navComputer.isObjectRegistered(obj) : false) &&
+                            (other is Objects.DynamicObject ? navComputer.isObjectRegistered(other as Objects.DynamicObject) : false))
+                                continue;
+                            if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld,
+                                obj is Objects.Bullet || obj is Objects.Missile || other is Objects.Bullet || other is Objects.Missile))
                             {
                                 // Collision occured call on the checker
                                 checkTwoObjects(obj, ((Objects.StaticObject)other));
                             }
+                        }
                     }
             }
         }

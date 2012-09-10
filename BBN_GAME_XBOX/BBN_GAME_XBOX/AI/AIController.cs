@@ -27,10 +27,10 @@ namespace BBN_Game.AI
         public const int PRIORITY_FOR_ELIMINATING_BASE = 1;
         public const int FIGHTERS_TO_SCRAMBLE_FOR_PLAYER = 6;
         public const int FIGHTERS_TO_SCRAMBLE_FOR_DESTROYER = 3;
-        public const int FIGHTER_GUNS_COOLDOWN = 50;
-        public const int DESTROYER_GUNS_COOLDOWN = 80;
-        public const int PLAYER_GUNS_COOLDOWN = 25;
-        public const int TURRET_GUNS_COOLDOWN = 60;
+        public const int FIGHTER_GUNS_COOLDOWN = 20;
+        public const int DESTROYER_GUNS_COOLDOWN = 40;
+        public const int PLAYER_GUNS_COOLDOWN = 15;
+        public const int TURRET_GUNS_COOLDOWN = 30;
         public const float DETECTION_RADIUS = 250;
         public const float LINE_OF_SIGHT_CLOSE_DIST_MULTIPLYER = 2;
         #endregion
@@ -122,12 +122,12 @@ namespace BBN_Game.AI
             {
                 //Return all victorius turrets to an inactive state:
                 this.returnVictoriusTurretsToDisengagedState();
-                //Execute shooting code:
-                this.shootAtTargets();
                 //Do garbage collection:
                 foreach (TeamInformation ti in infoOnTeams)
                     ti.garbageCollection();
             }
+            //Execute shooting code:
+            this.shootAtTargets();
             if (instructionStep == 10)
                 instructionStep = 0;
             else

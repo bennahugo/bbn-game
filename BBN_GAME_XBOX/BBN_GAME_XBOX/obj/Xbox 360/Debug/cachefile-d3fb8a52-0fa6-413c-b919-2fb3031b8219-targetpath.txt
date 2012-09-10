@@ -9,6 +9,7 @@ Content\Models\Ships\FighterBlue.xnb
 Content\Models\Ships\FighterRed.xnb
 Content\Models\Ships\PlayerBlue.xnb
 Content\Models\Ships\PlayerRed.xnb
+Content\Models\Projectiles\Cube.xnb
 Content\Shader\skyBoxEffect.xnb
 Content\Shader\targetBox.xnb
 Content\HudTextures\HealthBar.xnb
@@ -38,4 +39,11 @@ Content\stats_icons\destroyer_small.xnb
 Content\stats_icons\fighter_small.xnb
 Content\stats_icons\malpha_small.xnb
 Content\stats_icons\missile_small.xnb
+Content\Models\Ships\Fighter1.xnb
+Content\Models\Ships\Fighter2.xnb
+Content\Models\Ships\Fighter3.xnb
+Content\Models\Ships\Fighter4.xnb
+Content\Models\Ships\playerShip.xnb
+Content\Models\Ships\Turret1.xnb
+Content\Models\Ships\Turret2.xnb
 Content\Maps\Death Zone.xml

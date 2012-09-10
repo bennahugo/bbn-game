@@ -130,6 +130,7 @@ namespace BBN_Game.Objects
             this.maxSpeed = 50;
             this.minSpeed = -10;
             this.greatestLength = 6f;
+            this.shipData.scale = 0.45f;
 
             this.numHudLines = 7;
             typeOfLine = PrimitiveType.LineList;
@@ -165,9 +166,9 @@ namespace BBN_Game.Objects
         protected override void resetModels()
         {
             if (this.Team == Team.Red)
-                model = Game.Content.Load<Model>("Models/Ships/PlayerRed");
+                model = Game.Content.Load<Model>("Models/Ships/playerShip");
             else
-                model = Game.Content.Load<Model>("Models/Ships/PlayerBlue");
+                model = Game.Content.Load<Model>("Models/Ships/playerShip");
 
             f = Game.Content.Load<SpriteFont>("SpriteFont1");
 
@@ -220,15 +221,7 @@ namespace BBN_Game.Objects
             if (GamePad.GetState(PlayerIndex.One).IsConnected)
                 xboxControls((float)gt.ElapsedGameTime.TotalSeconds);
             else
-                keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);
-
-            if (twoPlayer)
-            {
-                if (GamePad.GetState(PlayerIndex.Two).IsConnected)
-                    xboxControls((float)gt.ElapsedGameTime.TotalSeconds);
-                else
-                    keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);
-            }
+                keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);            
 
             base.controller(gt);
         }
@@ -246,7 +239,7 @@ namespace BBN_Game.Objects
                 #region "Extra Controls (Camera)"
                 if (state.IsKeyDown(Keys.F1) && oldState.IsKeyUp(Keys.F1))
                     cameraType = cameraType.Equals(CurrentCam.Chase) ? CurrentCam.FirstPerson : CurrentCam.Chase;
-                if (state.IsKeyDown(Keys.Z) && oldState.IsKeyUp(Keys.Z))
+                if (state.IsKeyDown(Keys.R) && oldState.IsKeyUp(Keys.R))
                     Controller.GridDataCollection.tryCaptureTower(this);
                 #endregion
 
@@ -421,6 +414,14 @@ namespace BBN_Game.Objects
                         numMissiles--;
                     }
                 }
+                if (state.IsKeyDown(Keys.NumPad7))
+                {
+                    if (reloadTimer[0] <= 0)
+                    {
+                        Controller.GameController.addObject(new Objects.Bullet(Game, this.target, this));
+                        reloadTimer[0] = MechinegunReload;
+                    }
+                }
             }
             #endregion
 
@@ -440,11 +441,9 @@ namespace BBN_Game.Objects
             GamePadState pad1State = GamePad.GetState(PlayerIndex.One);
             GamePadState pad2State = GamePad.GetState(PlayerIndex.Two);
 
+            #region Player 1
             if (index == PlayerIndex.One)
             {
-                // Allows the game to exit using XBox
-                if (pad1State.Buttons.Start == ButtonState.Pressed)
-                   this.Game.Exit();
 
                 #region Extra Controls: Turret Capture & Camera
 
@@ -493,14 +492,14 @@ namespace BBN_Game.Objects
                 #endregion
 
                 #region Accel Deccel checks
-                if (pad1State.ThumbSticks.Left.Y >= 0.5)
+                if (pad1State.ThumbSticks.Left.Y >= 0.6)
                 {
                     if (shipData.speed < maxSpeed)
                     {
                         shipData.speed += acceleration * time;
                     }
                 }
-                else if (pad1State.ThumbSticks.Left.Y <= -0.5)
+                else if (pad1State.ThumbSticks.Left.Y <= -0.6)
                 {
                     if (shipData.speed > minSpeed)
                     {
@@ -529,7 +528,7 @@ namespace BBN_Game.Objects
                 #region Guns
 
                 //fire missile
-                if (pad1State.Buttons.B == ButtonState.Pressed && prevPadState1.Buttons.B == ButtonState.Released)
+                if (pad1State.Buttons.B == ButtonState.Pressed)
                 {
                     if (reloadTimer[1] <= 0 && numMissiles > 0)
                     {
@@ -551,7 +550,11 @@ namespace BBN_Game.Objects
 
                 #endregion
             }
-            else
+            #endregion
+
+            #region Player 2
+            if(twoPlayer)
+            if (index == PlayerIndex.Two)
             {
                 // Allows the game to exit using XBox
                 if (pad2State.Buttons.Start == ButtonState.Pressed)
@@ -604,14 +607,14 @@ namespace BBN_Game.Objects
                 #endregion
 
                 #region Accel Deccel checks
-                if (pad2State.ThumbSticks.Left.Y >= 0.5)
+                if (pad2State.ThumbSticks.Left.Y >= 0.6)
                 {
                     if (shipData.speed < maxSpeed)
                     {
                         shipData.speed += acceleration * time;
                     }
                 }
-                else if (pad2State.ThumbSticks.Left.Y <= -0.5)
+                else if (pad2State.ThumbSticks.Left.Y <= -0.6)
                 {
                     if (shipData.speed > minSpeed)
                     {
@@ -640,7 +643,7 @@ namespace BBN_Game.Objects
                 #region Guns
 
                 //fire missile
-                if (pad2State.Buttons.B == ButtonState.Pressed && prevPadState2.Buttons.B == ButtonState.Released)
+                if (pad2State.Buttons.B == ButtonState.Pressed)
                 {
                     if (reloadTimer[1] <= 0 && numMissiles > 0)
                     {
@@ -662,7 +665,11 @@ namespace BBN_Game.Objects
 
                 #endregion
             }
-            
+            // reset loader
+            for (int i = 0; i < 3; ++i)
+                reloadTimer[i] = reloadTimer[i] > 0 ? reloadTimer[i] - (1 * time) : 0;
+            #endregion
+
             prevPadState1 = pad1State;
             prevPadState2 = pad2State;
         }

@@ -72,9 +72,9 @@ namespace BBN_Game.Objects
         protected override void resetModels()
         {
             if (this.Team == Team.Red)
-                model = Game.Content.Load<Model>("Models/Ships/FighterRed");
+                model = Game.Content.Load<Model>("Models/Ships/Turret1");
             else
-                model = Game.Content.Load<Model>("Models/Ships/FighterBlue");
+                model = Game.Content.Load<Model>("Models/Ships/Turret2");
 
             base.resetModels();
         }

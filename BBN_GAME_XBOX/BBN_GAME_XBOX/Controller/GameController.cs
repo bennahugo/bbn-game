@@ -282,7 +282,7 @@ namespace BBN_Game.Controller
                 //buy destroyer
                 if (team.teamCredits > TradingInformation.destroyerCost)
                 {
-                    Objects.Destroyer ds = new Objects.Destroyer(game, Objects.Team.Red, Vector3.Zero);
+                    Objects.Destroyer ds = new Objects.Destroyer(game, team.teamId, Vector3.Zero);
                     team.spawnQueue.Add(ds);
                     team.teamCredits -= TradingInformation.destroyerCost;
                 }
@@ -292,7 +292,7 @@ namespace BBN_Game.Controller
                 //buy fighter
                 if (team.teamCredits > TradingInformation.fighterCost)
                 {
-                    Objects.Fighter fi = new Objects.Fighter(game, Objects.Team.Red, Vector3.Zero);
+                    Objects.Fighter fi = new Objects.Fighter(game, team.teamId, Vector3.Zero);
                     team.spawnQueue.Add(fi);
                     team.teamCredits -= TradingInformation.fighterCost;
                 }

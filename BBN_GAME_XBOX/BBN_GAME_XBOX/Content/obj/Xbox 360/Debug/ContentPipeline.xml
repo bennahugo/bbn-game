@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Fonts\distanceFont.xnb</Output>
-      <Time>2012-09-07T14:52:03.753+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Fonts\distanceFont.xnb</Output>
+      <Time>2012-09-07T14:52:04+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\menuFont.spritefont</Source>
@@ -16,8 +16,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Fonts\menuFont.xnb</Output>
-      <Time>2012-09-07T14:49:31.40925+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Fonts\menuFont.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\pause_menu.spritefont</Source>
@@ -25,8 +25,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Fonts\pause_menu.xnb</Output>
-      <Time>2012-09-07T14:49:31.40925+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Fonts\pause_menu.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\selectedFont.spritefont</Source>
@@ -34,8 +34,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Fonts\selectedFont.xnb</Output>
-      <Time>2012-09-07T14:49:31.40925+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Fonts\selectedFont.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\trade_menu.spritefont</Source>
@@ -43,8 +43,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Fonts\trade_menu.xnb</Output>
-      <Time>2012-09-07T14:49:31.40925+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Fonts\trade_menu.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>SpriteFont1.spritefont</Source>
@@ -52,8 +52,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2012-09-07T14:49:31.59675+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Projectiles\Missile.fbx</Source>
@@ -61,11 +61,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Projectiles\Missile.xnb</Output>
-      <Time>2012-09-07T14:49:31.47175+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Projectiles\Missile.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
       <Dependency>
         <Key>obj\Xbox 360\Debug\Models\Projectiles\Missile_0.xml</Key>
-        <Value>2012-09-07T14:52:07.78425+02:00</Value>
+        <Value>2012-09-10T23:10:04.6000637+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -74,11 +74,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\FighterBlue.xnb</Output>
-      <Time>2012-09-07T14:49:31.47175+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\FighterBlue.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
       <Dependency>
         <Key>obj\Xbox 360\Debug\Models\Ships\FighterBlue_0.xml</Key>
-        <Value>2012-09-07T14:52:09.378+02:00</Value>
+        <Value>2012-09-10T23:10:06.1600664+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -87,11 +87,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\FighterRed.xnb</Output>
-      <Time>2012-09-07T14:49:31.487375+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\FighterRed.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
       <Dependency>
         <Key>obj\Xbox 360\Debug\Models\Ships\FighterRed_0.xml</Key>
-        <Value>2012-09-07T14:52:10.831125+02:00</Value>
+        <Value>2012-09-10T23:10:07.7356691+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -100,11 +100,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\PlayerBlue.xnb</Output>
-      <Time>2012-09-07T14:49:31.487375+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\PlayerBlue.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
       <Dependency>
         <Key>obj\Xbox 360\Debug\Models\Ships\PlayerBlue_0.xml</Key>
-        <Value>2012-09-07T14:52:11.628+02:00</Value>
+        <Value>2012-09-10T23:10:09.0460714+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -113,11 +113,24 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\PlayerRed.xnb</Output>
-      <Time>2012-09-07T14:49:31.487375+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\PlayerRed.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
       <Dependency>
         <Key>obj\Xbox 360\Debug\Models\Ships\PlayerRed_0.xml</Key>
-        <Value>2012-09-07T14:52:12.331125+02:00</Value>
+        <Value>2012-09-10T23:10:10.3408737+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Projectiles\Cube.fbx</Source>
+      <Name>Models\Projectiles\Cube</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Projectiles\Cube.xnb</Output>
+      <Time>2012-09-10T23:09:56.2540491+02:00</Time>
+      <Dependency>
+        <Key>obj\Xbox 360\Debug\Models\Projectiles\Cube_0.xml</Key>
+        <Value>2012-09-10T23:10:11.4952757+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -126,8 +139,8 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Shader\skyBoxEffect.xnb</Output>
-      <Time>2012-09-07T14:49:31.549875+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Shader\skyBoxEffect.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Shader\targetBox.fx</Source>
@@ -135,8 +148,8 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Shader\targetBox.xnb</Output>
-      <Time>2012-09-07T14:49:31.549875+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Shader\targetBox.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>HudTextures\HealthBar.png</Source>
@@ -144,8 +157,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\HudTextures\HealthBar.xnb</Output>
-      <Time>2012-09-07T14:49:31.424875+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\HudTextures\HealthBar.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>HudTextures\HealthBarHolder.png</Source>
@@ -153,8 +166,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\HudTextures\HealthBarHolder.xnb</Output>
-      <Time>2012-09-07T14:49:31.424875+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\HudTextures\HealthBarHolder.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\control_menu.png</Source>
@@ -162,8 +175,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\control_menu.xnb</Output>
-      <Time>2012-09-07T14:49:31.424875+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\control_menu.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\dark_trans.png</Source>
@@ -171,8 +184,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\dark_trans.xnb</Output>
-      <Time>2012-09-07T14:49:31.424875+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\dark_trans.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\dark_trans_new.png</Source>
@@ -180,8 +193,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\dark_trans_new.xnb</Output>
-      <Time>2012-09-07T14:49:31.4405+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\dark_trans_new.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\industrial.jpg</Source>
@@ -189,8 +202,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\industrial.xnb</Output>
-      <Time>2012-09-07T14:49:31.4405+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\industrial.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\keyboard_controls.png</Source>
@@ -198,8 +211,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\keyboard_controls.xnb</Output>
-      <Time>2012-09-07T14:49:31.4405+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\keyboard_controls.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\nebula_blue.jpg</Source>
@@ -207,8 +220,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\nebula_blue.xnb</Output>
-      <Time>2012-09-07T14:49:31.456125+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\nebula_blue.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\pause_menu.png</Source>
@@ -216,8 +229,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\pause_menu.xnb</Output>
-      <Time>2012-09-07T14:49:31.456125+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\pause_menu.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\purple.jpg</Source>
@@ -225,8 +238,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\purple.xnb</Output>
-      <Time>2012-09-07T14:49:31.456125+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\purple.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\star_destroyer_bridge.jpg</Source>
@@ -234,8 +247,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\star_destroyer_bridge.xnb</Output>
-      <Time>2012-09-07T14:49:31.456125+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\star_destroyer_bridge.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\sunrise_in_space.jpg</Source>
@@ -243,8 +256,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\sunrise_in_space.xnb</Output>
-      <Time>2012-09-07T14:49:31.456125+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\sunrise_in_space.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\trade_menu_new.png</Source>
@@ -252,8 +265,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\trade_menu_new.xnb</Output>
-      <Time>2012-09-07T14:49:31.456125+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\trade_menu_new.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\trade_menu_newest.png</Source>
@@ -261,8 +274,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\trade_menu_newest.xnb</Output>
-      <Time>2012-09-07T14:49:31.47175+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\trade_menu_newest.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\waterfall_city.jpg</Source>
@@ -270,8 +283,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\waterfall_city.xnb</Output>
-      <Time>2012-09-07T14:49:31.47175+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\waterfall_city.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Menu\xbox_controls.png</Source>
@@ -279,8 +292,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\xbox_controls.xnb</Output>
-      <Time>2012-09-07T14:49:31.47175+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Menu\xbox_controls.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\space1.jpg</Source>
@@ -288,8 +301,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\space1.xnb</Output>
-      <Time>2012-09-07T14:49:31.5655+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\space1.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\space2.jpg</Source>
@@ -297,8 +310,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\space2.xnb</Output>
-      <Time>2012-09-07T14:49:31.5655+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\space2.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\space3.jpg</Source>
@@ -306,8 +319,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\space3.xnb</Output>
-      <Time>2012-09-07T14:49:31.5655+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\space3.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\space4.jpg</Source>
@@ -315,8 +328,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\space4.xnb</Output>
-      <Time>2012-09-07T14:49:31.5655+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\space4.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\space5.jpg</Source>
@@ -324,8 +337,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\space5.xnb</Output>
-      <Time>2012-09-07T14:49:31.581125+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\space5.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Skybox\Starfield.png</Source>
@@ -333,8 +346,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\Starfield.xnb</Output>
-      <Time>2012-09-07T14:49:31.581125+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Skybox\Starfield.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>stats_icons\destroyer2_small.png</Source>
@@ -342,8 +355,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\stats_icons\destroyer2_small.xnb</Output>
-      <Time>2012-09-07T14:49:31.581125+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\stats_icons\destroyer2_small.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>stats_icons\destroyer_small.png</Source>
@@ -351,8 +364,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\stats_icons\destroyer_small.xnb</Output>
-      <Time>2012-09-07T14:49:31.581125+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\stats_icons\destroyer_small.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>stats_icons\fighter_small.png</Source>
@@ -360,8 +373,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\stats_icons\fighter_small.xnb</Output>
-      <Time>2012-09-07T14:49:31.581125+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\stats_icons\fighter_small.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>stats_icons\malpha_small.png</Source>
@@ -369,8 +382,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\stats_icons\malpha_small.xnb</Output>
-      <Time>2012-09-07T14:49:31.59675+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\stats_icons\malpha_small.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>stats_icons\missile_small.png</Source>
@@ -378,82 +391,229 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\stats_icons\missile_small.xnb</Output>
-      <Time>2012-09-07T14:49:31.59675+02:00</Time>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\stats_icons\missile_small.xnb</Output>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Projectiles\Missile.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\Xbox 360\Debug\Models\Projectiles\Missile_0.xml</Output>
-      <Time>2012-09-07T14:49:31.47175+02:00</Time>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\FighterBlue.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\Xbox 360\Debug\Models\Ships\FighterBlue_0.xml</Output>
-      <Time>2012-09-07T14:49:31.47175+02:00</Time>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\FighterRed.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\Xbox 360\Debug\Models\Ships\FighterRed_0.xml</Output>
-      <Time>2012-09-07T14:49:31.487375+02:00</Time>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\PlayerBlue.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\Xbox 360\Debug\Models\Ships\PlayerBlue_0.xml</Output>
-      <Time>2012-09-07T14:49:31.487375+02:00</Time>
+      <Time>2012-09-07T14:49:32+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\PlayerRed.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\Xbox 360\Debug\Models\Ships\PlayerRed_0.xml</Output>
-      <Time>2012-09-07T14:49:31.487375+02:00</Time>
+      <Time>2012-09-07T14:49:32+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Projectiles\Cube.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\Xbox 360\Debug\Models\Projectiles\Cube_0.xml</Output>
+      <Time>2012-09-10T23:09:56.2540491+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter1.fbx</Source>
+      <Name>Models\Ships\Fighter1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\Fighter1.xnb</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+      <Dependency>
+        <Key>obj\Xbox 360\Debug\Models\Ships\Fighter1_0.xml</Key>
+        <Value>2012-09-11T00:14:17.4390183+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter2.fbx</Source>
+      <Name>Models\Ships\Fighter2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\Fighter2.xnb</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+      <Dependency>
+        <Key>obj\Xbox 360\Debug\Models\Ships\Fighter2_0.xml</Key>
+        <Value>2012-09-11T00:14:18.6870204+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter3.fbx</Source>
+      <Name>Models\Ships\Fighter3</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\Fighter3.xnb</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+      <Dependency>
+        <Key>obj\Xbox 360\Debug\Models\Ships\Fighter3_0.xml</Key>
+        <Value>2012-09-11T00:14:19.7634223+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter4.fbx</Source>
+      <Name>Models\Ships\Fighter4</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\Fighter4.xnb</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+      <Dependency>
+        <Key>obj\Xbox 360\Debug\Models\Ships\Fighter4_0.xml</Key>
+        <Value>2012-09-11T00:14:20.8710243+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShip.fbx</Source>
+      <Name>Models\Ships\playerShip</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\playerShip.xnb</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+      <Dependency>
+        <Key>obj\Xbox 360\Debug\Models\Ships\playerShip_0.xml</Key>
+        <Value>2012-09-11T00:14:22.0566263+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret1.fbx</Source>
+      <Name>Models\Ships\Turret1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\Turret1.xnb</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+      <Dependency>
+        <Key>obj\Xbox 360\Debug\Models\Ships\Turret1_0.xml</Key>
+        <Value>2012-09-11T00:14:23.2422284+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret2.fbx</Source>
+      <Name>Models\Ships\Turret2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\Models\Ships\Turret2.xnb</Output>
+      <Time>2012-09-11T00:13:18.7521149+02:00</Time>
+      <Dependency>
+        <Key>obj\Xbox 360\Debug\Models\Ships\Turret2_0.xml</Key>
+        <Value>2012-09-11T00:14:24.3186303+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter1.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\Xbox 360\Debug\Models\Ships\Fighter1_0.xml</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter2.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\Xbox 360\Debug\Models\Ships\Fighter2_0.xml</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter3.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\Xbox 360\Debug\Models\Ships\Fighter3_0.xml</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter4.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\Xbox 360\Debug\Models\Ships\Fighter4_0.xml</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShip.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\Xbox 360\Debug\Models\Ships\playerShip_0.xml</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret1.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\Xbox 360\Debug\Models\Ships\Turret1_0.xml</Output>
+      <Time>2012-09-11T00:13:18.7365149+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret2.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\Xbox 360\Debug\Models\Ships\Turret2_0.xml</Output>
+      <Time>2012-09-11T00:13:18.7521149+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Xbox360</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>true</CompressContent>
-      <RootDirectory>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\Content\obj\Xbox 360\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\Content\obj\Xbox 360\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\bin\Xbox 360\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2009-05-28T00:16:14+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2009-05-28T09:16:14+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2009-05-28T00:16:06+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2009-05-28T09:16:06+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2009-05-28T00:16:16+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2009-05-28T09:16:16+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2009-05-28T00:16:26+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2009-05-28T09:16:26+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2009-05-28T00:16:12+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2009-05-28T09:16:12+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2009-05-28T00:16:06+02:00</Value>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2009-05-28T09:16:06+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.1.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2010-10-05T11:03:16.71875+02:00</Value>
+        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.1.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-07-27T15:34:59.1759549+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
