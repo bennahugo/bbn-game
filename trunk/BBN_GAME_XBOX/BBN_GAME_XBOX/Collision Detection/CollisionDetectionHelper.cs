@@ -18,7 +18,7 @@ namespace BBN_Game.Collision_Detection
         /// Modify this const to set the number of vertices per bounding sphere. This may speed up
         /// collision detection at the cost of accuracy.
         /// </summary>
-        public const int NUM_VERTICES_PER_BOX = 33;
+        public const int NUM_VERTICES_PER_BOX = 66;
         public const float BLOCK_SIZE_FACTOR = 0.015f;
         /// <summary>
         /// Each model part will have several datastrutures associated with it so we need an array of objects to store them all
@@ -242,7 +242,8 @@ namespace BBN_Game.Collision_Detection
             if (!TransformBox((BoundingSphere)object1.Tag, object1Transformation).Intersects(
                TransformBox((BoundingSphere)object2.Tag, object2Transformation)))
                     return false;
-                
+            if (testOnlyUptoOverAllMesh) return true;
+ 
             //Check now if mesh bounding boxes intersect:
             foreach (ModelMesh mesh1 in object1.Meshes)
             {
@@ -255,7 +256,6 @@ namespace BBN_Game.Collision_Detection
                     if (TransformBox((BoundingSphere)mesh1.Tag, object1Transformation).Intersects(
                        TransformBox((BoundingSphere)mesh2.Tag, object2Transformation)))
                     {
-                        if (testOnlyUptoOverAllMesh) return true;
                         //Check now if one of the modelmeshparts' bounding boxes intersected:
                         foreach (ModelMeshPart part1 in mesh1.MeshParts)
                         {

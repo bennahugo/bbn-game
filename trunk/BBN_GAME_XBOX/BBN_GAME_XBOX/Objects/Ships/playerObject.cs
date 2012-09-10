@@ -130,6 +130,7 @@ namespace BBN_Game.Objects
             this.maxSpeed = 50;
             this.minSpeed = -10;
             this.greatestLength = 6f;
+            this.shipData.scale = 0.45f;
 
             this.numHudLines = 7;
             typeOfLine = PrimitiveType.LineList;
@@ -165,9 +166,9 @@ namespace BBN_Game.Objects
         protected override void resetModels()
         {
             if (this.Team == Team.Red)
-                model = Game.Content.Load<Model>("Models/Ships/PlayerRed");
+                model = Game.Content.Load<Model>("Models/Ships/playerShip");
             else
-                model = Game.Content.Load<Model>("Models/Ships/PlayerBlue");
+                model = Game.Content.Load<Model>("Models/Ships/playerShip");
 
             f = Game.Content.Load<SpriteFont>("SpriteFont1");
 

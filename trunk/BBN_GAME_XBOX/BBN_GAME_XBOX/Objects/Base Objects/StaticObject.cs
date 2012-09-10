@@ -261,12 +261,6 @@ namespace BBN_Game.Objects
             targetBoxDecleration = new VertexDeclaration(Game.GraphicsDevice, VertexPositionColor.VertexElements);
             #endregion
 
-            #region "Collision Detection"
-
-            Collision_Detection.CollisionDetectionHelper.setModelData(model);
-
-            #endregion
-
             // neeeded for greatestLength
             this.greatestLength = getGreatestLengthValue();
 
@@ -277,7 +271,13 @@ namespace BBN_Game.Objects
         /// This resets the models for the current model (Allows for setting of the models of the character)
         /// </summary>
         protected virtual void resetModels()
-        { }
+        {
+            #region "Collision Detection"
+
+            Collision_Detection.CollisionDetectionHelper.setModelData(model);
+
+            #endregion
+        }
 
         /// <summary>
         /// Update method
@@ -393,6 +393,12 @@ namespace BBN_Game.Objects
             if (this is playerObject)
                 if (((playerObject)this).getViewport.Equals(Game.GraphicsDevice.Viewport))
                     return;
+
+            if (this is Objects.Projectile)
+                return;
+
+            if ((this.Position - currentPlayerforViewport.Position).Length() > 600)
+                return;
 
             if (IsVisible(cam))
             {
