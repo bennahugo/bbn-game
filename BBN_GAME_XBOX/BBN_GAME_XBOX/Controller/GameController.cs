@@ -37,13 +37,12 @@ namespace BBN_Game.Controller
         #region "Constants"
         private const string INITIAL_MAP = "Content/Maps/Death Zone.xml";
         private const int GRID_CUBE_SIZE = 200;
-        private const int MAX_NUM_FIGHTERS_PER_TEAM = 10;
-        private const int MAX_NUM_DESTROYERS_PER_TEAM = 10;
-        private const float MAP_SCALE_VALUE = 2;
+        private const int MAX_NUM_FIGHTERS_PER_TEAM = 4;
+        private const int MAX_NUM_DESTROYERS_PER_TEAM = 2;
         private const float COLLISION_SPEED_PRESERVATION = 0.025f;
         private const float YAW_PITCH_ROLL_SPEED_FACTOR_FOR_AI_PLAYER = 0.0166f;
-        private const float DETAIL_CULL_DISTANCE = 650;
-        private const float HUD_DETAIL_CULL_DISTANCE = 1050;
+        private const float DETAIL_CULL_DISTANCE = 550;
+        private const float HUD_DETAIL_CULL_DISTANCE = 650;
         #endregion
 
         #region "Object holders"
@@ -505,7 +504,7 @@ namespace BBN_Game.Controller
             player.drawHud(DynamicObjs);
             
             //TODO DEBUG: draw the paths of the AI
-            drawPaths(gameTime, player.Camera, new BasicEffect(game.GraphicsDevice, null), game.GraphicsDevice);
+            //drawPaths(gameTime, player.Camera, new BasicEffect(game.GraphicsDevice, null), game.GraphicsDevice);
         }
         #endregion
 
@@ -896,16 +895,19 @@ namespace BBN_Game.Controller
                 List<Grid.GridObjectInterface> list = gameGrid.checkNeighbouringBlocks(obj);
                 foreach (Grid.GridObjectInterface other in list)
                     if (other is Objects.StaticObject)
-                    {      
+                    {
                         if (!other.Equals(obj))
-                                if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld,
-                                    obj is Objects.DynamicObject ? navComputer.isObjectRegistered(obj) : false || 
-                                    other is Objects.DynamicObject ? navComputer.isObjectRegistered(other as Objects.DynamicObject) : false || 
-                                    obj is Objects.Bullet || obj is Objects.Missile || other is Objects.Bullet || other is Objects.Missile))
-                                {
-                                    // Collision occured call on the checker
-                                    checkTwoObjects(obj, ((Objects.StaticObject)other));
-                                }
+                        {
+                            if ((obj is Objects.DynamicObject ? navComputer.isObjectRegistered(obj) : false) &&
+                            (other is Objects.DynamicObject ? navComputer.isObjectRegistered(other as Objects.DynamicObject) : false))
+                                continue;
+                            if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld,
+                                obj is Objects.Bullet || obj is Objects.Missile || other is Objects.Bullet || other is Objects.Missile))
+                            {
+                                // Collision occured call on the checker
+                                checkTwoObjects(obj, ((Objects.StaticObject)other));
+                            }
+                        }
                     }
             }
         }

@@ -28,9 +28,9 @@ namespace BBN_Game.AI
         public const int FIGHTERS_TO_SCRAMBLE_FOR_PLAYER = 6;
         public const int FIGHTERS_TO_SCRAMBLE_FOR_DESTROYER = 3;
         public const int FIGHTER_GUNS_COOLDOWN = 50;
-        public const int DESTROYER_GUNS_COOLDOWN = 150;
-        public const int PLAYER_GUNS_COOLDOWN = 55;
-        public const int TURRET_GUNS_COOLDOWN = 120;
+        public const int DESTROYER_GUNS_COOLDOWN = 80;
+        public const int PLAYER_GUNS_COOLDOWN = 25;
+        public const int TURRET_GUNS_COOLDOWN = 60;
         public const float DETECTION_RADIUS = 250;
         public const float LINE_OF_SIGHT_CLOSE_DIST_MULTIPLYER = 2;
         #endregion
@@ -91,13 +91,13 @@ namespace BBN_Game.AI
                 this.detectEnemyTargets();
             }
             //initiate or replenish battles:
-            if (instructionStep == 1)
+            if (instructionStep == 5)
             {
                 this.enlistFightersToTargetDetectedEnemy();
                 this.topupAllBattles();
             }
             //make the fighters patrol or move to their targets:
-            if (instructionStep == 2)
+            if (instructionStep == 10)
             {
                 this.returnVictoriousFightersToPatrol();
                 this.ensureIdlingFightersAreActivelyPatrolling();
@@ -105,7 +105,7 @@ namespace BBN_Game.AI
                 this.rotateFightersForAiming(gameTime);
             }
             //Make sure the destroyers are moving towards the enemy or sweeping round it at all times (return them from battle mode to idling if the won a battle)
-            if (instructionStep == 1)
+            if (instructionStep == 5)
             {
                 this.returnVictoriousDestroyersToDisengagedState();
                 this.ensureIdlingDestroyersAreMovingTowardsEnemyBase();
@@ -118,7 +118,7 @@ namespace BBN_Game.AI
                 this.playersGoCaptureTurretsOrDestroyEnemyBase();
                 this.rotatePlayerForAiming(gameTime);
             }
-            if (instructionStep == 2)
+            if (instructionStep == 10)
             {
                 //Return all victorius turrets to an inactive state:
                 this.returnVictoriusTurretsToDisengagedState();
@@ -128,7 +128,7 @@ namespace BBN_Game.AI
                 foreach (TeamInformation ti in infoOnTeams)
                     ti.garbageCollection();
             }
-            if (instructionStep == 2)
+            if (instructionStep == 10)
                 instructionStep = 0;
             else
                 instructionStep++;
@@ -735,20 +735,28 @@ namespace BBN_Game.AI
                     continue;
                 int numFightersToBuy = 0;
                 int numDestroyersToBuy = 0;
+                int numberOfFightersOnSpawnList = 0;
+                int numberOfDestroyersOnSpawnList = 0;
+                foreach (DynamicObject o in ti.spawnQueue)
+                    if (o is Fighter)
+                        numberOfFightersOnSpawnList++;
+                    else if (o is Destroyer)
+                        numberOfDestroyersOnSpawnList++;
                 if (ti.maxFighters > ti.teamFighters.Count)
                 {
                     if (ti.maxDestroyers <= ti.teamDestroyers.Count)
-                        numFightersToBuy = (int)Math.Min(ti.teamCredits / TradingInformation.fighterCost,ti.maxFighters);
+                        numFightersToBuy = (int)Math.Min(ti.teamCredits / TradingInformation.fighterCost, ti.maxFighters - ti.teamFighters.Count - numberOfFightersOnSpawnList);
                     else
                     {
-                        numFightersToBuy = (int)Math.Min((int)(ti.teamCredits * PERCENT_OF_CREDITS_TO_SPEND_ON_FIGHTERS_WHEN_SHORT_ON_BOTH / 
-                            TradingInformation.fighterCost), ti.maxFighters);
+                        numFightersToBuy = (int)Math.Min((int)(ti.teamCredits * PERCENT_OF_CREDITS_TO_SPEND_ON_FIGHTERS_WHEN_SHORT_ON_BOTH /
+                            TradingInformation.fighterCost), ti.maxFighters - ti.teamFighters.Count - numberOfFightersOnSpawnList);
                         numDestroyersToBuy = (int)Math.Min((int)(ti.teamCredits * PERCENT_OF_CREDITS_TO_SPEND_ON_DESTROYERS_WHEN_SHORT_ON_BOTH /
-                            TradingInformation.destroyerCost), ti.maxDestroyers);
+                            TradingInformation.destroyerCost), ti.maxDestroyers - ti.teamDestroyers.Count - numberOfDestroyersOnSpawnList);
                     }
                 }
                 else if (ti.maxDestroyers > ti.teamDestroyers.Count)
-                    numDestroyersToBuy = (int)Math.Min(ti.teamCredits / TradingInformation.destroyerCost,ti.maxDestroyers);
+                    numDestroyersToBuy = (int)Math.Min(ti.teamCredits / TradingInformation.destroyerCost,
+                        ti.maxDestroyers - ti.teamDestroyers.Count - numberOfDestroyersOnSpawnList);
                 for (int i = 0; i < numDestroyersToBuy; ++i)
                 {
                     Destroyer d = new Destroyer(game, ti.teamId, Vector3.Zero);
