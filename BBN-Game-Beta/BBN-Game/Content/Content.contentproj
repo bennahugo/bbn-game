@@ -271,6 +271,11 @@
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Compile Include="Models\Ships\spaceStation.fbx">
+      <Name>spaceStation</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
     <Compile Include="Models\Projectiles\Cube.fbx">
       <Name>Cube</Name>
       <Importer>FbxImporter</Importer>

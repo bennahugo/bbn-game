@@ -901,13 +901,6 @@ namespace BBN_Game.Controller
                             if (obj is Objects.Projectile && other is Objects.Projectile)
                                 return;
 
-                            //if (obj.getBoundingSphere().Intersects(other.getBoundingSphere()))
-                            //   checkTwoObjects((Objects.StaticObject)obj, ((Objects.StaticObject)other));
-                             
-                            if ((obj is Objects.DynamicObject ? navComputer.isObjectRegistered(obj) : false) &&
-                            (other is Objects.DynamicObject ? navComputer.isObjectRegistered(other as Objects.DynamicObject) : false) ||
-                                obj is Objects.Projectile && other is Objects.Projectile)
-                                continue;
                             if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld,
                                 obj is Objects.Bullet || obj is Objects.Missile || other is Objects.Bullet || other is Objects.Missile))
                             {
