@@ -399,10 +399,7 @@ namespace BBN_Game.Objects
                 if (((playerObject)this).getViewport.Equals(Game.GraphicsDevice.Viewport))
                     return;
 
-            if (this is Objects.Projectile)
-                return;
-
-            if ((this.Position - currentPlayerforViewport.Position).Length() > 600)
+            if (this is Objects.Bullet)
                 return;
 
             if (IsVisible(cam))
