@@ -62,7 +62,7 @@ namespace BBN_Game.Objects
         protected List<Vector3> gridLocations;
         #endregion  
 
-        BoundingSphere Bsphere;
+        protected BoundingSphere Bsphere;
 
         /// <summary>
         /// Static variables for rotaion speeds
@@ -331,7 +331,7 @@ namespace BBN_Game.Objects
             return false;
         }
 
-        private int getGreatestLengthValue()
+        protected BoundingSphere createShpere()
         {
             BoundingSphere sphere = new BoundingSphere();
 
@@ -345,9 +345,14 @@ namespace BBN_Game.Objects
             }
             sphere.Radius *= this.shipData.scale;
 
-            Bsphere = sphere;
+            return sphere;
+        }
 
-            return (int)(sphere.Radius * 2);
+        private int getGreatestLengthValue()
+        {
+            Bsphere = createShpere();
+
+            return (int)(Bsphere.Radius * 2);
         }
 
         public virtual void killObject()
@@ -387,7 +392,7 @@ namespace BBN_Game.Objects
         /// </summary>
         /// <param name="cam">Camera MAtrices class</param>
         /// <param name="currentPlayerforViewport">The current player for the viewport</param>
-        public void drawSuroundingBox(Camera.CameraMatrices cam, playerObject currentPlayerforViewport)
+        public void drawSuroundingBox(SpriteBatch b, Camera.CameraMatrices cam, playerObject currentPlayerforViewport)
         {
              //if its the current player dont draw it
             if (this is playerObject)
@@ -404,7 +409,7 @@ namespace BBN_Game.Objects
             {
                 Vector2 screenViewport = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
-                if (setVertexCoords(cam, screenViewport, currentPlayerforViewport))
+                if (setVertexCoords(b, cam, screenViewport, currentPlayerforViewport))
                     drawBox(screenViewport);
             }
         }
@@ -416,7 +421,7 @@ namespace BBN_Game.Objects
         /// <param name="screenViewport">The Screen viewport dimensions</param>
         /// <param name="player">The player for the current viewport</param>
         /// <returns></returns>
-        private Boolean setVertexCoords(Camera.CameraMatrices cam, Vector2 screenViewport, playerObject player)
+        private Boolean setVertexCoords(SpriteBatch b, Camera.CameraMatrices cam, Vector2 screenViewport, playerObject player)
         {
             Color col;
             if (this is Objects.Turret)
@@ -455,7 +460,7 @@ namespace BBN_Game.Objects
             screenY = halfScreenY - ((screenPos.Y / screenPos.W) * halfScreenY);
             float distanceToPlayer = (Position - player.Position).Length();
 
-            drawData(distanceToPlayer, screenX, screenY, radiusOfObject, col); // draw the distances to the object
+            drawData(b, distanceToPlayer, screenX, screenY, radiusOfObject, col); // draw the distances to the object
 
             // set the variable to the new position vectors
             targetBoxVB.SetData<VertexPositionColor>(targetBoxVertices);
@@ -505,18 +510,14 @@ namespace BBN_Game.Objects
         /// <param name="y">Y pos of the object</param>
         /// <param name="radius">Radius of the object</param>
         /// <param name="col">Colour for the box</param>
-        private void drawData(float distance, float x, float y, float radius, Color col)
+        private void drawData(SpriteBatch b, float distance, float x, float y, float radius, Color col)
         {
             GraphicsDevice.RenderState.DepthBufferEnable = false;
             GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
-            SpriteBatch b = new SpriteBatch(Game.GraphicsDevice);
 
             b.Begin();
             b.DrawString(targetBoxFont, distance.ToString("0000"), new Vector2(x + radius, y + radius), col);
             b.End();
-
-            b.Dispose();
-            b = null;
 
             GraphicsDevice.RenderState.DepthBufferEnable = true;
             GraphicsDevice.RenderState.DepthBufferWriteEnable = true;

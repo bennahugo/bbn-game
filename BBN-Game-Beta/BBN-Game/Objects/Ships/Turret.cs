@@ -76,6 +76,9 @@ namespace BBN_Game.Objects
             else
                 model = Game.Content.Load<Model>("Models/Ships/Turret2");
 
+            // since this model changes we need to recalculate the bounding sphere
+            Bsphere = createShpere();
+
             base.resetModels();
         }
 

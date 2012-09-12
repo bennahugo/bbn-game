@@ -498,10 +498,10 @@ namespace BBN_Game.Controller
             // we have to draw the huds afterward so that in third person camera the huds will draw above the player (as the dpth buffer is removed)
             for (i = 0; i < AllObjects.Count; ++i)
                 if ((AllObjects.ElementAt(i).Position - cam.Position).Length() < HUD_DETAIL_CULL_DISTANCE)
-                    AllObjects.ElementAt(i).drawSuroundingBox(cam, player);
+                    AllObjects.ElementAt(i).drawSuroundingBox(game.sb, cam, player);
 
             //draw the players hud now (so that the target boxes wont obscure them)
-            player.drawHud(DynamicObjs);
+            player.drawHud(DynamicObjs, gameTime);
             
             //TODO DEBUG: draw the paths of the AI
             //drawPaths(gameTime, player.Camera, new BasicEffect(game.GraphicsDevice, null), game.GraphicsDevice);
@@ -889,7 +889,7 @@ namespace BBN_Game.Controller
         #region "Collision Detection"
         public void checkCollision()
         {
-            foreach (Objects.DynamicObject obj in DynamicObjs)
+           foreach (Objects.DynamicObject obj in DynamicObjs)
                 if (!obj.Position.Equals(obj.getPreviousPosition))
             {
                 List<Grid.GridObjectInterface> list = gameGrid.checkNeighbouringBlocks(obj);
@@ -898,8 +898,15 @@ namespace BBN_Game.Controller
                     {
                         if (!other.Equals(obj))
                         {
+                            if (obj is Objects.Projectile && other is Objects.Projectile)
+                                return;
+
+                            //if (obj.getBoundingSphere().Intersects(other.getBoundingSphere()))
+                            //   checkTwoObjects((Objects.StaticObject)obj, ((Objects.StaticObject)other));
+                             
                             if ((obj is Objects.DynamicObject ? navComputer.isObjectRegistered(obj) : false) &&
-                            (other is Objects.DynamicObject ? navComputer.isObjectRegistered(other as Objects.DynamicObject) : false))
+                            (other is Objects.DynamicObject ? navComputer.isObjectRegistered(other as Objects.DynamicObject) : false) ||
+                                obj is Objects.Projectile && other is Objects.Projectile)
                                 continue;
                             if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld,
                                 obj is Objects.Bullet || obj is Objects.Missile || other is Objects.Bullet || other is Objects.Missile))

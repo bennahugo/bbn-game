@@ -27,10 +27,10 @@ namespace BBN_Game.AI
         public const int PRIORITY_FOR_ELIMINATING_BASE = 1;
         public const int FIGHTERS_TO_SCRAMBLE_FOR_PLAYER = 6;
         public const int FIGHTERS_TO_SCRAMBLE_FOR_DESTROYER = 3;
-        public const int FIGHTER_GUNS_COOLDOWN = 20;
-        public const int DESTROYER_GUNS_COOLDOWN = 40;
-        public const int PLAYER_GUNS_COOLDOWN = 15;
-        public const int TURRET_GUNS_COOLDOWN = 30;
+        public const int FIGHTER_GUNS_COOLDOWN = 70;
+        public const int DESTROYER_GUNS_COOLDOWN = 140;
+        public const int PLAYER_GUNS_COOLDOWN = 50;
+        public const int TURRET_GUNS_COOLDOWN = 120;
         public const float DETECTION_RADIUS = 250;
         public const float LINE_OF_SIGHT_CLOSE_DIST_MULTIPLYER = 2;
         #endregion

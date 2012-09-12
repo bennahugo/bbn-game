@@ -28,6 +28,11 @@ namespace BBN_Game
             set { graphics = value; }
         }
 
+        public SpriteBatch sb
+        {
+            get { return spriteBatch; }
+        }
+
         Controller.GameController gameControler;
 
         public BBNGame()

@@ -18,7 +18,7 @@ namespace BBN_Game.Collision_Detection
         /// Modify this const to set the number of vertices per bounding sphere. This may speed up
         /// collision detection at the cost of accuracy.
         /// </summary>
-        public const int NUM_VERTICES_PER_BOX = 50;
+        public const int NUM_VERTICES_PER_BOX = 66;
         public const float BLOCK_SIZE_FACTOR = 0.015f;
         /// <summary>
         /// Each model part will have several datastrutures associated with it so we need an array of objects to store them all
@@ -82,7 +82,6 @@ namespace BBN_Game.Collision_Detection
                                     results.Add(bs);
                                 }
                             }
-                    
                     //add bounding sphere over model part
                     BoundingSphere partsphere = results.First();
                     for (int i = 1; i < results.Count; ++i)
@@ -142,14 +141,11 @@ namespace BBN_Game.Collision_Detection
         /// <returns>transformed bounding box</returns>
         public static BoundingSphere TransformBox(BoundingSphere input, Matrix world)
         {
-            Vector3 scale = Vector3.Zero;
-            Vector3 transform = Vector3.Zero;
-            Quaternion rot = Quaternion.Identity;
-            world.Decompose(out scale, out rot, out transform);
-            return new BoundingSphere(Vector3.Transform(input.Center, world),
-                Math.Max(Math.Max((input.Radius * Vector3.Up * scale.X).Length(), 
-                (input.Radius * Vector3.Right * scale.Y).Length()), 
-                (input.Radius * Vector3.Backward * scale.Z).Length()));
+            return input.Transform(world);
+            /*Vector3[] points = BoundingBox.CreateFromSphere(input).GetCorners();
+            for (int i = 0; i < points.Length; ++i)
+                points[i] = Vector3.Transform(points[i],world);
+            return BoundingSphere.CreateFromPoints(points);*/
         }
 
         /// <summary>
