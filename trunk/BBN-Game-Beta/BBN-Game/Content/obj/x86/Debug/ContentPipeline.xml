@@ -540,6 +540,26 @@
       <Output>obj\x86\Debug\Models\Projectiles\Cube_0.xml</Output>
       <Time>2012-09-11T11:10:36+02:00</Time>
     </Item>
+    <Item>
+      <Source>Models\Ships\spaceStation.fbx</Source>
+      <Name>Models\Ships\spaceStation</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\spaceStation.xnb</Output>
+      <Time>2012-09-12T17:51:56.8706786+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Key>
+        <Value>2012-09-12T17:52:03.7220705+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\spaceStation.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Output>
+      <Time>2012-09-12T17:51:56.8706786+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

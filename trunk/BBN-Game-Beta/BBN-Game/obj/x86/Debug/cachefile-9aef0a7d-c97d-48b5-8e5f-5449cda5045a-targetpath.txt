@@ -42,4 +42,5 @@ Content\Models\Ships\Fighter4.xnb
 Content\Models\Ships\Turret1.xnb
 Content\Models\Ships\Turret2.xnb
 Content\Models\Projectiles\Cube.xnb
+Content\Models\Ships\spaceStation.xnb
 Content\Maps\Death Zone.xml
