@@ -5,23 +5,22 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BBN-Game")]
-[assembly: AssemblyProduct("BBN-Game")]
+[assembly: AssemblyTitle("BBN_GAME_XBOX")]
+[assembly: AssemblyProduct("BBN_GAME_XBOX")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyCompany("Microsoft")]
-
-[assembly: AssemblyCopyright("Copyright © Microsoft 2012")]
+[assembly: AssemblyCompany("UCT Computer Science")]
+[assembly: AssemblyCopyright("Copyright © UCT Computer Science 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components. Xbox 360 assemblies do not support COM.
 [assembly: ComVisible(false)]
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("31bf2442-56c6-4517-a2b4-1378ac574b48")]
-
+// If this assembly is the startup assembly, the following Guid is used to
+// uniquely identify the title storage container when deploying this assembly
+// to the Xbox 360 console.
+[assembly: Guid("dfcc1c57-8f96-4b85-b3ea-9ff71a704650")]
 
 // Version information for an assembly consists of the following four values:
 //

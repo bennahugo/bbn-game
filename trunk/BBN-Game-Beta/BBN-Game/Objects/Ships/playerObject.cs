@@ -56,7 +56,7 @@ namespace BBN_Game.Objects
         static Texture2D HudBarHolder;
         static Texture2D HudBar;
 
-        private const float MissileReload = 10, MechinegunReload = 0.2f, DefensiveReload = 20;
+        private const float MissileReload = 7, MechinegunReload = 0.5f, DefensiveReload = 20;
 
         private float [] reloadTimer;
 
@@ -136,8 +136,8 @@ namespace BBN_Game.Objects
             typeOfLine = PrimitiveType.LineList;
 
             Shield = 100;
-            Health = 100;
-            totalHealth = 100;
+            Health = 1000;
+            totalHealth = 1000;
         }
         
         /// <summary>
@@ -751,7 +751,7 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Draws the payers hud
         /// </summary>
-        public void drawHud(List<Objects.StaticObject> list)
+        public void drawHud(List<Objects.StaticObject> list, GameTime gt)
         {
             if (!Game.GraphicsDevice.Viewport.Equals(playerViewport))
                 return;
@@ -767,6 +767,8 @@ namespace BBN_Game.Objects
             int hudWidth = (int)((float)viewport.Width * 0.2f);
 
             sb.Begin();
+
+            sb.DrawString(f, 1 / gt.ElapsedGameTime.TotalSeconds + "", new Vector2(100, 100), Color.Green);
 
             #region "Speed"
             sb.DrawString(f, shipData.speed.ToString("00"), new Vector2(hudWidth * 0.15f, viewport.Height - hudHeight * 0.55f), Color.Aqua);
