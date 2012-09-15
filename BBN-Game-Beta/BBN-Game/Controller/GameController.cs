@@ -413,7 +413,7 @@ namespace BBN_Game.Controller
                     for (i = 0; i < AllObjects.Count; ++i)
                         AllObjects.ElementAt(i).Update(gameTime);
 
-                    SkyBox.Update(gameTime);
+                    //SkyBox.Update(gameTime);
 
                     if (GamePad.GetState(PlayerIndex.One).IsConnected)
                         handleXboxControls();
@@ -450,10 +450,7 @@ namespace BBN_Game.Controller
                 if (ObjectsLoaded)
                 {
                     //reset graphics device state to draw 3D correctly (after spritebatch has drawn the system is in an invalid state)
-                    game.GraphicsDevice.RenderState.AlphaBlendEnable = false;
-                    game.GraphicsDevice.RenderState.AlphaTestEnable = false;
-                    game.GraphicsDevice.RenderState.DepthBufferEnable = true;
-                    game.GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
+                    
                     #region "Player 1"
                     drawObjects(gameTime, Player1);
                     if (tradePanelUp1)//handle trade panel poping up                    
@@ -495,6 +492,10 @@ namespace BBN_Game.Controller
             game.GraphicsDevice.Viewport = player.getViewport;
             // draw skybox fist each time
             SkyBox.Draw(gameTime, cam);
+            game.GraphicsDevice.RenderState.DepthBufferEnable = true;
+            game.GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
+            game.GraphicsDevice.RenderState.AlphaBlendEnable = false;
+            game.GraphicsDevice.RenderState.AlphaTestEnable = false;
             // draw all other objects
             for (i = 0; i < AllObjects.Count; ++i)
                 if ((AllObjects.ElementAt(i).Position - cam.Position).Length() < DETAIL_CULL_DISTANCE)
@@ -905,9 +906,11 @@ namespace BBN_Game.Controller
                         {
                             if (obj is Objects.Projectile && other is Objects.Projectile)
                                 return;
-
-                            if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(obj.shipModel, ((Objects.StaticObject)other).shipModel, obj.getWorld, ((Objects.StaticObject)other).getWorld,
-                                obj is Objects.Bullet || obj is Objects.Missile || other is Objects.Bullet || other is Objects.Missile))
+                            Objects.StaticObject o1 = obj as Objects.StaticObject;
+                            Objects.StaticObject o2 = other as Objects.StaticObject;                            
+                            if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(o1.shipModel, o2.shipModel,
+                                o1.getWorld,o2.getWorld,
+                                o1 is Objects.Projectile || o2 is Objects.Projectile))
                             {
                                 // Collision occured call on the checker
                                 checkTwoObjects(obj, ((Objects.StaticObject)other));
@@ -916,7 +919,6 @@ namespace BBN_Game.Controller
                     }
             }
         }
-
         private void checkTwoObjects(Objects.StaticObject obj1, Objects.StaticObject obj2)
         {
             if (obj1 is Objects.Projectile || obj2 is Objects.Projectile)
