@@ -58,35 +58,20 @@ namespace BBN_Game.Grid
             int gridX_forward = (int)Math.Round((double)((rotation.Forward.X*distance) / GRID_BLOCK_SIZE)) + grid_offset;//forward position
             int gridY_forward = (int)Math.Round((double)((rotation.Forward.Y*distance) / GRID_BLOCK_SIZE)) + grid_offset;
             int gridZ_forward = (int)Math.Round((double)((rotation.Forward.Z*distance) / GRID_BLOCK_SIZE)) + grid_offset;
-
-            //determine what direction to scan grid for targets
-            Boolean x_positive, y_positive, z_positive;
-            if (gridX_pos < gridX_forward)
-                x_positive = true;
-            else
-                x_positive = false;
-            if (gridY_pos < gridY_forward)
-                y_positive = true;
-            else
-                y_positive = false;
-            if (gridZ_pos < gridZ_forward)
-                z_positive = true;
-            else
-                z_positive = false;
-
+                        
             //loop through blocks in-front of player 
             #region along x-axis
-            if (x_positive)
+            if (gridX_pos < gridX_forward)
             {
                 for (int x = gridX_pos; x < gridX_forward; x++)
                 {
                     #region along y-axis
-                    if (y_positive)
+                    if (gridY_pos < gridY_forward)
                     {
                         for (int y = gridY_pos; y < gridY_forward; y++)
                         {
                             #region along z-axis
-                            if (z_positive)
+                            if (gridZ_pos < gridZ_forward)
                             {
                                 for (int z = gridZ_pos; z < gridZ_forward; z++)
                                 {
@@ -97,7 +82,7 @@ namespace BBN_Game.Grid
                                             GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
 
                                             //check if object is within player's view cone +- 45 degrees
-                                            float theta = Vector3.Dot(Vector3.Normalize(rotation.Forward*distance), Vector3.Normalize(tempObj.Position-playerPosition));
+                                            float theta = Vector3.Dot(Vector3.Normalize(rotation.Forward), Vector3.Normalize(tempObj.Position-playerPosition));
                                             if ((-0.75 <= theta) && ( theta <= 0.75))
                                             {
                                                 double dist = (tempObj.Position - playerPosition).Length();
@@ -132,7 +117,7 @@ namespace BBN_Game.Grid
                         for (int y = gridY_pos; y < gridY_forward; y--)
                         {
                             #region along z-axis
-                            if (z_positive)
+                            if (gridZ_pos < gridZ_forward)
                             {
                                 for (int z = gridZ_pos; z < gridZ_forward; z++)
                                 {
@@ -175,12 +160,12 @@ namespace BBN_Game.Grid
                 for (int x = gridX_pos; x < gridX_forward; x--)
                 {
                     #region along y-axis
-                    if (y_positive)
+                    if (gridY_pos < gridY_forward)
                     {
                         for (int y = gridY_pos; y < gridY_forward; y++)
                         {
                             #region along z-axis
-                            if (z_positive)
+                            if (gridZ_pos < gridZ_forward)
                             {
                                 for (int z = gridZ_pos; z < gridZ_forward; z++)
                                 {
@@ -220,7 +205,7 @@ namespace BBN_Game.Grid
                         for (int y = gridY_pos; y < gridY_forward; y--)
                         {
                             #region along z-axis
-                            if (z_positive)
+                            if (gridZ_pos < gridZ_forward)
                             {
                                 for (int z = gridZ_pos; z < gridZ_forward; z++)
                                 {
