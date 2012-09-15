@@ -93,11 +93,17 @@ namespace BBN_Game.Grid
                                     if (grid[x, y, z].Count > 0)
                                     {
                                         for (int i = 0; i < grid[x, y, z].Count; i++)
-                                        {
+                                        {                                            
                                             GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
-                                            double dist = (tempObj.Position - playerPosition).Length();
-                                            KeyValuePair<double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
-                                            queue.Add(temp);
+
+                                            //check if object is within player's view cone +- 45 degrees
+                                            float theta = Vector3.Dot(Vector3.Normalize(rotation.Forward*distance), Vector3.Normalize(tempObj.Position-playerPosition));
+                                            if ((-0.75 <= theta) && ( theta <= 0.75))
+                                            {
+                                                double dist = (tempObj.Position - playerPosition).Length();
+                                                KeyValuePair<double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
+                                                queue.Add(temp);
+                                            }                                            
                                         }
                                     }
                                 }
