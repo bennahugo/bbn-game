@@ -18,7 +18,7 @@ namespace BBN_Game.Collision_Detection
         /// Modify this const to set the number of vertices per bounding sphere. This may speed up
         /// collision detection at the cost of accuracy.
         /// </summary>
-        public const int NUM_VERTICES_PER_BOX = 66;
+        public const int NUM_VERTICES_PER_BOX = 100;
         public const float BLOCK_SIZE_FACTOR = 0.015f;
         /// <summary>
         /// Each model part will have several datastrutures associated with it so we need an array of objects to store them all
@@ -141,11 +141,16 @@ namespace BBN_Game.Collision_Detection
         /// <returns>transformed bounding box</returns>
         public static BoundingSphere TransformBox(BoundingSphere input, Matrix world)
         {
-            return input.Transform(world);
-            /*Vector3[] points = BoundingBox.CreateFromSphere(input).GetCorners();
-            for (int i = 0; i < points.Length; ++i)
-                points[i] = Vector3.Transform(points[i],world);
-            return BoundingSphere.CreateFromPoints(points);*/
+            Vector3 scale = Vector3.Zero;
+            Vector3 translate = Vector3.Zero;
+            Quaternion rotation = Quaternion.Identity;
+            world.Decompose(out scale, out rotation, out translate);
+
+            float dist = Math.Max(input.Radius*scale.X,
+                Math.Max(input.Radius * scale.Y,
+                input.Radius*scale.Z));
+            return new BoundingSphere(Vector3.Transform(input.Center,world),
+                dist);
         }
 
         /// <summary>
@@ -242,8 +247,8 @@ namespace BBN_Game.Collision_Detection
             if (!TransformBox((BoundingSphere)object1.Tag, object1Transformation).Intersects(
                TransformBox((BoundingSphere)object2.Tag, object2Transformation)))
                     return false;
-            if (testOnlyUptoOverAllMesh) return true;
- 
+            if (testOnlyUptoOverAllMesh)
+                return true;
             //Check now if mesh bounding boxes intersect:
             foreach (ModelMesh mesh1 in object1.Meshes)
             {

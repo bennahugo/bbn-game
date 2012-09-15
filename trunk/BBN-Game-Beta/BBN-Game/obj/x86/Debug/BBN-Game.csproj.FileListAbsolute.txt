@@ -168,3 +168,12 @@ C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Deb
 C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\spaceStation.xnb
 C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\playerShip.xnb
 C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter4.xnb
+C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\playerShip.xnb
+C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\spaceStation.xnb
+C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter2.xnb
+C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter3.xnb
+C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Turret1.xnb
+C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter4.xnb
+C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter1.xnb
+C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Turret2.xnb
+C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Projectiles\Cube.xnb

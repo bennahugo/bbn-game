@@ -23,11 +23,14 @@ namespace BBN_Game.AI
         private const int TARGET_WP_BUFFER = 120;
         private const float CHASE_WHEN_FURTHER = 70;
         private const float ASTAR_RANDOM_FACTOR = 50;
-
+        private const int AI_MOVEMENT_SLOT_COUNT = 5;
         private GridStructure spatialGrid;
         internal Dictionary<DynamicObject, PathInformation> objectPaths;
         private Dictionary<DynamicObject,int> movementYieldList;
         private Dictionary<DynamicObject, int> dodgeInactiveCountDown;
+        private int currentSlot = 0;
+        //private int ticks_Till_Next_Update = 0;
+
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -252,8 +255,9 @@ namespace BBN_Game.AI
         public void updateAIMovement(GameTime gt)
         {
             //Clear the yield list at the beginning of the step:
-            foreach (DynamicObject ai in objectPaths.Keys)
+            for (int i = AI_MOVEMENT_SLOT_COUNT * currentSlot; i < AI_MOVEMENT_SLOT_COUNT * (currentSlot + 1) && i < objectPaths.Keys.Count; ++i)
             {
+                DynamicObject ai = objectPaths.Keys.ElementAt(i);
                 //reset the speed:
                 ai.ShipMovementInfo.speed = 0;
 
@@ -287,7 +291,7 @@ namespace BBN_Game.AI
                     //if very close to the next waypoint remove that waypoint so that we can go to the next:
                     if (distToWayPoint <= veryCloseToWaypoint)
                         pathInfo.reachedWaypoint();
-                    else/* if (nearbyList.Count == 0)*/
+                    else// if (nearbyList.Count == 0)
                     {   //We want our ship to slowly rotate towards the direction it has to move in:
                         Vector3 vLookDir = Vector3.Zero, vWantDir = Vector3.Zero;
                         turnAI(ref vWantDir, ref vLookDir, ai, pathInfo.currentWaypoint.Position, gt);
@@ -300,6 +304,10 @@ namespace BBN_Game.AI
                     }
                 }
             }
+            if ((currentSlot + 1) * AI_MOVEMENT_SLOT_COUNT < objectPaths.Keys.Count)
+                currentSlot++;
+            else
+                currentSlot = 0;
         }
         /// <summary>
         /// Performs a dogfight move against the opponent
@@ -322,17 +330,18 @@ namespace BBN_Game.AI
                 //we clear the waypoint list and add new waypoints:
                 if (waypointList.Count > 0)
                 {
-                    if ((wpPosition - waypointList.ElementAt(0).Position).Length() > TARGET_WP_BUFFER)
+                    bool shouldAddTopWaypt = (Vector3.Dot(Vector3.Normalize(Matrix.CreateFromQuaternion(target.rotation).Forward), Vector3.Normalize(target.Position - ai.Position)) > 0);
+                    if ((wpPosition - waypointList.ElementAt(0).Position).Length() > TARGET_WP_BUFFER || shouldAddTopWaypt)
                     {
                         waypointList.Clear();
-                        if (Vector3.Dot(Vector3.Normalize(Matrix.CreateFromQuaternion(target.rotation).Forward), Vector3.Normalize(ai.Position - target.Position)) < 0)
+                        if (shouldAddTopWaypt)
                             waypointList.Insert(0, new Node(wpDPosition, -1));
                         waypointList.Insert(0, new Node(wpPosition, -1));
                     }
                 }
                 else
                 {
-                    if (Vector3.Dot(Vector3.Normalize(Matrix.CreateFromQuaternion(target.rotation).Forward), Vector3.Normalize(ai.Position - target.Position)) < 0)
+                    if (Vector3.Dot(Vector3.Normalize(Matrix.CreateFromQuaternion(target.rotation).Forward), Vector3.Normalize(target.Position - ai.Position)) > 0)
                         waypointList.Insert(0, new Node(wpDPosition, -1));
                     waypointList.Insert(0, new Node(wpPosition, -1));
                 }
