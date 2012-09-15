@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2012-09-10T10:34:41.6894851+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2012-09-13T09:56:37.8135164+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\distanceFont.spritefont</Source>
@@ -16,8 +16,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\distanceFont.xnb</Output>
-      <Time>2012-09-10T10:34:41.6424824+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\distanceFont.xnb</Output>
+      <Time>2012-09-13T09:56:37.5315002+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\menuFont.spritefont</Source>
@@ -25,8 +25,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\menuFont.xnb</Output>
-      <Time>2012-09-10T10:34:41.6374822+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\menuFont.xnb</Output>
+      <Time>2012-09-13T09:56:37.2844861+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\selectedFont.spritefont</Source>
@@ -34,8 +34,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\selectedFont.xnb</Output>
-      <Time>2012-09-10T10:34:41.6394823+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\selectedFont.xnb</Output>
+      <Time>2012-09-13T09:56:37.4534958+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\pause_menu.spritefont</Source>
@@ -43,8 +43,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\pause_menu.xnb</Output>
-      <Time>2012-09-10T10:34:41.6444826+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\pause_menu.xnb</Output>
+      <Time>2012-09-13T09:56:37.6165051+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\trade_menu.spritefont</Source>
@@ -52,8 +52,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\trade_menu.xnb</Output>
-      <Time>2012-09-10T10:34:41.635482+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\trade_menu.xnb</Output>
+      <Time>2012-09-13T09:56:37.7515128+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\FighterBlue.fbx</Source>
@@ -61,11 +61,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterBlue.xnb</Output>
-      <Time>2012-09-10T10:34:31.9699292+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterBlue.xnb</Output>
+      <Time>2012-09-13T09:56:33.5302714+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\FighterBlue_0.xml</Key>
-        <Value>2012-09-10T11:01:42.421997+02:00</Value>
+        <Value>2012-09-13T09:57:32.0436181+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -74,11 +74,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterRed.xnb</Output>
-      <Time>2012-09-10T10:34:31.9539283+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterRed.xnb</Output>
+      <Time>2012-09-13T09:56:32.8172306+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\FighterRed_0.xml</Key>
-        <Value>2012-09-10T11:01:43.9940869+02:00</Value>
+        <Value>2012-09-13T09:57:37.1379095+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -87,11 +87,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerBlue.xnb</Output>
-      <Time>2012-09-10T10:34:31.9609287+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerBlue.xnb</Output>
+      <Time>2012-09-13T09:56:32.8822343+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\PlayerBlue_0.xml</Key>
-        <Value>2012-09-10T11:01:45.2671598+02:00</Value>
+        <Value>2012-09-13T09:57:39.9190686+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -100,11 +100,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerRed.xnb</Output>
-      <Time>2012-09-10T10:34:31.965929+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerRed.xnb</Output>
+      <Time>2012-09-13T09:56:33.1182478+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\PlayerRed_0.xml</Key>
-        <Value>2012-09-10T11:01:46.5042305+02:00</Value>
+        <Value>2012-09-13T09:57:42.7912329+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -113,292 +113,38 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Projectiles\Missile.xnb</Output>
-      <Time>2012-09-10T10:34:26.8006335+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Projectiles\Missile.xnb</Output>
+      <Time>2012-09-13T09:56:32.7482266+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Projectiles\Missile_0.xml</Key>
-        <Value>2012-09-10T11:01:47.6432957+02:00</Value>
+        <Value>2012-09-13T09:57:44.9373556+02:00</Value>
       </Dependency>
     </Item>
     <Item>
-      <Source>Shader\skyBoxEffect.fx</Source>
-      <Name>Shader\skyBoxEffect</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Shader\skyBoxEffect.xnb</Output>
-      <Time>2012-09-10T10:34:41.5964798+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Shader\targetBox.fx</Source>
-      <Name>Shader\targetBox</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Shader\targetBox.xnb</Output>
-      <Time>2012-09-10T10:34:41.5984799+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Skybox\Starfield.png</Source>
-      <Name>Skybox\Starfield</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\Starfield.xnb</Output>
-      <Time>2012-09-10T10:34:26.7086283+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Skybox\space1.jpg</Source>
-      <Name>Skybox\space1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space1.xnb</Output>
-      <Time>2012-09-10T10:34:26.7116285+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Skybox\space2.jpg</Source>
-      <Name>Skybox\space2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space2.xnb</Output>
-      <Time>2012-09-10T10:34:26.7136286+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Skybox\space3.jpg</Source>
-      <Name>Skybox\space3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space3.xnb</Output>
-      <Time>2012-09-10T10:34:26.7166287+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Skybox\space4.jpg</Source>
-      <Name>Skybox\space4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space4.xnb</Output>
-      <Time>2012-09-10T10:34:26.7196289+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Skybox\space5.jpg</Source>
-      <Name>Skybox\space5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space5.xnb</Output>
-      <Time>2012-09-10T10:34:26.7056281+02:00</Time>
-    </Item>
-    <Item>
-      <Source>HudTextures\HealthBar.png</Source>
-      <Name>HudTextures\HealthBar</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBar.xnb</Output>
-      <Time>2012-09-10T10:34:32.1989423+02:00</Time>
-    </Item>
-    <Item>
-      <Source>HudTextures\HealthBarHolder.png</Source>
-      <Name>HudTextures\HealthBarHolder</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBarHolder.xnb</Output>
-      <Time>2012-09-10T10:34:32.192942+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\nebula_blue.jpg</Source>
-      <Name>Menu\nebula_blue</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\nebula_blue.xnb</Output>
-      <Time>2012-09-10T10:34:41.5804789+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\waterfall_city.jpg</Source>
-      <Name>Menu\waterfall_city</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\waterfall_city.xnb</Output>
-      <Time>2012-09-10T10:34:41.5664781+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\trade_menu_new.png</Source>
-      <Name>Menu\trade_menu_new</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\trade_menu_new.xnb</Output>
-      <Time>2012-09-10T10:34:41.5404766+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\pause_menu.png</Source>
-      <Name>Menu\pause_menu</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\pause_menu.xnb</Output>
-      <Time>2012-09-10T10:34:41.5504772+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\dark_trans.png</Source>
-      <Name>Menu\dark_trans</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\dark_trans.xnb</Output>
-      <Time>2012-09-10T10:34:41.5724784+02:00</Time>
-    </Item>
-    <Item>
-      <Source>stats_icons\destroyer2_small.png</Source>
-      <Name>stats_icons\destroyer2_small</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\destroyer2_small.xnb</Output>
-      <Time>2012-09-10T10:34:41.6774844+02:00</Time>
-    </Item>
-    <Item>
-      <Source>stats_icons\destroyer_small.png</Source>
-      <Name>stats_icons\destroyer_small</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\destroyer_small.xnb</Output>
-      <Time>2012-09-10T10:34:41.6724842+02:00</Time>
-    </Item>
-    <Item>
-      <Source>stats_icons\fighter_small.png</Source>
-      <Name>stats_icons\fighter_small</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\fighter_small.xnb</Output>
-      <Time>2012-09-10T10:34:41.670484+02:00</Time>
-    </Item>
-    <Item>
-      <Source>stats_icons\malpha_small.png</Source>
-      <Name>stats_icons\malpha_small</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\malpha_small.xnb</Output>
-      <Time>2012-09-10T10:34:41.6754843+02:00</Time>
-    </Item>
-    <Item>
-      <Source>stats_icons\missile_small.png</Source>
-      <Name>stats_icons\missile_small</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\missile_small.xnb</Output>
-      <Time>2012-09-10T10:34:41.6674839+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\keyboard_controls.png</Source>
-      <Name>Menu\keyboard_controls</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\keyboard_controls.xnb</Output>
-      <Time>2012-09-10T10:34:41.5604778+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\xbox_controls.png</Source>
-      <Name>Menu\xbox_controls</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\xbox_controls.xnb</Output>
-      <Time>2012-09-10T10:34:41.5554775+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\dark_trans_new.png</Source>
-      <Name>Menu\dark_trans_new</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\dark_trans_new.xnb</Output>
-      <Time>2012-09-10T10:34:41.5454769+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\trade_menu_newest.png</Source>
-      <Name>Menu\trade_menu_newest</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\trade_menu_newest.xnb</Output>
-      <Time>2012-09-10T10:34:41.5764787+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\control_menu.png</Source>
-      <Name>Menu\control_menu</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\control_menu.xnb</Output>
-      <Time>2012-09-10T10:34:41.5634779+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\FighterBlue.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\FighterBlue_0.xml</Output>
-      <Time>2012-09-10T10:34:31.9699292+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\FighterRed.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\FighterRed_0.xml</Output>
-      <Time>2012-09-10T10:34:31.9539283+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\PlayerBlue.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\PlayerBlue_0.xml</Output>
-      <Time>2012-09-10T10:34:31.9609287+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\PlayerRed.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\PlayerRed_0.xml</Output>
-      <Time>2012-09-10T10:34:31.965929+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Projectiles\Missile.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Projectiles\Missile_0.xml</Output>
-      <Time>2012-09-10T10:34:26.8006335+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\playerShip.fbx</Source>
-      <Name>Models\Ships\playerShip</Name>
+      <Source>Models\Ships\spaceStation.fbx</Source>
+      <Name>Models\Ships\spaceStation</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\playerShip.xnb</Output>
-      <Time>2012-09-10T13:05:46.3293057+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\spaceStation.xnb</Output>
+      <Time>2012-09-13T09:56:33.4832687+02:00</Time>
       <Dependency>
-        <Key>obj\x86\Debug\Models\Ships\playerShip_0.xml</Key>
-        <Value>2012-09-10T13:07:40.6508445+02:00</Value>
+        <Key>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Key>
+        <Value>2012-09-13T09:57:47.5015023+02:00</Value>
       </Dependency>
     </Item>
     <Item>
-      <Source>Models\Ships\playerShip.fbx</Source>
+      <Source>Models\Projectiles\Cube.fbx</Source>
+      <Name>Models\Projectiles\Cube</Name>
       <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\playerShip_0.xml</Output>
-      <Time>2012-09-10T13:05:46.3293057+02:00</Time>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Projectiles\Cube.xnb</Output>
+      <Time>2012-09-13T09:56:32.5982181+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Projectiles\Cube_0.xml</Key>
+        <Value>2012-09-13T09:57:49.3196063+02:00</Value>
+      </Dependency>
     </Item>
     <Item>
       <Source>Models\Ships\Fighter1.fbx</Source>
@@ -406,11 +152,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter1.xnb</Output>
-      <Time>2012-09-10T13:05:45.3072473+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter1.xnb</Output>
+      <Time>2012-09-13T09:56:33.2032527+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Fighter1_0.xml</Key>
-        <Value>2012-09-10T13:07:40.2108194+02:00</Value>
+        <Value>2012-09-13T09:57:51.1107087+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -419,11 +165,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter2.xnb</Output>
-      <Time>2012-09-10T13:05:45.3112475+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter2.xnb</Output>
+      <Time>2012-09-13T09:56:33.244255+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Fighter2_0.xml</Key>
-        <Value>2012-09-10T13:07:40.2788233+02:00</Value>
+        <Value>2012-09-13T09:57:52.793805+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -432,11 +178,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter3.xnb</Output>
-      <Time>2012-09-10T13:05:45.3142477+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter3.xnb</Output>
+      <Time>2012-09-13T09:56:33.3872632+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Fighter3_0.xml</Key>
-        <Value>2012-09-10T13:07:40.3248259+02:00</Value>
+        <Value>2012-09-13T09:57:54.857923+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -445,11 +191,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter4.xnb</Output>
-      <Time>2012-09-10T13:05:45.319248+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter4.xnb</Output>
+      <Time>2012-09-13T09:56:33.4382661+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Fighter4_0.xml</Key>
-        <Value>2012-09-10T13:07:40.413831+02:00</Value>
+        <Value>2012-09-13T09:57:58.0271043+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -458,11 +204,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Turret1.xnb</Output>
-      <Time>2012-09-10T13:05:46.3323059+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Turret1.xnb</Output>
+      <Time>2012-09-13T09:56:32.9492381+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Turret1_0.xml</Key>
-        <Value>2012-09-10T13:07:40.4748345+02:00</Value>
+        <Value>2012-09-13T09:57:59.7852049+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -471,129 +217,383 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Turret2.xnb</Output>
-      <Time>2012-09-10T13:05:46.3363061+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\Turret2.xnb</Output>
+      <Time>2012-09-13T09:56:33.1642504+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Turret2_0.xml</Key>
-        <Value>2012-09-10T13:07:40.5218372+02:00</Value>
+        <Value>2012-09-13T09:58:01.2822905+02:00</Value>
       </Dependency>
     </Item>
     <Item>
-      <Source>Models\Ships\Fighter1.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\Fighter1_0.xml</Output>
-      <Time>2012-09-10T13:05:45.3072473+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\Fighter2.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\Fighter2_0.xml</Output>
-      <Time>2012-09-10T13:05:45.3112475+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\Fighter3.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\Fighter3_0.xml</Output>
-      <Time>2012-09-10T13:05:45.3142477+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\Fighter4.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\Fighter4_0.xml</Output>
-      <Time>2012-09-10T13:05:45.319248+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\Turret1.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\Turret1_0.xml</Output>
-      <Time>2012-09-10T13:05:46.3323059+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\Turret2.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\Turret2_0.xml</Output>
-      <Time>2012-09-10T13:05:46.3363061+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Projectiles\Cube.fbx</Source>
-      <Name>Models\Projectiles\Cube</Name>
+      <Source>Models\Ships\playerShip.fbx</Source>
+      <Name>Models\Ships\playerShip</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Projectiles\Cube.xnb</Output>
-      <Time>2012-09-11T11:10:36+02:00</Time>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\playerShip.xnb</Output>
+      <Time>2012-09-13T09:56:33.5742739+02:00</Time>
       <Dependency>
-        <Key>obj\x86\Debug\Models\Projectiles\Cube_0.xml</Key>
-        <Value>2012-09-12T11:42:14.9135315+02:00</Value>
+        <Key>obj\x86\Debug\Models\Ships\playerShip_0.xml</Key>
+        <Value>2012-09-13T09:58:03.8974401+02:00</Value>
       </Dependency>
     </Item>
     <Item>
-      <Source>Models\Projectiles\Cube.fbx</Source>
+      <Source>Shader\skyBoxEffect.fx</Source>
+      <Name>Shader\skyBoxEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Shader\skyBoxEffect.xnb</Output>
+      <Time>2012-09-13T09:56:36.5884463+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Shader\targetBox.fx</Source>
+      <Name>Shader\targetBox</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Shader\targetBox.xnb</Output>
+      <Time>2012-09-13T09:56:36.6634506+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\Starfield.png</Source>
+      <Name>Skybox\Starfield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\Starfield.xnb</Output>
+      <Time>2012-09-13T09:56:32.3292027+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space1.jpg</Source>
+      <Name>Skybox\space1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space1.xnb</Output>
+      <Time>2012-09-13T09:56:32.4362088+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space2.jpg</Source>
+      <Name>Skybox\space2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space2.xnb</Output>
+      <Time>2012-09-13T09:56:32.125191+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space3.jpg</Source>
+      <Name>Skybox\space3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space3.xnb</Output>
+      <Time>2012-09-13T09:56:32.1701936+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space4.jpg</Source>
+      <Name>Skybox\space4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space4.xnb</Output>
+      <Time>2012-09-13T09:56:32.2101959+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space5.jpg</Source>
+      <Name>Skybox\space5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space5.xnb</Output>
+      <Time>2012-09-13T09:56:32.265199+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\HealthBar.png</Source>
+      <Name>HudTextures\HealthBar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBar.xnb</Output>
+      <Time>2012-09-13T09:56:33.7672849+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\HealthBarHolder.png</Source>
+      <Name>HudTextures\HealthBarHolder</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBarHolder.xnb</Output>
+      <Time>2012-09-13T09:56:33.7302828+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\nebula_blue.jpg</Source>
+      <Name>Menu\nebula_blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\nebula_blue.xnb</Output>
+      <Time>2012-09-13T09:56:34.3543185+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\waterfall_city.jpg</Source>
+      <Name>Menu\waterfall_city</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\waterfall_city.xnb</Output>
+      <Time>2012-09-13T09:56:36.3644335+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\trade_menu_new.png</Source>
+      <Name>Menu\trade_menu_new</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\trade_menu_new.xnb</Output>
+      <Time>2012-09-13T09:56:34.7403406+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\pause_menu.png</Source>
+      <Name>Menu\pause_menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\pause_menu.xnb</Output>
+      <Time>2012-09-13T09:56:35.0023556+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\dark_trans.png</Source>
+      <Name>Menu\dark_trans</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\dark_trans.xnb</Output>
+      <Time>2012-09-13T09:56:33.874291+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\destroyer2_small.png</Source>
+      <Name>stats_icons\destroyer2_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\destroyer2_small.xnb</Output>
+      <Time>2012-09-13T09:56:37.0174708+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\destroyer_small.png</Source>
+      <Name>stats_icons\destroyer_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\destroyer_small.xnb</Output>
+      <Time>2012-09-13T09:56:36.9384663+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\fighter_small.png</Source>
+      <Name>stats_icons\fighter_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\fighter_small.xnb</Output>
+      <Time>2012-09-13T09:56:36.8944638+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\malpha_small.png</Source>
+      <Name>stats_icons\malpha_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\malpha_small.xnb</Output>
+      <Time>2012-09-13T09:56:37.2044815+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\missile_small.png</Source>
+      <Name>stats_icons\missile_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\missile_small.xnb</Output>
+      <Time>2012-09-13T09:56:36.8234597+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\keyboard_controls.png</Source>
+      <Name>Menu\keyboard_controls</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\keyboard_controls.xnb</Output>
+      <Time>2012-09-13T09:56:35.7283971+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\xbox_controls.png</Source>
+      <Name>Menu\xbox_controls</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\xbox_controls.xnb</Output>
+      <Time>2012-09-13T09:56:35.9654107+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\dark_trans_new.png</Source>
+      <Name>Menu\dark_trans_new</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\dark_trans_new.xnb</Output>
+      <Time>2012-09-13T09:56:35.271371+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\trade_menu_newest.png</Source>
+      <Name>Menu\trade_menu_newest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\trade_menu_newest.xnb</Output>
+      <Time>2012-09-13T09:56:34.1403063+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\control_menu.png</Source>
+      <Name>Menu\control_menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\control_menu.xnb</Output>
+      <Time>2012-09-13T09:56:36.0924179+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\FighterBlue.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Projectiles\Cube_0.xml</Output>
-      <Time>2012-09-11T11:10:36+02:00</Time>
+      <Output>obj\x86\Debug\Models\Ships\FighterBlue_0.xml</Output>
+      <Time>2012-09-13T09:56:33.5302714+02:00</Time>
     </Item>
     <Item>
-      <Source>Models\Ships\spaceStation.fbx</Source>
-      <Name>Models\Ships\spaceStation</Name>
+      <Source>Models\Ships\FighterRed.fbx</Source>
       <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\spaceStation.xnb</Output>
-      <Time>2012-09-12T17:51:56.8706786+02:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Key>
-        <Value>2012-09-12T17:52:03.7220705+02:00</Value>
-      </Dependency>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\FighterRed_0.xml</Output>
+      <Time>2012-09-13T09:56:32.8172306+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\PlayerBlue.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\PlayerBlue_0.xml</Output>
+      <Time>2012-09-13T09:56:32.8822343+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\PlayerRed.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\PlayerRed_0.xml</Output>
+      <Time>2012-09-13T09:56:33.1182478+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Projectiles\Missile.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Projectiles\Missile_0.xml</Output>
+      <Time>2012-09-13T09:56:32.7482266+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\spaceStation.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Output>
-      <Time>2012-09-12T17:51:56.8706786+02:00</Time>
+      <Time>2012-09-13T09:56:33.4832687+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Projectiles\Cube.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Projectiles\Cube_0.xml</Output>
+      <Time>2012-09-13T09:56:32.5982181+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter1.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Fighter1_0.xml</Output>
+      <Time>2012-09-13T09:56:33.2032527+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter2.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Fighter2_0.xml</Output>
+      <Time>2012-09-13T09:56:33.244255+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter3.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Fighter3_0.xml</Output>
+      <Time>2012-09-13T09:56:33.3872632+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter4.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Fighter4_0.xml</Output>
+      <Time>2012-09-13T09:56:33.4382661+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret1.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Turret1_0.xml</Output>
+      <Time>2012-09-13T09:56:32.9492381+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret2.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Turret2_0.xml</Output>
+      <Time>2012-09-13T09:56:33.1642504+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShip.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\playerShip_0.xml</Output>
+      <Time>2012-09-13T09:56:33.5742739+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2009-05-14T11:13:52+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
         <Value>2009-05-14T11:13:52+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
         <Value>2009-05-14T11:13:52+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
         <Value>2009-05-14T11:13:52+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
         <Value>2009-05-14T11:13:52+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-07-31T19:02:12.0090726+02:00</Value>
+        <Value>2012-02-29T18:42:57.1849889+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

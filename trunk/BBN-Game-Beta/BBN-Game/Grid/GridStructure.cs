@@ -43,6 +43,220 @@ namespace BBN_Game.Grid
                         grid[x, y, z] = new List<GridObjectInterface>();
         }
 
+        //return all the objects in-front of the player for targetting
+        public List<GridObjectInterface> getTargets(int distance,Matrix rotation,Vector3 playerPosition)
+        {
+            List<GridObjectInterface> targets = new List<GridObjectInterface>();
+            PowerDataStructures.PriorityQueue<Double,GridObjectInterface> queue = new PowerDataStructures.PriorityQueue<Double,GridObjectInterface>(true);
+            distance = distance / GRID_BLOCK_SIZE;
+
+            //convert real-world coords to grid coords
+            int gridX_pos = (int)Math.Round((double)((playerPosition.X) / GRID_BLOCK_SIZE)) + grid_offset;//for player position
+            int gridY_pos = (int)Math.Round((double)((playerPosition.Y) / GRID_BLOCK_SIZE)) + grid_offset;
+            int gridZ_pos = (int)Math.Round((double)((playerPosition.Z) / GRID_BLOCK_SIZE)) + grid_offset;
+
+            int gridX_forward = (int)Math.Round((double)((rotation.Forward.X*distance) / GRID_BLOCK_SIZE)) + grid_offset;//forward position
+            int gridY_forward = (int)Math.Round((double)((rotation.Forward.Y*distance) / GRID_BLOCK_SIZE)) + grid_offset;
+            int gridZ_forward = (int)Math.Round((double)((rotation.Forward.Z*distance) / GRID_BLOCK_SIZE)) + grid_offset;
+
+            //determine what direction to scan grid for targets
+            Boolean x_positive, y_positive, z_positive;
+            if (gridX_pos < gridX_forward)
+                x_positive = true;
+            else
+                x_positive = false;
+            if (gridY_pos < gridY_forward)
+                y_positive = true;
+            else
+                y_positive = false;
+            if (gridZ_pos < gridZ_forward)
+                z_positive = true;
+            else
+                z_positive = false;
+
+            //loop through blocks in-front of player 
+            #region along x-axis
+            if (x_positive)
+            {
+                for (int x = gridX_pos; x < gridX_forward; x++)
+                {
+                    #region along y-axis
+                    if (y_positive)
+                    {
+                        for (int y = gridY_pos; y < gridY_forward; y++)
+                        {
+                            #region along z-axis
+                            if (z_positive)
+                            {
+                                for (int z = gridZ_pos; z < gridZ_forward; z++)
+                                {
+                                    if (grid[x, y, z].Count > 0)
+                                    {
+                                        for (int i = 0; i < grid[x, y, z].Count; i++)
+                                        {
+                                            GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
+                                            double dist = (tempObj.Position - playerPosition).Length();
+                                            KeyValuePair<double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
+                                            queue.Add(temp);
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for (int z = gridZ_pos; z < gridZ_forward; z--)
+                                {
+                                    if (grid[x, y, z].Count > 0)
+                                    {
+                                        for (int i = 0; i < grid[x, y, z].Count; i++)
+                                        {
+                                            GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
+                                            double dist = (tempObj.Position - playerPosition).Length();
+                                            KeyValuePair<Double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
+                                            queue.Add(temp);
+                                        }
+                                    }
+                                }
+                            }
+                            #endregion
+                        }
+                    }
+                    else
+                    {
+                        for (int y = gridY_pos; y < gridY_forward; y--)
+                        {
+                            #region along z-axis
+                            if (z_positive)
+                            {
+                                for (int z = gridZ_pos; z < gridZ_forward; z++)
+                                {
+                                    if (grid[x, y, z].Count > 0)
+                                    {
+                                        for (int i = 0; i < grid[x, y, z].Count; i++)
+                                        {
+                                            GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
+                                            double dist = (tempObj.Position - playerPosition).Length();
+                                            KeyValuePair<double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
+                                            queue.Add(temp);
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for (int z = gridZ_pos; z < gridZ_forward; z--)
+                                {
+                                    if (grid[x, y, z].Count > 0)
+                                    {
+                                        for (int i = 0; i < grid[x, y, z].Count; i++)
+                                        {
+                                            GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
+                                            double dist = (tempObj.Position - playerPosition).Length();
+                                            KeyValuePair<Double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
+                                            queue.Add(temp);
+                                        }
+                                    }
+                                }
+                            }
+                            #endregion
+                        }
+                    }
+                    #endregion
+                }
+            }
+            else
+            {
+                for (int x = gridX_pos; x < gridX_forward; x--)
+                {
+                    #region along y-axis
+                    if (y_positive)
+                    {
+                        for (int y = gridY_pos; y < gridY_forward; y++)
+                        {
+                            #region along z-axis
+                            if (z_positive)
+                            {
+                                for (int z = gridZ_pos; z < gridZ_forward; z++)
+                                {
+                                    if (grid[x, y, z].Count > 0)
+                                    {
+                                        for (int i = 0; i < grid[x, y, z].Count; i++)
+                                        {
+                                            GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
+                                            double dist = (tempObj.Position - playerPosition).Length();
+                                            KeyValuePair<double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
+                                            queue.Add(temp);
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for (int z = gridZ_pos; z < gridZ_forward; z--)
+                                {
+                                    if (grid[x, y, z].Count > 0)
+                                    {
+                                        for (int i = 0; i < grid[x, y, z].Count; i++)
+                                        {
+                                            GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
+                                            double dist = (tempObj.Position - playerPosition).Length();
+                                            KeyValuePair<Double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
+                                            queue.Add(temp);
+                                        }
+                                    }
+                                }
+                            }
+                            #endregion
+                        }
+                    }
+                    else
+                    {
+                        for (int y = gridY_pos; y < gridY_forward; y--)
+                        {
+                            #region along z-axis
+                            if (z_positive)
+                            {
+                                for (int z = gridZ_pos; z < gridZ_forward; z++)
+                                {
+                                    if (grid[x, y, z].Count > 0)
+                                    {
+                                        for (int i = 0; i < grid[x, y, z].Count; i++)
+                                        {
+                                            GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
+                                            double dist = (tempObj.Position - playerPosition).Length();
+                                            KeyValuePair<double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
+                                            queue.Add(temp);
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for (int z = gridZ_pos; z < gridZ_forward; z--)
+                                {
+                                    if (grid[x, y, z].Count > 0)
+                                    {
+                                        for (int i = 0; i < grid[x, y, z].Count; i++)
+                                        {
+                                            GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
+                                            double dist = (tempObj.Position - playerPosition).Length();
+                                            KeyValuePair<Double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
+                                            queue.Add(temp);
+                                        }
+                                    }
+                                }
+                            }
+                            #endregion
+                        }
+                    }
+                    #endregion
+                }
+            }
+            #endregion
+                                   
+            return targets;
+        }
+
         //insert object into grid and update pointers to grid-blocks
         public void registerObject(GridObjectInterface obj)
         {
