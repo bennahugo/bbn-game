@@ -74,6 +74,11 @@ namespace BBN_Game.Controller
             get { return gameState; }
             set { gameState = value; }
         }
+        public GameState PreviousState
+        {
+            get { return prevGameState; }
+            set { prevGameState = value; }
+        }
         static Players numPlayers;
         
         static Grid.GridStructure gameGrid;
