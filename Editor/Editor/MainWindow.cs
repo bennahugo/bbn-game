@@ -110,21 +110,31 @@ namespace Editor
         /// Method to instantiate and initialize a graphics device
         /// </summary>
         private void CreateDevice()
-        { 
-            PresentationParameters pp = new PresentationParameters();
-            pp.BackBufferCount = 1;
-            pp.IsFullScreen = false;
-            pp.SwapEffect = SwapEffect.Discard;
-            pp.BackBufferWidth = this.scrMainLayout.Panel2.Width;
-            pp.BackBufferHeight = this.scrMainLayout.Panel2.Height;
-            pp.AutoDepthStencilFormat = DepthFormat.Depth24Stencil8;
-            pp.EnableAutoDepthStencil = true;
-            pp.PresentationInterval = PresentInterval.Default;
-            pp.BackBufferFormat = SurfaceFormat.Unknown;
-            pp.MultiSampleType = MultiSampleType.None;
+        {
+            PresentationParameters presentation = new PresentationParameters();
+            presentation.AutoDepthStencilFormat = DepthFormat.Depth24;
+            presentation.BackBufferCount = 1;
+            presentation.BackBufferFormat = SurfaceFormat.Color;
+            System.Drawing.Rectangle a = this.scrMainLayout.Panel2.Bounds;
+            presentation.BackBufferWidth = a.Width;
+            presentation.BackBufferHeight = a.Height;
+            presentation.DeviceWindowHandle = this.Handle;
+            presentation.EnableAutoDepthStencil = true;
+            presentation.FullScreenRefreshRateInHz = 0;
+            presentation.IsFullScreen = false;
+            presentation.MultiSampleQuality = 0;
+            presentation.MultiSampleType = MultiSampleType.None;
+            presentation.PresentationInterval = PresentInterval.One;
+            presentation.PresentOptions = PresentOptions.None;
+            presentation.SwapEffect = SwapEffect.Discard;
+            presentation.RenderTargetUsage = RenderTargetUsage.DiscardContents;
+
+
             gfxDevice = new GraphicsDevice(GraphicsAdapter.DefaultAdapter, DeviceType.Hardware, this.scrMainLayout.Panel2.Handle,
-                pp);
+                presentation);
             gfxDevice.RenderState.CullMode = CullMode.None;
+
+            
             gfxDevice.Reset();
             //Setup cliping frustum
             Viewport v = gfxDevice.Viewport;
@@ -211,7 +221,6 @@ namespace Editor
             gfxDevice.RenderState.FillMode = FillMode.Solid;
             gfxDevice.RenderState.DepthBufferWriteEnable = true;
             gfxDevice.RenderState.DepthBufferFunction = CompareFunction.LessEqual;
-
             //Draw all objects in map:
             BBNMap.DrawMap(gfxDevice, projection,contentMgr, view, lightsSetup, fogColor, fogSetup, basicEffect, cameraPos);
             //Draw 3D lines:
@@ -277,6 +286,10 @@ namespace Editor
                 spriteBatch.DrawString(font, "HID Mode: 2D GUI", new Vector2(0, scrMainLayout.Panel2.Height - charheight), Microsoft.Xna.Framework.Graphics.Color.Red);
                 
             spriteBatch.End();
+            gfxDevice.RenderState.DepthBufferEnable = true;
+            gfxDevice.RenderState.DepthBufferWriteEnable = true;
+            gfxDevice.RenderState.AlphaBlendEnable = false;
+            gfxDevice.RenderState.AlphaTestEnable = false;
             //Swap buffers:
             gfxDevice.Present(this.scrMainLayout.Panel2.Handle);
         }
@@ -1161,7 +1174,7 @@ namespace Editor
                 }
                 if (!(selectedXMoveLine || selectedYMoveLine || selectedZMoveLine)) //otherwise check if the user selected some object
                 {
-                    Vector3 vNear = gfxDevice.Viewport.Unproject(new Vector3(e.X, e.Y, 1f),
+                    Vector3 vNear = gfxDevice.Viewport.Unproject(new Vector3(e.X, e.Y, 0f),
                         projection, view, Matrix.CreateTranslation(0,0,0));
                     Vector3 vFar = gfxDevice.Viewport.Unproject(new Vector3(e.X, e.Y, this.farClip),
                         projection, view, Matrix.CreateTranslation(0, 0, 0));

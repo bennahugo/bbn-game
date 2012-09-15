@@ -90,7 +90,7 @@
             this.tsbOpenGuide});
             this.tspMain.Location = new System.Drawing.Point(0, 0);
             this.tspMain.Name = "tspMain";
-            this.tspMain.Size = new System.Drawing.Size(1432, 44);
+            this.tspMain.Size = new System.Drawing.Size(1008, 46);
             this.tspMain.TabIndex = 1;
             this.tspMain.Text = "toolStrip1";
             // 
@@ -99,7 +99,7 @@
             this.tsbNew.Image = global::Editor.Properties.Resources.newFile;
             this.tsbNew.ImageTransparentColor = System.Drawing.Color.White;
             this.tsbNew.Name = "tsbNew";
-            this.tsbNew.Size = new System.Drawing.Size(32, 41);
+            this.tsbNew.Size = new System.Drawing.Size(35, 43);
             this.tsbNew.Text = "&New";
             this.tsbNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
@@ -109,7 +109,7 @@
             this.tsbOpen.Image = global::Editor.Properties.Resources.open;
             this.tsbOpen.ImageTransparentColor = System.Drawing.Color.White;
             this.tsbOpen.Name = "tsbOpen";
-            this.tsbOpen.Size = new System.Drawing.Size(37, 41);
+            this.tsbOpen.Size = new System.Drawing.Size(40, 43);
             this.tsbOpen.Text = "&Open";
             this.tsbOpen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbOpen.Click += new System.EventHandler(this.tsbOpen_Click);
@@ -119,7 +119,7 @@
             this.tsbSave.Image = global::Editor.Properties.Resources.save;
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(35, 41);
+            this.tsbSave.Size = new System.Drawing.Size(35, 43);
             this.tsbSave.Text = "&Save";
             this.tsbSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
@@ -127,14 +127,14 @@
             // tssCam
             // 
             this.tssCam.Name = "tssCam";
-            this.tssCam.Size = new System.Drawing.Size(6, 44);
+            this.tssCam.Size = new System.Drawing.Size(6, 46);
             // 
             // tsbSetCameraPos
             // 
             this.tsbSetCameraPos.Image = global::Editor.Properties.Resources.camera;
             this.tsbSetCameraPos.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSetCameraPos.Name = "tsbSetCameraPos";
-            this.tsbSetCameraPos.Size = new System.Drawing.Size(88, 41);
+            this.tsbSetCameraPos.Size = new System.Drawing.Size(98, 43);
             this.tsbSetCameraPos.Text = "Camera Position";
             this.tsbSetCameraPos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbSetCameraPos.Click += new System.EventHandler(this.tsbSetCameraPos_Click);
@@ -144,7 +144,7 @@
             this.tsbFocus.Image = global::Editor.Properties.Resources.camera;
             this.tsbFocus.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbFocus.Name = "tsbFocus";
-            this.tsbFocus.Size = new System.Drawing.Size(87, 41);
+            this.tsbFocus.Size = new System.Drawing.Size(95, 43);
             this.tsbFocus.Text = "&Focus on object";
             this.tsbFocus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbFocus.Click += new System.EventHandler(this.tsbFocus_Click);
@@ -154,7 +154,7 @@
             this.tsbMoveObjectToFocus.Image = global::Editor.Properties.Resources.moveObject;
             this.tsbMoveObjectToFocus.ImageTransparentColor = System.Drawing.Color.White;
             this.tsbMoveObjectToFocus.Name = "tsbMoveObjectToFocus";
-            this.tsbMoveObjectToFocus.Size = new System.Drawing.Size(89, 41);
+            this.tsbMoveObjectToFocus.Size = new System.Drawing.Size(97, 43);
             this.tsbMoveObjectToFocus.Text = "&Object To Focus";
             this.tsbMoveObjectToFocus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbMoveObjectToFocus.Click += new System.EventHandler(this.tsbMoveObjectToFocus_Click);
@@ -164,7 +164,7 @@
             this.tsbDeleteObject.Image = global::Editor.Properties.Resources.delObject;
             this.tsbDeleteObject.ImageTransparentColor = System.Drawing.Color.White;
             this.tsbDeleteObject.Name = "tsbDeleteObject";
-            this.tsbDeleteObject.Size = new System.Drawing.Size(77, 41);
+            this.tsbDeleteObject.Size = new System.Drawing.Size(82, 43);
             this.tsbDeleteObject.Text = "&Delete Object";
             this.tsbDeleteObject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbDeleteObject.Click += new System.EventHandler(this.tsbDeleteObject_Click);
@@ -174,7 +174,7 @@
             this.tsbAddAttribute.Image = global::Editor.Properties.Resources.add_attribute;
             this.tsbAddAttribute.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAddAttribute.Name = "tsbAddAttribute";
-            this.tsbAddAttribute.Size = new System.Drawing.Size(76, 41);
+            this.tsbAddAttribute.Size = new System.Drawing.Size(83, 43);
             this.tsbAddAttribute.Text = "Add Attribute";
             this.tsbAddAttribute.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbAddAttribute.Click += new System.EventHandler(this.tsbAddAttribute_Click);
@@ -182,14 +182,14 @@
             // tssNodes
             // 
             this.tssNodes.Name = "tssNodes";
-            this.tssNodes.Size = new System.Drawing.Size(6, 44);
+            this.tssNodes.Size = new System.Drawing.Size(6, 46);
             // 
             // tsbAddPathNode
             // 
             this.tsbAddPathNode.Image = global::Editor.Properties.Resources.path;
             this.tsbAddPathNode.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAddPathNode.Name = "tsbAddPathNode";
-            this.tsbAddPathNode.Size = new System.Drawing.Size(83, 41);
+            this.tsbAddPathNode.Size = new System.Drawing.Size(92, 43);
             this.tsbAddPathNode.Text = "&Add Path Node";
             this.tsbAddPathNode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbAddPathNode.Click += new System.EventHandler(this.tsbAddPathNode_Click);
@@ -199,7 +199,7 @@
             this.tsbConnectPathNodes.Image = global::Editor.Properties.Resources.connectNodes;
             this.tsbConnectPathNodes.ImageTransparentColor = System.Drawing.Color.White;
             this.tsbConnectPathNodes.Name = "tsbConnectPathNodes";
-            this.tsbConnectPathNodes.Size = new System.Drawing.Size(109, 41);
+            this.tsbConnectPathNodes.Size = new System.Drawing.Size(120, 43);
             this.tsbConnectPathNodes.Text = "Connect Path Nodes";
             this.tsbConnectPathNodes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbConnectPathNodes.Click += new System.EventHandler(this.tsbConnectPathNodes_Click);
@@ -209,7 +209,7 @@
             this.tsbAddSpawnPoint.Image = global::Editor.Properties.Resources.spawn;
             this.tsbAddSpawnPoint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAddSpawnPoint.Name = "tsbAddSpawnPoint";
-            this.tsbAddSpawnPoint.Size = new System.Drawing.Size(92, 41);
+            this.tsbAddSpawnPoint.Size = new System.Drawing.Size(102, 43);
             this.tsbAddSpawnPoint.Text = "Add Spawn Point";
             this.tsbAddSpawnPoint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbAddSpawnPoint.Click += new System.EventHandler(this.tsbAddSpawnPoint_Click);
@@ -219,7 +219,7 @@
             this.tsbPlayerSpawnpoint.Image = global::Editor.Properties.Resources.spawn;
             this.tsbPlayerSpawnpoint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPlayerSpawnpoint.Name = "tsbPlayerSpawnpoint";
-            this.tsbPlayerSpawnpoint.Size = new System.Drawing.Size(124, 41);
+            this.tsbPlayerSpawnpoint.Size = new System.Drawing.Size(136, 43);
             this.tsbPlayerSpawnpoint.Text = "Add player spawn point";
             this.tsbPlayerSpawnpoint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbPlayerSpawnpoint.Click += new System.EventHandler(this.tsbPlayerSpawnpoint_Click);
@@ -227,14 +227,14 @@
             // tspOther
             // 
             this.tspOther.Name = "tspOther";
-            this.tspOther.Size = new System.Drawing.Size(6, 44);
+            this.tspOther.Size = new System.Drawing.Size(6, 46);
             // 
             // tsbSkybox
             // 
             this.tsbSkybox.Image = global::Editor.Properties.Resources.skybox;
             this.tsbSkybox.ImageTransparentColor = System.Drawing.Color.White;
             this.tsbSkybox.Name = "tsbSkybox";
-            this.tsbSkybox.Size = new System.Drawing.Size(46, 41);
+            this.tsbSkybox.Size = new System.Drawing.Size(48, 43);
             this.tsbSkybox.Text = "Skybox";
             this.tsbSkybox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbSkybox.Click += new System.EventHandler(this.tsbSkybox_Click);
@@ -244,7 +244,7 @@
             this.tsbSetMapRadius.Image = global::Editor.Properties.Resources.mapRadius;
             this.tsbSetMapRadius.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSetMapRadius.Name = "tsbSetMapRadius";
-            this.tsbSetMapRadius.Size = new System.Drawing.Size(52, 41);
+            this.tsbSetMapRadius.Size = new System.Drawing.Size(57, 43);
             this.tsbSetMapRadius.Text = "Map size";
             this.tsbSetMapRadius.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbSetMapRadius.Click += new System.EventHandler(this.tsbSetMapRadius_Click);
@@ -254,7 +254,7 @@
             this.tsbOpenGuide.Image = global::Editor.Properties.Resources.help;
             this.tsbOpenGuide.ImageTransparentColor = System.Drawing.Color.White;
             this.tsbOpenGuide.Name = "tsbOpenGuide";
-            this.tsbOpenGuide.Size = new System.Drawing.Size(63, 41);
+            this.tsbOpenGuide.Size = new System.Drawing.Size(68, 43);
             this.tsbOpenGuide.Text = "User Guide";
             this.tsbOpenGuide.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbOpenGuide.Click += new System.EventHandler(this.tsbOpenGuide_Click);
@@ -263,7 +263,7 @@
             // 
             this.scrMainLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scrMainLayout.IsSplitterFixed = true;
-            this.scrMainLayout.Location = new System.Drawing.Point(0, 44);
+            this.scrMainLayout.Location = new System.Drawing.Point(0, 46);
             this.scrMainLayout.Name = "scrMainLayout";
             // 
             // scrMainLayout.Panel1
@@ -277,8 +277,8 @@
             this.scrMainLayout.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.scrMainLayout_Panel2_MouseDown);
             this.scrMainLayout.Panel2.Resize += new System.EventHandler(this.splitContainer1_Panel2_Resize);
             this.scrMainLayout.Panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.scrMainLayout_Panel2_MouseUp);
-            this.scrMainLayout.Size = new System.Drawing.Size(1432, 829);
-            this.scrMainLayout.SplitterDistance = 474;
+            this.scrMainLayout.Size = new System.Drawing.Size(1008, 640);
+            this.scrMainLayout.SplitterDistance = 332;
             this.scrMainLayout.TabIndex = 2;
             // 
             // scrLeftSplitView
@@ -299,8 +299,8 @@
             // scrLeftSplitView.Panel2
             // 
             this.scrLeftSplitView.Panel2.Controls.Add(this.tvwToolbox);
-            this.scrLeftSplitView.Size = new System.Drawing.Size(474, 829);
-            this.scrLeftSplitView.SplitterDistance = 375;
+            this.scrLeftSplitView.Size = new System.Drawing.Size(332, 640);
+            this.scrLeftSplitView.SplitterDistance = 287;
             this.scrLeftSplitView.TabIndex = 0;
             // 
             // lblProperties
@@ -321,7 +321,7 @@
             this.cbxMapItems.FormattingEnabled = true;
             this.cbxMapItems.Location = new System.Drawing.Point(0, 15);
             this.cbxMapItems.Name = "cbxMapItems";
-            this.cbxMapItems.Size = new System.Drawing.Size(474, 21);
+            this.cbxMapItems.Size = new System.Drawing.Size(332, 21);
             this.cbxMapItems.TabIndex = 1;
             this.cbxMapItems.SelectedIndexChanged += new System.EventHandler(this.cbxMapItems_SelectedIndexChanged);
             // 
@@ -337,7 +337,7 @@
             this.dgvProperties.Location = new System.Drawing.Point(0, 36);
             this.dgvProperties.MultiSelect = false;
             this.dgvProperties.Name = "dgvProperties";
-            this.dgvProperties.Size = new System.Drawing.Size(474, 339);
+            this.dgvProperties.Size = new System.Drawing.Size(332, 251);
             this.dgvProperties.TabIndex = 0;
             this.dgvProperties.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProperties_CellEndEdit);
             // 
@@ -362,7 +362,7 @@
             this.tvwToolbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvwToolbox.Location = new System.Drawing.Point(0, 0);
             this.tvwToolbox.Name = "tvwToolbox";
-            this.tvwToolbox.Size = new System.Drawing.Size(474, 450);
+            this.tvwToolbox.Size = new System.Drawing.Size(332, 349);
             this.tvwToolbox.TabIndex = 0;
             this.tvwToolbox.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvwToolbox_AfterSelect);
             // 
@@ -379,11 +379,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1432, 873);
+            this.ClientSize = new System.Drawing.Size(1008, 686);
             this.Controls.Add(this.scrMainLayout);
             this.Controls.Add(this.tspMain);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1440, 900);
+            this.MaximumSize = new System.Drawing.Size(1024, 724);
             this.MinimumSize = new System.Drawing.Size(1024, 724);
             this.Name = "frmMain";
             this.Text = "BBN World Editor";
