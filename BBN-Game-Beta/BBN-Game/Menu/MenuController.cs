@@ -39,7 +39,6 @@ namespace BBN_Game.Menu
 
         //game states
         GameState currentState;
-        GameState previousState;
         //Players currentPlayer;
 
         int screenWidth;
@@ -83,7 +82,7 @@ namespace BBN_Game.Menu
             graphics = g.GraphicsDevice;
             spriteBatch = new SpriteBatch(g.GraphicsDevice);
             currentState = controller.CurrentGameState;
-            previousState = currentState;
+            gameController.PreviousState = currentState;
             Content = g.Content;
             screenHeight = graphics.Viewport.Height;
             screenWidth = graphics.Viewport.Width;
@@ -147,7 +146,8 @@ namespace BBN_Game.Menu
                 //selecting menu options
                 if (keyState.IsKeyDown(Keys.Enter) && prevKeyState.IsKeyUp(Keys.Enter))
                 {
-                    previousState = currentState;
+                    gameController.PreviousState = currentState;
+                    
                     if (currentMenuOption == 1)//start new single player game
                     {
                         currentState = GameState.Playing;
@@ -198,7 +198,7 @@ namespace BBN_Game.Menu
                     }
                     else if (currentMenuOption == 3)//return to previous game-state
                     {
-                        currentState = previousState;
+                        currentState = gameController.PreviousState;
                         currentMenuOption = 1;
                     }                   
                 }
@@ -221,7 +221,7 @@ namespace BBN_Game.Menu
                 //selecting menu options
                 if (keyState.IsKeyDown(Keys.Enter) && prevKeyState.IsKeyUp(Keys.Enter))
                 {
-                    previousState = currentState;
+                    gameController.PreviousState = currentState;
                     if (currentMenuOption == 1)//resume gameplay
                     {
                         currentState = GameState.Playing;
@@ -383,7 +383,7 @@ namespace BBN_Game.Menu
                         displayXboxControls = true;
                     else if (currentMenuOption == 3)
                     {
-                        currentState = previousState;
+                        currentState = gameController.PreviousState;
                         currentMenuOption = 1;
                     }
                 }
@@ -413,7 +413,7 @@ namespace BBN_Game.Menu
                         displayXboxControls = true;
                     else if (currentMenuOption == 3)
                     {
-                        currentState = previousState;
+                        currentState = gameController.PreviousState;
                         currentMenuOption = 1;
                     }
                 }
@@ -444,7 +444,7 @@ namespace BBN_Game.Menu
 
                 if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
                 {
-                    previousState = currentState;
+                    gameController.PreviousState = currentState;
                     if (currentMenuOption == 1)//resume gameplay
                     {
                         currentState = GameState.Playing;
@@ -489,7 +489,7 @@ namespace BBN_Game.Menu
 
                 if (padState2.Buttons.A == ButtonState.Pressed && prevPadState2.Buttons.A == ButtonState.Released)
                 {
-                    previousState = currentState;
+                    gameController.PreviousState = currentState;
                     if (currentMenuOption == 1)//resume gameplay
                     {
                         currentState = GameState.Playing;
