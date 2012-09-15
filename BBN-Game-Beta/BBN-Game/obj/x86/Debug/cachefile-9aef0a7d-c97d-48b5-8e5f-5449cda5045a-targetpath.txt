@@ -9,6 +9,15 @@ Content\Models\Ships\FighterRed.xnb
 Content\Models\Ships\PlayerBlue.xnb
 Content\Models\Ships\PlayerRed.xnb
 Content\Models\Projectiles\Missile.xnb
+Content\Models\Ships\spaceStation.xnb
+Content\Models\Projectiles\Cube.xnb
+Content\Models\Ships\Fighter1.xnb
+Content\Models\Ships\Fighter2.xnb
+Content\Models\Ships\Fighter3.xnb
+Content\Models\Ships\Fighter4.xnb
+Content\Models\Ships\Turret1.xnb
+Content\Models\Ships\Turret2.xnb
+Content\Models\Ships\playerShip.xnb
 Content\Shader\skyBoxEffect.xnb
 Content\Shader\targetBox.xnb
 Content\Skybox\Starfield.xnb
@@ -34,13 +43,4 @@ Content\Menu\xbox_controls.xnb
 Content\Menu\dark_trans_new.xnb
 Content\Menu\trade_menu_newest.xnb
 Content\Menu\control_menu.xnb
-Content\Models\Ships\playerShip.xnb
-Content\Models\Ships\Fighter1.xnb
-Content\Models\Ships\Fighter2.xnb
-Content\Models\Ships\Fighter3.xnb
-Content\Models\Ships\Fighter4.xnb
-Content\Models\Ships\Turret1.xnb
-Content\Models\Ships\Turret2.xnb
-Content\Models\Projectiles\Cube.xnb
-Content\Models\Ships\spaceStation.xnb
 Content\Maps\Death Zone.xml
