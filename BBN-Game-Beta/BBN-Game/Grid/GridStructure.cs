@@ -44,7 +44,7 @@ namespace BBN_Game.Grid
         }
 
         //return all the objects in-front of the player for targetting
-        public List<GridObjectInterface> getTargets(int distance,Matrix rotation,Vector3 playerPosition)
+        public /*List<GridObjectInterface>*/ int getTargets(int distance, Microsoft.Xna.Framework.Matrix rotation, Microsoft.Xna.Framework.Vector3 playerPosition)
         {
             List<GridObjectInterface> targets = new List<GridObjectInterface>();
             PowerDataStructures.PriorityQueue<Double,GridObjectInterface> queue = new PowerDataStructures.PriorityQueue<Double,GridObjectInterface>(true);
@@ -279,8 +279,15 @@ namespace BBN_Game.Grid
                 }
             }
             #endregion
-                                   
-            return targets;
+
+            for (int i = 0; i < queue.Count; ++i)
+            {
+                targets.Add(queue.ElementAt(i).Value);
+            }
+
+            return queue.Count;
+
+            //return targets;
         }
 
         //insert object into grid and update pointers to grid-blocks

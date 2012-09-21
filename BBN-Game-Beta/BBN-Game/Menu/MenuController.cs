@@ -33,7 +33,6 @@ namespace BBN_Game.Menu
 
         GraphicsDevice graphics;
         ContentManager Content;
-        SpriteBatch spriteBatch;
         BBN_Game.BBNGame game;
         GameController gameController;
 
@@ -80,7 +79,6 @@ namespace BBN_Game.Menu
             gameController = controller;
             this.game = g;
             graphics = g.GraphicsDevice;
-            spriteBatch = new SpriteBatch(g.GraphicsDevice);
             currentState = controller.CurrentGameState;
             gameController.PreviousState = currentState;
             Content = g.Content;
@@ -150,6 +148,7 @@ namespace BBN_Game.Menu
                     
                     if (currentMenuOption == 1)//start new single player game
                     {
+                        gameController.PreviousState = GameState.notLoaded;
                         currentState = GameState.Playing;
                         gameController.CurrentGameState = GameState.Playing;
                     }                    
@@ -157,6 +156,7 @@ namespace BBN_Game.Menu
                     {
                         //start new multiplayer game
                         Controller.GameController.NumberOfPlayers = Players.two;
+                        gameController.PreviousState = GameState.notLoaded;
                         currentState = GameState.Playing;
                         gameController.CurrentGameState = GameState.Playing;
                         currentMenuOption = 1;
@@ -229,8 +229,9 @@ namespace BBN_Game.Menu
                     }
                     else if (currentMenuOption == 2)//restart current game TODO
                     {
-                        currentState = GameState.Playing;
-                        gameController.CurrentGameState = GameState.Playing;
+                        gameController.PreviousState = GameState.notLoaded;
+                        currentState = GameState.reload;
+                        gameController.CurrentGameState = GameState.reload;
                     }
                     else if (currentMenuOption == 3)//quite current game & return to main menu
                     {
@@ -238,6 +239,7 @@ namespace BBN_Game.Menu
 
                         currentMenuOption = 1;
                         currentState = GameState.MainMenu;
+                        Controller.GameController.ObjectsLoaded = false;
                     }
                     else if (currentMenuOption == 4)//look at game controls
                     {
@@ -542,7 +544,7 @@ namespace BBN_Game.Menu
 
         #region drawing methods            
         
-        public void drawTradeMenu(Objects.playerObject player)
+        public void drawTradeMenu(SpriteBatch spriteBatch, Objects.playerObject player)
         {
             //for slide-up animation
             if (player.UpFactor > 0 && player.GoingUp)
@@ -646,18 +648,18 @@ namespace BBN_Game.Menu
             spriteBatch.End();
         }
 
-        public void drawTradeStats(Objects.playerObject player)
+        public void drawTradeStats(SpriteBatch spriteBatch, Objects.playerObject player)
         {
             spriteBatch.Begin();
 
             //draw icons for ship-counts and missile-counts
             spriteBatch.Draw(destroyerTex, new Rectangle(player.getViewport.Width - 280, player.getViewport.Height - 50, 64, 36), Color.White);
-            spriteBatch.DrawString(tradeMenuFont, 
-                (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamDestroyers.Count : Controller.GameController.team2.teamDestroyers.Count).ToString(), 
+            spriteBatch.DrawString(tradeMenuFont,
+                (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamDestroyers.Count : Controller.GameController.team2.teamDestroyers.Count).ToString(),
                 new Vector2(player.getViewport.Width - 290, player.getViewport.Height - 50), Color.Red);
             spriteBatch.Draw(fighterTex, new Rectangle(player.getViewport.Width - 180, player.getViewport.Height - 50, 64, 41), Color.White);
             spriteBatch.DrawString(tradeMenuFont,
-                (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamFighters.Count : Controller.GameController.team2.teamFighters.Count).ToString(), 
+                (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamFighters.Count : Controller.GameController.team2.teamFighters.Count).ToString(),
                 new Vector2(player.getViewport.Width - 190, player.getViewport.Height - 50), Color.Red);
             spriteBatch.Draw(missileTex, new Rectangle(player.getViewport.Width - 70, player.getViewport.Height - 50, 64, 48), Color.White);
             spriteBatch.DrawString(tradeMenuFont, "" + player.Missiles, new Vector2(player.getViewport.Width - 80, player.getViewport.Height - 50), Color.Red);
@@ -666,7 +668,7 @@ namespace BBN_Game.Menu
         }
 
         //update what menu is currently being displayed
-        public void drawMenu(GameTime gameTime)
+        public void drawMenu(SpriteBatch spriteBatch, GameTime gameTime)
         {
             if (currentState == GameState.MainMenu)
             {
