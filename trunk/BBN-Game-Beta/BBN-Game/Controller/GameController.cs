@@ -529,7 +529,7 @@ namespace BBN_Game.Controller
 
         public static /*List<Grid.GridObjectInterface>*/ int getTargets(Objects.playerObject player)
         {
-            return Grid.getTargets(300, Matrix.CreateFromQuaternion(player.rotation), player.Position);
+            return Grid.getTargets(300, Matrix.CreateFromQuaternion(player.rotation), player);
         }
 
         private static void moveObjectsInGrid()

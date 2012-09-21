@@ -44,12 +44,69 @@ namespace BBN_Game.Grid
         }
 
         //return all the objects in-front of the player for targetting
-        public /*List<GridObjectInterface>*/ int getTargets(int distance, Microsoft.Xna.Framework.Matrix rotation, Microsoft.Xna.Framework.Vector3 playerPosition)
+        public /*List<GridObjectInterface>*/ int getTargets(int distance, Microsoft.Xna.Framework.Matrix rotation, GridObjectInterface player)
         {
             List<GridObjectInterface> targets = new List<GridObjectInterface>();
             PowerDataStructures.PriorityQueue<Double,GridObjectInterface> queue = new PowerDataStructures.PriorityQueue<Double,GridObjectInterface>(true);
-            distance = distance / GRID_BLOCK_SIZE;
 
+            Vector3[] boxPoints = new Vector3[7];
+            //we want to take the length of the entire ship (if it is at the edge of a cell) into account (add the tip and the tail to the list):
+            Vector3 frontPoint = Vector3.Normalize(rotation.Forward) * player.getBoundingSphere().Radius + player.Position;
+            Vector3 backPoint = Vector3.Normalize(rotation.Backward) * player.getBoundingSphere().Radius + player.Position;
+            //now compute the left and right wing tip points:
+            Vector3 leftPoint = Vector3.Normalize(rotation.Left) * player.getBoundingSphere().Radius + player.Position;
+            Vector3 rightPoint = Vector3.Normalize(rotation.Right) * player.getBoundingSphere().Radius + player.Position;
+            //also compute the tail fin and the belly points
+            Vector3 topPoint = Vector3.Normalize(rotation.Up) * player.getBoundingSphere().Radius + player.Position;
+            Vector3 bottomPoint = Vector3.Normalize(rotation.Down) * player.getBoundingSphere().Radius + player.Position;
+            
+            //convert the front and back points to grid coords:
+            Vector3 objPosFront = new Vector3((int)Math.Round((double)((frontPoint.X) / GRID_BLOCK_SIZE)) + grid_offset,
+            (int)Math.Round((double)((frontPoint.Y) / GRID_BLOCK_SIZE)) + grid_offset,
+            (int)Math.Round((double)((frontPoint.Z) / GRID_BLOCK_SIZE)) + grid_offset); //players own position
+            Vector3 objPosBack = new Vector3((int)Math.Round((double)((backPoint.X) / GRID_BLOCK_SIZE)) + grid_offset,
+            (int)Math.Round((double)((backPoint.Y) / GRID_BLOCK_SIZE)) + grid_offset,
+            (int)Math.Round((double)((backPoint.Z) / GRID_BLOCK_SIZE)) + grid_offset); //players own position
+            
+            //Construct the radar area (front, left and right, above and below):
+            //now add the front and the back points to the list
+            boxPoints[0] = objPosFront;
+            boxPoints[1] = objPosBack;
+            //add a distance to the left and right wingtips, as well as the tail and belly points
+            boxPoints[2] = gridPtAlongDirection(rotation.Backward,backPoint, distance);
+            boxPoints[3] = gridPtAlongDirection(rotation.Left, leftPoint, distance);
+            boxPoints[4] = gridPtAlongDirection(rotation.Right, rightPoint, distance);
+            boxPoints[5] = gridPtAlongDirection(rotation.Up, topPoint, distance);
+            boxPoints[6] = gridPtAlongDirection(rotation.Down, bottomPoint, distance);
+            //Now compute lower and upper bounds
+            Vector3 lb = Vector3.Zero;
+            Vector3 ub = Vector3.Zero;
+            getMinimumsAndMaximums(boxPoints, out lb, out ub);
+            System.Diagnostics.Debug.WriteLine(lb + "  ,  " + ub);
+            lb = clampCellCoordToGridLimits(lb);
+            ub = clampCellCoordToGridLimits(ub);
+            //Now get all the objects in front of the player:
+            for (int x = (int)lb.X; x <= (int)ub.X; ++x)
+                for (int y = (int)lb.Y; y <= (int)ub.Y; ++y)
+                    for (int z = (int)lb.Z; z <= (int)ub.Z; ++z)
+                        for (int i = 0; i < grid[x, y, z].Count; i++)   
+                        {
+                            GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
+                            foreach(KeyValuePair<double,GridObjectInterface> value in queue)
+                                if (value.Value == tempObj)
+                                    goto dontAdd;
+                            //check if object is within player's view cone +- 45 degrees
+                            float theta = Vector3.Dot(Vector3.Normalize(rotation.Backward), Vector3.Normalize(tempObj.Position - player.Position));
+                            if (theta >= 0.707)
+                            {
+                                double dist = (tempObj.Position - player.Position).Length();
+                                KeyValuePair<double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
+                                queue.Add(temp);
+                            }
+                        dontAdd: { /*DO NOTHING IF THE ITEM IS ALREADY ON THE QUEUE*/ }
+                        }
+            #region old-code
+            /*
             //convert real-world coords to grid coords
             int gridX_pos = (int)Math.Round((double)((playerPosition.X) / GRID_BLOCK_SIZE)) + grid_offset;//for player position
             int gridY_pos = (int)Math.Round((double)((playerPosition.Y) / GRID_BLOCK_SIZE)) + grid_offset;
@@ -57,9 +114,11 @@ namespace BBN_Game.Grid
 
             int gridX_forward = (int)Math.Round((double)((rotation.Forward.X*distance) / GRID_BLOCK_SIZE)) + grid_offset;//forward position
             int gridY_forward = (int)Math.Round((double)((rotation.Forward.Y*distance) / GRID_BLOCK_SIZE)) + grid_offset;
-            int gridZ_forward = (int)Math.Round((double)((rotation.Forward.Z*distance) / GRID_BLOCK_SIZE)) + grid_offset;
-                        
-            //loop through blocks in-front of player 
+            int gridZ_forward = (int)Math.Round((double)((rotation.Forward.Z * distance) / GRID_BLOCK_SIZE)) + grid_offset;*/
+
+            //loop through blocks in-front of player            
+            
+            /*
             #region along x-axis
             if (gridX_pos < gridX_forward)
             {
@@ -83,12 +142,12 @@ namespace BBN_Game.Grid
 
                                             //check if object is within player's view cone +- 45 degrees
                                             float theta = Vector3.Dot(Vector3.Normalize(rotation.Forward), Vector3.Normalize(tempObj.Position-playerPosition));
-                                            if (theta >= 0.75)
+                                            //if (theta >= 0.75)
                                             {
                                                 double dist = (tempObj.Position - playerPosition).Length();
                                                 KeyValuePair<double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
                                                 queue.Add(temp);
-                                            }                                            
+                                            }
                                         }
                                     }
                                 }
@@ -104,7 +163,7 @@ namespace BBN_Game.Grid
                                             GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
                                             //check if object is within player's view cone +- 45 degrees
                                             float theta = Vector3.Dot(Vector3.Normalize(rotation.Forward), Vector3.Normalize(tempObj.Position-playerPosition));
-                                            if (theta >= 0.75)
+                                            //if (theta >= 0.75)
                                             {
                                                 double dist = (tempObj.Position - playerPosition).Length();
                                                 KeyValuePair<Double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
@@ -133,7 +192,7 @@ namespace BBN_Game.Grid
                                             GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
                                             //check if object is within player's view cone +- 45 degrees
                                             float theta = Vector3.Dot(Vector3.Normalize(rotation.Forward), Vector3.Normalize(tempObj.Position-playerPosition));
-                                            if (theta >= 0.75)
+                                            //if (theta >= 0.75)
                                             {
                                                 double dist = (tempObj.Position - playerPosition).Length();
                                                 KeyValuePair<double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
@@ -154,7 +213,7 @@ namespace BBN_Game.Grid
                                             GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
                                             //check if object is within player's view cone +- 45 degrees
                                             float theta = Vector3.Dot(Vector3.Normalize(rotation.Forward), Vector3.Normalize(tempObj.Position-playerPosition));
-                                            if (theta >= 0.75)
+                                            //if (theta >= 0.75)
                                             {
                                                 double dist = (tempObj.Position - playerPosition).Length();
                                                 KeyValuePair<Double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
@@ -191,7 +250,7 @@ namespace BBN_Game.Grid
                                             GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
                                             //check if object is within player's view cone +- 45 degrees
                                             float theta = Vector3.Dot(Vector3.Normalize(rotation.Forward), Vector3.Normalize(tempObj.Position-playerPosition));
-                                            if (theta >= 0.75)
+                                            //if (theta >= 0.75)
                                             {
                                                 double dist = (tempObj.Position - playerPosition).Length();
                                                 KeyValuePair<double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
@@ -212,7 +271,7 @@ namespace BBN_Game.Grid
                                             GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
                                             //check if object is within player's view cone +- 45 degrees
                                             float theta = Vector3.Dot(Vector3.Normalize(rotation.Forward), Vector3.Normalize(tempObj.Position-playerPosition));
-                                            if (theta >= 0.75)
+                                            //if (theta >= 0.75)
                                             {
                                                 double dist = (tempObj.Position - playerPosition).Length();
                                                 KeyValuePair<Double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
@@ -241,7 +300,7 @@ namespace BBN_Game.Grid
                                             GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
                                             //check if object is within player's view cone +- 45 degrees
                                             float theta = Vector3.Dot(Vector3.Normalize(rotation.Forward), Vector3.Normalize(tempObj.Position-playerPosition));
-                                            if (theta >= 0.75)
+                                            //if (theta >= 0.75)
                                             {
                                                 double dist = (tempObj.Position - playerPosition).Length();
                                                 KeyValuePair<double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
@@ -262,7 +321,7 @@ namespace BBN_Game.Grid
                                             GridObjectInterface tempObj = grid[x, y, z].ElementAt(i);
                                             //check if object is within player's view cone +- 45 degrees
                                             float theta = Vector3.Dot(Vector3.Normalize(rotation.Forward), Vector3.Normalize(tempObj.Position-playerPosition));
-                                            if (theta >= 0.75)
+                                            //if (theta >= 0.75)
                                             {
                                                 double dist = (tempObj.Position - playerPosition).Length();
                                                 KeyValuePair<Double, GridObjectInterface> temp = new KeyValuePair<double, GridObjectInterface>(dist, tempObj);
@@ -279,7 +338,8 @@ namespace BBN_Game.Grid
                 }
             }
             #endregion
-
+            */
+            #endregion
             for (int i = 0; i < queue.Count; ++i)
             {
                 targets.Add(queue.ElementAt(i).Value);
@@ -289,7 +349,44 @@ namespace BBN_Game.Grid
 
             //return targets;
         }
-
+        //Get the bounding box minimums and maximums
+        private void getMinimumsAndMaximums(Vector3[] pointList, out Vector3 minimums, out Vector3 maximums)
+        {
+            minimums.X = pointList[0].X;
+            minimums.Y = pointList[0].Y;
+            minimums.Z = pointList[0].Z;
+            maximums.X = pointList[0].X;
+            maximums.Y = pointList[0].Y;
+            maximums.Z = pointList[0].Z;
+            for (int i = 1; i < pointList.Length; ++i)
+            {
+                minimums.X = Math.Min(minimums.X, pointList[i].X);
+                minimums.Y = Math.Min(minimums.Y, pointList[i].Y);
+                minimums.Z = Math.Min(minimums.Z, pointList[i].Z);
+                maximums.X = Math.Max(maximums.X, pointList[i].X);
+                maximums.Y = Math.Max(maximums.Y, pointList[i].Y);
+                maximums.Z = Math.Max(maximums.Z, pointList[i].Z);
+            }
+        }
+        //Clamps a cell coordinate to the bounds of the grid
+        private Vector3 clampCellCoordToGridLimits(Vector3 cellCoord)
+        {
+            int gridSize = this.grid.Length;
+            Vector3 result = cellCoord;
+            result.X = ((int)cellCoord.X < 0 ? 0 : ((int)cellCoord.X >= gridSize ? gridSize - 1 : (int)cellCoord.X));
+            result.Y = ((int)cellCoord.Y < 0 ? 0 : ((int)cellCoord.Y >= gridSize ? gridSize - 1 : (int)cellCoord.Y));
+            result.Z = ((int)cellCoord.Z < 0 ? 0 : ((int)cellCoord.Z >= gridSize ? gridSize - 1 : (int)cellCoord.Z));
+            return result;
+        }
+        //Calculate the grid coordinates of a point along a ray (using the line equation p' = p + d*t, where d is the 
+        //direction of the ray and p is the starting point
+        private Vector3 gridPtAlongDirection(Vector3 direction, Vector3 startpos, float distance)
+        {
+            Vector3 normDirection = Vector3.Normalize(direction);
+            return new Vector3((int)Math.Round((double)((normDirection.X * distance + startpos.X) / GRID_BLOCK_SIZE)) + grid_offset,
+                (int)Math.Round((double)((normDirection.Y * distance + startpos.Y) / GRID_BLOCK_SIZE)) + grid_offset,
+                (int)Math.Round((double)((normDirection.Z * distance + startpos.Z) / GRID_BLOCK_SIZE)) + grid_offset);
+        }
         //insert object into grid and update pointers to grid-blocks
         public void registerObject(GridObjectInterface obj)
         {
