@@ -307,7 +307,7 @@ namespace BBN_Game.Objects
                 #endregion
 
                 // Debug
-                if (state.IsKeyDown(Keys.Space))
+                if (state.IsKeyDown(Keys.Space) && oldState.IsKeyUp(Keys.Space))
                     mouseInverted = mouseInverted ? false : true;
                 #endregion
 
@@ -733,7 +733,20 @@ namespace BBN_Game.Objects
             else
                 fpCamera.update(gt, Position, Matrix.CreateFromQuaternion(rotation), this.getGreatestLength);
 
+            if (target == null)
+            {
+                getNewTarget();
+            }
+
             base.Update(gt);
+        }
+
+        public void getNewTarget()
+        {
+            //List<Grid.GridObjectInterface> list = Controller.GameController.getTargets(this);
+
+            //if (list.Count > 0)
+            //    target = (Objects.StaticObject)list.ElementAt(0);
         }
         #endregion
 
@@ -751,15 +764,13 @@ namespace BBN_Game.Objects
         /// <summary>
         /// Draws the payers hud
         /// </summary>
-        public void drawHud(List<Objects.StaticObject> list, GameTime gt)
+        public void drawHud(SpriteBatch sb, List<Objects.StaticObject> list, GameTime gt)
         {
             if (!Game.GraphicsDevice.Viewport.Equals(playerViewport))
                 return;
 
             GraphicsDevice.RenderState.DepthBufferEnable = false;
             GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
-
-            SpriteBatch sb = new SpriteBatch(Game.GraphicsDevice);
 
             Viewport viewport = Game.GraphicsDevice.Viewport;
 
@@ -797,13 +808,10 @@ namespace BBN_Game.Objects
             sb.DrawString(f, reloadTimer[1].ToString("00"), new Vector2(0, 0), Color.Red);
             sb.DrawString(f, "Point in grid: " + this.gridLocations.ElementAt(0).ToString(), new Vector2(100, 0), Color.Red);
             sb.DrawString(f, "Number of objects around player: " + Controller.GameController.getNumberAround(this).ToString("00"), new Vector2(100, 20), Color.Red);
+            sb.DrawString(f, "" + Controller.GameController.getTargets(this), new Vector2(100, 150), Color.Red);
             #endregion
 
             sb.End();
-
-            sb.Dispose();
-            sb = null;
-
 
             GraphicsDevice.RenderState.DepthBufferEnable = true;
             GraphicsDevice.RenderState.DepthBufferWriteEnable = true;

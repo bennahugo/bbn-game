@@ -23,7 +23,8 @@ namespace BBN_Game.Controller
         OptionsMenu = 1,
         Playing = 2,
         Paused = 3,
-        notLoaded = 4
+        notLoaded = 4,
+        reload = 5
     }
 
     enum Players
@@ -112,7 +113,7 @@ namespace BBN_Game.Controller
         BBN_Game.BBNGame game;
         static int i;
 
-        static Boolean ObjectsLoaded;
+        public static Boolean ObjectsLoaded;
         #endregion
 
         #region "XNA Required"
@@ -162,7 +163,12 @@ namespace BBN_Game.Controller
             {
                 if (!(prevGameState.Equals(GameState.Playing)))
                 {
-                    game.Content.Unload();
+                    //game.Content.Unload();
+                    if (SkyBox != null)
+                    {
+                        SkyBox.Dispose();
+                        SkyBox = null;
+                    }
 
                     loadMap(INITIAL_MAP);
 
@@ -171,18 +177,16 @@ namespace BBN_Game.Controller
 
                     prevGameState = GameState.Playing;
 
-                    Player2.Target = Player1;
-                    Player1.Target = Player2;
-
+                    //Player2.Target = Player1;
+                    //Player1.Target = Player2;
                     ObjectsLoaded = true;
                 }
             }
             else
             {
-                game.Content.Unload();
-                                
                 ObjectsLoaded = false;
             }
+
             menuController.loadContent();
         }
 
@@ -433,6 +437,13 @@ namespace BBN_Game.Controller
                     loadContent();
                 }
             }
+            else if (gameState.Equals(GameState.reload))
+            {
+                prevGameState = GameState.reload;
+                gameState = GameState.Playing;
+                ObjectsLoaded = false;
+                loadContent();
+            }
             else
             {
                 menuController.updateMenu(gameTime);
@@ -443,7 +454,7 @@ namespace BBN_Game.Controller
         {
             if (gameState.Equals(GameState.MainMenu) || gameState.Equals(GameState.OptionsMenu))
             {
-                menuController.drawMenu(gameTime);
+                menuController.drawMenu(game.sb, gameTime);
             }
             else 
             {
@@ -454,11 +465,11 @@ namespace BBN_Game.Controller
                     #region "Player 1"
                     drawObjects(gameTime, Player1);
                     if (tradePanelUp1)//handle trade panel poping up                    
-                        menuController.drawTradeMenu(Player1);
+                        menuController.drawTradeMenu(game.sb, Player1);
                     else if(Player1.UpFactor < 150)
-                        menuController.drawTradeMenu(Player1);
+                        menuController.drawTradeMenu(game.sb, Player1);
                     else
-                        menuController.drawTradeStats(Player1);
+                        menuController.drawTradeStats(game.sb, Player1);
                     #endregion
 
                     #region "Player 2"
@@ -466,11 +477,11 @@ namespace BBN_Game.Controller
                     {
                         drawObjects(gameTime, Player2);
                         if (tradePanelUp2)
-                            menuController.drawTradeMenu(Player2);
+                            menuController.drawTradeMenu(game.sb, Player2);
                         else if (Player2.UpFactor < 150)
-                            menuController.drawTradeMenu(Player2);
+                            menuController.drawTradeMenu(game.sb, Player2);
                         else
-                            menuController.drawTradeStats(Player2);
+                            menuController.drawTradeStats(game.sb, Player2);
                     }
                     #endregion
 
@@ -479,7 +490,7 @@ namespace BBN_Game.Controller
                 }
 
                 if(gameState.Equals(GameState.Paused))
-                    menuController.drawMenu(gameTime);
+                    menuController.drawMenu(game.sb, gameTime);
             }
         }
 
@@ -507,7 +518,7 @@ namespace BBN_Game.Controller
                     AllObjects.ElementAt(i).drawSuroundingBox(game.sb, cam, player);
 
             //draw the players hud now (so that the target boxes wont obscure them)
-            player.drawHud(DynamicObjs, gameTime);
+            player.drawHud(game.sb, DynamicObjs, gameTime);
             
             //TODO DEBUG: draw the paths of the AI
             //drawPaths(gameTime, player.Camera, new BasicEffect(game.GraphicsDevice, null), game.GraphicsDevice);
@@ -515,6 +526,11 @@ namespace BBN_Game.Controller
         #endregion
 
         #region "Objects methods"
+
+        public static /*List<Grid.GridObjectInterface>*/ int getTargets(Objects.playerObject player)
+        {
+            return Grid.getTargets(300, Matrix.CreateFromQuaternion(player.rotation), player.Position);
+        }
 
         private static void moveObjectsInGrid()
         {
@@ -637,8 +653,45 @@ namespace BBN_Game.Controller
 
         #region "Map loader"
 
+        protected void loadMap2(string mapName)
+        {
+            // clear all lists
+            pathNodes.Clear();
+            DynamicObjs.Clear();
+            AllObjects.Clear();
+            DynamicObjs.Clear();
+            Fighters.Clear();
+            Destroyers.Clear();
+            Towers.Clear();
+            Asteroids.Clear();
+            Projectiles.Clear();
+            spawnPoints.Clear();
+
+            gameGrid = new BBN_Game.Grid.GridStructure(200, 4000);
+
+            SkyBox = new BBN_Game.Graphics.Skybox.Skybox(game, "Skybox/Starfield", 2000, 1);
+
+            Player1 = new BBN_Game.Objects.playerObject(game, BBN_Game.Objects.Team.Red, new Vector3(0,0,-10), Vector3.Zero, false);
+            Player2 = new BBN_Game.Objects.playerObject(game, BBN_Game.Objects.Team.Blue, new Vector3(0, 0, +10), Vector3.Zero, false);
+            addObject(Player1);
+            addObject(Player2);
+
+        }
+
         protected void loadMap(string mapName)
         {
+            // clear all lists
+            pathNodes.Clear();
+            DynamicObjs.Clear();
+            AllObjects.Clear();
+            DynamicObjs.Clear();
+            Fighters.Clear();
+            Destroyers.Clear();
+            Towers.Clear();
+            Asteroids.Clear();
+            Projectiles.Clear();
+            spawnPoints.Clear();
+
             //First read in map:
             XmlReader reader = XmlReader.Create(mapName);
             while (reader.Read())
