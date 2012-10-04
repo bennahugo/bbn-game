@@ -59,7 +59,7 @@ namespace BBN_Game.Objects
                 if (repairTimer <= 0)
                 {
                     this.Health = totalHealth;
-                    changeTeam(Team.nutral);
+                    changeTeam(Team.neutral);
                     this.isRepairing = false;
                     resetModels();
                 }

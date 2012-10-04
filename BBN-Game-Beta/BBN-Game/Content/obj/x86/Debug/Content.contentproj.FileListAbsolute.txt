@@ -2,3 +2,4 @@ C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game\BBN-Game\Content\obj\x86\
 C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache

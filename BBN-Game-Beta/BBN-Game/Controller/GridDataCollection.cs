@@ -17,7 +17,7 @@ namespace BBN_Game.Controller
                 if (item is Objects.Turret && (item.Position - player.Position).Length() <= MAX_CAPTURE_DISTANCE)
                 {
                     Objects.Turret turret = ((Objects.Turret)item);
-                    if (turret.Team.Equals(Objects.Team.nutral))
+                    if (turret.Team.Equals(Objects.Team.neutral))
                     {
                         turret.changeTeam(player.Team);
                         GameController.AIController.registerTurretOnTeam(turret, player.Team);

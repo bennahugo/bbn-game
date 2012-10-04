@@ -539,7 +539,7 @@ namespace BBN_Game.Controller
 
         #region "Objects methods"
 
-        public static /*List<Grid.GridObjectInterface>*/ int getTargets(Objects.playerObject player)
+        public static List<Grid.GridObjectInterface> getTargets(Objects.playerObject player)
         {
             return Grid.getTargets(300, Matrix.CreateFromQuaternion(player.rotation), player);
         }
@@ -953,7 +953,7 @@ namespace BBN_Game.Controller
         /// <returns>Objects.Team instance</returns>
         private static Objects.Team getTeamFromMapTeamId(int team)
         {
-            return team == -1 ? Objects.Team.nutral : (team == 0 ? Objects.Team.Red : (team == 1 ? Objects.Team.Blue : Objects.Team.nutral));
+            return team == -1 ? Objects.Team.neutral : (team == 0 ? Objects.Team.Red : (team == 1 ? Objects.Team.Blue : Objects.Team.neutral));
         }
         #endregion
 

@@ -24,7 +24,7 @@ namespace BBN_Game.Objects
     {
         Red = 0,
         Blue = 1,
-        nutral = 2
+        neutral = 2
     }
 
     class StaticObject : DrawableGameComponent, Grid.GridObjectInterface
@@ -422,10 +422,10 @@ namespace BBN_Game.Objects
         {
             Color col;
             if (this is Objects.Turret)
-                col = ((Objects.Turret)this).Repairing ? Color.Aqua : this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.nutral) ? Color.Yellow :
+                col = ((Objects.Turret)this).Repairing ? Color.Aqua : this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.neutral) ? Color.Yellow :
                         this.Team.Equals(player.team) ? Color.Green : Color.Orange;
             else
-                col = this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.nutral) ? Color.Yellow :
+                col = this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.neutral) ? Color.Yellow :
                         this.Team.Equals(player.team) ? Color.Green : Color.Orange;
 
             float radiusOfObject;
