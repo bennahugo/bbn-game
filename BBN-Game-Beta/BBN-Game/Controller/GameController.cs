@@ -115,6 +115,8 @@ namespace BBN_Game.Controller
         static int i;
 
         public static Boolean ObjectsLoaded;
+        private Boolean player1Win;
+        private Boolean player2Win;
         #endregion
 
         #region "XNA Required"
@@ -155,6 +157,9 @@ namespace BBN_Game.Controller
             #region "Menu initialization"
             menuController = new BBN_Game.Menu.MenuController(this, this.game);
             #endregion
+
+            player1Win = false;
+            player2Win = false;
         }
 
         public void loadContent()
@@ -421,7 +426,21 @@ namespace BBN_Game.Controller
                     //SkyBox.Update(gameTime);
 
                     //end-game conditions
-                    if (Team1Base.getHealth < 0 || Team2Base.getHealth < 0)
+                    if (Team1Base.getHealth < 0)
+                    {
+                        gameState = GameState.EndGame;
+                    }
+                    if (Team2Base.getHealth < 0)
+                    {
+                        gameState = GameState.EndGame;
+                    }
+
+                    //end-game conditions
+                    if (Team1Base.getHealth < 0)
+                    {
+                        gameState = GameState.EndGame;
+                    }
+                    if (Team2Base.getHealth < 0)
                     {
                         gameState = GameState.EndGame;
                     }
@@ -466,7 +485,10 @@ namespace BBN_Game.Controller
             else if (gameState.Equals(GameState.EndGame))
             {
                 //draw end-game screen
-                menuController.drawEndGame(game.sb);
+                if(player1Win)
+                    menuController.drawEndGame(game.sb,Player1);
+                if (player2Win)
+                    menuController.drawEndGame(game.sb, Player2);
             }
             else 
             {

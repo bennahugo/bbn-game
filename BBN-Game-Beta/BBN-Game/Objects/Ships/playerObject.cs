@@ -815,23 +815,39 @@ namespace BBN_Game.Objects
             sb.DrawString(f, shipData.speed.ToString("00"), new Vector2(hudWidth * 0.15f, viewport.Height - hudHeight * 0.55f), Color.Aqua);
 
             sb.Draw(HudBarHolder, new Rectangle(0, viewport.Height - hudHeight, hudWidth, hudHeight), Color.Aqua);
-
-            int barStartX = (int)((float)hudWidth * 0.05f);
-            int barWidthX = (int)((((float)hudWidth * 0.99f) - barStartX)  * (shipData.speed / maxSpeed)) ;
-
-            int barStartY = viewport.Height - (int)((float)hudHeight * 0.297f);
-            int barWidthY = (int)(((float)hudHeight * 0.297f));
-
-            int textHeight = HudBar.Height;
-            int textWidth = (int)(HudBar.Width * (shipData.speed / maxSpeed));
-
-            sb.Draw(HudBar, new Rectangle(barStartX, barStartY, barWidthX, barWidthY), new Rectangle(0, 0, textWidth, textHeight), new Color((shipData.speed / maxSpeed), 1 - (shipData.speed / maxSpeed), 0));
             #endregion
 
             #region "Health Bar"
 
             sb.DrawString(f, this.Health.ToString("0000"), new Vector2(Game.GraphicsDevice.Viewport.Width / 2f - 10, 0), Color.Red);
 
+            int barStartX = (int)((float)hudWidth * 0.05f);
+            int barWidthX = (int)((((float)hudWidth * 0.99f) - barStartX) * (Health / totalHealth));
+
+            int barStartY = viewport.Height - (int)((float)hudHeight * 0.297f);
+            int barWidthY = (int)(((float)hudHeight * 0.297f));
+
+            int textHeight = HudBar.Height;
+            int textWidth = (int)(HudBar.Width * (Health / totalHealth));
+
+            sb.Draw(HudBar, new Rectangle(barStartX, barStartY, barWidthX, barWidthY), new Rectangle(0, 0, textWidth, textHeight), new Color(1 - (Health / totalHealth),(Health / totalHealth), 0));
+
+            #endregion
+
+            #region Enemy Health-bars
+            if (Target != null)
+            {
+                barStartX = viewport.Width - 110;
+                barWidthX = 100;
+
+                barStartY = 10;
+                barWidthY = 10;
+
+                textHeight = HudBar.Height;
+                textWidth = (int)(HudBar.Width * (Target.getHealth / Target.getTotalHealth));
+
+                sb.Draw(HudBar, new Rectangle(barStartX, barStartY, barWidthX, barWidthY), new Rectangle(0, 0, textWidth, textHeight), new Color(1 - (Target.getHealth / Target.getTotalHealth), (Target.getHealth / Target.getTotalHealth), 0));
+            }
             #endregion
 
             #region "Reload speeds"

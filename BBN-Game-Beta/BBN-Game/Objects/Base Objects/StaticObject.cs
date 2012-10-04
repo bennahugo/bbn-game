@@ -90,6 +90,10 @@ namespace BBN_Game.Objects
         {
             get { return Health; }
         }
+        public float getTotalHealth
+        {
+            get { return totalHealth; }
+        }
         public Team Team
         {
             get { return team; }
