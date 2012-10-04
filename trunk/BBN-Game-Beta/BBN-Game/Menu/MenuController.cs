@@ -544,6 +544,15 @@ namespace BBN_Game.Menu
 
         #region drawing methods            
         
+        //draw end-game screen 
+        public void drawEndGame(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Begin();
+            spriteBatch.Draw(mainMenuTex, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+            spriteBatch.DrawString(selectedMenuFont, "Main Menu", new Vector2((screenWidth / 2) - 50, screenHeight - 100), Color.Red);
+            spriteBatch.End();
+        }
+
         public void drawTradeMenu(SpriteBatch spriteBatch, Objects.playerObject player)
         {
             //for slide-up animation

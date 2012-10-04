@@ -24,7 +24,8 @@ namespace BBN_Game.Controller
         Playing = 2,
         Paused = 3,
         notLoaded = 4,
-        reload = 5
+        reload = 5,
+        EndGame = 6
     }
 
     enum Players
@@ -419,6 +420,12 @@ namespace BBN_Game.Controller
 
                     //SkyBox.Update(gameTime);
 
+                    //end-game conditions
+                    if (Team1Base.getHealth < 0 || Team2Base.getHealth < 0)
+                    {
+                        gameState = GameState.EndGame;
+                    }
+
                     if (GamePad.GetState(PlayerIndex.One).IsConnected)
                         handleXboxControls();
                     else
@@ -455,6 +462,11 @@ namespace BBN_Game.Controller
             if (gameState.Equals(GameState.MainMenu) || gameState.Equals(GameState.OptionsMenu))
             {
                 menuController.drawMenu(game.sb, gameTime);
+            }
+            else if (gameState.Equals(GameState.EndGame))
+            {
+                //draw end-game screen
+                menuController.drawEndGame(game.sb);
             }
             else 
             {
