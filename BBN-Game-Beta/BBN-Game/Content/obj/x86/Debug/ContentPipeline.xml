@@ -56,71 +56,6 @@
       <Time>2012-10-04T15:18:00.9448877+02:00</Time>
     </Item>
     <Item>
-      <Source>Models\Ships\FighterBlue.fbx</Source>
-      <Name>Models\Ships\FighterBlue</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterBlue.xnb</Output>
-      <Time>2012-10-04T15:17:46.4140243+02:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Ships\FighterBlue_0.xml</Key>
-        <Value>2012-10-04T15:22:20.330151+02:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\Ships\FighterRed.fbx</Source>
-      <Name>Models\Ships\FighterRed</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterRed.xnb</Output>
-      <Time>2012-10-04T15:17:46.3390143+02:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Ships\FighterRed_0.xml</Key>
-        <Value>2012-10-04T15:22:21.987367+02:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\Ships\PlayerBlue.fbx</Source>
-      <Name>Models\Ships\PlayerBlue</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerBlue.xnb</Output>
-      <Time>2012-10-04T15:17:46.3460157+02:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Ships\PlayerBlue_0.xml</Key>
-        <Value>2012-10-04T15:22:23.251526+02:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\Ships\PlayerRed.fbx</Source>
-      <Name>Models\Ships\PlayerRed</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerRed.xnb</Output>
-      <Time>2012-10-04T15:17:46.3570173+02:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Ships\PlayerRed_0.xml</Key>
-        <Value>2012-10-04T15:22:24.4736824+02:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\Projectiles\Missile.fbx</Source>
-      <Name>Models\Projectiles\Missile</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Projectiles\Missile.xnb</Output>
-      <Time>2012-10-04T15:17:41.9944577+02:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Projectiles\Missile_0.xml</Key>
-        <Value>2012-10-04T15:22:25.6218297+02:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
       <Source>Models\Ships\spaceStation.fbx</Source>
       <Name>Models\Ships\spaceStation</Name>
       <Importer>FbxImporter</Importer>
@@ -461,41 +396,6 @@
       <Options>None</Options>
       <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\control_menu.xnb</Output>
       <Time>2012-10-04T15:18:00.8318734+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\FighterBlue.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\FighterBlue_0.xml</Output>
-      <Time>2012-10-04T15:17:46.4140243+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\FighterRed.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\FighterRed_0.xml</Output>
-      <Time>2012-10-04T15:17:46.3390143+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\PlayerBlue.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\PlayerBlue_0.xml</Output>
-      <Time>2012-10-04T15:17:46.3460157+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Ships\PlayerRed.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Ships\PlayerRed_0.xml</Output>
-      <Time>2012-10-04T15:17:46.3570173+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Projectiles\Missile.fbx</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Projectiles\Missile_0.xml</Output>
-      <Time>2012-10-04T15:17:41.9944577+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\spaceStation.fbx</Source>

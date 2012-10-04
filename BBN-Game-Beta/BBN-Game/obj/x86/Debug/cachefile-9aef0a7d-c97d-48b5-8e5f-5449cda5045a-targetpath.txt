@@ -4,11 +4,6 @@ Content\Fonts\menuFont.xnb
 Content\Fonts\selectedFont.xnb
 Content\Fonts\pause_menu.xnb
 Content\Fonts\trade_menu.xnb
-Content\Models\Ships\FighterBlue.xnb
-Content\Models\Ships\FighterRed.xnb
-Content\Models\Ships\PlayerBlue.xnb
-Content\Models\Ships\PlayerRed.xnb
-Content\Models\Projectiles\Missile.xnb
 Content\Models\Ships\spaceStation.xnb
 Content\Models\Projectiles\Cube.xnb
 Content\Models\Ships\Fighter1.xnb
