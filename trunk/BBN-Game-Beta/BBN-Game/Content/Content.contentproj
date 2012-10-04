@@ -42,18 +42,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Ships\FighterBlue.fbx">
-      <Name>FighterBlue</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-    <Compile Include="Models\Ships\FighterRed.fbx">
-      <Name>FighterRed</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Shader\skyBoxEffect.fx">
       <Name>skyBoxEffect</Name>
       <Importer>EffectImporter</Importer>
@@ -97,18 +85,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Ships\PlayerBlue.fbx">
-      <Name>PlayerBlue</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-    <Compile Include="Models\Ships\PlayerRed.fbx">
-      <Name>PlayerRed</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Skybox\space5.jpg">
       <Name>space5</Name>
       <Importer>TextureImporter</Importer>
@@ -120,13 +96,6 @@
       <Name>distanceFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Models\Projectiles\Missile.fbx">
-      <Name>Missile</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>

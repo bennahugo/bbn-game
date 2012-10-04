@@ -2,19 +2,17 @@ Content\Models\Ships\Turret2.xnb
 Content\Menu\waterfall_city.xnb
 Content\Models\Ships\Turret1.xnb
 Content\Models\Projectiles\Cube.xnb
-Content\Models\Ships\PlayerRed.xnb
+Content\Models\Ships\Fighter4.xnb
 Content\Fonts\selectedFont.xnb
 Content\Skybox\space2.xnb
 Content\Skybox\space5.xnb
 Content\Models\Ships\Fighter1.xnb
 Content\Menu\trade_menu_new.xnb
 Content\Menu\pause_menu.xnb
-Content\Models\Projectiles\Missile.xnb
 Content\Menu\keyboard_controls.xnb
 Content\Menu\trade_menu_newest.xnb
-Content\Models\Ships\PlayerBlue.xnb
+Content\Menu\dark_trans.xnb
 Content\Models\Ships\Fighter3.xnb
-Content\Models\Ships\Fighter4.xnb
 Content\SpriteFont1.xnb
 Content\Skybox\Starfield.xnb
 Content\Models\Ships\Fighter2.xnb
@@ -22,7 +20,6 @@ Content\stats_icons\destroyer_small.xnb
 Content\Maps\Death Zone.xml
 Content\Fonts\menuFont.xnb
 Content\HudTextures\HealthBar.xnb
-Content\Models\Ships\FighterRed.xnb
 Content\Fonts\pause_menu.xnb
 Content\Fonts\trade_menu.xnb
 Content\Models\Ships\playerShip.xnb
@@ -36,11 +33,9 @@ Content\stats_icons\missile_small.xnb
 Content\Menu\control_menu.xnb
 Content\stats_icons\destroyer2_small.xnb
 Content\Skybox\space4.xnb
-Content\Menu\dark_trans.xnb
 Content\Shader\skyBoxEffect.xnb
 Content\Skybox\space3.xnb
 Content\Shader\targetBox.xnb
 Content\Menu\nebula_blue.xnb
-Content\Models\Ships\FighterBlue.xnb
 Content\Menu\dark_trans_new.xnb
 Content\Menu\xbox_controls.xnb
