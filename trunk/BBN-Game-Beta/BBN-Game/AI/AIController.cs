@@ -70,7 +70,7 @@ namespace BBN_Game.AI
         }
         public void registerTurretOnTeam(Turret turret, Team team)
         {
-            if (team == Team.nutral)
+            if (team == Team.neutral)
                 return;
             foreach (TeamInformation ti in infoOnTeams)
                 if (ti.teamId == team)
@@ -624,7 +624,7 @@ namespace BBN_Game.AI
                                 Turret closestTurret = null;
                                 float closestDistance = 0;
                                 foreach (Turret tr in mapTurrets)
-                                    if (tr.Team == Team.nutral && !tr.Repairing)
+                                    if (tr.Team == Team.neutral && !tr.Repairing)
                                     {
                                         float dist = (tr.Position - ti.teamPlayer.Position).Length();
                                         if (closestTurret == null)
@@ -684,7 +684,7 @@ namespace BBN_Game.AI
                         {
                             if (navComputer.objectPaths[ti.teamPlayer].currentWaypoint == null)
                                 routePlayerToTurret(ti, ti.playerObjective);
-                            if (ti.playerObjective.Team != Team.nutral)
+                            if (ti.playerObjective.Team != Team.neutral)
                             {
                                 ti.playerObjective = null;                //the other player captured our objective....... dang! NEXT!
                                 continue;

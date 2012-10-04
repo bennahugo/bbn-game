@@ -64,6 +64,8 @@ namespace BBN_Game.Objects
 
         private KeyboardState oldState;
 
+        private List<Objects.StaticObject> previousList;
+
         /// <summary>
         /// Getter and setter
         /// </summary>
@@ -161,6 +163,7 @@ namespace BBN_Game.Objects
                 reloadTimer[i] = 0;
 
             this.twoPlayer = twoPlayer;
+            previousList = new List<StaticObject>();
         }
 
         protected override void resetModels()
@@ -241,6 +244,8 @@ namespace BBN_Game.Objects
                     cameraType = cameraType.Equals(CurrentCam.Chase) ? CurrentCam.FirstPerson : CurrentCam.Chase;
                 if (state.IsKeyDown(Keys.R) && oldState.IsKeyUp(Keys.R))
                     Controller.GridDataCollection.tryCaptureTower(this);
+                if (state.IsKeyDown(Keys.V) && oldState.IsKeyUp(Keys.V))
+                    getNewTarget();
                 #endregion
 
                 #region "Accel Deccel checks"
@@ -336,6 +341,8 @@ namespace BBN_Game.Objects
             if (twoPlayer)
             if (index == PlayerIndex.Two)
             {
+                if (state.IsKeyDown(Keys.PageDown) && oldState.IsKeyUp(Keys.PageDown))
+                    getNewTarget();
                 #region "Accel Deccel checks"
                 if (state.IsKeyDown(Keys.Up))
                 {
@@ -741,12 +748,38 @@ namespace BBN_Game.Objects
             base.Update(gt);
         }
 
+        /// <summary>
+        /// This tries to get 
+        /// </summary>
         public void getNewTarget()
         {
-            //List<Grid.GridObjectInterface> list = Controller.GameController.getTargets(this);
+            List<Grid.GridObjectInterface> list = Controller.GameController.getTargets(this);
 
-            //if (list.Count > 0)
-            //    target = (Objects.StaticObject)list.ElementAt(0);
+            if (list.Count > 0)
+            {
+                for (int i = 0; i < list.Count; ++i)
+                {
+                    if (list.ElementAt(i) is StaticObject)
+                    {
+                        StaticObject obj = (StaticObject)list.ElementAt(i);
+
+                        if (obj.Team != Team.neutral)
+                        {
+                            if (obj.Team != this.Team)
+                            {
+                                if (!previousList.Contains(obj))
+                                {
+                                    previousList.Add(obj);
+                                    target = obj;
+                                    return;
+                                }
+                            }
+                        }
+                    }
+
+                }
+                previousList.Clear();
+            }
         }
         #endregion
 
@@ -754,9 +787,6 @@ namespace BBN_Game.Objects
 
         public override void Draw(GameTime gameTime, BBN_Game.Camera.CameraMatrices cam)
         {
-            //drawHud();
-
-
             if (this.cameraType.Equals(CurrentCam.Chase))
                 base.Draw(gameTime, cam);
         }
@@ -805,10 +835,6 @@ namespace BBN_Game.Objects
             #endregion
 
             #region "Reload speeds"
-            sb.DrawString(f, reloadTimer[1].ToString("00"), new Vector2(0, 0), Color.Red);
-            sb.DrawString(f, "Point in grid: " + this.gridLocations.ElementAt(0).ToString(), new Vector2(100, 0), Color.Red);
-            sb.DrawString(f, "Number of objects around player: " + Controller.GameController.getNumberAround(this).ToString("00"), new Vector2(100, 20), Color.Red);
-            sb.DrawString(f, "" + Controller.GameController.getTargets(this), new Vector2(100, 150), Color.Red);
             #endregion
 
             sb.End();

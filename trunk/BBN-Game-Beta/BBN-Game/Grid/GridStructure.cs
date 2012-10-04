@@ -44,7 +44,7 @@ namespace BBN_Game.Grid
         }
 
         //return all the objects in-front of the player for targetting
-        public /*List<GridObjectInterface>*/ int getTargets(int distance, Microsoft.Xna.Framework.Matrix rotation, GridObjectInterface player)
+        public List<GridObjectInterface> getTargets(int distance, Microsoft.Xna.Framework.Matrix rotation, GridObjectInterface player)
         {
             List<GridObjectInterface> targets = new List<GridObjectInterface>();
             PowerDataStructures.PriorityQueue<Double,GridObjectInterface> queue = new PowerDataStructures.PriorityQueue<Double,GridObjectInterface>(true);
@@ -345,9 +345,9 @@ namespace BBN_Game.Grid
                 targets.Add(queue.ElementAt(i).Value);
             }
 
-            return queue.Count;
+            //return queue.Count;
 
-            //return targets;
+            return targets;
         }
         //Get the bounding box minimums and maximums
         private void getMinimumsAndMaximums(Vector3[] pointList, out Vector3 minimums, out Vector3 maximums)

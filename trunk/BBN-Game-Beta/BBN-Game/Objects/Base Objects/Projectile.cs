@@ -45,7 +45,7 @@ namespace BBN_Game.Objects
         /// <param name="game">Game class</param>
         /// <param name="parent">The parent of the bullet</param>
         public Projectile(Game game, StaticObject parent)
-            : base(game, Objects.Team.nutral, parent.Position + Vector3.Transform(new Vector3(0, -parent.getGreatestLength / 2, parent.getGreatestLength / 2), Matrix.CreateFromQuaternion(parent.rotation)))
+            : base(game, Objects.Team.neutral, parent.Position + Vector3.Transform(new Vector3(0, -parent.getGreatestLength / 2, parent.getGreatestLength / 2), Matrix.CreateFromQuaternion(parent.rotation)))
         {
             this.Health = 10;
             numHudLines = 3;
