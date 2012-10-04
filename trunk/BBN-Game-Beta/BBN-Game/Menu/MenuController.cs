@@ -255,6 +255,14 @@ namespace BBN_Game.Menu
             {
                 //TODO 
             }
+            else if (currentState == GameState.EndGame)
+            {
+                if (keyState.IsKeyDown(Keys.Enter) && prevKeyState.IsKeyUp(Keys.Enter))
+                {
+                    currentState = GameState.MainMenu;
+                    Controller.GameController.ObjectsLoaded = false;
+                }
+            }
             prevKeyState = keyState;
         }
 
@@ -545,10 +553,12 @@ namespace BBN_Game.Menu
         #region drawing methods            
         
         //draw end-game screen 
-        public void drawEndGame(SpriteBatch spriteBatch)
+        public void drawEndGame(SpriteBatch spriteBatch,Objects.playerObject player)
         {
             spriteBatch.Begin();
             spriteBatch.Draw(mainMenuTex, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+            spriteBatch.DrawString(selectedMenuFont, "Game Over", new Vector2((screenWidth / 2) - 50, 20), Color.Red);
+            spriteBatch.DrawString(selectedMenuFont, ""+player.ToString(), new Vector2((screenWidth / 2) - 50, 70), Color.Red);
             spriteBatch.DrawString(selectedMenuFont, "Main Menu", new Vector2((screenWidth / 2) - 50, screenHeight - 100), Color.Red);
             spriteBatch.End();
         }
