@@ -214,8 +214,6 @@ C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Gam
 C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\obj\x86\Debug\BBN-Game.exe
 C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\obj\x86\Debug\BBN-Game.pdb
-C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\test.xnb
-C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\SpaceCr_00_0.xnb
 C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb
 C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00.xnb
 C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+2+uv_0.xnb
