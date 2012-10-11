@@ -168,10 +168,10 @@ namespace BBN_Game.Objects
 
         protected override void resetModels()
         {
-            if (this.Team == Team.Red)
-                model = Game.Content.Load<Model>("Models/Ships/playerShip");
-            else
-                model = Game.Content.Load<Model>("Models/Ships/playerShip");
+            //if (this.Team == Team.Red)
+                model = Game.Content.Load<Model>("Models/Ships/test");
+            //else
+               // model = Game.Content.Load<Model>("Models/Ships/playerShip");
 
             f = Game.Content.Load<SpriteFont>("SpriteFont1");
 
@@ -739,6 +739,21 @@ namespace BBN_Game.Objects
                 chaseCamera.update(gt, Position, Matrix.CreateFromQuaternion(rotation));
             else
                 fpCamera.update(gt, Position, Matrix.CreateFromQuaternion(rotation), this.getGreatestLength);
+
+
+            if (target != null)
+            {
+                if (target is Turret)
+                {
+                    if (((Turret)target).Repairing)
+                        target = null;
+                }
+                else
+                {
+                    if (target.getHealth <= 0)
+                        target = null;
+                }
+            }
 
             if (target == null)
             {
