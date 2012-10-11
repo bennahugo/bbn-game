@@ -240,6 +240,11 @@
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Compile Include="Models\Ships\test.FBX">
+      <Name>test</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
     <Compile Include="Models\Ships\spaceStation.fbx">
       <Name>spaceStation</Name>
       <Importer>FbxImporter</Importer>
@@ -284,6 +289,34 @@
       <Name>playerShip</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Ships\SpaceCr_00.png">
+      <Name>SpaceCr_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Ships\space+craft+2+uv.png">
+      <Name>space+craft+2+uv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Ships\space+craft+3+uv.png">
+      <Name>space+craft+3+uv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Ships\space+craft+4+uv.png">
+      <Name>space+craft+4+uv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
