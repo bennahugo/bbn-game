@@ -853,6 +853,30 @@ namespace BBN_Game.Objects
             #region "Reload speeds"
             #endregion
 
+            #region "Arrows"
+            if (target != null)
+            if (!target.IsVisible(this.Camera))
+            {
+                Vector3 A = target.Position - Camera.Position;
+
+                Matrix mat = Matrix.CreateFromQuaternion(this.rotation);
+
+                float x = Vector3.Dot(A, mat.Right);
+                float y = Vector3.Dot(A, mat.Up);
+
+                float angle = (float)Math.Atan2(y, x);
+
+                float distance = Math.Min(viewport.Height, viewport.Width);
+
+                distance = distance / 4;
+
+                int posx = -((int)(Math.Cos(angle) * distance)) + viewport.Width / 2;
+                int posy = -((int)(Math.Sin(angle) * distance)) + viewport.Height / 2;
+
+                sb.DrawString(f, "<>", new Vector2(posx, posy), Color.Red);
+            }
+            #endregion
+
             sb.End();
 
             GraphicsDevice.RenderState.DepthBufferEnable = true;
