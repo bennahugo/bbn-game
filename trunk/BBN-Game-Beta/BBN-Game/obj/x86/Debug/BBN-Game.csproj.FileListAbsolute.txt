@@ -111,10 +111,8 @@ C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\b
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\missile_small.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\pause_menu.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Shader\targetBox.xnb
-C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerBlue.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\control_menu.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\fighter_small.xnb
-C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterRed.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\menuFont.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\keyboard_controls.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space5.xnb
@@ -130,14 +128,11 @@ C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\b
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Fonts\trade_menu.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\trade_menu_newest.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\malpha_small.xnb
-C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\FighterBlue.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Menu\dark_trans.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\stats_icons\destroyer2_small.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\Starfield.xnb
-C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\PlayerRed.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Skybox\space4.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\SpriteFont1.xnb
-C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Projectiles\Missile.xnb
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Maps\Death Zone.xml
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\BBN-Game.exe
 C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\BBN-Game.pdb

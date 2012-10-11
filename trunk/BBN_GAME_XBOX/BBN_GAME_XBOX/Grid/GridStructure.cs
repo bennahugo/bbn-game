@@ -46,34 +46,70 @@ namespace BBN_Game.Grid
         //insert object into grid and update pointers to grid-blocks
         public void registerObject(GridObjectInterface obj)
         {
-            //remove object from grid first, if its already registered
-            deregisterObject(obj);
-
+            Boolean hasMoved = false;
             //get the width/diameter of object in terms of grid blocks
             int objectWidth = (int)Math.Ceiling(((obj.getBoundingSphere().Radius * 2) / GRID_BLOCK_SIZE));
+
+            Vector3 oldPos = new Vector3();
+            if(obj is Objects.DynamicObject)
+                oldPos = ((Objects.DynamicObject)obj).getPreviousPosition;
+
+            //convert position coords to grid coords
+            int objX_prev = (int)Math.Round((double)((oldPos.X) / GRID_BLOCK_SIZE)) + grid_offset;
+            int objY_prev = (int)Math.Round((double)((oldPos.Y) / GRID_BLOCK_SIZE)) + grid_offset;
+            int objZ_prev = (int)Math.Round((double)((oldPos.Z) / GRID_BLOCK_SIZE)) + grid_offset;
+            //get object's present coords
             int texX, texY, texZ;
-            int objX, objY, objZ;
+            texX = (int)obj.Position.X;
+            texY = (int)obj.Position.Y;
+            texZ = (int)obj.Position.Z;
+            //convert position coords to grid coords
+            int objX = (int)Math.Round((double)(texX / GRID_BLOCK_SIZE)) + grid_offset;
+            int objY = (int)Math.Round((double)(texY / GRID_BLOCK_SIZE)) + grid_offset;
+            int objZ = (int)Math.Round((double)(texZ / GRID_BLOCK_SIZE)) + grid_offset;
 
-            for (int x = 0; x < objectWidth; x++)
-                for (int y = 0; y < objectWidth; y++)
-                    for (int z = 0; z < objectWidth; z++)
-                    {
-                        texX = (int)obj.Position.X;
-                        texY = (int)obj.Position.Y;
-                        texZ = (int)obj.Position.Z;
+            //check if object has moved out of grid block
+            if (obj.getCapacity() == 0)
+                hasMoved = true;
+            else if (((objX + objectWidth / 2) < (objX_prev + objectWidth / 2)) || ((objX - objectWidth / 2) > (objX_prev - objectWidth / 2)))
+            {
+                hasMoved = false;
+            }
+            else if (((objY + objectWidth / 2) < (objY_prev + objectWidth / 2)) || ((objY + objectWidth / 2) > (objY_prev + objectWidth / 2)))
+            {
+                hasMoved = false;
+            }
+            else if (((objZ + objectWidth / 2) < (objZ_prev + objectWidth / 2)) || ((objZ + objectWidth / 2) > (objZ_prev + objectWidth / 2)))
+            {
+                hasMoved = false;
+            }
+            else
+                hasMoved = true;
 
-                        //convert objects coords to grid coords
-                        objX = (int)Math.Round((double)((texX - x * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
-                        objY = (int)Math.Round((double)((texY - y * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
-                        objZ = (int)Math.Round((double)((texZ - z * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
-
-                        //check that the object is still within the confines of the grid
-                        if ((objX >= 0) && (objX < grid.GetLength(0)) && (objY >= 0) && (objY < grid.GetLength(1)) && (objZ >= 0) && (objZ < grid.GetLength(2)))
+            hasMoved = true;
+            if (hasMoved)
+            {
+                //remove object from grid first, if its already registered
+                deregisterObject(obj);
+                
+                //register object in grid blocks
+                for (int x = 0; x < objectWidth; x++)
+                    for (int y = 0; y < objectWidth; y++)
+                        for (int z = 0; z < objectWidth; z++)
                         {
-                            grid[objX, objY, objZ].Add(obj);
-                            obj.setNewLocation(new Vector3(objX, objY, objZ));
+                            //convert objects coords to grid coords
+                            objX = (int)Math.Round((double)((texX - x * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
+                            objY = (int)Math.Round((double)((texY - y * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
+                            objZ = (int)Math.Round((double)((texZ - z * GRID_BLOCK_SIZE) / GRID_BLOCK_SIZE)) + grid_offset;
+
+                            //check that the object is still within the confines of the grid
+                            if ((objX >= 0) && (objX < grid.GetLength(0)) && (objY >= 0) && (objY < grid.GetLength(1)) && (objZ >= 0) && (objZ < grid.GetLength(2)))
+                            {
+                                grid[objX, objY, objZ].Add(obj);
+                                obj.setNewLocation(new Vector3(objX, objY, objZ));
+                            }
                         }
-                    }
+            }
         }
 
         //clear pointers to grid and remove object from grid

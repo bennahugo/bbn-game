@@ -33,7 +33,6 @@ namespace BBN_Game.Menu
 
         GraphicsDevice graphics;
         ContentManager Content;
-        SpriteBatch spriteBatch;
         BBN_Game.BBNGame game;
         GameController gameController;
 
@@ -81,7 +80,6 @@ namespace BBN_Game.Menu
             gameController = controller;
             this.game = g;
             graphics = g.GraphicsDevice;
-            spriteBatch = new SpriteBatch(g.GraphicsDevice);
             currentState = controller.CurrentGameState;
             previousState = currentState;
             Content = g.Content;
@@ -542,7 +540,7 @@ namespace BBN_Game.Menu
 
         #region drawing methods            
         
-        public void drawTradeMenu(Objects.playerObject player)
+        public void drawTradeMenu(SpriteBatch spriteBatch, Objects.playerObject player)
         {
             //for slide-up animation
             if (player.UpFactor > 0 && player.GoingUp)
@@ -646,7 +644,7 @@ namespace BBN_Game.Menu
             spriteBatch.End();
         }
 
-        public void drawTradeStats(Objects.playerObject player)
+        public void drawTradeStats(SpriteBatch spriteBatch, Objects.playerObject player)
         {
             spriteBatch.Begin();
 
@@ -666,7 +664,7 @@ namespace BBN_Game.Menu
         }
 
         //update what menu is currently being displayed
-        public void drawMenu(GameTime gameTime)
+        public void drawMenu(SpriteBatch spriteBatch, GameTime gameTime)
         {
             if (currentState == GameState.MainMenu)
             {
