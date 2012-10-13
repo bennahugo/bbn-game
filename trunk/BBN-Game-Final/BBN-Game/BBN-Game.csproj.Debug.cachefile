@@ -27,6 +27,7 @@ Content\Models\Ships\SpaceCr_00.xnb
 Content\Particles\smoke.xnb
 Content\Menu\nebula_blue.xnb
 Content\Models\Ships\Turret1.xnb
+Content\HudTextures\GlobalHealthBar.xnb
 Content\Skybox\space2.xnb
 Content\Models\Ships\space+craft+3+uv_0.xnb
 Content\Maps\Death Zone.xml

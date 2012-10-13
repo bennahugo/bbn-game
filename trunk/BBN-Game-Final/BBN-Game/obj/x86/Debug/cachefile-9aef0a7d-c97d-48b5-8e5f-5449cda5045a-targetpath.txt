@@ -55,4 +55,5 @@ Content\Models\Ships\space+craft+2+uv_0.xnb
 Content\Models\Ships\space+craft+3+uv_0.xnb
 Content\Models\Ships\space+craft+4+uv_0.xnb
 Content\Models\Ships\SpaceCr_00_0.xnb
+Content\HudTextures\GlobalHealthBar.xnb
 Content\Maps\Death Zone.xml

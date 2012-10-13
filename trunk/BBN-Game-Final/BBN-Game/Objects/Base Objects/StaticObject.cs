@@ -39,6 +39,8 @@ namespace BBN_Game.Objects
         Matrix world; // The world Matrix
         Team team;
 
+        protected Texture2D healthBarTex; 
+
         #region "Target box data"
         /// <summary>
         /// Drawing the targeting box
@@ -260,6 +262,8 @@ namespace BBN_Game.Objects
             targetBoxE = Game.Content.Load<Effect>("Shader/targetBox");
             viewPort = targetBoxE.Parameters["viewPort"];
 
+            healthBarTex = Game.Content.Load<Texture2D>("HudTextures/GlobalHealthBar");
+
             targetBoxFont = Game.Content.Load<SpriteFont>("Fonts/distanceFont");
 
             targetBoxDecleration = new VertexDeclaration(Game.GraphicsDevice, VertexPositionColor.VertexElements);
@@ -436,8 +440,8 @@ namespace BBN_Game.Objects
             radiusOfObject = greatestLength * 5f; // sets the greatest size of the object
 
             float distance = (Position - cam.Position).Length(); // distance the object is from the camera
-            float radius = (greatestLength / 2) * shipData.scale; // a variable for checking distances away from camera
-            // Check if the objectis further away from the camera than its actual size.
+            float radius = (greatestLength / 2); // a variable for checking distances away from camera
+            //Check if the objectis further away from the camera than its actual size.
             if (distance > radius)
             {
                 float angularSize = (float)Math.Tan(radius / distance); // calculate the size differance due to distance away
@@ -461,7 +465,7 @@ namespace BBN_Game.Objects
             screenY = halfScreenY - ((screenPos.Y / screenPos.W) * halfScreenY);
             float distanceToPlayer = (Position - player.Position).Length();
 
-            drawData(b, distanceToPlayer, screenX, screenY, radiusOfObject, col); // draw the distances to the object
+            drawData(b, distanceToPlayer, screenX, screenY, radiusOfObject, col, player); // draw the distances to the object
 
             // set the variable to the new position vectors
             targetBoxVB.SetData<VertexPositionColor>(targetBoxVertices);
@@ -511,13 +515,21 @@ namespace BBN_Game.Objects
         /// <param name="y">Y pos of the object</param>
         /// <param name="radius">Radius of the object</param>
         /// <param name="col">Colour for the box</param>
-        private void drawData(SpriteBatch b, float distance, float x, float y, float radius, Color col)
+        private void drawData(SpriteBatch b, float distance, float x, float y, float radius, Color col, Objects.playerObject player)
         {
             GraphicsDevice.RenderState.DepthBufferEnable = false;
             GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
 
+            float healthPercent = this.Health / this.totalHealth;
+
+            float heightPercent = ((radius*2) / (greatestLength/2)) / 100;
+
             b.Begin();
+            if (this.Equals(player.Target))
+                b.Draw(healthBarTex, new Rectangle((int)(x - radius), (int)(y - radius - (25 * heightPercent)), (int)(radius * 2 * healthPercent), (int)(20 * heightPercent)), new Rectangle(0, 0, (int)(healthBarTex.Width * healthPercent), healthBarTex.Height), new Color(1 - (Health / totalHealth), (Health / totalHealth), 0));
+
             b.DrawString(targetBoxFont, distance.ToString("0000"), new Vector2(x + radius, y + radius), col);
+           // b.DrawString(targetBoxFont, heightPercent + "", new Vector2(x - radius, y + radius), col);
             b.End();
 
             GraphicsDevice.RenderState.DepthBufferEnable = true;
