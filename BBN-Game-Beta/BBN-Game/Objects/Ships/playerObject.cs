@@ -55,6 +55,7 @@ namespace BBN_Game.Objects
 
         static Texture2D HudBarHolder;
         static Texture2D HudBar;
+        static Texture2D arrow;
 
         private const float MissileReload = 7, MechinegunReload = 0.5f, DefensiveReload = 20;
 
@@ -178,6 +179,7 @@ namespace BBN_Game.Objects
             // make sure that you get the static hud values
             HudBar = Game.Content.Load<Texture2D>("HudTextures/HealthBar");
             HudBarHolder = Game.Content.Load<Texture2D>("HudTextures/HealthBarHolder");
+            arrow = Game.Content.Load<Texture2D>("HudTextures/arrow");
 
             base.resetModels();
         }
@@ -319,6 +321,7 @@ namespace BBN_Game.Objects
                 #region "Guns"
                 if (state.IsKeyDown(Keys.F))
                 {
+                    if (target != null)
                     if (reloadTimer[1] <= 0 && numMissiles > 0)
                     {
                         Controller.GameController.addObject(new Objects.Missile(Game, this.target, this));
@@ -869,6 +872,36 @@ namespace BBN_Game.Objects
             #endregion
 
             #region "Arrows"
+            int width = (int)(Math.Min(viewport.Height, viewport.Width) * 0.05);
+            float distance = Math.Min(viewport.Height, viewport.Width);
+
+            Base b;
+            if (this.Team == Team.Red)
+            {
+                b = Controller.GameController.BaseTeam2;
+            }
+            else
+            {
+                b = Controller.GameController.BaseTeam1;
+            }
+
+            if (!b.IsVisible(this.Camera))
+            {
+                Vector3 A = b.Position - Camera.Position;
+
+                Matrix mat = Matrix.CreateFromQuaternion(this.rotation);
+
+                float x = Vector3.Dot(A, mat.Right);
+                float y = Vector3.Dot(A, mat.Up);
+
+                float angle = (float)Math.Atan2(y, x);
+
+                int posx = (int)MathHelper.Clamp(-((int)(Math.Cos(angle) * distance)) + viewport.Width / 2, 0 + width, viewport.Width);
+                int posy = (int)MathHelper.Clamp(-((int)(Math.Sin(angle) * distance)) + viewport.Height / 2, 0 + viewport.Height * 0.1f + width, viewport.Height * 0.8f - width);
+
+                sb.Draw(arrow, new Rectangle((int)(posx - width / 2), (int)(posy - width / 2), width, width), new Rectangle(0, 0, arrow.Width, arrow.Height), Color.Orange, angle, new Vector2(arrow.Width / 2, arrow.Height / 2), SpriteEffects.FlipHorizontally, 1);
+            }
+
             if (target != null)
             if (!target.IsVisible(this.Camera))
             {
@@ -881,14 +914,11 @@ namespace BBN_Game.Objects
 
                 float angle = (float)Math.Atan2(y, x);
 
-                float distance = Math.Min(viewport.Height, viewport.Width);
+                int posx = (int)MathHelper.Clamp(-((int)(Math.Cos(angle) * distance)) + viewport.Width / 2, 0 + width, viewport.Width);
+                int posy = (int)MathHelper.Clamp(-((int)(Math.Sin(angle) * distance)) + viewport.Height / 2, 0 + viewport.Height * 0.1f + width, viewport.Height * 0.8f - width);
 
-                distance = distance / 4;
-
-                int posx = -((int)(Math.Cos(angle) * distance)) + viewport.Width / 2;
-                int posy = -((int)(Math.Sin(angle) * distance)) + viewport.Height / 2;
-
-                sb.DrawString(f, "<>", new Vector2(posx, posy), Color.Red);
+                sb.Draw(arrow, new Rectangle((int)(posx - width / 2), (int)(posy - width / 2), width, width), new Rectangle(0, 0, arrow.Width, arrow.Height), Color.Red, angle, new Vector2(arrow.Width/2, arrow.Height/2), SpriteEffects.FlipHorizontally, 1);
+                //sb.DrawString(f, "<>", new Vector2(posx, posy), Color.Red);
             }
             #endregion
 

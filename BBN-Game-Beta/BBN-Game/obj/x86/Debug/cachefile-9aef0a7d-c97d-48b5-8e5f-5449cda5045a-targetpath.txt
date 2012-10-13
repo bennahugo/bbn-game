@@ -29,6 +29,10 @@ Content\Menu\xbox_controls.xnb
 Content\Menu\dark_trans_new.xnb
 Content\Menu\trade_menu_newest.xnb
 Content\Menu\control_menu.xnb
+Content\Models\Ships\SpaceCr_00.xnb
+Content\Models\Ships\space+craft+2+uv.xnb
+Content\Models\Ships\space+craft+3+uv.xnb
+Content\Models\Ships\space+craft+4+uv.xnb
 Content\Models\Ships\spaceStation.xnb
 Content\Models\Projectiles\Cube.xnb
 Content\Models\Ships\Fighter1.xnb
@@ -38,12 +42,9 @@ Content\Models\Ships\Fighter4.xnb
 Content\Models\Ships\Turret1.xnb
 Content\Models\Ships\Turret2.xnb
 Content\Models\Ships\playerShip.xnb
-Content\Models\Ships\SpaceCr_00.xnb
-Content\Models\Ships\SpaceCr_00_0.xnb
-Content\Models\Ships\space+craft+2+uv.xnb
-Content\Models\Ships\space+craft+3+uv.xnb
 Content\Models\Ships\space+craft+2+uv_0.xnb
 Content\Models\Ships\space+craft+3+uv_0.xnb
-Content\Models\Ships\space+craft+4+uv.xnb
 Content\Models\Ships\space+craft+4+uv_0.xnb
+Content\Models\Ships\SpaceCr_00_0.xnb
+Content\HudTextures\arrow.xnb
 Content\Maps\Death Zone.xml

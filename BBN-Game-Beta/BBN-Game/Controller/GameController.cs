@@ -57,6 +57,15 @@ namespace BBN_Game.Controller
         static AI.PlayerSpawnPoint Team1SpawnPoint;
         static AI.PlayerSpawnPoint Team2SpawnPoint;
 
+        public static Objects.Base BaseTeam1
+        {
+            get { return Team1Base; }
+        }
+        public static Objects.Base BaseTeam2
+        {
+            get { return Team2Base; }
+        }
+
         public static AI.TeamInformation team1 { get; internal set; }
         public static AI.TeamInformation team2 { get; internal set; }
         #endregion
