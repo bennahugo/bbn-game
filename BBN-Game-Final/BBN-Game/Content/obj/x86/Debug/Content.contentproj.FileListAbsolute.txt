@@ -1,0 +1,8 @@
+C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\nathanf\Documents\Games\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\benna\Desktop\repository\trunk\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\flrnat001\Documents\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Machine3\Desktop\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Documents\Programming_stuff\GameDev\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
