@@ -139,8 +139,8 @@ namespace BBN_Game.Objects
             typeOfLine = PrimitiveType.LineList;
 
             Shield = 100;
-            Health = 1000;
-            totalHealth = 1000;
+            Health = 500;
+            totalHealth = 500;
         }
 
         /// <summary>
@@ -854,24 +854,7 @@ namespace BBN_Game.Objects
 
             #region "Enemy Health-bars"
 
-            #region Target health bar
-            if (false)
-            {
-                barStartX = (int)Target.Position.X;
-                barWidthX = 100;
-
-                barStartY = (int)Target.Position.Y;
-                barWidthY = 10;
-
-                textHeight = 10;
-                textWidth = (int)(100 * (Target.getHealth / Target.getTotalHealth));
-
-                sb.Draw(HudBar, new Rectangle(barStartX, barStartY, barWidthX, barWidthY),
-                    new Rectangle(0, 0, textWidth, textHeight),
-                    new Color(1 - (Target.getHealth / Target.getTotalHealth),
-                    (Target.getHealth / Target.getTotalHealth), 0));
-            }
-            #endregion
+            
 
             #region Base's health bars
 

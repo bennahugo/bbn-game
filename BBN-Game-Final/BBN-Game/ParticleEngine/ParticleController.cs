@@ -183,6 +183,10 @@ namespace BBN_Game.ParticleEngine
             fireParticles.SetCamera(view, projection,vp);
 
             explosionParticles.DrawParticles(gt, vp);
+            explosionSmokeParticles.DrawParticles(gt, vp);
+            projectileTrailParticles.DrawParticles(gt, vp);
+            smokePlumeParticles.DrawParticles(gt, vp);
+            fireParticles.DrawParticles(gt, vp);
         }
 
         #endregion

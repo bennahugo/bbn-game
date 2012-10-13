@@ -561,7 +561,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\flrnat001\Documents\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\HudTextures\arrow.xnb</Output>
-      <Time>2012-10-13T15:36:24.250269+02:00</Time>
+      <Time>2012-10-13T16:35:24.2387225+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\space+craft+2+uv.png</Source>
@@ -658,6 +658,15 @@
       <Options>None</Options>
       <Output>C:\Users\flrnat001\Documents\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Output>
       <Time>2012-10-13T15:37:48.686269+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\GlobalHealthBar.png</Source>
+      <Name>HudTextures\GlobalHealthBar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\flrnat001\Documents\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\HudTextures\GlobalHealthBar.xnb</Output>
+      <Time>2012-10-13T16:01:42.5606238+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
