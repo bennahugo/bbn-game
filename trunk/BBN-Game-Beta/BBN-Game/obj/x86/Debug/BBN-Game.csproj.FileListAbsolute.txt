@@ -222,3 +222,12 @@ C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Gam
 C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+3+uv.xnb
 C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+4+uv_0.xnb
 C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+4+uv.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+4+uv.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+2+uv_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+3+uv_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+2+uv.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+4+uv_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+3+uv.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Beta\BBN-Game\bin\x86\Debug\Content\HudTextures\arrow.xnb
