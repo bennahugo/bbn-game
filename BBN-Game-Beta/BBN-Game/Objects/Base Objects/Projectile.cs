@@ -51,7 +51,7 @@ namespace BBN_Game.Objects
             numHudLines = 3;
             typeOfLine = PrimitiveType.LineStrip;
 
-            Vector3 foreward = this.Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(parent.rotation));
+            Vector3 foreward = parent.Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(parent.rotation));
             Vector3 PYR = MathEuler.AngleTo(foreward, parent.Position);
 
             rotation = Quaternion.CreateFromYawPitchRoll(PYR.Y, PYR.X, PYR.Z);
