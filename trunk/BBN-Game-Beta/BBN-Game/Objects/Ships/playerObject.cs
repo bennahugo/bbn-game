@@ -132,8 +132,8 @@ namespace BBN_Game.Objects
             this.yawSpeed = pitchSpeed * 1.05f;
             this.maxSpeed = 50;
             this.minSpeed = -10;
-            this.greatestLength = 6f;
-            this.shipData.scale = 0.45f;
+            this.greatestLength = 10f;
+            this.shipData.scale = 1f;
 
             this.numHudLines = 7;
             typeOfLine = PrimitiveType.LineList;
@@ -827,7 +827,7 @@ namespace BBN_Game.Objects
 
             sb.Begin();
 
-            sb.DrawString(f, 1 / gt.ElapsedGameTime.TotalSeconds + "", new Vector2(100, 100), Color.Green);
+            sb.DrawString(f, 1 / gt.ElapsedGameTime.TotalSeconds + " - " + this.greatestLength, new Vector2(100, 100), Color.Green);
 
             #region "Speed"
             sb.DrawString(f, shipData.speed.ToString("00"), new Vector2(hudWidth * 0.15f, viewport.Height - hudHeight * 0.55f), Color.Aqua);

@@ -150,6 +150,7 @@ namespace BBN_Game.Objects
             }
 
             // dont call base as this object does not get removed
+            base.killObject();
         }
 
         #endregion

@@ -648,10 +648,6 @@ namespace BBN_Game.Controller
             {
                 Destroyers.Remove(Object);
             }
-            else if (Object is Objects.Turret)
-            {
-                Towers.Remove(Object);
-            }
             else if (Object is Objects.Projectile)
             {
                 Projectiles.Remove(Object);
@@ -662,10 +658,12 @@ namespace BBN_Game.Controller
 
             // _____-----TODO----____ Add asteroids when class is made
 
-
-            gameGrid.deregisterObject(Object);
-            AllObjects.Remove(Object);
-            --i;
+            if (!(Object is Objects.Turret))
+            {
+                gameGrid.deregisterObject(Object);
+                AllObjects.Remove(Object);
+                --i;
+            }
         }
         /// <summary>
         /// Sets the system to use new instances of player objects
@@ -1001,7 +999,7 @@ namespace BBN_Game.Controller
                         if (!other.Equals(obj))
                         {
                             if (obj is Objects.Projectile && other is Objects.Projectile)
-                                return;
+                                continue;
                             Objects.StaticObject o1 = obj as Objects.StaticObject;
                             Objects.StaticObject o2 = other as Objects.StaticObject;                            
                             if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(o1.shipModel, o2.shipModel,
