@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>space_craft_3</Name>
     <Identity>
-      <SourceFilename>C:\Users\flrnat001\Documents\BBN-Game-Beta\BBN-Game\Content\Models\Ships\Fighter2.fbx</SourceFilename>
+      <SourceFilename>C:\Users\benna\Desktop\repository\trunk\BBN-Game-Final\BBN-Game\Content\Models\Ships\Fighter2.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <OpaqueData>
@@ -53,7 +53,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Material #49</Name>
       <Identity>
-        <SourceFilename>C:\Users\flrnat001\Documents\BBN-Game-Beta\BBN-Game\Content\Models\Ships\Fighter2.fbx</SourceFilename>
+        <SourceFilename>C:\Users\benna\Desktop\repository\trunk\BBN-Game-Final\BBN-Game\Content\Models\Ships\Fighter2.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

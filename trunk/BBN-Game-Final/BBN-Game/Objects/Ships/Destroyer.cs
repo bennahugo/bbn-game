@@ -32,6 +32,7 @@ namespace BBN_Game.Objects
             Shield = 100;
             Health = 100;
             totalHealth = 100;
+            this.mass = 10;
         }
 
 
