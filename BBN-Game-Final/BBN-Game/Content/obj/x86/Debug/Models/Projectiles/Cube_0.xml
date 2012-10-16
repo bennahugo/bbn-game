@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>Box01</Name>
     <Identity>
-      <SourceFilename>C:\Users\flrnat001\Documents\BBN-Game-Beta\BBN-Game\Content\Models\Projectiles\Cube.fbx</SourceFilename>
+      <SourceFilename>C:\Users\benna\Desktop\repository\trunk\BBN-Game-Final\BBN-Game\Content\Models\Projectiles\Cube.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>2.54 0 0 0 0 1.55525E-16 -2.54 0 0 2.54 1.55525E-16 0 0 0 -3.00398117E-16 1</Transform>

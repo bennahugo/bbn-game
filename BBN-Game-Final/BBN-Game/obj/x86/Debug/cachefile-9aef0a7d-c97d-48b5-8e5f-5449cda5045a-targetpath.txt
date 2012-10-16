@@ -35,6 +35,12 @@ Content\Particles\checker.xnb
 Content\Particles\explosion.xnb
 Content\Particles\fire.xnb
 Content\Particles\smoke.xnb
+Content\HudTextures\arrow.xnb
+Content\Models\Ships\space+craft+2+uv.xnb
+Content\Models\Ships\space+craft+3+uv.xnb
+Content\Models\Ships\space+craft+4+uv.xnb
+Content\Models\Ships\SpaceCr_00.xnb
+Content\HudTextures\GlobalHealthBar.xnb
 Content\Particles\grid.xnb
 Content\Models\Ships\spaceStation.xnb
 Content\Models\Projectiles\Cube.xnb
@@ -46,14 +52,8 @@ Content\Models\Ships\Turret1.xnb
 Content\Models\Ships\Turret2.xnb
 Content\Models\Ships\playerShip.xnb
 Content\Particles\checker_0.xnb
-Content\HudTextures\arrow.xnb
-Content\Models\Ships\space+craft+2+uv.xnb
-Content\Models\Ships\space+craft+3+uv.xnb
-Content\Models\Ships\space+craft+4+uv.xnb
-Content\Models\Ships\SpaceCr_00.xnb
 Content\Models\Ships\space+craft+2+uv_0.xnb
 Content\Models\Ships\space+craft+3+uv_0.xnb
 Content\Models\Ships\space+craft+4+uv_0.xnb
 Content\Models\Ships\SpaceCr_00_0.xnb
-Content\HudTextures\GlobalHealthBar.xnb
 Content\Maps\Death Zone.xml

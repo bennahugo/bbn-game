@@ -84,7 +84,7 @@ namespace BBN_Game.Grid
             Vector3 lb = Vector3.Zero;
             Vector3 ub = Vector3.Zero;
             getMinimumsAndMaximums(boxPoints, out lb, out ub);
-            System.Diagnostics.Debug.WriteLine(lb + "  ,  " + ub);
+            //System.Diagnostics.Debug.WriteLine(lb + "  ,  " + ub);
             lb = clampCellCoordToGridLimits(lb);
             ub = clampCellCoordToGridLimits(ub);
             //Now get all the objects in front of the player:
