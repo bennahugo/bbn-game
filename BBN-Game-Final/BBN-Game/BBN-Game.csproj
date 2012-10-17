@@ -187,9 +187,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Graphics\Controller\" />
     <Folder Include="Graphics\ParticleGenerator\" />
   </ItemGroup>

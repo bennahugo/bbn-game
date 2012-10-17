@@ -10,10 +10,11 @@ namespace BBN_Game
         public const int fighterCost = 500;
         public const int destroyerCost = 1000;
         public const int missileCost = 20;
-        public const int creditsForDestroyingFighter = 650;
-        public const int creditsForDestroyingDestroyer = 1485;
-        public const int creditsForDestroyingPlayer = 5320;
-        public const int startingCreditsPerTeam = 5000;
+        public const int creditsForDestroyingFighter = 200;
+        public const int creditsForDestroyingDestroyer = 350;
+        public const int creditsForDestroyingPlayer = 500;
+        public const int startingCreditsPerTeam = 1000;
         public const int creditsForCapturingTower = 70;
+        public const int creditsForDestroyingTower = 300;
     }
 }

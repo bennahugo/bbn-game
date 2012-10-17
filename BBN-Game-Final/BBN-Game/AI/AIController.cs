@@ -709,11 +709,16 @@ namespace BBN_Game.AI
                 }
             neighbouringObjects = this.spatialGrid.checkNeighbouringBlocks(ti.teamPlayer);
             Node closeWaypointToPlayer = null;
+            float minDist = 0;
             foreach (GridObjectInterface obj in neighbouringObjects)
                 if (obj is Node)
                 {
-                    closeWaypointToPlayer = obj as Node;
-                    break;
+                    float dist = (obj.Position - ti.teamPlayer.Position).Length();
+                    if (closeWaypointToPlayer == null || minDist > dist)
+                    { 
+                        closeWaypointToPlayer = obj as Node;
+                        minDist = dist;
+                    }
                 }
             if (!(closeWaypointToTurret == null || closeWaypointToPlayer == null))
                 navComputer.setNewPathForRegisteredObject(ti.teamPlayer, closeWaypointToPlayer, closeWaypointToTurret);
@@ -862,6 +867,7 @@ namespace BBN_Game.AI
                     ti.turretBattleList.Remove(t);
             }
         }
+
         #endregion
         #region "shooting code"
         private void shootAtTargets()
@@ -911,6 +917,10 @@ namespace BBN_Game.AI
                 //Make the turrets fire missiles at their enemies:
                 foreach (Turret tr in ti.turretBattleList.Keys)
                 {
+                    Vector3 PYR = MathEuler.AngleTo(ti.turretBattleList[tr].Position, tr.Position);
+
+                    tr.rotation = Quaternion.CreateFromYawPitchRoll(PYR.Y, PYR.X, PYR.Z);
+
                     if (ti.gunsCoolDown.Keys.Contains(tr))
                     {
                         if (ti.gunsCoolDown[tr]-- > 0)

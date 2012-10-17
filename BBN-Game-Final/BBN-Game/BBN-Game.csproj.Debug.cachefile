@@ -6,12 +6,14 @@ Content\Menu\trade_menu_new.xnb
 Content\Skybox\space1.xnb
 Content\HudTextures\HealthBar.xnb
 Content\Particles\smoke.xnb
+Content\HudTextures\rocket_bw.xnb
 Content\Models\Ships\spaceStation.xnb
 Content\Models\Ships\space+craft+3+uv.xnb
 Content\Menu\keyboard_controls.xnb
 Content\Menu\dark_trans_new.xnb
 Content\Models\Ships\Fighter4.xnb
 Content\stats_icons\missile_small.xnb
+Content\HudTextures\rocket_c.xnb
 Content\Models\Asteroids\Astroid02.xnb
 Content\Models\Asteroids\Astroid01.xnb
 Content\SpriteFont1.xnb
@@ -24,6 +26,8 @@ Content\Models\Asteroids\AstrFBX.xnb
 Content\Menu\trade_menu_newest.xnb
 Content\Menu\nebula_blue.xnb
 Content\Models\Ships\space+craft+4+uv.xnb
+Content\HudTextures\triangle.xnb
+Content\HudTextures\circle.xnb
 Content\stats_icons\fighter_small.xnb
 Content\FBX\77642DED\AstrFBX.fbm\Astroid01_0.xnb
 Content\Models\Asteroids\AstrFBX2.xnb
@@ -32,7 +36,9 @@ Content\Fonts\selectedFont.xnb
 Content\Particles\ParticleEffect.xnb
 Content\HudTextures\map.xnb
 Content\Models\Asteroids\Astroid.xnb
+Content\HudTextures\hexagon.xnb
 Content\Models\Ships\SpaceCr_00.xnb
+Content\Models\Ships\Fighter3.xnb
 Content\Particles\grid.xnb
 Content\Models\Ships\Turret2.xnb
 Content\Models\Ships\Turret1.xnb
@@ -48,7 +54,8 @@ Content\Skybox\space3.xnb
 Content\Fonts\pause_menu.xnb
 Content\Models\Ships\Fighter2.xnb
 Content\Particles\fire.xnb
-Content\Models\Ships\Fighter3.xnb
+Content\HudTextures\diamond.xnb
+Content\HudTextures\square.xnb
 Content\Menu\dark_trans.xnb
 Content\stats_icons\destroyer_small.xnb
 Content\Skybox\space2.xnb

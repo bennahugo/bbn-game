@@ -536,7 +536,6 @@ namespace BBN_Game.Objects
                 b.Draw(healthBarTex, new Rectangle((int)(x - radius), (int)(y - radius - (25 * heightPercent)), (int)(radius * 2 * healthPercent), (int)(20 * heightPercent)), new Rectangle(0, 0, (int)(healthBarTex.Width * healthPercent), healthBarTex.Height), new Color(1 - (Health / totalHealth), (Health / totalHealth), 0));
 
             b.DrawString(targetBoxFont, distance.ToString("0000"), new Vector2(x + radius, y + radius), col);
-           // b.DrawString(targetBoxFont, heightPercent + "", new Vector2(x - radius, y + radius), col);
             b.End();
 
             GraphicsDevice.RenderState.DepthBufferEnable = true;
