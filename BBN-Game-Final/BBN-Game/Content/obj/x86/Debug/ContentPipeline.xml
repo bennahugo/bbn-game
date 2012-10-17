@@ -1,0 +1,825 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Graphics="Microsoft.Xna.Framework.Graphics" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2012-10-13T19:00:08.0763023+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\distanceFont.spritefont</Source>
+      <Name>Fonts\distanceFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Fonts\distanceFont.xnb</Output>
+      <Time>2012-10-13T19:00:07.8762759+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\menuFont.spritefont</Source>
+      <Name>Fonts\menuFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Fonts\menuFont.xnb</Output>
+      <Time>2012-10-13T19:00:07.8332705+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\selectedFont.spritefont</Source>
+      <Name>Fonts\selectedFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Fonts\selectedFont.xnb</Output>
+      <Time>2012-10-13T19:00:07.8582746+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\pause_menu.spritefont</Source>
+      <Name>Fonts\pause_menu</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Fonts\pause_menu.xnb</Output>
+      <Time>2012-10-13T19:00:07.9082808+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\trade_menu.spritefont</Source>
+      <Name>Fonts\trade_menu</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Fonts\trade_menu.xnb</Output>
+      <Time>2012-10-13T19:00:07.8162681+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\font.spritefont</Source>
+      <Name>Particles\font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Particles\font.xnb</Output>
+      <Time>2012-10-13T19:00:07.7382586+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Shader\skyBoxEffect.fx</Source>
+      <Name>Shader\skyBoxEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Shader\skyBoxEffect.xnb</Output>
+      <Time>2012-10-13T19:00:07.2351955+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Shader\targetBox.fx</Source>
+      <Name>Shader\targetBox</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Shader\targetBox.xnb</Output>
+      <Time>2012-10-13T19:00:07.2411947+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\ParticleEffect.fx</Source>
+      <Name>Particles\ParticleEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Particles\ParticleEffect.xnb</Output>
+      <Time>2012-10-13T19:00:07.7592609+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\Starfield.png</Source>
+      <Name>Skybox\Starfield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Skybox\Starfield.xnb</Output>
+      <Time>2012-10-13T18:59:44.0132308+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space1.jpg</Source>
+      <Name>Skybox\space1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Skybox\space1.xnb</Output>
+      <Time>2012-10-13T18:59:44.0502367+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space2.jpg</Source>
+      <Name>Skybox\space2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Skybox\space2.xnb</Output>
+      <Time>2012-10-13T18:59:44.0702384+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space3.jpg</Source>
+      <Name>Skybox\space3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Skybox\space3.xnb</Output>
+      <Time>2012-10-13T18:59:44.0932418+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space4.jpg</Source>
+      <Name>Skybox\space4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Skybox\space4.xnb</Output>
+      <Time>2012-10-13T18:59:44.1542499+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space5.jpg</Source>
+      <Name>Skybox\space5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Skybox\space5.xnb</Output>
+      <Time>2012-10-13T18:59:43.9982296+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\HealthBar.png</Source>
+      <Name>HudTextures\HealthBar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBar.xnb</Output>
+      <Time>2012-10-13T18:59:52.3662988+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\HealthBarHolder.png</Source>
+      <Name>HudTextures\HealthBarHolder</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\HealthBarHolder.xnb</Output>
+      <Time>2012-10-13T18:59:52.3272933+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\nebula_blue.jpg</Source>
+      <Name>Menu\nebula_blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Menu\nebula_blue.xnb</Output>
+      <Time>2012-10-13T19:00:07.1731862+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\waterfall_city.jpg</Source>
+      <Name>Menu\waterfall_city</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Menu\waterfall_city.xnb</Output>
+      <Time>2012-10-13T19:00:06.9371567+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\trade_menu_new.png</Source>
+      <Name>Menu\trade_menu_new</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Menu\trade_menu_new.xnb</Output>
+      <Time>2012-10-13T19:00:06.6681231+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\pause_menu.png</Source>
+      <Name>Menu\pause_menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Menu\pause_menu.xnb</Output>
+      <Time>2012-10-13T19:00:06.7941389+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\dark_trans.png</Source>
+      <Name>Menu\dark_trans</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Menu\dark_trans.xnb</Output>
+      <Time>2012-10-13T19:00:07.1251815+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\destroyer2_small.png</Source>
+      <Name>stats_icons\destroyer2_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\stats_icons\destroyer2_small.xnb</Output>
+      <Time>2012-10-13T19:00:08.0422972+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\destroyer_small.png</Source>
+      <Name>stats_icons\destroyer_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\stats_icons\destroyer_small.xnb</Output>
+      <Time>2012-10-13T19:00:07.9952919+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\fighter_small.png</Source>
+      <Name>stats_icons\fighter_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\stats_icons\fighter_small.xnb</Output>
+      <Time>2012-10-13T19:00:07.9812904+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\malpha_small.png</Source>
+      <Name>stats_icons\malpha_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\stats_icons\malpha_small.xnb</Output>
+      <Time>2012-10-13T19:00:08.0322959+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\missile_small.png</Source>
+      <Name>stats_icons\missile_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\stats_icons\missile_small.xnb</Output>
+      <Time>2012-10-13T19:00:07.9542874+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\keyboard_controls.png</Source>
+      <Name>Menu\keyboard_controls</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Menu\keyboard_controls.xnb</Output>
+      <Time>2012-10-13T19:00:06.8671473+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\xbox_controls.png</Source>
+      <Name>Menu\xbox_controls</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Menu\xbox_controls.xnb</Output>
+      <Time>2012-10-13T19:00:06.8351431+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\dark_trans_new.png</Source>
+      <Name>Menu\dark_trans_new</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Menu\dark_trans_new.xnb</Output>
+      <Time>2012-10-13T19:00:06.7511341+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\trade_menu_newest.png</Source>
+      <Name>Menu\trade_menu_newest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Menu\trade_menu_newest.xnb</Output>
+      <Time>2012-10-13T19:00:07.1431832+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\control_menu.png</Source>
+      <Name>Menu\control_menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Menu\control_menu.xnb</Output>
+      <Time>2012-10-13T19:00:06.9011527+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\checker.bmp</Source>
+      <Name>Particles\checker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Particles\checker.xnb</Output>
+      <Time>2012-10-13T19:00:07.7342594+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\explosion.png</Source>
+      <Name>Particles\explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Particles\explosion.xnb</Output>
+      <Time>2012-10-13T19:00:07.7432594+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\fire.png</Source>
+      <Name>Particles\fire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Particles\fire.xnb</Output>
+      <Time>2012-10-13T19:00:07.7482615+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\smoke.png</Source>
+      <Name>Particles\smoke</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Particles\smoke.xnb</Output>
+      <Time>2012-10-13T19:00:07.7292586+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\arrow.png</Source>
+      <Name>HudTextures\arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\arrow.xnb</Output>
+      <Time>2012-10-13T18:59:52.371299+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\space+craft+2+uv.png</Source>
+      <Name>Models\Ships\space+craft+2+uv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+2+uv.xnb</Output>
+      <Time>2012-10-13T18:59:52.178273+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\space+craft+3+uv.png</Source>
+      <Name>Models\Ships\space+craft+3+uv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+3+uv.xnb</Output>
+      <Time>2012-10-13T18:59:52.2222791+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\space+craft+4+uv.png</Source>
+      <Name>Models\Ships\space+craft+4+uv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+4+uv.xnb</Output>
+      <Time>2012-10-13T18:59:52.2672851+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\SpaceCr_00.png</Source>
+      <Name>Models\Ships\SpaceCr_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00.xnb</Output>
+      <Time>2012-10-13T18:59:51.8982379+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\GlobalHealthBar.png</Source>
+      <Name>HudTextures\GlobalHealthBar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\GlobalHealthBar.xnb</Output>
+      <Time>2012-10-13T18:59:52.3752982+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\grid.x</Source>
+      <Name>Particles\grid</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Particles\grid.xnb</Output>
+      <Time>2012-10-13T19:00:07.7532611+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Particles\grid_0.xml</Key>
+        <Value>2012-10-13T19:00:47.0192709+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Particles\checker_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\spaceStation.fbx</Source>
+      <Name>Models\Ships\spaceStation</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\spaceStation.xnb</Output>
+      <Time>2012-10-13T18:59:52.1432706+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Key>
+        <Value>2012-10-13T19:00:48.5264625+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Projectiles\Cube.fbx</Source>
+      <Name>Models\Projectiles\Cube</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Projectiles\Cube.xnb</Output>
+      <Time>2012-10-13T18:59:44.3032679+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Projectiles\Cube_0.xml</Key>
+        <Value>2012-10-13T19:00:49.6796112+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter1.fbx</Source>
+      <Name>Models\Ships\Fighter1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter1.xnb</Output>
+      <Time>2012-10-13T18:59:52.0132533+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\Fighter1_0.xml</Key>
+        <Value>2012-10-13T19:00:50.8737618+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+2+uv_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter2.fbx</Source>
+      <Name>Models\Ships\Fighter2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter2.xnb</Output>
+      <Time>2012-10-13T18:59:52.0472574+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\Fighter2_0.xml</Key>
+        <Value>2012-10-13T19:00:52.5059715+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+3+uv_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter3.fbx</Source>
+      <Name>Models\Ships\Fighter3</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter3.xnb</Output>
+      <Time>2012-10-13T18:59:52.087261+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\Fighter3_0.xml</Key>
+        <Value>2012-10-13T19:00:54.2391919+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+4+uv_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter4.fbx</Source>
+      <Name>Models\Ships\Fighter4</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\Fighter4.xnb</Output>
+      <Time>2012-10-13T18:59:52.1032634+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\Fighter4_0.xml</Key>
+        <Value>2012-10-13T19:00:55.8063919+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret1.fbx</Source>
+      <Name>Models\Ships\Turret1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\Turret1.xnb</Output>
+      <Time>2012-10-13T18:59:51.9342419+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\Turret1_0.xml</Key>
+        <Value>2012-10-13T19:00:56.8635268+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret2.fbx</Source>
+      <Name>Models\Ships\Turret2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\Turret2.xnb</Output>
+      <Time>2012-10-13T18:59:51.9592453+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\Turret2_0.xml</Key>
+        <Value>2012-10-13T19:00:57.9036607+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShip.fbx</Source>
+      <Name>Models\Ships\playerShip</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\playerShip.xnb</Output>
+      <Time>2012-10-13T18:59:52.2412811+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\playerShip_0.xml</Key>
+        <Value>2012-10-13T19:00:59.0528082+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Particles\grid.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Particles\grid_0.xml</Output>
+      <Time>2012-10-13T19:00:07.7532611+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\checker.bmp</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Particles\checker_0.xnb</Output>
+      <Time>2012-10-13T19:00:07.7342594+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\spaceStation.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Output>
+      <Time>2012-10-13T18:59:52.1432706+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Projectiles\Cube.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Projectiles\Cube_0.xml</Output>
+      <Time>2012-10-13T18:59:44.3032679+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter1.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Fighter1_0.xml</Output>
+      <Time>2012-10-13T18:59:52.0132533+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\space+craft+2+uv.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+2+uv_0.xnb</Output>
+      <Time>2012-10-13T18:59:52.178273+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter2.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Fighter2_0.xml</Output>
+      <Time>2012-10-13T18:59:52.0472574+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\space+craft+3+uv.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+3+uv_0.xnb</Output>
+      <Time>2012-10-13T18:59:52.2222791+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter3.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Fighter3_0.xml</Output>
+      <Time>2012-10-13T18:59:52.087261+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\space+craft+4+uv.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+4+uv_0.xnb</Output>
+      <Time>2012-10-13T18:59:52.2672851+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter4.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Fighter4_0.xml</Output>
+      <Time>2012-10-13T18:59:52.1032634+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret1.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Turret1_0.xml</Output>
+      <Time>2012-10-13T18:59:51.9342419+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret2.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Turret2_0.xml</Output>
+      <Time>2012-10-13T18:59:51.9592453+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShip.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\playerShip_0.xml</Output>
+      <Time>2012-10-13T18:59:52.2412811+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\SpaceCr_00.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Output>
+      <Time>2012-10-13T18:59:51.8982379+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\map.png</Source>
+      <Name>HudTextures\map</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\map.xnb</Output>
+      <Time>2012-10-17T14:44:11.2994433+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Asteroids\Astroid.png</Source>
+      <Name>Models\Asteroids\Astroid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Asteroids\Astroid.xnb</Output>
+      <Time>2012-10-17T14:46:08.1334261+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Asteroids\Astroid01.png</Source>
+      <Name>Models\Asteroids\Astroid01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Asteroids\Astroid01.xnb</Output>
+      <Time>2012-10-17T14:46:08.135426+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Asteroids\Astroid02.png</Source>
+      <Name>Models\Asteroids\Astroid02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Asteroids\Astroid02.xnb</Output>
+      <Time>2012-10-17T14:46:08.136427+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Asteroids\Astroid04.png</Source>
+      <Name>Models\Asteroids\Astroid04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Asteroids\Astroid04.xnb</Output>
+      <Time>2012-10-17T14:46:08.1384269+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Asteroids\AstrFBX.fbx</Source>
+      <Name>Models\Asteroids\AstrFBX</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Asteroids\AstrFBX.xnb</Output>
+      <Time>2012-10-17T14:46:08.1294246+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Asteroids\AstrFBX_0.xml</Key>
+        <Value>2012-10-17T14:46:16.2094612+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\D85B2E86\AstrFBX.fbm\Astroid01_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Asteroids\AstrFBX2.fbx</Source>
+      <Name>Models\Asteroids\AstrFBX2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Asteroids\AstrFBX2.xnb</Output>
+      <Time>2012-10-17T14:46:08.1304252+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Asteroids\AstrFBX2_0.xml</Key>
+        <Value>2012-10-17T14:46:17.5286308+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\67C2EB8\AstrFBX2.fbm\Astroid01_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Asteroids\AstrFBX.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Asteroids\AstrFBX_0.xml</Output>
+      <Time>2012-10-17T14:46:08.1294246+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\D85B2E86\AstrFBX.fbm\Astroid01.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\D85B2E86\AstrFBX.fbm\Astroid01_0.xnb</Output>
+      <Time>2012-10-17T14:46:15.9154237+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Asteroids\AstrFBX2.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Asteroids\AstrFBX2_0.xml</Output>
+      <Time>2012-10-17T14:46:08.1304252+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\67C2EB8\AstrFBX2.fbm\Astroid01.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\67C2EB8\AstrFBX2.fbm\Astroid01_0.xnb</Output>
+      <Time>2012-10-17T14:46:17.4796248+02:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2009-05-14T20:13:52+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2009-05-14T20:13:52+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2009-05-14T20:13:52+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2009-05-14T20:13:52+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2009-05-14T20:13:52+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-09-22T18:05:53.7025288+02:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
