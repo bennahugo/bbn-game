@@ -21,7 +21,6 @@ namespace BBN_Game.Graphics.Shapes
     class Cube : IDisposable
     {
         vertexPos[] vertices;
-        short[][] indicis;
 
         int numV;
 
