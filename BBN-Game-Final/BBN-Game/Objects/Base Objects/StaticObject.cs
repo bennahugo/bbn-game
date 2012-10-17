@@ -378,7 +378,7 @@ namespace BBN_Game.Objects
         /// <param name="cam">Camera class</param>
         public virtual void Draw(GameTime gameTime, Camera.CameraMatrices cam)
         {
-            if ((cam.Position - Position).Length() > 600) // depth culling
+            if (((cam.Position - Position).Length() > 600) && !(this is Planets.Planet)) // depth culling
                 return;
 
 
@@ -411,7 +411,7 @@ namespace BBN_Game.Objects
                 if (((playerObject)this).getViewport.Equals(Game.GraphicsDevice.Viewport))
                     return;
 
-            if (this is Objects.Bullet) // dont draw for bullets
+            if (this is Objects.Bullet || this is Objects.Planets.Planet) // dont draw for bullets
                 return;
 
             if ((cam.Position - Position).Length() > 800) // depth culling

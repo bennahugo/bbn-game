@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>RootNode</Name>
     <Identity>
-      <SourceFilename>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\Content\Models\Ships\spaceStation.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\Content\Models\Ships\spaceStation.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -43,7 +43,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>lambert1</Name>
       <Identity>
-        <SourceFilename>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\Content\Models\Ships\spaceStation.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\Content\Models\Ships\spaceStation.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
