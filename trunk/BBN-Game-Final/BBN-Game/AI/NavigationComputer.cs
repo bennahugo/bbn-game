@@ -455,8 +455,8 @@ namespace BBN_Game.AI
                     if (neighbour.hasBeenVisited) continue;
                     visitedList.Add(neighbour);
                     Random randomizer = new Random();
-                    double distToNeighbour = addRandomFactor ?
-                        neighbourEdge.distance + neighbourEdge.weight + randomizer.NextDouble() * ASTAR_RANDOM_FACTOR * neighbourEdge.distance : neighbourEdge.distance + neighbourEdge.weight;
+                    double distToNeighbour = bestChoice.pathCost + (addRandomFactor ?
+                        neighbourEdge.distance + neighbourEdge.weight + randomizer.NextDouble() * ASTAR_RANDOM_FACTOR * neighbourEdge.distance : neighbourEdge.distance + neighbourEdge.weight);
                     double newMoveLength = distToNeighbour + bestChoice.pathCost;
                     neighbour.heuristic = (neighbour.Position - end.Position).Length();
                     Boolean shouldMove = false;

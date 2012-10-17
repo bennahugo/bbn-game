@@ -434,6 +434,69 @@
       <Time>2012-10-17T14:46:10+02:00</Time>
     </Item>
     <Item>
+      <Source>HudTextures\rocket_bw.png</Source>
+      <Name>HudTextures\rocket_bw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\rocket_bw.xnb</Output>
+      <Time>2012-10-17T21:50:14+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\rocket_c.png</Source>
+      <Name>HudTextures\rocket_c</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\rocket_c.xnb</Output>
+      <Time>2012-10-17T21:50:14+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\diamond.png</Source>
+      <Name>HudTextures\diamond</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\diamond.xnb</Output>
+      <Time>2012-10-17T22:09:54+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\hexagon.png</Source>
+      <Name>HudTextures\hexagon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\hexagon.xnb</Output>
+      <Time>2012-10-17T22:09:54+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\square.png</Source>
+      <Name>HudTextures\square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\square.xnb</Output>
+      <Time>2012-10-17T22:09:54+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\triangle.png</Source>
+      <Name>HudTextures\triangle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\triangle.xnb</Output>
+      <Time>2012-10-17T21:55:08+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\circle.png</Source>
+      <Name>HudTextures\circle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\HudTextures\circle.xnb</Output>
+      <Time>2012-10-17T22:09:54+02:00</Time>
+    </Item>
+    <Item>
       <Source>Models\Asteroids\AstrFBX.fbx</Source>
       <Name>Models\Asteroids\AstrFBX</Name>
       <Importer>FbxImporter</Importer>
@@ -443,7 +506,7 @@
       <Time>2012-10-17T14:46:10+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Asteroids\AstrFBX_0.xml</Key>
-        <Value>2012-10-17T20:30:24.8233416+02:00</Value>
+        <Value>2012-10-17T23:25:52.1767879+02:00</Value>
       </Dependency>
       <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\77642DED\AstrFBX.fbm\Astroid01_0.xnb</Request>
     </Item>
@@ -457,7 +520,7 @@
       <Time>2012-10-17T14:46:10+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Asteroids\AstrFBX2_0.xml</Key>
-        <Value>2012-10-17T20:30:26.5344394+02:00</Value>
+        <Value>2012-10-17T23:25:53.5648673+02:00</Value>
       </Dependency>
       <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\A4DD2E1F\AstrFBX2.fbm\Astroid01_0.xnb</Request>
     </Item>
@@ -471,7 +534,7 @@
       <Time>2012-10-13T18:59:54+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Key>
-        <Value>2012-10-17T20:30:28.2805393+02:00</Value>
+        <Value>2012-10-17T23:25:54.8569412+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -484,7 +547,7 @@
       <Time>2012-10-13T18:59:46+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Projectiles\Cube_0.xml</Key>
-        <Value>2012-10-17T20:30:29.4376055+02:00</Value>
+        <Value>2012-10-17T23:25:55.9480036+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -497,7 +560,7 @@
       <Time>2012-10-13T18:59:54+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Fighter1_0.xml</Key>
-        <Value>2012-10-17T20:30:30.6556752+02:00</Value>
+        <Value>2012-10-17T23:25:57.0830685+02:00</Value>
       </Dependency>
       <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+2+uv_0.xnb</Request>
     </Item>
@@ -511,7 +574,7 @@
       <Time>2012-10-13T18:59:54+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Fighter2_0.xml</Key>
-        <Value>2012-10-17T20:30:32.5907858+02:00</Value>
+        <Value>2012-10-17T23:25:58.7471637+02:00</Value>
       </Dependency>
       <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+3+uv_0.xnb</Request>
     </Item>
@@ -525,7 +588,7 @@
       <Time>2012-10-13T18:59:54+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Fighter3_0.xml</Key>
-        <Value>2012-10-17T20:30:34.4098899+02:00</Value>
+        <Value>2012-10-17T23:26:00.5742682+02:00</Value>
       </Dependency>
       <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\space+craft+4+uv_0.xnb</Request>
     </Item>
@@ -539,7 +602,7 @@
       <Time>2012-10-13T18:59:54+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Fighter4_0.xml</Key>
-        <Value>2012-10-17T20:30:35.9949806+02:00</Value>
+        <Value>2012-10-17T23:26:02.1723596+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -552,7 +615,7 @@
       <Time>2012-10-13T18:59:52+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Turret1_0.xml</Key>
-        <Value>2012-10-17T20:30:37.0540411+02:00</Value>
+        <Value>2012-10-17T23:26:03.2384206+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -565,7 +628,7 @@
       <Time>2012-10-13T18:59:52+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\Turret2_0.xml</Key>
-        <Value>2012-10-17T20:30:38.0901004+02:00</Value>
+        <Value>2012-10-17T23:26:04.27648+02:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -578,7 +641,7 @@
       <Time>2012-10-13T18:59:54+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\playerShip_0.xml</Key>
-        <Value>2012-10-17T20:30:39.2601673+02:00</Value>
+        <Value>2012-10-17T23:26:05.4475469+02:00</Value>
       </Dependency>
       <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Request>
     </Item>
@@ -592,7 +655,7 @@
       <Time>2012-10-13T19:00:08+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Particles\grid_0.xml</Key>
-        <Value>2012-10-17T20:30:39.8572015+02:00</Value>
+        <Value>2012-10-17T23:26:06.0335805+02:00</Value>
       </Dependency>
       <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Particles\checker_0.xnb</Request>
     </Item>
@@ -616,7 +679,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\77642DED\AstrFBX.fbm\Astroid01_0.xnb</Output>
-      <Time>2012-10-17T20:30:24.4413197+02:00</Time>
+      <Time>2012-10-17T23:25:51.8057667+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Asteroids\AstrFBX2.fbx</Source>
@@ -638,7 +701,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\A4DD2E1F\AstrFBX2.fbm\Astroid01_0.xnb</Output>
-      <Time>2012-10-17T20:30:26.2894254+02:00</Time>
+      <Time>2012-10-17T23:25:53.5118643+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\spaceStation.fbx</Source>

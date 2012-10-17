@@ -56,6 +56,8 @@ namespace BBN_Game.Objects
         static Texture2D HudBarHolder;
         static Texture2D HudBar;
         static Texture2D arrow;
+        static Texture2D missileReload;
+        static Texture2D missileReloadBlack;
 
         private const float MissileReload = 7, MechinegunReload = 0.5f, DefensiveReload = 20;
 
@@ -186,10 +188,13 @@ namespace BBN_Game.Objects
             arrow = Game.Content.Load<Texture2D>("HudTextures/arrow");
             playerT = Game.Content.Load<Texture2D>("HudTextures/arrow");
             mapBackground = Game.Content.Load<Texture2D>("HudTextures/map");
-            towerT = Game.Content.Load<Texture2D>("HudTextures/arrow");
-            destroyerT = Game.Content.Load<Texture2D>("HudTextures/arrow");
-            fighterT = Game.Content.Load<Texture2D>("HudTextures/arrow");
-            baseT = Game.Content.Load<Texture2D>("HudTextures/map");
+            towerT = Game.Content.Load<Texture2D>("HudTextures/diamond");
+            destroyerT = Game.Content.Load<Texture2D>("HudTextures/square");
+            fighterT = Game.Content.Load<Texture2D>("HudTextures/hexagon");
+            baseT = Game.Content.Load<Texture2D>("HudTextures/circle");
+            missileReload = Game.Content.Load<Texture2D>("HudTextures/rocket_c");
+            missileReloadBlack = Game.Content.Load<Texture2D>("HudTextures/rocket_bw");
+
             base.resetModels();
         }
 
@@ -257,7 +262,7 @@ namespace BBN_Game.Objects
                     Controller.GridDataCollection.tryCaptureTower(this);
                 if (state.IsKeyDown(Keys.V) && oldState.IsKeyUp(Keys.V))
                     getNewTarget();
-                if (state.IsKeyDown(Keys.N) && oldState.IsKeyUp(Keys.N))
+                if (state.IsKeyDown(Keys.B) && oldState.IsKeyUp(Keys.B))
                     drawMapBool = !drawMapBool;
                 #endregion
 
@@ -355,8 +360,19 @@ namespace BBN_Game.Objects
             if (twoPlayer)
                 if (index == PlayerIndex.Two)
                 {
+                    #region "Extra Controls (Camera)"
+                    if (state.IsKeyDown(Keys.F2) && oldState.IsKeyUp(Keys.F2))
+                        cameraType = cameraType.Equals(CurrentCam.Chase) ? CurrentCam.FirstPerson : CurrentCam.Chase;
+                    if (state.IsKeyDown(Keys.PageUp) && oldState.IsKeyUp(Keys.PageUp))
+                        Controller.GridDataCollection.tryCaptureTower(this);
                     if (state.IsKeyDown(Keys.PageDown) && oldState.IsKeyUp(Keys.PageDown))
                         getNewTarget();
+                    if (state.IsKeyDown(Keys.NumPad9) && oldState.IsKeyUp(Keys.NumPad9))
+                        drawMapBool = !drawMapBool;
+                    #endregion
+
+
+                    
                     #region "Accel Deccel checks"
                     if (state.IsKeyDown(Keys.Up))
                     {
@@ -925,6 +941,12 @@ namespace BBN_Game.Objects
             #endregion
 
             #region "Reload speeds"
+
+            sb.Draw(missileReloadBlack, new Rectangle(hudWidth + 10, barStartY, 150, barWidthY)
+                , new Rectangle(0, 0, missileReload.Width, missileReload.Height), Color.White);
+            sb.Draw(missileReload, new Rectangle(hudWidth + 10, barStartY, (int)(150 * (MissileReload - reloadTimer[1]) / MissileReload), barWidthY)
+                , new Rectangle(0, 0, (int)(missileReload.Width * (MissileReload - reloadTimer[1]) / MissileReload), missileReload.Height), Color.White);
+
             #endregion
 
             #region "Arrows"
@@ -988,14 +1010,13 @@ namespace BBN_Game.Objects
         private void drawMap(SpriteBatch sb, Viewport view)
         {
             List<StaticObject> objects = Controller.GameController.getAllObjects;
-            List<StaticObject> Dobjects = Controller.GameController.DynamicObjects;
 
             float radius = Controller.GameController.mapRadius;
             radius = radius * 0.5f;
 
             sb.Begin();
             
-                float objectWidth = view.Width * 0.01f;
+                float objectWidth = view.Width * 0.015f;
 
             sb.Draw(mapBackground, new Rectangle(0, 0, view.Width, view.Height), Color.White);
 

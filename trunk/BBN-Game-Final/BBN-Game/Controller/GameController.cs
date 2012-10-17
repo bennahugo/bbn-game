@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+using BBN_Game.Objects;
 
 namespace BBN_Game.Controller
 {
@@ -240,18 +241,20 @@ namespace BBN_Game.Controller
 
                 #region Player 1
                 //player 1 trade menu
-                if (keyState.IsKeyDown(Keys.Z) && prevKeyState.IsKeyUp(Keys.Z) && Player1.TradeMenuOption > 1)
-                    Player1.TradeMenuOption--;
-                else if(keyState.IsKeyDown(Keys.Z) && prevKeyState.IsKeyUp(Keys.Z) && Player1.TradeMenuOption == 1)
-                    Player1.TradeMenuOption = 3;
-                if (keyState.IsKeyDown(Keys.X) && prevKeyState.IsKeyUp(Keys.X) && Player1.TradeMenuOption < 3)
-                    Player1.TradeMenuOption++;
-                else if (keyState.IsKeyDown(Keys.X) && prevKeyState.IsKeyUp(Keys.X) && Player1.TradeMenuOption == 3)
-                    Player1.TradeMenuOption = 1;
-                //trade menu selection
-                if (keyState.IsKeyDown(Keys.C) && prevKeyState.IsKeyUp(Keys.C))
-                    makePurchase(Player1, team1);
-
+                if (tradePanelUp1)
+                {
+                    if (keyState.IsKeyDown(Keys.Z) && prevKeyState.IsKeyUp(Keys.Z) && Player1.TradeMenuOption > 1)
+                        Player1.TradeMenuOption--;
+                    else if (keyState.IsKeyDown(Keys.Z) && prevKeyState.IsKeyUp(Keys.Z) && Player1.TradeMenuOption == 1)
+                        Player1.TradeMenuOption = 3;
+                    if (keyState.IsKeyDown(Keys.X) && prevKeyState.IsKeyUp(Keys.X) && Player1.TradeMenuOption < 3)
+                        Player1.TradeMenuOption++;
+                    else if (keyState.IsKeyDown(Keys.X) && prevKeyState.IsKeyUp(Keys.X) && Player1.TradeMenuOption == 3)
+                        Player1.TradeMenuOption = 1;
+                    //trade menu selection
+                    if (keyState.IsKeyDown(Keys.C) && prevKeyState.IsKeyUp(Keys.C))
+                        makePurchase(Player1, team1);
+                }
                 if (keyState.IsKeyDown(Keys.Q) && prevKeyState.IsKeyUp(Keys.Q))
                 {
                     if (tradePanelUp1)
@@ -274,14 +277,20 @@ namespace BBN_Game.Controller
                 if (numPlayers.Equals(Players.two))
                 {                    
                     //player 2 trade menu
-                    if (keyState.IsKeyDown(Keys.NumPad2) && prevKeyState.IsKeyUp(Keys.NumPad2) && Player2.TradeMenuOption > 1)
-                        Player2.TradeMenuOption--;
-                    else if (keyState.IsKeyDown(Keys.NumPad2) && prevKeyState.IsKeyUp(Keys.NumPad2) && Player2.TradeMenuOption == 1)
-                        Player2.TradeMenuOption = 3;
-                    if (keyState.IsKeyDown(Keys.NumPad3) && prevKeyState.IsKeyUp(Keys.NumPad3) && Player2.TradeMenuOption < 3)
-                        Player2.TradeMenuOption++;
-                    else if (keyState.IsKeyDown(Keys.NumPad3) && prevKeyState.IsKeyUp(Keys.NumPad3) && Player2.TradeMenuOption == 3)
-                        Player2.TradeMenuOption = 1;
+                    if (tradePanelUp2)
+                    {
+                        if (keyState.IsKeyDown(Keys.NumPad2) && prevKeyState.IsKeyUp(Keys.NumPad2) && Player2.TradeMenuOption > 1)
+                            Player2.TradeMenuOption--;
+                        else if (keyState.IsKeyDown(Keys.NumPad2) && prevKeyState.IsKeyUp(Keys.NumPad2) && Player2.TradeMenuOption == 1)
+                            Player2.TradeMenuOption = 3;
+                        if (keyState.IsKeyDown(Keys.NumPad3) && prevKeyState.IsKeyUp(Keys.NumPad3) && Player2.TradeMenuOption < 3)
+                            Player2.TradeMenuOption++;
+                        else if (keyState.IsKeyDown(Keys.NumPad3) && prevKeyState.IsKeyUp(Keys.NumPad3) && Player2.TradeMenuOption == 3)
+                            Player2.TradeMenuOption = 1;
+
+                        if (keyState.IsKeyDown(Keys.N) && prevKeyState.IsKeyUp(Keys.N))
+                            makePurchase(Player2, team2);
+                    }
                     if (keyState.IsKeyDown(Keys.M) && prevKeyState.IsKeyUp(Keys.M))
                     {
                         if (tradePanelUp2)
@@ -296,10 +305,7 @@ namespace BBN_Game.Controller
                             if (Player2.UpFactor >= 150)
                                 Player2.TradeMenuOption = 1;
                         }
-                    }
-
-                    if (keyState.IsKeyDown(Keys.N) && prevKeyState.IsKeyUp(Keys.N))
-                        makePurchase(Player2, team2);
+                    }                    
                 }
                 #endregion
 
@@ -316,7 +322,7 @@ namespace BBN_Game.Controller
             if (player.TradeMenuOption == 1)
             {
                 //buy destroyer
-                if (team.teamCredits > TradingInformation.destroyerCost)
+                if (team.teamCredits >= TradingInformation.destroyerCost && team.teamDestroyers.Count < MAX_NUM_DESTROYERS_PER_TEAM)
                 {
                     Objects.Destroyer ds = new Objects.Destroyer(game, team.teamId, Vector3.Zero);
                     team.spawnQueue.Add(ds);
@@ -326,7 +332,7 @@ namespace BBN_Game.Controller
             else if (player.TradeMenuOption == 2)
             {
                 //buy fighter
-                if (team.teamCredits > TradingInformation.fighterCost)
+                if (team.teamCredits >= TradingInformation.fighterCost && team.teamDestroyers.Count < MAX_NUM_FIGHTERS_PER_TEAM)
                 {
                     Objects.Fighter fi = new Objects.Fighter(game, team.teamId, Vector3.Zero);
                     team.spawnQueue.Add(fi);
@@ -336,7 +342,7 @@ namespace BBN_Game.Controller
             else if (player.TradeMenuOption == 3)
             {
                 //buy missiles for player
-                if (team.teamCredits > TradingInformation.missileCost)
+                if (team.teamCredits >= TradingInformation.missileCost)
                 {
                     player.Missiles++;
                     team.teamCredits -= TradingInformation.missileCost;
@@ -661,16 +667,37 @@ namespace BBN_Game.Controller
             if (Object is Objects.Fighter)
             {
                 Fighters.Remove(Object);
+                if (Object.Team.Equals(Team.Red))
+                    team2.teamCredits += TradingInformation.creditsForDestroyingFighter;
+                else
+                    team1.teamCredits += TradingInformation.creditsForDestroyingFighter;
             }
             else if (Object is Objects.Destroyer)
             {
                 Destroyers.Remove(Object);
+                if (Object.Team.Equals(Team.Red))
+                    team2.teamCredits += TradingInformation.creditsForDestroyingDestroyer;
+                else
+                    team1.teamCredits += TradingInformation.creditsForDestroyingDestroyer;
             }
             else if (Object is Objects.Projectile)
             {
                 Projectiles.Remove(Object);
             }
-
+            else if (Object is Objects.playerObject)
+            {
+                if (Object.Team.Equals(Team.Red))
+                    team2.teamCredits += TradingInformation.creditsForDestroyingPlayer;
+                else
+                    team1.teamCredits += TradingInformation.creditsForDestroyingPlayer;
+            }
+            else if (Object is Objects.Turret)
+            {
+                if (Object.Team.Equals(Team.Red))
+                    team2.teamCredits += TradingInformation.creditsForDestroyingTower;
+                else
+                    team1.teamCredits += TradingInformation.creditsForDestroyingTower;
+            }
             if (Object is Objects.DynamicObject)
                 DynamicObjs.Remove(Object);
 

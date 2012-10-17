@@ -22,8 +22,8 @@ namespace BBN_Game.Objects
             numHudLines = 360 / 20;
             typeOfLine = PrimitiveType.LineStrip;
             Shield = 100;
-            Health = 100;
-            totalHealth = 100;
+            Health = 2000;
+            totalHealth = 2000;
         }
 
 
