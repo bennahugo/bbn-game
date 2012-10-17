@@ -378,6 +378,10 @@ namespace BBN_Game.Objects
         /// <param name="cam">Camera class</param>
         public virtual void Draw(GameTime gameTime, Camera.CameraMatrices cam)
         {
+            if ((cam.Position - Position).Length() > 600) // depth culling
+                return;
+
+
             foreach (ModelMesh m in model.Meshes)
             {
                 foreach (BasicEffect e in m.Effects)
@@ -402,12 +406,15 @@ namespace BBN_Game.Objects
         /// <param name="currentPlayerforViewport">The current player for the viewport</param>
         public void drawSuroundingBox(SpriteBatch b, Camera.CameraMatrices cam, playerObject currentPlayerforViewport)
         {
-             //if its the current player dont draw it
+            //if its the current player dont draw it
             if (this is playerObject)
                 if (((playerObject)this).getViewport.Equals(Game.GraphicsDevice.Viewport))
                     return;
 
-            if (this is Objects.Bullet)
+            if (this is Objects.Bullet) // dont draw for bullets
+                return;
+
+            if ((cam.Position - Position).Length() > 800) // depth culling
                 return;
 
             if (IsVisible(cam))
@@ -463,7 +470,7 @@ namespace BBN_Game.Objects
 
             // set the y back to the non depth version
             screenY = halfScreenY - ((screenPos.Y / screenPos.W) * halfScreenY);
-            float distanceToPlayer = (Position - player.Position).Length();
+            float distanceToPlayer = (cam.Position - Position).Length();
 
             drawData(b, distanceToPlayer, screenX, screenY, radiusOfObject, col, player); // draw the distances to the object
 
