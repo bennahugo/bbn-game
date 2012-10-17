@@ -21,18 +21,28 @@ namespace BBN_Game.ParticleEngine
     /// </summary>
     class ExplosionParticleSystem : ParticleSystem
     {
-        public ExplosionParticleSystem(Game game, ContentManager content)
+        int maxParticles;
+        int minEndSize;
+        int maxEndSize;
+        double particleDuration;
+
+        public ExplosionParticleSystem(Game game, ContentManager content,int max, double duration,int minSize,int maxSize)
             : base(game, content)
-        { }
+        {
+            maxParticles = max;
+            maxEndSize = maxSize;
+            minEndSize = minSize;
+            particleDuration = duration;
+        }
 
 
         protected override void InitializeSettings(ParticleSettings settings)
         {
             settings.TextureName = "explosion";
 
-            settings.MaxParticles = 50;
+            settings.MaxParticles = maxParticles;
 
-            settings.Duration = TimeSpan.FromSeconds(1);
+            settings.Duration = TimeSpan.FromSeconds(particleDuration);
             settings.DurationRandomness = 1;
 
             settings.MinHorizontalVelocity = 20;
@@ -52,8 +62,8 @@ namespace BBN_Game.ParticleEngine
             settings.MinStartSize = 10;
             settings.MaxStartSize = 10;
 
-            settings.MinEndSize = 150;
-            settings.MaxEndSize = 250;
+            settings.MinEndSize = minEndSize;
+            settings.MaxEndSize = maxEndSize;
 
             // Use additive blending.
             settings.SourceBlend = Blend.SourceAlpha;

@@ -21,18 +21,28 @@ namespace BBN_Game.ParticleEngine
     /// </summary>
     class ExplosionSmokeParticleSystem : ParticleSystem
     {
-        public ExplosionSmokeParticleSystem(Game game, ContentManager content)
+        int maxParticles;
+        int minEndSize;
+        int maxEndSize;
+        double particleDuration;
+
+        public ExplosionSmokeParticleSystem(Game game, ContentManager content, int max, double duration, int minSize,int maxSize)
             : base(game, content)
-        { }
+        {
+            maxParticles = max;
+            maxEndSize = maxSize;
+            minEndSize = minSize;
+            particleDuration = duration;
+        }
 
 
         protected override void InitializeSettings(ParticleSettings settings)
         {
             settings.TextureName = "smoke";
 
-            settings.MaxParticles = 50;
+            settings.MaxParticles = maxParticles;
 
-            settings.Duration = TimeSpan.FromSeconds(3);
+            settings.Duration = TimeSpan.FromSeconds(particleDuration);
 
             settings.MinHorizontalVelocity = 0;
             settings.MaxHorizontalVelocity = 50;
@@ -53,8 +63,8 @@ namespace BBN_Game.ParticleEngine
             settings.MinStartSize = 10;
             settings.MaxStartSize = 10;
 
-            settings.MinEndSize = 100;
-            settings.MaxEndSize = 200;
+            settings.MinEndSize = minEndSize;
+            settings.MaxEndSize = maxEndSize;
         }
     }
 }

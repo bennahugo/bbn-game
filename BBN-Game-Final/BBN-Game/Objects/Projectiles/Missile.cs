@@ -41,9 +41,9 @@ namespace BBN_Game.Objects
         {
             this.target = target;
 
-            Vector3 velocity = this.shipData.speed*Matrix.CreateFromQuaternion(this.rotation).Forward;
+            Vector3 velocity = this.shipData.speed * Matrix.CreateFromQuaternion(this.rotation).Forward;
             
-            BBN_Game.Controller.GameController.particleController.MissileFiredExplosions(this.Position, velocity);
+            BBN_Game.Controller.GameController.particleController.MissileFiredExplosions(parent.Position, velocity, parent);
         }
 
         #endregion
@@ -61,7 +61,7 @@ namespace BBN_Game.Objects
 
             Vector3 velocity = this.shipData.speed*Matrix.CreateFromQuaternion(this.rotation).Forward;
             BBN_Game.Controller.GameController.particleController.UpdateProjectiles(gt, 
-                this.Position, velocity, (float)lifeSpan);
+                this.Position, velocity, (float)lifeSpan, parent);
 
             base.controller(gt);
         }
