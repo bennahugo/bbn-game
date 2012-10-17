@@ -208,6 +208,17 @@ namespace BBN_Game.Controller
                     //Player2.Target = Player1;
                     //Player1.Target = Player2;
                     ObjectsLoaded = true;
+
+                    Random rand = new Random();
+
+                    Objects.Planets.Planet plan = new Objects.Planets.Planet(game, Team.neutral, new Vector3(Team1Base.Position.X - rand.Next(500), Team1Base.Position.Y + rand.Next(500), -mapRadius * 1.2f));
+                    AllObjects.Add(plan);
+                    Objects.Planets.Planet plan2 = new Objects.Planets.Planet(game, Team.neutral, new Vector3(Team2Base.Position.X + rand.Next(500), Team2Base.Position.Y - rand.Next(500), mapRadius * 1.2f), plan);
+                    AllObjects.Add(plan2);
+
+                    AllObjects.Add(new Objects.Planets.Planet(game, Team.neutral, new Vector3(mapRadius * 1.2f, rand.Next(500) - rand.Next(500), (float)(rand.NextDouble() * mapRadius - rand.NextDouble() * mapRadius)), plan, plan2));
+                    AllObjects.Add(new Objects.Planets.Planet(game, Team.neutral, new Vector3(-mapRadius * 1.2f, rand.Next(500) - rand.Next(500), (float)(rand.NextDouble() * mapRadius - rand.NextDouble() * mapRadius)), plan, plan2));
+
                 }
             }
             else
