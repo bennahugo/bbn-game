@@ -697,6 +697,50 @@ namespace BBN_Game.Menu
             spriteBatch.End();
         }
 
+        //menu animation
+        int animationDelay = 1000;
+        private void menuOptionAnimation(SpriteBatch spriteBatch,GameTime gameTime,String text)
+        {
+            //expand text
+            int nextPhase = 0;
+            while(nextPhase < 5)
+            {
+                //spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth - 361, 321), Color.Black);
+                //spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth - 360, 320), Color.Black);
+                //spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth - 359, 319), Color.Black);
+                //spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth - 358, 318), Color.Aqua);
+                animationDelay--;
+
+                if (animationDelay < 0)
+                {
+                    nextPhase++;
+                    animationDelay = 10;
+                    Vector2 FontOrigin = generalMenuFont.MeasureString(text) / 2;
+                    spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth / 2, screenHeight / 2), Color.LightGreen,
+            0, FontOrigin, 1.0f * nextPhase, SpriteEffects.None, 0.5f);
+                }
+            }
+
+            //shrink text
+            while (nextPhase > 0)
+            {
+                //spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth - 361, 321), Color.Black);
+                //spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth - 360, 320), Color.Black);
+                //spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth - 359, 319), Color.Black);
+                //spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth - 358, 318), Color.Aqua);
+                animationDelay--;
+
+                if (animationDelay < 0)
+                {
+                    nextPhase--;
+                    animationDelay = 10;
+                    Vector2 FontOrigin = generalMenuFont.MeasureString(text) / 2;
+                    spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth / 2, screenHeight / 2), Color.LightGreen,
+            0, FontOrigin, 1.0f * nextPhase, SpriteEffects.None, 0.5f);
+                }
+            }
+        }
+
         //update what menu is currently being displayed
         public void drawMenu(SpriteBatch spriteBatch, GameTime gameTime)
         {
@@ -717,7 +761,8 @@ namespace BBN_Game.Menu
                 //draw menu outline
                 spriteBatch.Draw(pauseMenuTex, new Rectangle(screenWidth - 600, 100, 600, 600), Color.White);
 
-                #region display menu options
+                #region display menu options                
+
                 if (currentMenuOption == 1)
                 {
                     spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 361, 321), Color.Black);

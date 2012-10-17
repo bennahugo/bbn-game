@@ -30,9 +30,9 @@ namespace BBN_Game.ParticleEngine
         {
             settings.TextureName = "smoke";
 
-            settings.MaxParticles = 500;
+            settings.MaxParticles = 1000;
 
-            settings.Duration = TimeSpan.FromSeconds(3);
+            settings.Duration = TimeSpan.FromSeconds(2);
 
             settings.DurationRandomness = 1.5f;
 

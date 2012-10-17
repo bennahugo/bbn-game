@@ -25,7 +25,7 @@ namespace BBN_Game.ParticleEngine
     {
         #region Constants
 
-        const float trailParticlesPerSecond = 50;
+        const float trailParticlesPerSecond = 20;
         const int numExplosionParticles = 15;
         const int numExplosionSmokeParticles = 5;
         const float projectileLifespan = 300f;
@@ -43,10 +43,12 @@ namespace BBN_Game.ParticleEngine
 
         Vector3 position;
         Vector3 velocity;
-        float age;
+        //float age;
         //float projectileLifespan = 0;
 
         static Random random = new Random();
+
+        BBN_Game.Objects.StaticObject Parent;
 
         #endregion
 
@@ -56,13 +58,14 @@ namespace BBN_Game.ParticleEngine
         /// </summary>
         public Projectile(ParticleSystem explosionParticles,
                           ParticleSystem explosionSmokeParticles,
-                          ParticleSystem projectileTrailParticles,Vector3 pos,Vector3 vel)
+                          ParticleSystem projectileTrailParticles, Vector3 pos, Vector3 vel, BBN_Game.Objects.StaticObject parent)
         {
             this.explosionParticles = explosionParticles;
             this.explosionSmokeParticles = explosionSmokeParticles;
                         
             position = pos;
             velocity = vel;
+            Parent = parent;
 
             //velocity.X = (float)(random.NextDouble() - 0.5) * sidewaysVelocityRange;
             //velocity.Y = (float)(random.NextDouble() + 0.5) * verticalVelocityRange;
@@ -77,36 +80,39 @@ namespace BBN_Game.ParticleEngine
         /// <summary>
         /// Updates the projectile.
         /// </summary>
-        public bool Update(GameTime gameTime, Vector3 pos,Vector3 vel,float dist)
+        public bool Update(GameTime gameTime, Vector3 pos, Vector3 vel, float dist, BBN_Game.Objects.StaticObject parent)
         {
-            float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            // Simple projectile physics.
-            //position += velocity * elapsedTime;
-            //velocity.Y -= elapsedTime * gravity;
-            //age += elapsedTime;
-
-            position = pos;
-            velocity = vel;
-            
-            // Update the particle emitter, which will create our particle trail.
-            trailEmitter.Update(gameTime, position);
-
-            // If enough time has passed, explode! Note how we pass our velocity
-            // in to the AddParticle method: this lets the explosion be influenced
-            // by the speed and direction of the projectile which created it.
-            if (dist <= 0)   //age > projectileLifespan
+            if (parent.Equals(Parent))
             {
-                for (int i = 0; i < numExplosionParticles; i++)
-                    explosionParticles.AddParticle(position, velocity);
+                float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                //for (int i = 0; i < numExplosionSmokeParticles; i++)
-                //    explosionSmokeParticles.AddParticle(position, velocity);
+                // Simple projectile physics.
+                //position += velocity * elapsedTime;
+                //velocity.Y -= elapsedTime * gravity;
+                //age += elapsedTime;
 
-                return false;
-            }
+                position = pos;
+                velocity = vel;
+
+                // Update the particle emitter, which will create our particle trail.
+                trailEmitter.Update(gameTime, position);
+
+                // If enough time has passed, explode! Note how we pass our velocity
+                // in to the AddParticle method: this lets the explosion be influenced
+                // by the speed and direction of the projectile which created it.
+                if (dist <= 0)   //age > projectileLifespan
+                {
+                //    for (int i = 0; i < numExplosionParticles; i++)
+                //        explosionParticles.AddParticle(position, velocity);
+
+                //    //for (int i = 0; i < numExplosionSmokeParticles; i++)
+                //    //    explosionSmokeParticles.AddParticle(position, velocity);
+
+                    return false;
+                }
+            }           
                 
             return true;
         }
-    }
+    } 
 }

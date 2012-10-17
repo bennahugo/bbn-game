@@ -668,8 +668,13 @@ namespace BBN_Game.Controller
 
 
             Vector3 velocity = Object.ShipMovementInfo.speed * Matrix.CreateFromQuaternion(Object.rotation).Forward;
-            BBN_Game.Controller.GameController.particleController.ObjectDestroyedExplosion(Object.Position, velocity);
-
+            if (Object is BBN_Game.Objects.Bullet)
+                BBN_Game.Controller.GameController.particleController.smallBulletExplosion(Object.Position, velocity);
+            else if (Object is BBN_Game.Objects.Missile)
+                BBN_Game.Controller.GameController.particleController.mediumMissileExplosion(Object.Position, velocity);
+            else 
+                BBN_Game.Controller.GameController.particleController.ObjectDestroyedExplosion(Object.Position, velocity);
+            
             if (!(Object is Objects.Turret))
             {
                 gameGrid.deregisterObject(Object);
