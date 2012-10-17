@@ -18,6 +18,7 @@ namespace BBN_Game.Objects
             this.pitchSpeed = 10;
             this.yawSpeed = 5;
             this.greatestLength = 6f;
+            this.shipData.scale = 1;
             numHudLines = 360 / 20;
             typeOfLine = PrimitiveType.LineStrip;
             Shield = 100;

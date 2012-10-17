@@ -43,8 +43,8 @@ namespace BBN_Game.Controller
         public const int MAX_NUM_DESTROYERS_PER_TEAM = 2;
         private const float COLLISION_SPEED_PRESERVATION = 0.025f;
         private const float YAW_PITCH_ROLL_SPEED_FACTOR_FOR_AI_PLAYER = 0.0166f;
-        private const float DETAIL_CULL_DISTANCE = 550;
-        private const float HUD_DETAIL_CULL_DISTANCE = 650;
+        //private const float DETAIL_CULL_DISTANCE = 600;
+        //private const float HUD_DETAIL_CULL_DISTANCE = 1000;
         #endregion
 
         #region "Object holders"
@@ -68,6 +68,16 @@ namespace BBN_Game.Controller
         {
             get { return Team2Base; }
         }
+
+        public static List<Objects.StaticObject> getAllObjects
+        {
+            get { return AllObjects; }
+        }
+        public static List<Objects.StaticObject> DynamicObjects
+        {
+            get { return DynamicObjs; }
+        }
+
         #endregion
 
         #region "Graphics Devices"
@@ -560,12 +570,12 @@ namespace BBN_Game.Controller
             game.GraphicsDevice.RenderState.AlphaTestEnable = false;
             // draw all other objects
             for (i = 0; i < AllObjects.Count; ++i)
-                if ((AllObjects.ElementAt(i).Position - cam.Position).Length() < DETAIL_CULL_DISTANCE)
+            //    if ((AllObjects.ElementAt(i).Position - cam.Position).Length() <= DETAIL_CULL_DISTANCE)
                     AllObjects.ElementAt(i).Draw(gameTime, cam);
 
             // we have to draw the huds afterward so that in third person camera the huds will draw above the player (as the dpth buffer is removed)
             for (i = 0; i < AllObjects.Count; ++i)
-                if ((AllObjects.ElementAt(i).Position - cam.Position).Length() < HUD_DETAIL_CULL_DISTANCE)
+            //    if ((AllObjects.ElementAt(i).Position - cam.Position).Length() <= HUD_DETAIL_CULL_DISTANCE)
                     AllObjects.ElementAt(i).drawSuroundingBox(game.sb, cam, player);
 
             //draw the players hud now (so that the target boxes wont obscure them)
@@ -1036,11 +1046,15 @@ namespace BBN_Game.Controller
             {
                 if (obj1 is Objects.Projectile)
                 {
+                    if (obj2.Equals(((Objects.Projectile)obj1).parent))
+                        return;
                     obj1.doDamage(10000);
                     obj2.doDamage(((Objects.Projectile)obj1).damage);
                 }
                 else
                 {
+                    if (obj1.Equals(((Objects.Projectile)obj2).parent))
+                        return;
                     obj2.doDamage(10000);
                     obj1.doDamage(((Objects.Projectile)obj2).damage);
                 }

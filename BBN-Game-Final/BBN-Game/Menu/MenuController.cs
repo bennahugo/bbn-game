@@ -148,6 +148,7 @@ namespace BBN_Game.Menu
                     
                     if (currentMenuOption == 1)//start new single player game
                     {
+                        Controller.GameController.NumberOfPlayers = Players.single;
                         gameController.PreviousState = GameState.notLoaded;
                         currentState = GameState.Playing;
                         gameController.CurrentGameState = GameState.Playing;

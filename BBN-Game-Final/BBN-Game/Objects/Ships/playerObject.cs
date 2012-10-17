@@ -88,6 +88,10 @@ namespace BBN_Game.Objects
 
         #endregion
 
+        #region "Map features"
+        static Texture2D mapBackground, playerT, towerT, destroyerT, fighterT, baseT;
+        Boolean drawMapBool = false;
+        #endregion
 
         private int numMissiles = 5;
         public int Missiles
@@ -180,6 +184,8 @@ namespace BBN_Game.Objects
             HudBar = Game.Content.Load<Texture2D>("HudTextures/HealthBar");
             HudBarHolder = Game.Content.Load<Texture2D>("HudTextures/HealthBarHolder");
             arrow = Game.Content.Load<Texture2D>("HudTextures/arrow");
+            playerT = Game.Content.Load<Texture2D>("HudTextures/arrow");
+            mapBackground = Game.Content.Load<Texture2D>("HudTextures/map");
 
             base.resetModels();
         }
@@ -248,6 +254,8 @@ namespace BBN_Game.Objects
                     Controller.GridDataCollection.tryCaptureTower(this);
                 if (state.IsKeyDown(Keys.V) && oldState.IsKeyUp(Keys.V))
                     getNewTarget();
+                if (state.IsKeyDown(Keys.N) && oldState.IsKeyUp(Keys.N))
+                    drawMapBool = !drawMapBool;
                 #endregion
 
                 #region "Accel Deccel checks"
@@ -817,10 +825,19 @@ namespace BBN_Game.Objects
             if (!Game.GraphicsDevice.Viewport.Equals(playerViewport))
                 return;
 
+
+
             GraphicsDevice.RenderState.DepthBufferEnable = false;
             GraphicsDevice.RenderState.DepthBufferWriteEnable = false;
 
             Viewport viewport = Game.GraphicsDevice.Viewport;
+
+            if (drawMapBool)
+            {
+                drawMap(sb, viewport);
+                return;
+            }
+
 
             int hudHeight = (int)((float)viewport.Height * 0.175f);
             int hudWidth = (int)((float)viewport.Width * 0.2f);
@@ -854,7 +871,7 @@ namespace BBN_Game.Objects
 
             #region "Enemy Health-bars"
 
-            
+
 
             #region Base's health bars
 
@@ -962,6 +979,39 @@ namespace BBN_Game.Objects
 
             GraphicsDevice.RenderState.DepthBufferEnable = true;
             GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
+        }
+
+        private void drawMap(SpriteBatch sb, Viewport view)
+        {
+            List<StaticObject> objects = Controller.GameController.getAllObjects;
+            List<StaticObject> Dobjects = Controller.GameController.DynamicObjects;
+
+            float radius = Controller.GameController.mapRadius;
+            radius = radius * 0.5f;
+
+            sb.Begin();
+
+            sb.Draw(mapBackground, new Rectangle(0, 0, view.Width, view.Height), Color.White);
+
+            foreach (StaticObject obj in objects)
+            {
+                if (obj is Projectile)
+                    break;
+
+                Vector2 pos = new Vector2(obj.Position.X, obj.Position.Z);
+                pos = new Vector2(pos.X + radius, pos.Y + radius);
+                pos = new Vector2(pos.X / (radius * 2), pos.Y / (radius * 2));
+                pos = new Vector2(pos.X * view.Width, pos.Y * (view.Height * 1.4f));
+
+                float objectWidth = view.Width * 0.01f;
+
+                Color c = obj.Team.Equals(Team.neutral) ? Color.Yellow : obj.Equals(this.target) ? Color.Red : obj.Team.Equals(this.Team) ? Color.Green : Color.Orange;
+
+                //Texture tex = 
+
+                sb.Draw(playerT, new Rectangle((int)(pos.X - objectWidth / 2), (int)(pos.Y - objectWidth / 2), (int)objectWidth, (int)objectWidth), c);
+            }
+            sb.End();
         }
 
         #endregion
