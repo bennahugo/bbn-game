@@ -186,7 +186,10 @@ namespace BBN_Game.Objects
             arrow = Game.Content.Load<Texture2D>("HudTextures/arrow");
             playerT = Game.Content.Load<Texture2D>("HudTextures/arrow");
             mapBackground = Game.Content.Load<Texture2D>("HudTextures/map");
-
+            towerT = Game.Content.Load<Texture2D>("HudTextures/arrow");
+            destroyerT = Game.Content.Load<Texture2D>("HudTextures/arrow");
+            fighterT = Game.Content.Load<Texture2D>("HudTextures/arrow");
+            baseT = Game.Content.Load<Texture2D>("HudTextures/map");
             base.resetModels();
         }
 
@@ -981,6 +984,7 @@ namespace BBN_Game.Objects
             GraphicsDevice.RenderState.DepthBufferWriteEnable = true;
         }
 
+        #region "Map drawing methods"
         private void drawMap(SpriteBatch sb, Viewport view)
         {
             List<StaticObject> objects = Controller.GameController.getAllObjects;
@@ -990,9 +994,26 @@ namespace BBN_Game.Objects
             radius = radius * 0.5f;
 
             sb.Begin();
+            
+                float objectWidth = view.Width * 0.01f;
 
             sb.Draw(mapBackground, new Rectangle(0, 0, view.Width, view.Height), Color.White);
 
+            float wordDistance = 100;
+
+            sb.Draw(playerT, new Rectangle((int)(view.Width * 0.05f), (int)(view.Height * 0.9f), (int)objectWidth, (int)objectWidth), Color.White);
+            sb.DrawString(f, "-> Player", new Vector2((int)(view.Width * 0.05f) + objectWidth + 5, (int)(view.Height * 0.895f)), Color.White);
+            sb.Draw(baseT, new Rectangle((int)(view.Width * 0.05f + objectWidth + 5 + wordDistance), (int)(view.Height * 0.9f), (int)objectWidth, (int)objectWidth), Color.White);
+            sb.DrawString(f, "-> Base", new Vector2((int)(view.Width * 0.05f + ((objectWidth + 5) * 2 + wordDistance)), (int)(view.Height * 0.895f)), Color.White);
+            sb.Draw(fighterT, new Rectangle((int)(view.Width * 0.05f + (objectWidth + 5 + wordDistance) * 2), (int)(view.Height * 0.9f), (int)objectWidth, (int)objectWidth), Color.White);
+            sb.DrawString(f, "-> Fighter", new Vector2((int)(view.Width * 0.05f + (objectWidth + 5 + wordDistance) * 2 + (objectWidth + 5)), (int)(view.Height * 0.895f)), Color.White);
+            sb.Draw(destroyerT, new Rectangle((int)(view.Width * 0.05f + (objectWidth + 5 + wordDistance) * 3), (int)(view.Height * 0.9f), (int)objectWidth, (int)objectWidth), Color.White);
+            sb.DrawString(f, "-> Destroyer", new Vector2((int)(view.Width * 0.05f + (objectWidth + 5 + wordDistance) * 3 + (objectWidth + 5)), (int)(view.Height * 0.895f)), Color.White);
+            sb.Draw(towerT, new Rectangle((int)(view.Width * 0.05f + (objectWidth + 5 + wordDistance) * 4 + 15), (int)(view.Height * 0.9f), (int)objectWidth, (int)objectWidth), Color.White);
+            sb.DrawString(f, "-> Turret", new Vector2((int)(view.Width * 0.05f + (objectWidth + 5 + wordDistance) * 4 + (objectWidth + 5) + 15), (int)(view.Height * 0.895f)), Color.White);
+            
+
+            
             foreach (StaticObject obj in objects)
             {
                 if (obj is Projectile)
@@ -1003,16 +1024,44 @@ namespace BBN_Game.Objects
                 pos = new Vector2(pos.X / (radius * 2), pos.Y / (radius * 2));
                 pos = new Vector2(pos.X * view.Width, pos.Y * (view.Height * 1.4f));
 
-                float objectWidth = view.Width * 0.01f;
 
-                Color c = obj.Team.Equals(Team.neutral) ? Color.Yellow : obj.Equals(this.target) ? Color.Red : obj.Team.Equals(this.Team) ? Color.Green : Color.Orange;
+                Color c = Color.Yellow;
+                if (obj is Turret)
+                {
+                    if (((Turret)obj).Repairing)
+                        c = Color.Aqua;
+                    else if (obj.Team.Equals(this.Team))
+                        c = Color.Green;
+                    else if (obj.Team.Equals(Team.neutral))
+                        c = Color.Yellow;
+                    else
+                        c = Color.Orange;
+                }
+                else
+                {
+                    c = this.Equals(obj) ? Color.LightBlue : obj.Equals(this.target) ? Color.Red : obj.Team.Equals(this.Team) ? Color.Green : Color.Orange; 
+                }
 
-                //Texture tex = 
+                Texture2D tex = obj is playerObject ? playerT : (obj is Turret) ? towerT : (obj is Fighter) ? fighterT : (obj is Destroyer) ? destroyerT : baseT;
 
-                sb.Draw(playerT, new Rectangle((int)(pos.X - objectWidth / 2), (int)(pos.Y - objectWidth / 2), (int)objectWidth, (int)objectWidth), c);
+                if (obj is playerObject)
+                {
+                    Vector3 oPos = obj.Position + Vector3.Transform(new Vector3(0,0,10), Matrix.CreateFromQuaternion(obj.rotation));
+                    Vector3 A = oPos - obj.Position;
+
+                    float x = Vector3.Dot(A, Vector3.UnitX);
+                    float y = Vector3.Dot(A, Vector3.UnitZ);
+
+                    float angle = (float)Math.Atan2(y, x);
+                    sb.Draw(tex, new Rectangle((int)(pos.X - objectWidth / 2), (int)(pos.Y - objectWidth / 2), (int)objectWidth, (int)objectWidth), 
+                                 new Rectangle(0, 0, tex.Width, tex.Height), c, angle, new Vector2(tex.Width/2, tex.Height/2), SpriteEffects.None, 0);
+                }
+                else
+                    sb.Draw(tex, new Rectangle((int)(pos.X - objectWidth / 2), (int)(pos.Y - objectWidth / 2), (int)objectWidth, (int)objectWidth), c);
             }
             sb.End();
         }
+        #endregion
 
         #endregion
     }

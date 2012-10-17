@@ -7,3 +7,4 @@ C:\Users\flrnat001\Documents\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\Resolv
 C:\Documents and Settings\Machine3\Desktop\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 E:\Documents\Programming_stuff\GameDev\GameDev-repo\BBN-Game-Beta\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN Folder\BBN-Game-Final\BBN-Game\Content\obj\x86\Debug\ResolveAssemblyReference.cache
