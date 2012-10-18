@@ -377,7 +377,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00.xnb</Output>
-      <Time>2012-10-13T18:59:52+02:00</Time>
+      <Time>2012-10-18T12:54:16.3683526+02:00</Time>
     </Item>
     <Item>
       <Source>HudTextures\GlobalHealthBar.png</Source>
@@ -1005,7 +1005,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Output>
-      <Time>2012-10-13T18:59:52+02:00</Time>
+      <Time>2012-10-18T12:54:16.3683526+02:00</Time>
     </Item>
     <Item>
       <Source>Particles\grid.x</Source>
@@ -1052,6 +1052,72 @@
       <Options>None</Options>
       <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\73BC2BBE\spaceStation.fbm\Astroid02_0.xnb</Output>
       <Time>2012-10-18T12:21:33.9951113+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\SpaceCr_01.png</Source>
+      <Name>Models\Ships\SpaceCr_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_01.xnb</Output>
+      <Time>2012-10-18T12:54:16.3773531+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShipBlue.fbx</Source>
+      <Name>Models\Ships\playerShipBlue</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\playerShipBlue.xnb</Output>
+      <Time>2012-10-18T12:54:16.3893538+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\playerShipBlue_0.xml</Key>
+        <Value>2012-10-18T12:54:38.5246199+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShipRed.FBX</Source>
+      <Name>Models\Ships\playerShipRed</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\playerShipRed.xnb</Output>
+      <Time>2012-10-18T12:54:16.3863537+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\playerShipRed_0.xml</Key>
+        <Value>2012-10-18T12:54:41.0137623+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\A0A42C2C\playerShipRed.fbm\SpaceCr_01_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShipBlue.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\playerShipBlue_0.xml</Output>
+      <Time>2012-10-18T12:54:16.3893538+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShipRed.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\playerShipRed_0.xml</Output>
+      <Time>2012-10-18T12:54:16.3863537+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\A0A42C2C\playerShipRed.fbm\SpaceCr_01.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\A0A42C2C\playerShipRed.fbm\SpaceCr_01_0.xnb</Output>
+      <Time>2012-10-18T12:54:40.9487586+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

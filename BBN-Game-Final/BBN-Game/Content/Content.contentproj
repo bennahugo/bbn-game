@@ -240,6 +240,16 @@
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Compile Include="Models\Ships\playerShipBlue.fbx">
+      <Name>playerShipBlue</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Ships\playerShipRed.FBX">
+      <Name>playerShipRed</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
     <Compile Include="Models\Planets\mars2.FBX">
       <Name>mars2</Name>
       <Importer>FbxImporter</Importer>
@@ -322,11 +332,6 @@
     </Compile>
     <Compile Include="Models\Ships\Turret2.fbx">
       <Name>Turret2</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-    <Compile Include="Models\Ships\playerShip.fbx">
-      <Name>playerShip</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
@@ -486,6 +491,13 @@
   <ItemGroup>
     <Compile Include="Models\Ships\Astroid02.png">
       <Name>Astroid02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Ships\SpaceCr_01.png">
+      <Name>SpaceCr_01</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
