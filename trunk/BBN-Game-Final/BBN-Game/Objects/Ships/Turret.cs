@@ -31,10 +31,8 @@ namespace BBN_Game.Objects
             this.greatestLength = 6f;
             numHudLines = 11;
             typeOfLine = PrimitiveType.TriangleList;
-
-            Shield = 100;
-            Health = 10;
-            totalHealth = 10;
+            Health = 250;
+            totalHealth = 250;
         }
 
         /// <summary>
@@ -155,5 +153,49 @@ namespace BBN_Game.Objects
         }
 
         #endregion
+
+
+        public override void Draw(GameTime gameTime, BBN_Game.Camera.CameraMatrices cam)
+        {
+            foreach (ModelMesh m in model.Meshes)
+            {
+                foreach (BasicEffect e in m.Effects)
+                {
+                    e.Parameters["World"].SetValue(world);
+                    e.Parameters["View"].SetValue(cam.View);
+                    e.Parameters["Projection"].SetValue(cam.Projection);
+                    e.LightingEnabled = true;
+
+                    e.PreferPerPixelLighting = true;
+                    e.DirectionalLight0.Enabled = true;
+                    e.DirectionalLight0.DiffuseColor = new Vector3(0.9f, 0.9f, 0.9f);
+                    e.DirectionalLight0.SpecularColor = new Vector3(0.7f, 0.7f, 0.7f);
+                    e.AmbientLightColor = new Vector3(0.6f, 0.6f, 0.6f);
+                    e.DirectionalLight0.Direction = new Vector3(-1, 0, 0);
+                }
+                m.Draw();
+            }
+            foreach (ModelMesh m in model.Meshes)
+            {
+                foreach (BasicEffect e in m.Effects)
+                {
+                    if (Team.Equals(Team.Red))
+                        e.Parameters["World"].SetValue(Matrix.CreateRotationX(MathHelper.ToRadians(180)) * Matrix.CreateRotationY(MathHelper.ToRadians(180)) * Matrix.CreateTranslation(new Vector3(0, 0.5f, 0)) * world);
+                    else
+                        e.Parameters["World"].SetValue(Matrix.CreateRotationX(MathHelper.ToRadians(180)) * Matrix.CreateRotationY(MathHelper.ToRadians(180)) * world);
+                    e.Parameters["View"].SetValue(cam.View);
+                    e.Parameters["Projection"].SetValue(cam.Projection);
+                    e.LightingEnabled = true;
+
+                    e.PreferPerPixelLighting = true;
+                    e.DirectionalLight0.Enabled = true;
+                    e.DirectionalLight0.DiffuseColor = new Vector3(0.9f, 0.9f, 0.9f);
+                    e.DirectionalLight0.SpecularColor = new Vector3(0.7f, 0.7f, 0.7f);
+                    e.AmbientLightColor = new Vector3(0.6f, 0.6f, 0.6f);
+                    e.DirectionalLight0.Direction = new Vector3(-1, 0, 0);
+                }
+                m.Draw();
+            }
+        }
     }
 }

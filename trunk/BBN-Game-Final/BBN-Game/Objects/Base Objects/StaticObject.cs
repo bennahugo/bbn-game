@@ -36,7 +36,7 @@ namespace BBN_Game.Objects
         protected Objects.ObjectData.ObjectData shipData = new BBN_Game.Objects.ObjectData.ObjectData();  // the data for rotaiton and position
         Quaternion rotate = Quaternion.CreateFromAxisAngle(Vector3.Up, 0); // Rotation Qauternion
         protected Model model; // model to draw
-        Matrix world; // The world Matrix
+        protected Matrix world; // The world Matrix
         Team team;
 
         protected Texture2D healthBarTex; 
@@ -386,11 +386,17 @@ namespace BBN_Game.Objects
             {
                 foreach (BasicEffect e in m.Effects)
                 {
-                    e.EnableDefaultLighting();
-                    e.PreferPerPixelLighting = true;
                     e.Parameters["World"].SetValue(world);
                     e.Parameters["View"].SetValue(cam.View);
                     e.Parameters["Projection"].SetValue(cam.Projection);
+                    e.LightingEnabled = true;
+
+                    e.PreferPerPixelLighting = true;
+                    e.DirectionalLight0.Enabled = true;
+                    e.DirectionalLight0.DiffuseColor = new Vector3(0.9f, 0.9f, 0.9f);
+                    e.DirectionalLight0.SpecularColor = new Vector3(0.7f, 0.7f, 0.7f);
+                    e.AmbientLightColor = new Vector3(0.6f, 0.6f, 0.6f);
+                    e.DirectionalLight0.Direction = new Vector3(-1, 0, 0);
                 }
                 m.Draw();
             }

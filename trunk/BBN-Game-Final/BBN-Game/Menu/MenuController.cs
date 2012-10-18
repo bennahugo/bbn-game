@@ -131,32 +131,34 @@ namespace BBN_Game.Menu
                 #region Main menu
 
                 if (keyState.IsKeyDown(Keys.Down) && prevKeyState.IsKeyUp(Keys.Down))//move down menu
-                    if (currentMenuOption < 4)
+                    if (currentMenuOption < 5)
                         currentMenuOption++;
-                    else if (currentMenuOption == 4)
+                    else if (currentMenuOption == 5)
                         currentMenuOption = 1;
                 if (keyState.IsKeyDown(Keys.Up) && prevKeyState.IsKeyUp(Keys.Up))//move up menu
                     if (currentMenuOption > 1)
                         currentMenuOption--;
                     else if (currentMenuOption == 1)
-                        currentMenuOption = 4;
+                        currentMenuOption = 5;
 
                 //selecting menu options
                 if (keyState.IsKeyDown(Keys.Enter) && prevKeyState.IsKeyUp(Keys.Enter))
                 {
                     gameController.PreviousState = currentState;
-                    
+
                     if (currentMenuOption == 1)//start new single player game
                     {
                         Controller.GameController.NumberOfPlayers = Players.single;
+                        Controller.GameController.ObjectsLoaded = false;
                         gameController.PreviousState = GameState.notLoaded;
                         currentState = GameState.Playing;
                         gameController.CurrentGameState = GameState.Playing;
-                    }                    
+                    }
                     else if (currentMenuOption == 2)
                     {
                         //start new multiplayer game
                         Controller.GameController.NumberOfPlayers = Players.two;
+                        Controller.GameController.ObjectsLoaded = false;
                         gameController.PreviousState = GameState.notLoaded;
                         currentState = GameState.Playing;
                         gameController.CurrentGameState = GameState.Playing;
@@ -167,7 +169,13 @@ namespace BBN_Game.Menu
                         currentMenuOption = 1;
                         currentState = GameState.OptionsMenu;
                     }
-                    else if (currentMenuOption == 4)//exit game
+                    else if (currentMenuOption == 4)
+                    {
+                        //open help outline window
+                        currentMenuOption = 1;
+                        currentState = GameState.HelpOutline;
+                    }
+                    else if (currentMenuOption == 5)//exit game
                         game.Exit();
                 }
                 #endregion
@@ -201,7 +209,7 @@ namespace BBN_Game.Menu
                     {
                         currentState = gameController.PreviousState;
                         currentMenuOption = 1;
-                    }                   
+                    }
                 }
                 #endregion
             }
@@ -252,11 +260,21 @@ namespace BBN_Game.Menu
                 }
                 #endregion
             }
+            else if (gameController.CurrentGameState == GameState.EndGame)
+            {
+                if (keyState.IsKeyDown(Keys.Enter) && prevKeyState.IsKeyUp(Keys.Enter))
+                {
+                    gameController.PreviousState = currentState;
+                    gameController.CurrentGameState = GameState.MainMenu;
+                    currentState = GameState.MainMenu;
+                    Controller.GameController.ObjectsLoaded = false;
+                }
+            }
             else if (currentState == GameState.notLoaded)
             {
                 //TODO 
             }
-            else if (currentState == GameState.EndGame)
+            else if (currentState == GameState.HelpOutline)
             {
                 if (keyState.IsKeyDown(Keys.Enter) && prevKeyState.IsKeyUp(Keys.Enter))
                 {
@@ -264,6 +282,7 @@ namespace BBN_Game.Menu
                     Controller.GameController.ObjectsLoaded = false;
                 }
             }
+            
             prevKeyState = keyState;
         }
 
@@ -284,15 +303,15 @@ namespace BBN_Game.Menu
                 if (menuDelay <= 0)
                 {
                     if (padState1.ThumbSticks.Left.Y <= -0.5)//move down menu
-                        if (currentMenuOption < 4)
+                        if (currentMenuOption < 5)
                             currentMenuOption++;
-                        else if (currentMenuOption == 4)
+                        else if (currentMenuOption == 5)
                             currentMenuOption = 1;
                     if (padState1.ThumbSticks.Left.Y >= 0.5)//move up menu
                         if (currentMenuOption > 1)
                             currentMenuOption--;
                         else if (currentMenuOption == 1)
-                            currentMenuOption = 4;
+                            currentMenuOption = 5;
                     menuDelay = 8;
                 }
 
@@ -316,7 +335,13 @@ namespace BBN_Game.Menu
                         currentMenuOption = 1;
                         currentState = GameState.OptionsMenu;
                     }
-                    else if (currentMenuOption == 4)//exit game
+                    else if (currentMenuOption == 4)
+                    {
+                        //open help outline window
+                        currentMenuOption = 1;
+                        currentState = GameState.HelpOutline;
+                    }
+                    else if (currentMenuOption == 5)//exit game
                         game.Exit();
                 }
 
@@ -326,15 +351,15 @@ namespace BBN_Game.Menu
                 if (menuDelay <= 0)
                 {
                     if (padState2.ThumbSticks.Left.Y <= -0.5)//move down menu
-                        if (currentMenuOption < 4)
+                        if (currentMenuOption < 5)
                             currentMenuOption++;
-                        else if (currentMenuOption == 4)
+                        else if (currentMenuOption == 5)
                             currentMenuOption = 1;
                     if (padState2.ThumbSticks.Left.Y >= 0.5)//move up menu
                         if (currentMenuOption > 1)
                             currentMenuOption--;
                         else if (currentMenuOption == 1)
-                            currentMenuOption = 4;
+                            currentMenuOption = 5;
                     menuDelay = 8;
                 }
 
@@ -358,12 +383,17 @@ namespace BBN_Game.Menu
                         currentMenuOption = 1;
                         currentState = GameState.OptionsMenu;
                     }
-                    else if (currentMenuOption == 4)//exit game
+                    else if (currentMenuOption == 4)//open help window
+                    {
+                        currentMenuOption = 1;
+                        currentState = GameState.HelpOutline;
+                    }
+                    else if (currentMenuOption == 5)//exit game
                         game.Exit();
                 }
                 #endregion
 
-                
+
                 #endregion
             }
             else if (currentState == GameState.OptionsMenu)
@@ -429,7 +459,7 @@ namespace BBN_Game.Menu
                     }
                 }
                 #endregion
-                                
+
                 #endregion
             }
             else if (currentState == GameState.Paused)
@@ -534,6 +564,14 @@ namespace BBN_Game.Menu
             {
 
             }
+            else if (currentState == GameState.HelpOutline)
+            {
+                if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
+                {
+                    currentState = GameState.MainMenu;
+                    Controller.GameController.ObjectsLoaded = false;
+                }
+            }
             else if (currentState == GameState.EndGame)
             {
                 if (padState1.Buttons.A == ButtonState.Pressed && prevPadState1.Buttons.A == ButtonState.Released)
@@ -559,17 +597,26 @@ namespace BBN_Game.Menu
             //include menu animations here TODO
         }
 
-        #region drawing methods            
-        
+        #region drawing methods
+
         //draw end-game screen 
-        public void drawEndGame(SpriteBatch spriteBatch,Objects.playerObject player)
+        public void drawEndGame(SpriteBatch spriteBatch, Objects.playerObject player)
         {
             graphics.Clear(Color.Black);
             spriteBatch.Begin();
             spriteBatch.Draw(mainMenuTex, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
-            spriteBatch.DrawString(selectedMenuFont, "Game Over", new Vector2((screenWidth / 2) - 50, 20), Color.Red);
-            spriteBatch.DrawString(selectedMenuFont, ""+player.Team.ToString(), new Vector2((screenWidth / 2) - 50, 70), Color.Red);
-            spriteBatch.DrawString(selectedMenuFont, "Main Menu", new Vector2((screenWidth / 2) - 50, screenHeight - 100), Color.Red);
+            if(player.Team == BBN_Game.Objects.Team.Red)
+            {
+                spriteBatch.DrawString(selectedMenuFont, "Game Over", new Vector2((screenWidth / 2) - 50, 20), Color.Red);
+                spriteBatch.DrawString(selectedMenuFont, "" + player.Team.ToString(), new Vector2((screenWidth / 2) - 20, 70), Color.Red);
+                spriteBatch.DrawString(selectedMenuFont, "Main Menu", new Vector2((screenWidth / 2) - 50, screenHeight - 100), Color.Red);
+            }
+            else
+            {
+                spriteBatch.DrawString(selectedMenuFont, "Game Over", new Vector2((screenWidth / 2) - 50, 20), Color.Blue);
+                spriteBatch.DrawString(selectedMenuFont, "" + player.Team.ToString(), new Vector2((screenWidth / 2) - 20, 70), Color.Blue);
+                spriteBatch.DrawString(selectedMenuFont, "Main Menu", new Vector2((screenWidth / 2) - 50, screenHeight - 100), Color.Blue);
+            }
             spriteBatch.End();
         }
 
@@ -597,25 +644,25 @@ namespace BBN_Game.Menu
             #region draw menu options
             if (player.TradeMenuOption == 1)
             {
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost, 
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost,
                     new Vector2(player.getViewport.Width - 132, player.getViewport.Height - 220 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost, 
+                spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost,
                     new Vector2(player.getViewport.Width - 133, player.getViewport.Height - 221 + player.UpFactor), Color.Black);
                 spriteBatch.DrawString(tradeMenuFont, "Destroyer $" + TradingInformation.destroyerCost,
                     new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 222 + player.UpFactor), (iCurrency >= TradingInformation.destroyerCost && iNumDestroyer <= GameController.MAX_NUM_DESTROYERS_PER_TEAM) ? Color.Aqua : Color.Red);
 
-                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost, 
+                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
                     new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 165 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost, 
+                spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
                     new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 166 + player.UpFactor), Color.Black);
                 spriteBatch.DrawString(tradeMenuFont, "Fighter $" + TradingInformation.fighterCost,
                     new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 167 + player.UpFactor), (iCurrency >= TradingInformation.fighterCost && iNumFighter <= GameController.MAX_NUM_FIGHTERS_PER_TEAM) ? Color.Green : Color.DarkRed);
 
-                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost, 
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
                     new Vector2(player.getViewport.Width - 136, player.getViewport.Height - 109 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost, 
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
                     new Vector2(player.getViewport.Width - 135, player.getViewport.Height - 110 + player.UpFactor), Color.Black);
-                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost, 
+                spriteBatch.DrawString(tradeMenuFont, "Missile $" + TradingInformation.missileCost,
                     new Vector2(player.getViewport.Width - 134, player.getViewport.Height - 111 + player.UpFactor), iCurrency >= TradingInformation.missileCost ? Color.Green : Color.DarkRed);
             }
             else if (player.TradeMenuOption == 2)
@@ -668,9 +715,9 @@ namespace BBN_Game.Menu
 
             #region Draw menu values
 
-            spriteBatch.DrawString(tradeMenuFont, "You have: " + (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamDestroyers.Count : Controller.GameController.team2.teamDestroyers.Count).ToString(), 
+            spriteBatch.DrawString(tradeMenuFont, "You have: " + (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamDestroyers.Count : Controller.GameController.team2.teamDestroyers.Count).ToString(),
                 new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 195 + player.UpFactor), Color.Red);
-            spriteBatch.DrawString(tradeMenuFont, "You have: " + (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamFighters.Count : Controller.GameController.team2.teamFighters.Count).ToString(), 
+            spriteBatch.DrawString(tradeMenuFont, "You have: " + (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamFighters.Count : Controller.GameController.team2.teamFighters.Count).ToString(),
                 new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 141 + player.UpFactor), Color.Red);
             spriteBatch.DrawString(tradeMenuFont, "You have: " + player.Missiles, new Vector2(player.getViewport.Width - 105, player.getViewport.Height - 85 + player.UpFactor), Color.Red);
 
@@ -684,6 +731,10 @@ namespace BBN_Game.Menu
             spriteBatch.Begin();
 
             //draw icons for ship-counts and missile-counts
+
+            spriteBatch.Draw(BBN_Game.Objects.playerObject.mapBackground, new Rectangle(player.getViewport.Width - 301, player.getViewport.Height - 63, 298, 61),
+                new Rectangle(0, 0, BBN_Game.Objects.playerObject.mapBackground.Width, BBN_Game.Objects.playerObject.mapBackground.Height),
+                Color.White);
             spriteBatch.Draw(destroyerTex, new Rectangle(player.getViewport.Width - 280, player.getViewport.Height - 50, 64, 36), Color.White);
             spriteBatch.DrawString(tradeMenuFont,
                 (player.Team == Objects.Team.Red ? Controller.GameController.team1.teamDestroyers.Count : Controller.GameController.team2.teamDestroyers.Count).ToString(),
@@ -700,11 +751,11 @@ namespace BBN_Game.Menu
 
         //menu animation
         int animationDelay = 1000;
-        private void menuOptionAnimation(SpriteBatch spriteBatch,GameTime gameTime,String text)
+        private void menuOptionAnimation(SpriteBatch spriteBatch, GameTime gameTime, String text)
         {
             //expand text
             int nextPhase = 0;
-            while(nextPhase < 5)
+            while (nextPhase < 5)
             {
                 //spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth - 361, 321), Color.Black);
                 //spriteBatch.DrawString(generalMenuFont, text, new Vector2(screenWidth - 360, 320), Color.Black);
@@ -758,12 +809,13 @@ namespace BBN_Game.Menu
                 spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 109, 67), Color.Black);
                 spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 110, 66), Color.Black);
                 spriteBatch.DrawString(selectedMenuFont, "Nebulon 12", new Vector2((screenWidth / 2) - 111, 65), Color.Blue);
-                
+
                 //draw menu outline
                 spriteBatch.Draw(pauseMenuTex, new Rectangle(screenWidth - 600, 100, 600, 600), Color.White);
 
-                #region display menu options                
+                #region display menu options
 
+                string outline = "Outline";
                 if (currentMenuOption == 1)
                 {
                     spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 361, 321), Color.Black);
@@ -781,10 +833,15 @@ namespace BBN_Game.Menu
                     spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 334, 419), Color.Black);
                     spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 335, 418), Color.Blue);
 
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 341, 476), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 342, 475), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 343, 474), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 473), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 329, 476), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 330, 475), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 331, 474), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 332, 473), Color.Blue);
+
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 341, 529), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 342, 528), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 343, 527), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 526), Color.Blue);
                 }
                 else if (currentMenuOption == 2)
                 {
@@ -803,10 +860,15 @@ namespace BBN_Game.Menu
                     spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 334, 419), Color.Black);
                     spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 335, 418), Color.Blue);
 
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 341, 476), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 342, 475), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 343, 474), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 473), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 329, 476), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 330, 475), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 331, 474), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 332, 473), Color.Blue);
+
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 341, 529), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 342, 528), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 343, 527), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 526), Color.Blue);
                 }
                 else if (currentMenuOption == 3)
                 {
@@ -825,10 +887,15 @@ namespace BBN_Game.Menu
                     spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 336, 419), Color.Black);
                     spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 335, 418), Color.Aqua);
 
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 341, 476), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 342, 475), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 343, 474), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 473), Color.Blue);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 329, 476), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 330, 475), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 331, 474), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 332, 473), Color.Blue);
+
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 341, 529), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 342, 528), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 343, 527), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 526), Color.Blue);
                 }
                 else if (currentMenuOption == 4)
                 {
@@ -847,10 +914,42 @@ namespace BBN_Game.Menu
                     spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 334, 419), Color.Black);
                     spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 335, 418), Color.Blue);
 
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 347, 476), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 346, 475), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 345, 474), Color.Black);
-                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 473), Color.Aqua);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 335, 476), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 334, 475), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 333, 474), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 332, 473), Color.Aqua);
+
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 341, 529), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 342, 528), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 343, 527), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 526), Color.Blue);
+                }
+                else if (currentMenuOption == 5)
+                {
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 355, 321), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 356, 320), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 357, 319), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Single Player", new Vector2(screenWidth - 358, 318), Color.Blue);
+
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 349, 369), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 350, 368), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 351, 367), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "MultiPlayer", new Vector2(screenWidth - 352, 366), Color.Blue);
+
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 332, 421), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 333, 420), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 334, 419), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Controls", new Vector2(screenWidth - 335, 418), Color.Blue);
+
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 329, 476), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 330, 475), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 331, 474), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, outline, new Vector2(screenWidth - 332, 473), Color.Blue);
+
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 347, 529), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 346, 528), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 345, 527), Color.Black);
+                    spriteBatch.DrawString(generalMenuFont, "Exit Game", new Vector2(screenWidth - 344, 526), Color.Aqua);
                 }
                 #endregion
 
@@ -867,8 +966,7 @@ namespace BBN_Game.Menu
                 //draw main menu background and menu outline for options
                 if (!displayXboxControls)
                 {
-                    graphics.Clear(Color.Gray);
-                    //spriteBatch.Draw(mainMenuTex, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    graphics.Clear(Color.Black);
                     spriteBatch.Draw(keybrdControlsTex, new Rectangle(350, 0, screenWidth - 350, screenHeight), Color.White);
                 }
                 else
@@ -876,7 +974,7 @@ namespace BBN_Game.Menu
                     graphics.Clear(Color.Black);
                     spriteBatch.Draw(xboxControlsTex, new Rectangle(350, 50, screenWidth - 350, screenHeight - 50), Color.White);
                 }
-                
+
                 spriteBatch.Draw(controlsMenuTex, new Rectangle(10, 100, 275, 510), Color.White);
 
                 spriteBatch.DrawString(selectedMenuFont, "Game Controls", new Vector2(7, 22), Color.Black);
@@ -939,7 +1037,7 @@ namespace BBN_Game.Menu
                 }
 
                 #endregion
-                                
+
                 spriteBatch.End();
                 #endregion
             }
@@ -972,7 +1070,7 @@ namespace BBN_Game.Menu
                     spriteBatch.DrawString(pauseMenuFont, resume, new Vector2((screenWidth / 2) - resume.Length - 47, (screenHeight / 2) - 75), Color.Black);
                     spriteBatch.DrawString(pauseMenuFont, resume, new Vector2((screenWidth / 2) - resume.Length - 46, (screenHeight / 2) - 76), Color.Black);
                     spriteBatch.DrawString(pauseMenuFont, resume, new Vector2((screenWidth / 2) - resume.Length - 45, (screenHeight / 2) - 77), Color.Aqua);
-                    
+
                     spriteBatch.DrawString(pauseMenuFont, restart, new Vector2((screenWidth / 2) - restart.Length - 40, (screenHeight / 2) - 27), Color.Black);
                     spriteBatch.DrawString(pauseMenuFont, restart, new Vector2((screenWidth / 2) - restart.Length - 41, (screenHeight / 2) - 28), Color.Black);
                     spriteBatch.DrawString(pauseMenuFont, restart, new Vector2((screenWidth / 2) - restart.Length - 42, (screenHeight / 2) - 29), Color.Black);
@@ -1109,9 +1207,20 @@ namespace BBN_Game.Menu
             {
                 //TODO
             }
-        }    
+            else if (currentState == GameState.HelpOutline)
+            {
+                #region Help Outline
+                graphics.Clear(Color.Black);
+                spriteBatch.Begin();
+
+                //spriteBatch.Draw();
+
+                spriteBatch.End();
+                #endregion
+            }
+        }
 
         #endregion
-        
+
     }
 }

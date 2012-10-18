@@ -30,8 +30,8 @@ namespace BBN_Game.Objects
             numHudLines = 4;
             typeOfLine = PrimitiveType.LineStrip;
             Shield = 100;
-            Health = 100;
-            totalHealth = 100;
+            Health = 350;
+            totalHealth = 350;
             this.mass = 10;
         }
 

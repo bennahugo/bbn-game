@@ -33,7 +33,7 @@ namespace BBN_Game.Objects
             this.shipData.scale = 0.1f;
             this.lifeSpan = 5.75f;
 
-            this.Damage = 15;
+            this.Damage = 20f;
         }
 
         public Missile(Game game, StaticObject target, StaticObject parent)

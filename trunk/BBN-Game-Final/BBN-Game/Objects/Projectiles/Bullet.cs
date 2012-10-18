@@ -33,7 +33,7 @@ namespace BBN_Game.Objects
             this.shipData.scale = 0.2f;
             this.lifeSpan = 5.68f;
 
-            this.Damage = 5f;
+            this.Damage = 10f;
         }
 
         /// <summary>

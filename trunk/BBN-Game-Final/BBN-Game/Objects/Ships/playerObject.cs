@@ -55,9 +55,11 @@ namespace BBN_Game.Objects
 
         static Texture2D HudBarHolder;
         static Texture2D HudBar;
+        static Texture2D HudBarBlack;
         static Texture2D arrow;
         static Texture2D missileReload;
         static Texture2D missileReloadBlack;
+        static Texture2D baseHealth, baseHealthBlack;
 
         private const float MissileReload = 7, MechinegunReload = 0.5f, DefensiveReload = 20;
 
@@ -91,7 +93,8 @@ namespace BBN_Game.Objects
         #endregion
 
         #region "Map features"
-        static Texture2D mapBackground, playerT, towerT, destroyerT, fighterT, baseT;
+        static Texture2D playerT, towerT, destroyerT, fighterT, baseT;
+        public static Texture2D mapBackground;
         Boolean drawMapBool = false;
         #endregion
 
@@ -145,8 +148,8 @@ namespace BBN_Game.Objects
             typeOfLine = PrimitiveType.LineList;
 
             Shield = 100;
-            Health = 500;
-            totalHealth = 500;
+            Health = 600;
+            totalHealth = 600;
         }
 
         /// <summary>
@@ -183,7 +186,8 @@ namespace BBN_Game.Objects
             f = Game.Content.Load<SpriteFont>("SpriteFont1");
 
             // make sure that you get the static hud values
-            HudBar = Game.Content.Load<Texture2D>("HudTextures/HealthBar");
+            HudBar = Game.Content.Load<Texture2D>("HudTextures/shipTex");
+            HudBarBlack = Game.Content.Load<Texture2D>("HudTextures/shipTex_bw");
             HudBarHolder = Game.Content.Load<Texture2D>("HudTextures/HealthBarHolder");
             arrow = Game.Content.Load<Texture2D>("HudTextures/arrow");
             playerT = Game.Content.Load<Texture2D>("HudTextures/arrow");
@@ -194,6 +198,8 @@ namespace BBN_Game.Objects
             baseT = Game.Content.Load<Texture2D>("HudTextures/circle");
             missileReload = Game.Content.Load<Texture2D>("HudTextures/rocket_c");
             missileReloadBlack = Game.Content.Load<Texture2D>("HudTextures/rocket_bw");
+            baseHealth = Game.Content.Load<Texture2D>("HudTextures/base_w");
+            baseHealthBlack = Game.Content.Load<Texture2D>("HudTextures/base");
 
             base.resetModels();
         }
@@ -866,86 +872,174 @@ namespace BBN_Game.Objects
             sb.DrawString(f, 1 / gt.ElapsedGameTime.TotalSeconds + " - " + this.greatestLength, new Vector2(100, 100), Color.Green);
 
             #region "Speed"
-            sb.DrawString(f, shipData.speed.ToString("00"), new Vector2(hudWidth * 0.15f, viewport.Height - hudHeight * 0.55f), Color.Aqua);
+            //sb.DrawString(f, shipData.speed.ToString("00"), new Vector2(hudWidth * 0.15f, viewport.Height - hudHeight * 0.55f), Color.Aqua);
 
-            sb.Draw(HudBarHolder, new Rectangle(0, viewport.Height - hudHeight, hudWidth, hudHeight), Color.Aqua);
+            //sb.Draw(HudBarHolder, new Rectangle(0, viewport.Height - hudHeight, hudWidth, hudHeight), Color.Aqua);
             #endregion
 
             #region "Health Bar"
 
-            sb.DrawString(f, this.Health.ToString("0000"), new Vector2(Game.GraphicsDevice.Viewport.Width / 2f - 10, 0), Color.Red);
+          //  sb.DrawString(f, this.Health.ToString("0000"), new Vector2(Game.GraphicsDevice.Viewport.Width / 2f - 10, 0), Color.Red);
 
-            int barStartX = (int)((float)hudWidth * 0.05f);
-            int barWidthX = (int)((((float)hudWidth * 0.99f) - barStartX) * (Health / totalHealth));
+            int barStartX = (int)(5);
+            int barWidthX = (int)(hudWidth * 0.5f);
+            //int barWidthX = (int)((((float)hudWidth * 0.99f) - barStartX) * (Health / totalHealth));
 
-            int barStartY = viewport.Height - (int)((float)hudHeight * 0.297f);
-            int barWidthY = (int)(((float)hudHeight * 0.297f));
+            int barStartY = viewport.Height - barWidthX - 10;
+            int barWidthY = (int)(hudWidth * 0.5f);
 
-            int textHeight = HudBar.Height;
-            int textWidth = (int)(HudBar.Width * (Health / totalHealth));
+            int textHeight = (int)(HudBar.Height * (Health / totalHealth));
+            int textWidth = HudBar.Width;
 
-            sb.Draw(HudBar, new Rectangle(barStartX, barStartY, barWidthX, barWidthY), new Rectangle(0, 0, textWidth, textHeight), new Color(1 - (Health / totalHealth), (Health / totalHealth), 0));
+            sb.Draw(mapBackground, new Rectangle(barStartX, barStartY, barWidthX, barWidthY), new Rectangle(0, 0, mapBackground.Width, mapBackground.Height),
+                Color.White);
+            sb.DrawString(f, 100 * (Health / totalHealth) + "%",
+                new Vector2(((barWidthX / 2) - (f.MeasureString(100 * (Health / totalHealth) + "%").X / 2)) + barStartX,
+                barStartY - f.MeasureString(100 * (Health / totalHealth) + "%").Y - 2), Color.Aqua);
 
-            #endregion
-
-            #region "Enemy Health-bars"
-
-
-
-            #region Base's health bars
-
-            //Your base and enemy base health bars
-            textHeight = 15;
-            if (BBN_Game.Controller.GameController.team1.teamId == this.Team)
+            if (Team == Team.Red)
             {
-                textWidth = (int)(100 * (BBN_Game.Controller.GameController.team1.teamBase.getHealth /
-                    BBN_Game.Controller.GameController.team1.teamBase.getTotalHealth));
-                sb.Draw(HudBar, new Rectangle(10, 10, 100, 15),
-                    new Rectangle(0, 0, textWidth, textHeight),
-                    new Color(1 - (BBN_Game.Controller.GameController.team1.teamBase.getHealth /
-                        BBN_Game.Controller.GameController.team1.teamBase.getTotalHealth),
-                        (BBN_Game.Controller.GameController.team1.teamBase.getHealth /
-                        BBN_Game.Controller.GameController.team1.teamBase.getTotalHealth), 0));
-
-                textWidth = (int)(100 * (BBN_Game.Controller.GameController.team2.teamBase.getHealth /
-                    BBN_Game.Controller.GameController.team2.teamBase.getTotalHealth));
-                sb.Draw(HudBar, new Rectangle(this.playerViewport.Width - 115, 10, 100, 15),
-                    new Rectangle(0, 0, textWidth, textHeight),
-                    new Color(1 - (BBN_Game.Controller.GameController.team2.teamBase.getHealth /
-                        BBN_Game.Controller.GameController.team2.teamBase.getTotalHealth),
-                        (BBN_Game.Controller.GameController.team2.teamBase.getHealth /
-                        BBN_Game.Controller.GameController.team2.teamBase.getTotalHealth), 0));
+                sb.Draw(HudBarBlack, new Rectangle(barStartX, barStartY, (int)(barWidthX), barWidthY)
+                    , new Rectangle(0, 0, HudBar.Width, HudBar.Height), Color.Red);
             }
             else
             {
-                textWidth = (int)(100 * (BBN_Game.Controller.GameController.team2.teamBase.getHealth /
-                    BBN_Game.Controller.GameController.team2.teamBase.getTotalHealth));
-                sb.Draw(HudBar, new Rectangle(10, 10, 100, 15),
-                    new Rectangle(0, 0, textWidth, textHeight),
-                    new Color(1 - (BBN_Game.Controller.GameController.team2.teamBase.getHealth /
-                        BBN_Game.Controller.GameController.team2.teamBase.getTotalHealth),
-                        (BBN_Game.Controller.GameController.team2.teamBase.getHealth /
-                        BBN_Game.Controller.GameController.team2.teamBase.getTotalHealth), 0));
-
-                textWidth = (int)(100 * (BBN_Game.Controller.GameController.team1.teamBase.getHealth /
-                    BBN_Game.Controller.GameController.team1.teamBase.getTotalHealth));
-                sb.Draw(HudBar, new Rectangle(this.playerViewport.Width - 115, 10, 100, 15),
-                    new Rectangle(0, 0, textWidth, textHeight),
-                    new Color(1 - (BBN_Game.Controller.GameController.team1.teamBase.getHealth /
-                        BBN_Game.Controller.GameController.team1.teamBase.getTotalHealth),
-                        (BBN_Game.Controller.GameController.team1.teamBase.getHealth /
-                        BBN_Game.Controller.GameController.team1.teamBase.getTotalHealth), 0));
+                sb.Draw(HudBarBlack, new Rectangle(barStartX, barStartY, (int)(barWidthX), barWidthY)
+                    , new Rectangle(0, 0, HudBar.Width, HudBar.Height), Color.Blue);
             }
+
+            sb.Draw(HudBar, new Rectangle(barStartX, barStartY + (int)(barWidthY * (1 - Health / totalHealth)), (int)(barWidthX), (int)(barWidthY * (Health / totalHealth)))
+                , new Rectangle(0, (int)(HudBar.Height * (1 - Health / totalHealth)), textWidth, (int)(HudBar.Height * (Health / totalHealth))),
+                Color.White);
             #endregion
+
+            #region Base Health
+            //Your base and enemy base health bars
+            textWidth = baseHealth.Width;
+            int dimensionX = (int)(barWidthX * 0.45f);
+            int dimensionY = (int)(barWidthX * 1.0f);
+            int baseHeight = 0;
+            float baseHealthPercent = 0;
+            string base1 = "";
+            string base2 = "";
+
+            if (BBN_Game.Controller.GameController.team1.teamId == this.Team)
+            {
+                baseHealthPercent = BBN_Game.Controller.GameController.team1.teamBase.getHealth /
+                    BBN_Game.Controller.GameController.team1.teamBase.getTotalHealth;
+                base1 = Math.Round(baseHealthPercent * 100) + "%";
+                textHeight = (int)(baseHealth.Height * (baseHealthPercent));
+                baseHeight = 10 + (int)(dimensionY * textHeight);
+
+                sb.Draw(mapBackground, new Rectangle(10, 10, dimensionX, dimensionY), new Rectangle(0, 0, mapBackground.Width, mapBackground.Height),
+                        Color.White);
+                sb.DrawString(f, base1,
+                    new Vector2((dimensionX / 2) - (f.MeasureString(base1).X / 2) + 10,
+                        (dimensionY + 10) + 2), Color.Aqua);
+                sb.Draw(baseHealthBlack, new Rectangle(10, 10,
+                    dimensionX, dimensionY),
+                    new Rectangle(0, 0, baseHealthBlack.Width, baseHealthBlack.Height),
+                    new Color(1 - (baseHealthPercent),
+                        baseHealthPercent, 0));
+                sb.Draw(baseHealth, new Rectangle(10, 10 + (int)(dimensionY * (1 - baseHealthPercent)),
+                    dimensionX, (int)(dimensionY * baseHealthPercent)),
+                    new Rectangle(0, (int)(baseHealth.Height * (1 - baseHealthPercent)), textWidth, textHeight),
+                    new Color(1 - (baseHealthPercent),
+                        baseHealthPercent, 0));
+
+                baseHealthPercent = BBN_Game.Controller.GameController.team2.teamBase.getHealth /
+                    BBN_Game.Controller.GameController.team2.teamBase.getTotalHealth;
+                base2 = Math.Round(baseHealthPercent * 100) + "%";
+                textHeight = (int)(baseHealth.Height * (baseHealthPercent));
+                baseHeight = 10 + (int)(dimensionY * textHeight);
+
+                sb.Draw(mapBackground, new Rectangle(this.playerViewport.Width - dimensionX - 10, 10, dimensionX, dimensionY),
+                    new Rectangle(0, 0, mapBackground.Width, mapBackground.Height), Color.White);
+                sb.DrawString(f, base2,
+                    new Vector2((this.playerViewport.Width - (dimensionX / 2)) - (f.MeasureString(base2).X / 2) - 10,
+                        (dimensionY + 10) + 2), Color.Aqua);
+                sb.Draw(baseHealthBlack, new Rectangle(this.playerViewport.Width - dimensionX - 10,
+                    10,
+                    dimensionX, dimensionY),
+                    new Rectangle(0, 0, baseHealthBlack.Width, baseHealthBlack.Height),
+                    new Color(1 - baseHealthPercent, baseHealthPercent, 0));
+                sb.Draw(baseHealth, new Rectangle(this.playerViewport.Width - dimensionX - 10,
+                    10 + (int)(dimensionY * (1 - baseHealthPercent)),
+                    dimensionX, (int)(dimensionY * baseHealthPercent)),
+                    new Rectangle(0, (int)(baseHealth.Height * (1 - baseHealthPercent)), textWidth, textHeight),
+                    new Color(1 - baseHealthPercent, baseHealthPercent, 0));
+            }
+            else
+            {
+                baseHealthPercent = BBN_Game.Controller.GameController.team2.teamBase.getHealth /
+                    BBN_Game.Controller.GameController.team2.teamBase.getTotalHealth;
+                base1 = Math.Round(baseHealthPercent * 100) + "%";
+                textHeight = (int)(baseHealth.Height * (baseHealthPercent));
+                baseHeight = 10 + (int)(dimensionY * textHeight);
+
+                sb.Draw(mapBackground, new Rectangle(10, 10, dimensionX, dimensionY), new Rectangle(0, 0, mapBackground.Width, mapBackground.Height),
+                        Color.White);
+                sb.DrawString(f, base1,
+                    new Vector2((dimensionX / 2) - (f.MeasureString(base1).X / 2) + 10,
+                        (dimensionY + 10) + 2), Color.Aqua);
+                sb.Draw(baseHealthBlack, new Rectangle(10, 10,
+                    dimensionX, dimensionY),
+                    new Rectangle(0, 0, baseHealthBlack.Width, baseHealthBlack.Height),
+                    new Color(1 - (baseHealthPercent),
+                        baseHealthPercent, 0));
+                sb.Draw(baseHealth, new Rectangle(10, 10 + (int)(dimensionY * (1 - baseHealthPercent)),
+                    dimensionX, (int)(dimensionY * baseHealthPercent)),
+                    new Rectangle(0, (int)(baseHealth.Height * (1 - baseHealthPercent)), textWidth, textHeight),
+                    new Color(1 - (baseHealthPercent),
+                        baseHealthPercent, 0));
+
+                baseHealthPercent = BBN_Game.Controller.GameController.team1.teamBase.getHealth /
+                    BBN_Game.Controller.GameController.team1.teamBase.getTotalHealth;
+                base2 = Math.Round(baseHealthPercent * 100) + "%";
+                textHeight = (int)(baseHealth.Height * (baseHealthPercent));
+                baseHeight = 10 + (int)(dimensionY * textHeight);
+
+                sb.Draw(mapBackground, new Rectangle(this.playerViewport.Width - dimensionX - 10, 10, dimensionX, dimensionY),
+                    new Rectangle(0, 0, mapBackground.Width, mapBackground.Height), Color.White);
+                sb.DrawString(f, base2,
+                    new Vector2((this.playerViewport.Width - (dimensionX / 2)) - (f.MeasureString(base2).X / 2) - 10,
+                        (dimensionY + 10) + 2), Color.Aqua);
+                sb.Draw(baseHealthBlack, new Rectangle(this.playerViewport.Width - dimensionX - 10,
+                    10,
+                    dimensionX, dimensionY),
+                    new Rectangle(0, 0, baseHealthBlack.Width, baseHealthBlack.Height),
+                    new Color(1 - baseHealthPercent, baseHealthPercent, 0));
+                sb.Draw(baseHealth, new Rectangle(this.playerViewport.Width - dimensionX - 10,
+                    10 + (int)(dimensionY * (1 - baseHealthPercent)),
+                    dimensionX, (int)(dimensionY * baseHealthPercent)),
+                    new Rectangle(0, (int)(baseHealth.Height * (1 - baseHealthPercent)), textWidth, textHeight),
+                    new Color(1 - baseHealthPercent, baseHealthPercent, 0));
+            }
 
             #endregion
 
             #region "Reload speeds"
 
-            sb.Draw(missileReloadBlack, new Rectangle(hudWidth + 10, barStartY, 150, barWidthY)
+            int startX = barWidthX + 10 ;
+            int startY = (int)(viewport.Height * 0.95f) - 3;
+
+            textHeight = (int)(viewport.Height * 0.035f);
+            textWidth = (int)(viewport.Width * 0.08f);
+
+            sb.Draw(mapBackground, new Rectangle(startX - 2, startY - 3, textWidth, textHeight + (int)(textHeight * 0.2)),
+                new Rectangle(0, 0, mapBackground.Width, mapBackground.Height),
+                Color.White);
+            base1 = Math.Round(100 * (MissileReload - reloadTimer[1]) / MissileReload) + "%";
+            sb.DrawString(f, base1,
+                    new Vector2(startX + (textWidth / 2) - (f.MeasureString(base1).X / 2),
+                        startY - f.MeasureString(base1).Y - 2), Color.Aqua);
+            sb.Draw(missileReloadBlack, new Rectangle(startX, startY, textWidth, textHeight)
                 , new Rectangle(0, 0, missileReload.Width, missileReload.Height), Color.White);
-            sb.Draw(missileReload, new Rectangle(hudWidth + 10, barStartY, (int)(150 * (MissileReload - reloadTimer[1]) / MissileReload), barWidthY)
-                , new Rectangle(0, 0, (int)(missileReload.Width * (MissileReload - reloadTimer[1]) / MissileReload), missileReload.Height), Color.White);
+            sb.Draw(missileReload, new Rectangle(startX, startY,
+                (int)(textWidth * (MissileReload - reloadTimer[1]) / MissileReload), textHeight)
+                , new Rectangle(0, 0,
+                    (int)(missileReload.Width * (MissileReload - reloadTimer[1]) / MissileReload),
+                    missileReload.Height), Color.White);
 
             #endregion
 
