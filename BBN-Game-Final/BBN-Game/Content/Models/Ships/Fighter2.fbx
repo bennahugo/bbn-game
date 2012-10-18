@@ -1719,19 +1719,21 @@ Objects:  {
             Property: "LastFrame", "int", "",0
             Property: "Width", "int", "",0
             Property: "Height", "int", "",0
-            Property: "Path", "KString", "", "C:\Users\Brandon\Documents\3dsMax\export\space+craft+3+uv.png"
+            Property: "Path", "KString", "", "C:\Users\Brandon\Documents\3dsMax\export\spacecraft3uv.png"
             Property: "StartFrame", "int", "",0
             Property: "StopFrame", "int", "",0
             Property: "PlaySpeed", "double", "",0
             Property: "Offset", "KTime", "",0
             Property: "InterlaceMode", "enum", "",0
+            
             Property: "FreeRunning", "bool", "",0
+            
             Property: "Loop", "bool", "",0
             Property: "AccessMode", "enum", "",0
         }
         UseMipMap: 0
-        Filename: "C:\Users\Brandon\Documents\3dsMax\export\space+craft+3+uv.png"
-        RelativeFilename: "space+craft+3+uv.png"
+        Filename: "C:\Users\Brandon\Documents\3dsMax\export\spacecraft3uv.png"
+        RelativeFilename: "spacecraft3uv.png"
     }
     Texture: "Texture::Map #4", "" {
         Type: "TextureVideoClip"
@@ -1756,8 +1758,8 @@ Objects:  {
             Property: "UseMipMap", "bool", "",0
         }
         Media: "Video::Map #4"
-        FileName: "C:\Users\Brandon\Documents\3dsMax\export\space+craft+3+uv.png"
-        RelativeFilename: "space+craft+3+uv.png"
+        FileName: "C:\Users\Brandon\Documents\3dsMax\export\spacecraft3uv.png"
+        RelativeFilename: "spacecraft3uv.png"
         ModelUVTranslation: 0,0
         ModelUVScaling: 1,1
         Texture_Alpha_Source: "Alpha_Black"

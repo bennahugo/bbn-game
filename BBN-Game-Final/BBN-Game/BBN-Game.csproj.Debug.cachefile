@@ -14,7 +14,6 @@ Content\Fonts\menuFont.xnb
 Content\Models\Ships\Turret1.xnb
 Content\HudTextures\map.xnb
 Content\Models\Ships\SpaceCr_00.xnb
-Content\Models\Ships\space+craft+4+uv.xnb
 Content\Particles\smoke.xnb
 Content\Models\Ships\Fighter2.xnb
 Content\Particles\ParticleEffect.xnb
@@ -24,7 +23,6 @@ Content\Skybox\space1.xnb
 Content\Fonts\pause_menu.xnb
 Content\Models\Ships\Astroid02.xnb
 Content\HudTextures\square.xnb
-Content\Models\Ships\space+craft+3+uv_0.xnb
 Content\sun\sun.xnb
 Content\Maps\Death Zone.xml
 Content\Models\Planets\Saturn.xnb
@@ -38,12 +36,12 @@ Content\Skybox\space4.xnb
 Content\HudTextures\base_w.xnb
 Content\Menu\dark_trans_new.xnb
 Content\HudTextures\hexagon.xnb
-Content\Models\Ships\space+craft+2+uv_0.xnb
+Content\Music\explosion.xnb
 Content\Particles\explosion.xnb
 Content\stats_icons\destroyer2_small.xnb
+Content\Models\Ships\spacecraft2uv_0.xnb
 Content\Skybox\Starfield.xnb
 Content\HudTextures\rocket_c.xnb
-Content\Models\Ships\space+craft+4+uv_0.xnb
 Content\FBX\4DB12D52\Saturn.fbm\SaturnMap_png_0.xnb
 Content\Models\Planets\mars0kuu2png.xnb
 Content\FBX\20072CBD\Turret2.fbm\TurretT2_0.xnb
@@ -53,16 +51,16 @@ Content\Skybox\space3.xnb
 Content\Particles\font.xnb
 Content\sun\flare.xnb
 Content\Models\Ships\turretT1.xnb
-Content\Models\Ships\space+craft+3+uv.xnb
 Content\Models\Ships\Turret.xnb
 Content\FBX\20072CBD\Turret2.fbm\turretT1_0.xnb
 Content\Skybox\space2.xnb
 Content\HudTextures\triangle.xnb
 Content\HudTextures\HealthBarHolder.xnb
+Content\Music\deadLaugh2.xnb
 Content\Particles\grid.xnb
-Content\Models\Ships\Fighter4.xnb
 Content\Shader\targetBox.xnb
 Content\Menu\keyboard_controls.xnb
+Content\Models\Ships\spacecraft4uv.xnb
 Content\Models\Asteroids\Astroid01.xnb
 Content\FBX\D85B2E86\AstrFBX.fbm\Astroid01_0.xnb
 Content\stats_icons\fighter_small.xnb
@@ -81,11 +79,15 @@ Content\Menu\nebula_blue.xnb
 Content\Models\Planets\SaturnMap_png.xnb
 Content\Menu\trade_menu_new.xnb
 Content\HudTextures\base.xnb
+Content\Music\deadLaugh.xnb
+Content\Models\Ships\spacecraft3uv.xnb
+Content\Models\Ships\spacecraft4uv_0.xnb
 Content\HudTextures\arrow.xnb
 Content\Models\Asteroids\Astroid02.xnb
 Content\Music\Imperial-March.xnb
 Content\sun\sunglare.xnb
 Content\FBX\1E852C9A\mars2.fbm\mars0kuu2png_0.xnb
+Content\Models\Ships\spacecraft2uv.xnb
 Content\Menu\xbox_controls.xnb
 Content\stats_icons\missile_small.xnb
 Content\Skybox\space5.xnb
@@ -100,9 +102,9 @@ Content\stats_icons\destroyer_small.xnb
 Content\Models\Projectiles\Cube.xnb
 Content\HudTextures\shipTex_bw.xnb
 Content\Menu\waterfall_city.xnb
+Content\Models\Ships\spacecraft3uv_0.xnb
 Content\Models\Ships\Turret2.xnb
 Content\Particles\checker.xnb
-Content\Models\Ships\space+craft+2+uv.xnb
 Content\Menu\control_menu.xnb
 Content\Fonts\trade_menu.xnb
 Content\Models\Ships\playerShipRed.xnb

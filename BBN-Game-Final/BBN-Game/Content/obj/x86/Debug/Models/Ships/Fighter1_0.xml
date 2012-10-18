@@ -74,6 +74,6 @@
     </Resource>
   </Resources>
   <ExternalReferences>
-    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\..\..\..\Models\Ships\space+craft+2+uv.png</ExternalReference>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\..\..\..\Models\Ships\spacecraft2uv.png</ExternalReference>
   </ExternalReferences>
 </XnaContent>

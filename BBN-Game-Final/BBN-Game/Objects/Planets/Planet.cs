@@ -27,7 +27,7 @@ namespace BBN_Game.Objects.Planets
         public Planet(Game game, Team team, Vector3 position)
             : base(game, team, position)
         {
-            if (team.Equals(Team.Red))
+            if (team.Equals(Team.Blue))
             {
                 model = game.Content.Load<Model>("Models/Planets/Venus");
                 moon = game.Content.Load<Model>("Models/Planets/mars2");

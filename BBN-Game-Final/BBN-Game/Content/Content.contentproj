@@ -320,11 +320,6 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
-    <Compile Include="Models\Ships\Fighter4.fbx">
-      <Name>Fighter4</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
     <Compile Include="Models\Ships\Turret1.fbx">
       <Name>Turret1</Name>
       <Importer>FbxImporter</Importer>
@@ -366,18 +361,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Ships\space+craft+2+uv.png">
-      <Name>space+craft+2+uv</Name>
+    <Compile Include="Models\Ships\spacecraft2uv.png">
+      <Name>spacecraft2uv</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Models\Ships\space+craft+3+uv.png">
-      <Name>space+craft+3+uv</Name>
+    <Compile Include="Models\Ships\spacecraft3uv.png">
+      <Name>spacecraft3uv</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Models\Ships\space+craft+4+uv.png">
-      <Name>space+craft+4+uv</Name>
+    <Compile Include="Models\Ships\spacecraft4uv.png">
+      <Name>spacecraft4uv</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -570,6 +565,25 @@
       <Name>shipTex_bw</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Music\deadLaugh.wav">
+      <Name>deadLaugh</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Music\deadLaugh2.wav">
+      <Name>deadLaugh2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Music\explosion.wav">
+      <Name>explosion</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
