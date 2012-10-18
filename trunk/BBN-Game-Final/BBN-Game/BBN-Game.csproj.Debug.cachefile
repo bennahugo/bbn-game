@@ -66,6 +66,7 @@ Content\FBX\47952B51\AstrFBX.fbm\Astroid01_0.xnb
 Content\Models\Planets\callisto.xnb
 Content\Models\Asteroids\AstrFBX.xnb
 Content\Particles\explosion.xnb
+Content\Models\Ships\Astroid02.xnb
 Content\FBX\72722B83\AstrFBX2.fbm\Astroid01_0.xnb
 Content\HudTextures\HealthBar.xnb
 Content\Particles\checker.xnb
@@ -82,6 +83,7 @@ Content\Menu\pause_menu.xnb
 Content\Fonts\trade_menu.xnb
 Content\Menu\control_menu.xnb
 Content\HudTextures\HealthBarHolder.xnb
+Content\FBX\73BC2BBE\spaceStation.fbm\Astroid02_0.xnb
 Content\Menu\dark_trans.xnb
 Content\Menu\xbox_controls.xnb
 Content\Particles\grid.xnb

@@ -378,7 +378,7 @@ namespace BBN_Game.Objects
         /// <param name="cam">Camera class</param>
         public virtual void Draw(GameTime gameTime, Camera.CameraMatrices cam)
         {
-            if (((cam.Position - Position).Length() > 600) && !(this is Planets.Planet)) // depth culling
+            if (((cam.Position - Position).Length() > 600) && !(this is Planets.Planet) && !(this is Asteroid)) // depth culling
                 return;
 
 

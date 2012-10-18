@@ -1032,53 +1032,58 @@ namespace BBN_Game.Objects
             sb.DrawString(f, "-> Destroyer", new Vector2((int)(view.Width * 0.05f + (objectWidth + 5 + wordDistance) * 3 + (objectWidth + 5)), (int)(view.Height * 0.895f)), Color.White);
             sb.Draw(towerT, new Rectangle((int)(view.Width * 0.05f + (objectWidth + 5 + wordDistance) * 4 + 15), (int)(view.Height * 0.9f), (int)objectWidth, (int)objectWidth), Color.White);
             sb.DrawString(f, "-> Turret", new Vector2((int)(view.Width * 0.05f + (objectWidth + 5 + wordDistance) * 4 + (objectWidth + 5) + 15), (int)(view.Height * 0.895f)), Color.White);
-            
 
-            
+
+
             foreach (StaticObject obj in objects)
             {
-                if (obj is Projectile)
-                    break;
-
-                Vector2 pos = new Vector2(obj.Position.X, obj.Position.Z);
-                pos = new Vector2(pos.X + radius, pos.Y + radius);
-                pos = new Vector2(pos.X / (radius * 2), pos.Y / (radius * 2));
-                pos = new Vector2(pos.X * view.Width, pos.Y * (view.Height * 1.4f));
-
-
-                Color c = Color.Yellow;
-                if (obj is Turret)
+                if (obj is Projectile || obj is Asteroid || obj is Planets.Planet)
                 {
-                    if (((Turret)obj).Repairing)
-                        c = Color.Aqua;
-                    else if (obj.Team.Equals(this.Team))
-                        c = Color.Green;
-                    else if (obj.Team.Equals(Team.neutral))
-                        c = Color.Yellow;
+                }
+                else
+                {
+
+                    Vector2 pos = new Vector2(obj.Position.X, obj.Position.Z);
+                    pos = new Vector2(pos.X + radius, pos.Y + radius);
+                    pos = new Vector2(pos.X / (radius * 2), pos.Y / (radius * 2));
+                    pos = new Vector2(pos.X * view.Width, pos.Y * (view.Height * 1.4f));
+
+
+                    Color c = Color.Yellow;
+                    if (obj is Turret)
+                    {
+                        if (((Turret)obj).Repairing)
+                            c = Color.Aqua;
+                        else if (obj.Team.Equals(this.Team))
+                            c = Color.Green;
+                        else if (obj.Team.Equals(Team.neutral))
+                            c = Color.Yellow;
+                        else
+                            c = Color.Orange;
+                    }
                     else
-                        c = Color.Orange;
+                    {
+                        c = this.Equals(obj) ? Color.LightBlue : obj.Equals(this.target) ? Color.Red : obj.Team.Equals(this.Team) ? Color.Green : Color.Orange;
+                    }
+
+                    Texture2D tex = obj is playerObject ? playerT : (obj is Turret) ? towerT : (obj is Fighter) ? fighterT : (obj is Destroyer) ? destroyerT : baseT;
+
+                    if (obj is playerObject)
+                    {
+                        Vector3 oPos = obj.Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(obj.rotation));
+                        Vector3 A = oPos - obj.Position;
+
+                        float x = Vector3.Dot(A, Vector3.UnitX);
+                        float y = Vector3.Dot(A, Vector3.UnitZ);
+
+                        float angle = (float)Math.Atan2(y, x);
+                        sb.Draw(tex, new Rectangle((int)(pos.X - objectWidth / 2), (int)(pos.Y - objectWidth / 2), (int)objectWidth, (int)objectWidth),
+                                     new Rectangle(0, 0, tex.Width, tex.Height), c, angle, new Vector2(tex.Width / 2, tex.Height / 2), SpriteEffects.None, 0);
+                    }
+                    else
+                        sb.Draw(tex, new Rectangle((int)(pos.X - objectWidth / 2), (int)(pos.Y - objectWidth / 2), (int)objectWidth, (int)objectWidth), c);
                 }
-                else
-                {
-                    c = this.Equals(obj) ? Color.LightBlue : obj.Equals(this.target) ? Color.Red : obj.Team.Equals(this.Team) ? Color.Green : Color.Orange; 
-                }
-
-                Texture2D tex = obj is playerObject ? playerT : (obj is Turret) ? towerT : (obj is Fighter) ? fighterT : (obj is Destroyer) ? destroyerT : baseT;
-
-                if (obj is playerObject)
-                {
-                    Vector3 oPos = obj.Position + Vector3.Transform(new Vector3(0,0,10), Matrix.CreateFromQuaternion(obj.rotation));
-                    Vector3 A = oPos - obj.Position;
-
-                    float x = Vector3.Dot(A, Vector3.UnitX);
-                    float y = Vector3.Dot(A, Vector3.UnitZ);
-
-                    float angle = (float)Math.Atan2(y, x);
-                    sb.Draw(tex, new Rectangle((int)(pos.X - objectWidth / 2), (int)(pos.Y - objectWidth / 2), (int)objectWidth, (int)objectWidth), 
-                                 new Rectangle(0, 0, tex.Width, tex.Height), c, angle, new Vector2(tex.Width/2, tex.Height/2), SpriteEffects.None, 0);
-                }
-                else
-                    sb.Draw(tex, new Rectangle((int)(pos.X - objectWidth / 2), (int)(pos.Y - objectWidth / 2), (int)objectWidth, (int)objectWidth), c);
+                
             }
             sb.End();
         }
