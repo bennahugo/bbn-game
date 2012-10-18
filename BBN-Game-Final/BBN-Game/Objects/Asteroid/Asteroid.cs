@@ -30,8 +30,10 @@ namespace BBN_Game.Objects
         {
             Random rand = new Random();
 
-            rollSpeed = (float)rand.NextDouble() * 6 + 3;
-            yawSpeed = (float)rand.NextDouble() * 4 + 3;
+            rollSpeed = (float)rand.NextDouble() * 6 + 8;
+            yawSpeed = (float)rand.NextDouble() * 4 + 6;
+
+            this.shipData.scale = 1;
 
             this.mass = 10f;
             greatestLength = 10.0f;

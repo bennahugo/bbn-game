@@ -623,11 +623,12 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\spaceStation.xnb</Output>
-      <Time>2012-10-13T18:59:54+02:00</Time>
+      <Time>2012-10-18T12:21:29.5518572+02:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Key>
-        <Value>2012-10-18T02:34:51.5405542+02:00</Value>
+        <Value>2012-10-18T12:21:34.6131467+02:00</Value>
       </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\73BC2BBE\spaceStation.fbm\Astroid02_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Projectiles\Cube.fbx</Source>
@@ -888,7 +889,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Output>
-      <Time>2012-10-13T18:59:54+02:00</Time>
+      <Time>2012-10-18T12:21:29.5518572+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Projectiles\Cube.fbx</Source>
@@ -1027,6 +1028,30 @@
       <Options>None</Options>
       <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Particles\checker_0.xnb</Output>
       <Time>2012-10-13T19:00:08+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Astroid02.png</Source>
+      <Name>Models\Ships\Astroid02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\Models\Ships\Astroid02.xnb</Output>
+      <Time>2012-10-18T12:21:09.8767318+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\73BC2BBE\spaceStation.fbm\Astroid02.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\bin\x86\Debug\Content\FBX\73BC2BBE\spaceStation.fbm\Astroid02_0.xnb</Output>
+      <Time>2012-10-18T12:21:33.9951113+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

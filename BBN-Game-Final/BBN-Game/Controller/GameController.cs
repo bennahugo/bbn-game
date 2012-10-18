@@ -1003,6 +1003,11 @@ namespace BBN_Game.Controller
                     t.rotation = Quaternion.CreateFromYawPitchRoll(yaw, pitch, roll);
                     addObject(t);
                     break;
+                case "Astroid":
+                    Asteroid a = new Asteroid(game,Team.neutral,new Vector3(x,y,z));
+                    a.rotation = Quaternion.CreateFromYawPitchRoll(yaw, pitch, roll);
+                    addObject(a);
+                    break;
             }
         }
         /// <summary>
