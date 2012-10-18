@@ -84,10 +84,10 @@ namespace Editor
             if (modelName != null)
             {
                 model = contentLoader.Load<Model>(modelName);
-                CollisionDetectionHelper.ExtractModelData(model);
-                CollisionDetectionHelper.ConstructMeshPartBoundingBoxes(model);
-                CollisionDetectionHelper.ConstructObjectLevelBoundingBox(model);
-                CollisionDetectionHelper.ConstructMeshLevelBoundingBox(model);
+                CollisionDetectionHelper.setModelData(model);
+                CollisionDetectionHelper.ConstructMeshPartBoundingSpherees(model);
+                CollisionDetectionHelper.ConstructObjectLevelBoundingSphere(model);
+                CollisionDetectionHelper.ConstructMeshLevelBoundingSphere(model);
             }
         }
 
