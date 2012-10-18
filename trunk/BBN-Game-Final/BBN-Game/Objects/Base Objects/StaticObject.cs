@@ -339,7 +339,7 @@ namespace BBN_Game.Objects
             return false;
         }
 
-        protected BoundingSphere createShpere()
+        protected virtual BoundingSphere createShpere()
         {
             BoundingSphere sphere = new BoundingSphere();
 

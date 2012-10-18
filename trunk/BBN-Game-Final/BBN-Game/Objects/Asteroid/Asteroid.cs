@@ -43,6 +43,23 @@ namespace BBN_Game.Objects
             numHudLines = 4;
         }
 
+        protected override BoundingSphere createShpere()
+        {
+            BoundingSphere sphere = new BoundingSphere();
+
+            sphere = new BoundingSphere();
+            foreach (ModelMesh m in model.Meshes)
+            {
+                if (sphere.Radius == 0)
+                    sphere = m.BoundingSphere;
+                else
+                    sphere = BoundingSphere.CreateMerged(sphere, m.BoundingSphere);
+            }
+            sphere.Radius *= this.shipData.scale * 0.6f;
+
+            return sphere;
+        }
+
         protected override void resetModels()
         {
             model = Game.Content.Load<Model>("Models/Asteroids/AstrFBX");

@@ -142,6 +142,10 @@ namespace BBN_Game.Controller
 
         protected Song ImperialMarch;
         protected Song BeatIt;
+        protected static SoundEffect player1Death;
+        protected static SoundEffect player2Death;
+        protected static SoundEffect explosion;
+
         #endregion
 
         #region "XNA Required"
@@ -193,9 +197,12 @@ namespace BBN_Game.Controller
             MediaPlayer.IsRepeating = true;
 
             ImperialMarch = game.Content.Load<Song>("Music/Imperial-March");
-            //MediaPlayer.Play(ImperialMarch);
             BeatIt = game.Content.Load<Song>("Music/BeatIt");
-            //MediaPlayer.Play(BeatIt);
+
+            player1Death = game.Content.Load<SoundEffect>("Music/deadLaugh");
+            player2Death = game.Content.Load<SoundEffect>("Music/deadLaugh2");
+            explosion = game.Content.Load<SoundEffect>("Music/explosion");
+
             // laod data if needed etc etc
             if (gameState.Equals(GameState.Playing))
             {
@@ -706,9 +713,15 @@ namespace BBN_Game.Controller
             else if (Object is Objects.playerObject)
             {
                 if (Object.Team.Equals(Team.Red))
+                {
+                    player1Death.Play();
                     team2.teamCredits += TradingInformation.creditsForDestroyingPlayer;
+                }
                 else
+                {
+                    player2Death.Play();
                     team1.teamCredits += TradingInformation.creditsForDestroyingPlayer;
+                }
             }
             else if (Object is Objects.Turret)
             {
@@ -1079,7 +1092,7 @@ namespace BBN_Game.Controller
                             if (obj is Objects.Projectile && other is Objects.Projectile)
                                 continue;
                             Objects.StaticObject o1 = obj as Objects.StaticObject;
-                            Objects.StaticObject o2 = other as Objects.StaticObject;                            
+                            Objects.StaticObject o2 = other as Objects.StaticObject;                        
                             if (Collision_Detection.CollisionDetectionHelper.isObjectsCollidingOnMeshPartLevel(o1.shipModel, o2.shipModel,
                                 o1.getWorld,o2.getWorld,
                                 o1 is Objects.Projectile || o2 is Objects.Projectile))
@@ -1101,6 +1114,18 @@ namespace BBN_Game.Controller
                         return;
                     obj1.doDamage(10000);
                     obj2.doDamage(((Objects.Projectile)obj1).damage);
+                    if (obj2 is Objects.playerObject)
+                    {
+                        if (numPlayers.Equals(Players.two))
+                        {
+                            explosion.Play();
+                        }
+                        else
+                        {
+                            if (obj2.Team.Equals(Team.Red))
+                                explosion.Play();
+                        }
+                    }
                 }
                 else
                 {
@@ -1108,6 +1133,18 @@ namespace BBN_Game.Controller
                         return;
                     obj2.doDamage(10000);
                     obj1.doDamage(((Objects.Projectile)obj2).damage);
+                    if (obj1 is Objects.playerObject)
+                    {
+                        if (numPlayers.Equals(Players.two))
+                        {
+                            explosion.Play();
+                        }
+                        else
+                        {
+                            if (obj1.Team.Equals(Team.Red))
+                                explosion.Play();
+                        }
+                    }
                 }
             }
             else
