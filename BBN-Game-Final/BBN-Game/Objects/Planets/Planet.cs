@@ -11,80 +11,56 @@ namespace BBN_Game.Objects.Planets
 {
     class Planet : StaticObject
     {
-        public Planet(Game game, Team team, Vector3 position) : base(game, team, position)
-        {
-            Random rand = new Random();
+        Model moon;
+        Vector3 moonPos;
+        Matrix moonWorld;
+        float moonScale;
+        float radiusOfPlanet;
+        float radiusOfMoon;
+        float roll;
+        float moonRollSpeed;
+        float yaw;
+        float moonYawSpeed;
+        float distanceAway;
+        float startingYaw;
 
-            int r = rand.Next(3);
-            
-            if (r == 0)
-                this.model = Game.Content.Load<Model>("Models/Planets/CallistoModel");
-            else if (r == 1) 
-                this.model = Game.Content.Load<Model>("Models/Planets/Saturn");
-            else
-                this.model = Game.Content.Load<Model>("Models/Planets/Venus");
-        }
-
-        public Planet(Game game, Team team, Vector3 position, Planet p)
+        public Planet(Game game, Team team, Vector3 position)
             : base(game, team, position)
         {
-            Random rand = new Random();
-
-            int r = rand.Next(3);
-
-
-            if (r == 0)
-                this.model = Game.Content.Load<Model>("Models/Planets/CallistoModel");
-            else if (r == 1)
-                this.model = Game.Content.Load<Model>("Models/Planets/Saturn");
-            else
-                this.model = Game.Content.Load<Model>("Models/Planets/Venus");
-
-            while (this.model.Equals(p.model))
+            if (team.Equals(Team.Red))
             {
-                r = rand.Next(4);
-
-
-                if (r == 0)
-                    this.model = Game.Content.Load<Model>("Models/Planets/CallistoModel");
-                else if (r == 1)
-                    this.model = Game.Content.Load<Model>("Models/Planets/Saturn");
-                else if (r == 2)
-                    this.model = Game.Content.Load<Model>("Models/Planets/Venus");
-                else
-                    this.model = Game.Content.Load<Model>("Models/Planets/mars2");
+                model = game.Content.Load<Model>("Models/Planets/Venus");
+                moon = game.Content.Load<Model>("Models/Planets/mars2");
             }
-        }
-
-        public Planet(Game game, Team team, Vector3 position, Planet p, Planet p2)
-            : base(game, team, position)
-        {
-            Random rand = new Random();
-
-            int r = rand.Next(3);
-
-
-            if (r == 0)
-                this.model = Game.Content.Load<Model>("Models/Planets/CallistoModel");
-            else if (r == 1)
-                this.model = Game.Content.Load<Model>("Models/Planets/Saturn");
             else
-                this.model = Game.Content.Load<Model>("Models/Planets/Venus");
-
-            while (this.model.Equals(p.model) || this.model.Equals(p2.model))
             {
-                r = rand.Next(4);
-
-
-                if (r == 0)
-                    this.model = Game.Content.Load<Model>("Models/Planets/CallistoModel");
-                else if (r == 1)
-                    this.model = Game.Content.Load<Model>("Models/Planets/Saturn");
-                else if (r == 2)
-                    this.model = Game.Content.Load<Model>("Models/Planets/Venus");
-                else
-                    this.model = Game.Content.Load<Model>("Models/Planets/mars2");
+                model = game.Content.Load<Model>("Models/Planets/CallistoModel");
+                moon = game.Content.Load<Model>("Models/Planets/Saturn");
             }
+
+
+
+            radiusOfPlanet = createShpere().Radius;
+
+            BoundingSphere sphere = new BoundingSphere();
+
+            sphere = new BoundingSphere();
+            foreach (ModelMesh m in moon.Meshes)
+            {
+                if (sphere.Radius == 0)
+                    sphere = m.BoundingSphere;
+                else
+                    sphere = BoundingSphere.CreateMerged(sphere, m.BoundingSphere);
+            }
+            sphere.Radius *= moonScale;
+
+            radiusOfMoon = sphere.Radius;
+
+            roll = 0;
+            yaw = 0;
+
+            moonPos = this.Position + Vector3.Transform(new Vector3(radiusOfMoon + radiusOfPlanet + distanceAway, 0, 0), Matrix.CreateFromQuaternion(Quaternion.CreateFromYawPitchRoll(startingYaw, 0, roll)));
+            moonWorld = Matrix.CreateScale(moonScale) * Matrix.CreateFromQuaternion(Quaternion.CreateFromYawPitchRoll(yaw, pitchSpeed, roll)) * Matrix.CreateTranslation(moonPos);
         }
 
         public override void Update(GameTime gt)
@@ -93,8 +69,31 @@ namespace BBN_Game.Objects.Planets
             this.shipData.roll = (float)(rollSpeed * gt.ElapsedGameTime.TotalSeconds);
             this.shipData.yaw = (float)(pitchSpeed * gt.ElapsedGameTime.TotalSeconds);
 
+            roll += (float)(moonRollSpeed * gt.ElapsedGameTime.TotalSeconds);
+            yaw += (float)(moonYawSpeed * gt.ElapsedGameTime.TotalSeconds);
+
+            moonPos = this.Position + Vector3.Transform(new Vector3(radiusOfMoon + radiusOfPlanet + distanceAway, 0, 0), Matrix.CreateFromQuaternion(Quaternion.CreateFromYawPitchRoll(startingYaw, 0, roll)));
+            moonWorld = Matrix.CreateScale(moonScale) * Matrix.CreateFromQuaternion(Quaternion.CreateFromYawPitchRoll(yaw, pitchSpeed, roll)) * Matrix.CreateTranslation(moonPos);
 
             base.Update(gt);
+        }
+
+        public override void Draw(GameTime gameTime, Camera.CameraMatrices cam)
+        {
+            foreach (ModelMesh m in moon.Meshes)
+            {
+                foreach (BasicEffect e in m.Effects)
+                {
+                    e.EnableDefaultLighting();
+                    e.PreferPerPixelLighting = true;
+                    e.Parameters["World"].SetValue(moonWorld);
+                    e.Parameters["View"].SetValue(cam.View);
+                    e.Parameters["Projection"].SetValue(cam.Projection);
+                }
+                m.Draw();
+            }
+
+            base.Draw(gameTime, cam);
         }
 
         protected override void setData()
@@ -104,7 +103,15 @@ namespace BBN_Game.Objects.Planets
             rollSpeed = (float)rand.NextDouble() * 6 + 3;
             yawSpeed = (float)rand.NextDouble() * 4 + 3;
 
+            moonYawSpeed = (float)rand.NextDouble() / 10;
+            moonRollSpeed = (float)rand.NextDouble() / 10;
+
+            startingYaw = (float)(rand.NextDouble() * (MathHelper.Pi * 2));
+
+            distanceAway = rand.Next(300) + 100; 
+
             this.shipData.scale = 300 + rand.Next(700);
+            moonScale = this.shipData.scale * 0.2f;
             Health = 100;
         }
     }
