@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>polySurface2</Name>
     <Identity>
-      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\Content\Models\Ships\playerShip.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\Content\Models\Ships\playerShip.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <OpaqueData>
@@ -53,7 +53,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Material #47</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2008\Projects\bbn\BBN-Game-Final\BBN-Game\Content\Models\Ships\playerShip.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\BBN-Game-Final\BBN-Game\Content\Models\Ships\playerShip.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

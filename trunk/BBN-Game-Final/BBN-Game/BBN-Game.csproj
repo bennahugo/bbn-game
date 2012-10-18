@@ -110,6 +110,7 @@
     <Compile Include="Grid\GridStructure.cs" />
     <Compile Include="Controller\MathEuler.cs" />
     <Compile Include="Menu\MenuController.cs" />
+    <Compile Include="Objects\Asteroid\Asteroid.cs" />
     <Compile Include="Objects\Planets\Planet.cs" />
     <Compile Include="Objects\Projectiles\Bullet.cs" />
     <Compile Include="Objects\Projectiles\Missile.cs" />

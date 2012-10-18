@@ -411,7 +411,7 @@ namespace BBN_Game.Objects
                 if (((playerObject)this).getViewport.Equals(Game.GraphicsDevice.Viewport))
                     return;
 
-            if (this is Objects.Bullet || this is Objects.Planets.Planet) // dont draw for bullets
+            if (this is Objects.Bullet || this is Objects.Planets.Planet || this is Objects.Asteroid) // dont draw for bullets
                 return;
 
             if ((cam.Position - Position).Length() > 800) // depth culling
