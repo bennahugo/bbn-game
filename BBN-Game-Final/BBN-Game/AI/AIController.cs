@@ -20,17 +20,17 @@ namespace BBN_Game.AI
         public const float PERCENT_OF_CREDITS_TO_SPEND_ON_FIGHTERS_WHEN_SHORT_ON_BOTH = 0.66f;
         public const float PERCENT_OF_CREDITS_TO_SPEND_ON_DESTROYERS_WHEN_SHORT_ON_BOTH = 0.33f;
         public const float DISTANCE_WHEN_TURRET_IS_CLOSE_TO_BASE = 200;
-        public const int PRIORITY_FOR_ELIMINATING_PLAYER = 5;
-        public const int PRIORITY_FOR_ELIMINATING_TURRET = 4;
-        public const int PRIORITY_FOR_ELIMINATING_DESTROYER = 3;
-        public const int PRIORITY_FOR_ELIMINATING_FIGHTER = 2;
-        public const int PRIORITY_FOR_ELIMINATING_BASE = 1;
+        public const int PRIORITY_FOR_ELIMINATING_PLAYER = 4;
+        public const int PRIORITY_FOR_ELIMINATING_TURRET = 3;
+        public const int PRIORITY_FOR_ELIMINATING_DESTROYER = 2;
+        public const int PRIORITY_FOR_ELIMINATING_FIGHTER = 1;
+        public const int PRIORITY_FOR_ELIMINATING_BASE = 5;
         public const int FIGHTERS_TO_SCRAMBLE_FOR_PLAYER = 6;
         public const int FIGHTERS_TO_SCRAMBLE_FOR_DESTROYER = 3;
         public const int FIGHTER_GUNS_COOLDOWN = 70;
         public const int DESTROYER_GUNS_COOLDOWN = 140;
         public const int PLAYER_GUNS_COOLDOWN = 50;
-        public const int TURRET_GUNS_COOLDOWN = 120;
+        public const int TURRET_GUNS_COOLDOWN = 240;
         public const float DETECTION_RADIUS = 250;
         public const float LINE_OF_SIGHT_CLOSE_DIST_MULTIPLYER = 2;
         #endregion
@@ -949,7 +949,10 @@ namespace BBN_Game.AI
                             else
                             {
                                 ti.gunsCoolDown[ti.teamPlayer] = PLAYER_GUNS_COOLDOWN;
-                                Controller.GameController.addObject(new Objects.Missile(ti.teamPlayer.Game, ti.playerTarget, ti.teamPlayer));
+                                if (randomizer.NextDouble() < 0.3f)
+                                    Controller.GameController.addObject(new Objects.Missile(ti.teamPlayer.Game, ti.playerTarget, ti.teamPlayer));
+                                else
+                                    Controller.GameController.addObject(new Objects.Bullet(ti.teamPlayer.Game, ti.playerTarget, ti.teamPlayer));
                             }
                         }
                         else

@@ -26,7 +26,8 @@ namespace BBN_Game.Controller
         Paused = 3,
         notLoaded = 4,
         reload = 5,
-        EndGame = 6
+        EndGame = 6,
+        HelpOutline = 7
     }
 
     enum Players
@@ -54,7 +55,7 @@ namespace BBN_Game.Controller
         static Dictionary<String, AI.Node> pathNodes = new Dictionary<string,BBN_Game.AI.Node>(); 
         static Objects.playerObject Player1, Player2;
         static Objects.Base Team1Base, Team2Base;
-
+        static Graphics.SunDrawer sun = null;
         static AI.PlayerSpawnPoint Team1SpawnPoint;
         static AI.PlayerSpawnPoint Team2SpawnPoint;
 
@@ -138,6 +139,9 @@ namespace BBN_Game.Controller
         public static Boolean ObjectsLoaded;
         private Boolean player1Win;
         private Boolean player2Win;
+
+        protected Song ImperialMarch;
+        protected Song BeatIt;
         #endregion
 
         #region "XNA Required"
@@ -186,23 +190,33 @@ namespace BBN_Game.Controller
 
         public void loadContent()
         {
+            MediaPlayer.IsRepeating = true;
+
+            ImperialMarch = game.Content.Load<Song>("Music/Imperial-March");
+            //MediaPlayer.Play(ImperialMarch);
+            BeatIt = game.Content.Load<Song>("Music/BeatIt");
+            //MediaPlayer.Play(BeatIt);
             // laod data if needed etc etc
             if (gameState.Equals(GameState.Playing))
             {
                 if (!(prevGameState.Equals(GameState.Playing)))
                 {
+                    MediaPlayer.Play(BeatIt);
+
                     //game.Content.Unload();
                     if (SkyBox != null)
                     {
                         SkyBox.Dispose();
                         SkyBox = null;
                     }
-
                     loadMap(INITIAL_MAP);
 
                     SkyBox.Initialize();
                     SkyBox.loadContent();
-
+                    sun = new Graphics.SunDrawer(new Vector3(mapRadius + 0.01f, -750, -750),
+                                                 new Vector3(mapRadius + 0.01f, 750, -750),
+                                                 new Vector3(mapRadius + 0.01f, -750, 750),
+                                                 new Vector3(mapRadius + 0.01f, 750, 750), game);
                     prevGameState = GameState.Playing;
 
                     //Player2.Target = Player1;
@@ -220,7 +234,8 @@ namespace BBN_Game.Controller
             }
             else
             {
-                ObjectsLoaded = false;
+                MediaPlayer.Play(ImperialMarch);
+                ObjectsLoaded = true;
             }
 
             menuController.loadContent();
@@ -464,24 +479,16 @@ namespace BBN_Game.Controller
                     if (Team1Base.getHealth <= 0)
                     {
                         gameState = GameState.EndGame;
+                        menuController.updateState();
                         player1Win = false;
                         player2Win = true;
                     }
                     if (Team2Base.getHealth <= 0)
                     {
-                        gameState = GameState.EndGame;
+                        gameState = GameState.EndGame;                       
+                        menuController.updateState();
                         player1Win = true;
                         player2Win = false;
-                    }
-
-                    //end-game conditions
-                    if (Team1Base.getHealth <= 0)
-                    {
-                        gameState = GameState.EndGame;
-                    }
-                    if (Team2Base.getHealth <= 0)
-                    {
-                        gameState = GameState.EndGame;
                     }
 
                     if (GamePad.GetState(PlayerIndex.One).IsConnected)
@@ -511,6 +518,8 @@ namespace BBN_Game.Controller
             }
             else
             {
+                if (ObjectsLoaded == false)
+                    loadContent();
                 menuController.updateMenu(gameTime);
             }
         }
@@ -595,6 +604,8 @@ namespace BBN_Game.Controller
             //draw the players hud now (so that the target boxes wont obscure them)
             player.drawHud(game.sb, DynamicObjs, gameTime);
             
+            //draw the sun
+            sun.draw(Matrix.Identity, cam, game.GraphicsDevice);
             //TODO DEBUG: draw the paths of the AI
             //drawPaths(gameTime, player.Camera, new BasicEffect(game.GraphicsDevice, null), game.GraphicsDevice);
         }

@@ -31,8 +31,8 @@ namespace BBN_Game.Objects
             typeOfLine = PrimitiveType.LineStrip;
 
             Shield = 100;
-            Health = 100;
-            totalHealth = 100;
+            Health = 200;
+            totalHealth = 200;
         }
 
 

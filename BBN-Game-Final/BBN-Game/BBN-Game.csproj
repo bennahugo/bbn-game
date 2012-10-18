@@ -106,6 +106,7 @@
     <Compile Include="Graphics\Shapes\QuadDrawer.cs" />
     <Compile Include="Graphics\Skybox\Skybox.cs" />
     <Compile Include="Graphics\Shapes\Sphere.cs" />
+    <Compile Include="Graphics\SunDrawer.cs" />
     <Compile Include="Grid\GridObjectInterface.cs" />
     <Compile Include="Grid\GridStructure.cs" />
     <Compile Include="Controller\MathEuler.cs" />
