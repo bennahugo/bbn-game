@@ -176,9 +176,9 @@ namespace BBN_Game.Objects
         protected override void resetModels()
         {
             if (this.Team == Team.Red)
-                model = Game.Content.Load<Model>("Models/Ships/playerShip");
+                model = Game.Content.Load<Model>("Models/Ships/playerShipRed");
             else
-                model = Game.Content.Load<Model>("Models/Ships/playerShip");
+                model = Game.Content.Load<Model>("Models/Ships/playerShipBlue");
 
             f = Game.Content.Load<SpriteFont>("SpriteFont1");
 

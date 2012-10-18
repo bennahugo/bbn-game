@@ -1,4 +1,5 @@
 Content\Menu\trade_menu_new.xnb
+Content\FBX\A0A42C2C\playerShipRed.fbm\SpaceCr_01_0.xnb
 Content\Models\Ships\Turret1.xnb
 Content\HudTextures\square.xnb
 Content\Skybox\Starfield.xnb
@@ -38,6 +39,7 @@ Content\Menu\keyboard_controls.xnb
 Content\Models\Ships\space+craft+2+uv.xnb
 Content\Maps\Death Zone.xml
 Content\FBX\9A842965\mars2.fbm\mars0kuu2png_0.xnb
+Content\Models\Ships\SpaceCr_01.xnb
 Content\Fonts\pause_menu.xnb
 Content\HudTextures\hexagon.xnb
 Content\stats_icons\malpha_small.xnb
@@ -46,6 +48,7 @@ Content\HudTextures\arrow.xnb
 Content\HudTextures\rocket_c.xnb
 Content\Fonts\menuFont.xnb
 Content\Models\Ships\spaceStation.xnb
+Content\Models\Ships\playerShipBlue.xnb
 Content\Shader\targetBox.xnb
 Content\stats_icons\destroyer_small.xnb
 Content\Models\Projectiles\Cube.xnb
@@ -70,6 +73,7 @@ Content\Models\Ships\Astroid02.xnb
 Content\FBX\72722B83\AstrFBX2.fbm\Astroid01_0.xnb
 Content\HudTextures\HealthBar.xnb
 Content\Particles\checker.xnb
+Content\Models\Ships\playerShipRed.xnb
 Content\Models\Ships\space+craft+3+uv_0.xnb
 Content\Fonts\distanceFont.xnb
 Content\Skybox\space1.xnb
