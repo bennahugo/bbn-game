@@ -21,10 +21,16 @@ namespace BBN_Game.Controller
                     {
                         turret.changeTeam(player.Team);
                         GameController.AIController.registerTurretOnTeam(turret, player.Team);
-                        if (player.Team == Objects.Team.Red) 
+                        if (player.Team == Objects.Team.Red)
+                        {
+                            Controller.GameController.Team1Gold.Add(TradingInformation.creditsForCapturingTower.ToString());
                             Controller.GameController.team1.teamCredits += TradingInformation.creditsForCapturingTower;
+                        }
                         else
+                        {
+                            Controller.GameController.Team2Gold.Add(TradingInformation.creditsForCapturingTower.ToString());
                             Controller.GameController.team2.teamCredits += TradingInformation.creditsForCapturingTower;
+                        }
                         break;
                     }
                 }

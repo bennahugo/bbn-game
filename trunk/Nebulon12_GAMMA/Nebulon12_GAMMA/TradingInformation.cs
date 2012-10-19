@@ -13,7 +13,7 @@ namespace BBN_Game
         public const int creditsForDestroyingFighter = 200;
         public const int creditsForDestroyingDestroyer = 350;
         public const int creditsForDestroyingPlayer = 500;
-        public const int startingCreditsPerTeam = 5000;
+        public const int startingCreditsPerTeam = 1000;
         public const int creditsForCapturingTower = 70;
         public const int creditsForDestroyingTower = 300;
     }
