@@ -825,7 +825,7 @@ namespace BBN_Game.AI
                 //Spawn player if he is dead!
                 if (ti.teamPlayer.getHealth <= 0)
                 {
-                    ti.teamPlayer.killObject();
+                    //ti.teamPlayer.killObject();
                     Controller.GameController.removeObject(ti.teamPlayer);
                     ti.teamPlayer = Controller.GameController.spawnPlayer(ti.teamId, ti.teamPlayer.Game);
                     ti.playerObjective = null;

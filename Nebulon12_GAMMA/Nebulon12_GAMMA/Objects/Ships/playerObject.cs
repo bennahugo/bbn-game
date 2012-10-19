@@ -1110,7 +1110,20 @@ namespace BBN_Game.Objects
                     //sb.DrawString(f, "<>", new Vector2(posx, posy), Color.Red);
                 }
             #endregion
-            
+
+            #region "Gold notifier"
+            List<String> gold = this.Team.Equals(Team.Red) ? Controller.GameController.Team1Gold : Controller.GameController.Team2Gold;
+
+            startY = viewport.Height / 2;
+            int stringh = (int)(Math.Ceiling(f.MeasureString("l").Y));
+
+            for (int i = 0; i < gold.Count; ++i)
+            {
+                sb.DrawString(f, "+ $" + gold[i], new Vector2(0, startY - stringh * (i + 1)), Color.Aqua);
+            }
+
+            #endregion
+
             sb.End();
 
             GraphicsDevice.RenderState.DepthBufferEnable = true;

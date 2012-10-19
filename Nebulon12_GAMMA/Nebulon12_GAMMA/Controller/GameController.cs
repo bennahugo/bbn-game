@@ -148,6 +148,9 @@ namespace BBN_Game.Controller
         private SpriteFont f;
         private float loadbtnangle = 0;
         public static Boolean continueL = false;
+
+        public static List<String> Team1Gold, Team2Gold;
+        protected float stringCounterT1 = 2, stringCounterT2 = 2;
         #endregion
 
         #region "XNA Required"
@@ -210,6 +213,9 @@ namespace BBN_Game.Controller
             {
                 if (!(prevGameState.Equals(GameState.Playing)))
                 {
+                    Team1Gold = new List<string>();
+                    Team2Gold = new List<string>();
+
                     MediaPlayer.Play(beatit);
 
                     //game.Content.Unload();
@@ -355,10 +361,18 @@ namespace BBN_Game.Controller
         /// <param name="team">team of the player who has made the selection</param>
         private void makePurchase(Objects.playerObject player, AI.TeamInformation team)
         {
+            int fighters = 0,destroyers = 0;
+            foreach (DynamicObject o in team.spawnQueue)
+                if (o is Fighter)
+                    fighters++;
+                else if (o is Destroyer)
+                    destroyers++;
+
             if (player.TradeMenuOption == 1)
             {
                 //buy destroyer
-                if (team.teamCredits >= TradingInformation.destroyerCost && team.teamDestroyers.Count < MAX_NUM_DESTROYERS_PER_TEAM)
+                
+                if (team.teamCredits >= TradingInformation.destroyerCost && team.teamDestroyers.Count+destroyers < MAX_NUM_DESTROYERS_PER_TEAM)
                 {
                     Objects.Destroyer ds = new Objects.Destroyer(game, team.teamId, Vector3.Zero);
                     team.spawnQueue.Add(ds);
@@ -368,7 +382,7 @@ namespace BBN_Game.Controller
             else if (player.TradeMenuOption == 2)
             {
                 //buy fighter
-                if (team.teamCredits >= TradingInformation.fighterCost && team.teamDestroyers.Count < MAX_NUM_FIGHTERS_PER_TEAM)
+                if (team.teamCredits >= TradingInformation.fighterCost && team.teamFighters.Count+fighters < MAX_NUM_FIGHTERS_PER_TEAM)
                 {
                     Objects.Fighter fi = new Objects.Fighter(game, team.teamId, Vector3.Zero);
                     team.spawnQueue.Add(fi);
@@ -526,6 +540,25 @@ namespace BBN_Game.Controller
                     //Update AI and navigation:
                     aiController.update(gameTime, game);
                     navComputer.updateAIMovement(gameTime);
+
+                    if (Team1Gold.Count > 0)
+                    {
+                        stringCounterT1 -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (stringCounterT1 <= 0)
+                        {
+                            Team1Gold.RemoveAt(Team1Gold.Count - 1);
+                            stringCounterT1 = 2;
+                        }
+                    }
+                    if (Team2Gold.Count > 0)
+                    {
+                        stringCounterT2 -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (stringCounterT2 <= 0)
+                        {
+                            Team2Gold.RemoveAt(Team2Gold.Count - 1);
+                            stringCounterT2 = 2;
+                        }
+                    }
                 }
                 else
                 {
@@ -742,17 +775,29 @@ namespace BBN_Game.Controller
             {
                 Fighters.Remove(Object);
                 if (Object.Team.Equals(Team.Red))
+                {
                     team2.teamCredits += TradingInformation.creditsForDestroyingFighter;
+                    Team2Gold.Add(TradingInformation.creditsForDestroyingFighter.ToString());
+                }
                 else
+                {
                     team1.teamCredits += TradingInformation.creditsForDestroyingFighter;
+                    Team1Gold.Add(TradingInformation.creditsForDestroyingFighter.ToString());
+                }
             }
             else if (Object is Objects.Destroyer)
             {
                 Destroyers.Remove(Object);
                 if (Object.Team.Equals(Team.Red))
+                {
+                    Team2Gold.Add(TradingInformation.creditsForDestroyingDestroyer.ToString());
                     team2.teamCredits += TradingInformation.creditsForDestroyingDestroyer;
+                }
                 else
+                {
+                    Team1Gold.Add(TradingInformation.creditsForDestroyingDestroyer.ToString());
                     team1.teamCredits += TradingInformation.creditsForDestroyingDestroyer;
+                }
             }
             else if (Object is Objects.Projectile)
             {
@@ -763,20 +808,28 @@ namespace BBN_Game.Controller
                 if (Object.Team.Equals(Team.Red))
                 {
                     laugh1.Play();
+                    Team2Gold.Add(TradingInformation.creditsForDestroyingPlayer.ToString());
                     team2.teamCredits += TradingInformation.creditsForDestroyingPlayer;
                 }
                 else
                 {
                     laugh2.Play();
+                    Team1Gold.Add(TradingInformation.creditsForDestroyingPlayer.ToString());
                     team1.teamCredits += TradingInformation.creditsForDestroyingPlayer;
                 }
             }
             else if (Object is Objects.Turret)
             {
                 if (Object.Team.Equals(Team.Red))
+                {
+                    Team2Gold.Add(TradingInformation.creditsForDestroyingTower.ToString());
                     team2.teamCredits += TradingInformation.creditsForDestroyingTower;
+                }
                 else
+                {
+                    Team1Gold.Add(TradingInformation.creditsForDestroyingTower.ToString());
                     team1.teamCredits += TradingInformation.creditsForDestroyingTower;
+                }
             }
             if (Object is Objects.DynamicObject)
                 DynamicObjs.Remove(Object);
