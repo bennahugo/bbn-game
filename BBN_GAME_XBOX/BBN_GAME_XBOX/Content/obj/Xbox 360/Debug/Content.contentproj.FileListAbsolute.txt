@@ -1,2 +1,0 @@
-C:\Documents and Settings\Machine3\Desktop\BBN_GAME_XBOX\BBN_GAME_XBOX\Content\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
-C:\Users\benna\Desktop\repository\trunk\BBN_GAME_XBOX\BBN_GAME_XBOX\Content\obj\Xbox 360\Debug\ResolveAssemblyReference.cache

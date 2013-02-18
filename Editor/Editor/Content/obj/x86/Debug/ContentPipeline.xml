@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Graphics="Microsoft.Xna.Framework.Graphics" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Models\Cube.fbx</Source>
+      <Name>Models\Cube</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Models\Cube.xnb</Output>
+      <Time>2012-10-20T02:26:43.8207758+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Cube_0.xml</Key>
+        <Value>2012-10-22T14:08:24.2026141+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\marker.fbx</Source>
+      <Name>Models\marker</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Models\marker.xnb</Output>
+      <Time>2012-10-20T02:26:43.7957743+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\marker_0.xml</Key>
+        <Value>2012-10-22T14:08:25.5776927+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\arrow.fbx</Source>
+      <Name>Models\arrow</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Models\arrow.xnb</Output>
+      <Time>2012-10-20T02:26:43.8157755+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\arrow_0.xml</Key>
+        <Value>2012-10-22T14:08:26.7047572+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\AstrFBX.fbx</Source>
+      <Name>Models\AstrFBX</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Models\AstrFBX.xnb</Output>
+      <Time>2012-10-20T02:26:43.8037748+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\AstrFBX_0.xml</Key>
+        <Value>2012-10-22T14:08:27.8528228+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\FBX\4ED1240C\AstrFBX.fbm\Astroid01_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>font.spritefont</Source>
+      <Name>font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2012-10-20T02:26:43.7887739+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\SkyboxBack.png</Source>
+      <Name>Images\SkyboxBack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxBack.xnb</Output>
+      <Time>2012-10-20T02:26:58.8286342+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\SkyboxBottom.png</Source>
+      <Name>Images\SkyboxBottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxBottom.xnb</Output>
+      <Time>2012-10-20T02:26:58.842635+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\SkyboxFront.png</Source>
+      <Name>Images\SkyboxFront</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxFront.xnb</Output>
+      <Time>2012-10-20T02:26:58.8526355+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\SkyboxLeft.png</Source>
+      <Name>Images\SkyboxLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxLeft.xnb</Output>
+      <Time>2012-10-20T02:26:58.861636+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\SkyboxRight.png</Source>
+      <Name>Images\SkyboxRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxRight.xnb</Output>
+      <Time>2012-10-20T02:26:58.8186336+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\SkyboxTop.png</Source>
+      <Name>Images\SkyboxTop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Images\SkyboxTop.xnb</Output>
+      <Time>2012-10-20T02:26:58.8346345+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\Starfield.png</Source>
+      <Name>Skybox\Starfield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Skybox\Starfield.xnb</Output>
+      <Time>2012-10-20T02:26:42.7397139+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Astroid.png</Source>
+      <Name>Textures\Astroid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Textures\Astroid.xnb</Output>
+      <Time>2012-10-20T02:26:45.2638583+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Astroid01.png</Source>
+      <Name>Textures\Astroid01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Textures\Astroid01.xnb</Output>
+      <Time>2012-10-20T02:26:45.2698586+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Astroid02.png</Source>
+      <Name>Textures\Astroid02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Textures\Astroid02.xnb</Output>
+      <Time>2012-10-20T02:26:45.275859+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Astroid04.png</Source>
+      <Name>Textures\Astroid04</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Textures\Astroid04.xnb</Output>
+      <Time>2012-10-20T02:26:45.2808593+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Astroid.png</Source>
+      <Name>Models\Astroid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Models\Astroid.xnb</Output>
+      <Time>2012-10-20T02:26:43.8097751+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Starfield.png</Source>
+      <Name>Images\Starfield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Images\Starfield.xnb</Output>
+      <Time>2012-10-20T02:26:58.8096331+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Shader\skyBoxEffect.fx</Source>
+      <Name>Shader\skyBoxEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Shader\skyBoxEffect.xnb</Output>
+      <Time>2012-10-20T02:26:58.8856374+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Shader\targetBox.fx</Source>
+      <Name>Shader\targetBox</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\Shader\targetBox.xnb</Output>
+      <Time>2012-10-20T02:26:58.8906377+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Cube.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Cube_0.xml</Output>
+      <Time>2012-10-20T02:26:43.8207758+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\marker.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\marker_0.xml</Output>
+      <Time>2012-10-20T02:26:43.7957743+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\arrow.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\arrow_0.xml</Output>
+      <Time>2012-10-20T02:26:43.8157755+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\AstrFBX.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\AstrFBX_0.xml</Output>
+      <Time>2012-10-20T02:26:43.8037748+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\4ED1240C\AstrFBX.fbm\Astroid01.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\FBX\4ED1240C\AstrFBX.fbm\Astroid01_0.xnb</Output>
+      <Time>2012-10-22T14:08:27.7258156+02:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Editor\Editor\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2009-05-14T11:13:52+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2009-05-14T11:13:52+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2009-05-14T11:13:52+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2009-05-14T11:13:52+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2009-05-14T11:13:52+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-07-31T19:02:12.0090726+02:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
