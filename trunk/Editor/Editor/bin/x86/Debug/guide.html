@@ -1,0 +1,141 @@
+<html>
+  <header>
+    <title>Guide to the BBN World Editor</title>
+    <style type="text/css">
+    	h1 {background-color:#7788ff}
+    	h2 {background-color:#bbccff}
+    	#title {background-color:#0000ff; color:yellow; font-size:48pt}
+    </style>
+  </header>
+  <body>
+    <h1 align="center" id="title">BBN World Editor</h1>
+    <p align="center"><i>Version: 1.0 </br>(C) Benjamin Vorster Hugo, Brandon James Talbot and Nathan Bert Floor, June 2012. </br> </br> Usage, modification and distribution of this software is subject  to the terms and conditions stipulated in the GNU General Public License version 3, as published by the Free Software Foundation, Inc. in June of 2007. Available from <a href="http://www.gnu.org/copyleft/gpl.html">The Free Software Foundation's website</a>.</i></p>
+    
+    <h1> Complete List of Features </h1>
+    <ui>
+      <li> Object property editor. Ability to load arbitrary properties into the editor and specify object types dynamically using XML</li>
+      <li> 3D object selection (picking) and axis-based movement in 3D space. Rotations using mouse movement </li>
+      <li> AI path node, linking and spawn point placement </li>
+      <li> Skybox support </li>
+      <li> Full camera control using both mouse and keyboard as indicated below </li>
+      <li> Map files stored in XML format </li>
+    </ui>
+    <h1> 3D User input devices</h1>
+      <h2> Key bindings </h2>
+	<ui>
+	  <li> Numpad 8: sets camera position in negative z direction </li>
+	  <li> Numpad 2: sets camera position in positive z direction </li>
+	  <li> Numpad 4: sets camera position in negative x direction </li>
+	  <li> Numpad 6: sets camera position in positive x direction </li>
+	  <li> Page Up: sets camera position in negative y direction </li>
+	  <li> Page Down: sets camera position in negative y direction </li>
+	  <li> Y: If object is selected switches mouse mode to yaw rotation using mouse movement</li>
+	  <li> R: If object is selected switches mouse mode to roll rotation using mouse movement</li>
+	  <li> P: If object is selected switches mouse mode to pitch rotation using mouse movement</li>
+	  <li> C: If path node is selected switches allows the user to connect the node to another node, using the mouse left button </li>
+    <li> +: Increases movement speed </li>
+    <li> -: Decreases movement speed </li>
+	</ui>
+      <h2> Mouse bindings </h2>
+      <ui>
+	<li> Holding right button: rotates the camera, up/down sets the pitch and left/right the yaw rotations respectively</li>
+	<li> Clicking left button: Selects closest object in 3 space. If the current selected object is a path node then a connection between two nodes can be created by pressing and holding 'C' down
+	on the keyboard.</li>
+	<li> Click and hold left button on one of the selected object's 3 axis of movement: Enables movement of the object in the indicated direction of the selected axis. Move the mouse in the direction of this axis to move the object, while holding.</li>
+	<li> Scroll Wheel Up/Down: Zooms the camera in or out of the current focus point</li>
+	<li> Moving mouse while holding y/p/r down on the keyboard: rotates the object (yaw/pitch/roll) respectively</li>
+      </ui>
+      <h1> The GUI </h1>
+       <p>The GUI consists of 2D controls panels and a 3D input panel. Click on the 3D panel to switch to 3D input mode (the current mode is indicated at the bottom of the panel for clarity).</p>
+       	<table border="1">
+       		<tr>
+       			<td>
+       				<b>Action</b>
+       			</td>
+       			<td>
+       				<b>How to</b>
+       			</td>
+       		</tr>
+       		<tr>
+       			<td>
+       				Adding item to the map
+       			</td>
+       			<td>
+       				Click on a a node item in the toolbox tree. The object will be placed at the current camera focus point.
+       			</td>
+       		</tr>
+       		<tr>
+       			<td>
+       				Moving, rotating and setting other properties of an object an object
+       			</td>
+       			<td>
+       				Select an existing object from the drop down list in the "Properties Explorer", or select the object in the 3D view by clicking on it.
+       				The properties will then be shown in the table in the "Properties Explorer". When the 3D view is in focus the objects can be adjusted 					by using the axis and key combinations as described above.</br>
+       				To move object to the current camera focus use toolstrip button.</br>
+       				To delete object use toolstrip button.
+       			</td>
+       		</tr>
+       		<tr>
+       			<td>
+       				Manipulating the camera
+       			</td>
+       			<td>
+       				To move: use numpad keys and page up/down as indicated above.
+       				To rotate: hold right mouse button and move mouse as indicated above.
+       				To focus camera on object/arbitrary position: use toolstrip buttons.
+       			</td>
+       		</tr>
+       		<tr>
+       			<td>
+       				Manipulating path nodes
+       			</td>
+       			<td>
+       				To add: Use toolstrip button
+       				To connect/disconnect: Select path node and then press and hold "C" and select another path node. Use toolstrip button to specify the 					connection manually.
+       			</td>
+       		</tr>
+       		<tr>
+       			<td>
+       				To add spawn points
+       			</td>
+       			<td>
+       				Use toolstrip button to add. Spawn point can be manipulated as any other object.
+       			</td>
+       		</tr>
+       		<tr>
+       			<td>
+       				To modify skybox
+       			</td>
+       			<td>
+       				Use toolstrip button. Follow instructions and specify texture names (without extention types).
+       			</td>
+       		</tr>
+       		<tr>
+       			<td>
+       				To add attribute
+       			</td>
+       			<td>
+       				Use toolstrip button. Specify attribute name and value. Attribute will now be added to the "Properties Explorer".
+       				Properties have to be unique.
+       			</td>
+       		</tr>
+       	</table>
+      <h1>Specifying your own objects</h1>
+      <p>Default object properties are specified in XML files located in Content/MapItems/[filename]. The following example shows the compulsory fields and attributes: </p>
+      <pre><code> 
+        &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        &lt;Entity Name=&quot;Astriod&quot; Type=&quot;Scenery&quot;&gt;
+        &lt;x&gt;0&lt;/x&gt;
+        &lt;y&gt;0&lt;/y&gt;
+        &lt;z&gt;0&lt;/z&gt;
+        &lt;yaw&gt;0&lt;/yaw&gt;
+        &lt;pitch&gt;0&lt;/pitch&gt;
+        &lt;roll&gt;0&lt;/roll&gt;
+        &lt;scaleX&gt;1&lt;/scaleX&gt;
+        &lt;scaleY&gt;1&lt;/scaleY&gt;
+        &lt;scaleZ&gt;1&lt;/scaleZ&gt;
+        &lt;modelName&gt;Models/Cube&lt;/modelName&gt;      
+        &lt;/Entity&gt;
+       </code></pre>       
+  </body>
+</html>

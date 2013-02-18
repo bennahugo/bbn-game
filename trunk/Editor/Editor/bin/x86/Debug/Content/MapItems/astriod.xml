@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entity Name="Astroid" Type="Scenery">
+  <x>0</x>
+  <y>0</y>
+  <z>0</z>
+  <yaw>0</yaw>
+  <pitch>0</pitch>
+  <roll>0</roll>
+  <scaleX>0.2</scaleX>
+  <scaleY>0.2</scaleY>
+  <scaleZ>0.2</scaleZ>
+  <damageOnCollision>0</damageOnCollision>
+  <modelName>Models/AstrFBX</modelName>
+</Entity>
