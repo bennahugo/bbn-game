@@ -1,0 +1,242 @@
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Fonts\distanceFont.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Fonts\menuFont.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Fonts\pause_menu.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Fonts\selectedFont.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Fonts\trade_menu.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\font.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\SpriteFont1.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\AstrFBX.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\AstrFBX2.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\CallistoModel.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\mars2.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\Saturn.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\Venus.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Projectiles\Cube.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Fighter1.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Fighter2.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Fighter3.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\playerShipBlue.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\playerShipRed.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spaceStation.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Turret1.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Turret2.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\grid.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\ParticleEffect.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Shader\skyBoxEffect.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Shader\targetBox.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\arrow.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\base.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\base_w.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\circle.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\diamond.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\GlobalHealthBar.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\HealthBar.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\HealthBarHolder.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\hexagon.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\map.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\rocket_bw.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\rocket_c.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\shipTex.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\shipTex_bw.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\square.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\triangle.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\control_menu.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\dark_trans.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\dark_trans_new.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\industrial.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\keyboard_controls.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\nebula_blue.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\pause_menu.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\purple.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\star_destroyer_bridge.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\sunrise_in_space.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\trade_menu_new.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\trade_menu_newest.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\waterfall_city.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\xbox_controls.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\Astroid.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\Astroid01.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\Astroid02.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\Astroid04.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\callisto.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\mars0kuu2png.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\SaturnMap_png.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\venus0aaa2_png.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Astroid02.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft2uv.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft3uv.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft4uv.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\SpaceCr_00.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\SpaceCr_01.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Turret.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\turretT1.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\TurretT2.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\checker.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\explosion.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\fire.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\smoke.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\space1.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\space2.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\space3.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\space4.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\space5.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\Starfield.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\stats_icons\destroyer2_small.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\stats_icons\destroyer_small.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\stats_icons\fighter_small.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\stats_icons\malpha_small.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\stats_icons\missile_small.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\sun\flare.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\sun\sun.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\sun\sunglare.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\BeatIt.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\Imperial-March.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\deadLaugh.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\deadLaugh2.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\explosion.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\758B2BB7\AstrFBX.fbm\Astroid01_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\A0CE2BE9\AstrFBX2.fbm\Astroid01_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\28862D52\CallistoModel.fbm\callisto_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\C6E229CB\mars2.fbm\mars0kuu2png_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\F33F2A83\Saturn.fbm\SaturnMap_png_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\C8882A17\Venus.fbm\venus0aaa2_png_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft2uv_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft3uv_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft4uv_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\SpaceCr_00_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\CF662C92\playerShipRed.fbm\SpaceCr_01_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\A2182C24\spaceStation.fbm\Astroid02_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\C85F29ED\Turret1.fbm\Turret_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\C86429EE\Turret2.fbm\TurretT2_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\C86429EE\Turret2.fbm\turretT1_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\checker_0.xnb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\BeatIt.wma
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\Imperial-March.wma
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Maps\Death Zone.xml
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Nebulon12_GAMMA.exe
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Nebulon12_GAMMA.pdb
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\obj\Xbox 360\Debug\Nebulon12_GAMMA.exe
+C:\Documents and Settings\Machine3\Desktop\Nebulon12_GAMMA\Nebulon12_GAMMA\obj\Xbox 360\Debug\Nebulon12_GAMMA.pdb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\SaturnMap_png.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\BeatIt.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\checker_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\sunrise_in_space.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\FE462CCF\Turret2.fbm\turretT1_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\font.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\Venus.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\TurretT2.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\GlobalHealthBar.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\smoke.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\square.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\base_w.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\Astroid01.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\stats_icons\fighter_small.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\sun\sunglare.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\FCC42CAC\mars2.fbm\mars0kuu2png_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\waterfall_city.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft2uv.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\stats_icons\destroyer2_small.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\AstrFBX2.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Fonts\menuFont.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft2uv_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\arrow.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Turret2.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\industrial.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\Astroid04.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\mars2.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\pause_menu.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft3uv_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\sun\sun.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\BeatIt.wma
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\base.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\playerShipBlue.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\fire.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\mars0kuu2png.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\space1.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\Starfield.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\sun\flare.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\FE462CCF\Turret2.fbm\TurretT2_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\circle.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Fonts\trade_menu.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\AstrFBX.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Projectiles\Cube.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\trade_menu_newest.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Fonts\pause_menu.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\SpaceCr_00.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\Astroid.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Fighter1.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\hexagon.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\rocket_c.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\explosion.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\HealthBarHolder.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\dark_trans.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Astroid02.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\rocket_bw.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\callisto.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\map.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft4uv_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Fighter2.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\B6F12E98\AstrFBX.fbm\Astroid01_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Fonts\selectedFont.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\HealthBar.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\stats_icons\destroyer_small.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\turretT1.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Fonts\distanceFont.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\ParticleEffect.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\E5152ECA\AstrFBX2.fbm\Astroid01_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\keyboard_controls.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\purple.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\xbox_controls.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\169D2F73\playerShipRed.fbm\SpaceCr_01_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\deadLaugh.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Fighter3.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\space2.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\E65F2F05\spaceStation.fbm\Astroid02_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\diamond.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\75703033\CallistoModel.fbm\callisto_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\SpaceCr_00_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\shipTex.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\trade_menu_new.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\dark_trans_new.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\Imperial-March.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\explosion.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\SpriteFont1.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Maps\Death Zone.xml
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\control_menu.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\venus0aaa2_png.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\nebula_blue.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\playerShipRed.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Turret1.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\space5.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\SpaceCr_01.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\deadLaugh2.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\FE412CCE\Turret1.fbm\Turret_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Menu\star_destroyer_bridge.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\space4.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft4uv.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\2C112D64\Saturn.fbm\SaturnMap_png_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Shader\targetBox.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Music\Imperial-March.wma
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Skybox\space3.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Asteroids\Astroid02.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\triangle.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\HudTextures\shipTex_bw.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\Saturn.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\Turret.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spaceStation.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\stats_icons\missile_small.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Shader\skyBoxEffect.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Planets\CallistoModel.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\grid.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\FBX\FE6A2CF8\Venus.fbm\venus0aaa2_png_0.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\stats_icons\malpha_small.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Models\Ships\spacecraft3uv.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Content\Particles\checker.xnb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Nebulon12_GAMMA.exe
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\Xbox 360\Debug\Nebulon12_GAMMA.pdb
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\obj\Xbox 360\Debug\Nebulon12_GAMMA.exe
+C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\obj\Xbox 360\Debug\Nebulon12_GAMMA.pdb
