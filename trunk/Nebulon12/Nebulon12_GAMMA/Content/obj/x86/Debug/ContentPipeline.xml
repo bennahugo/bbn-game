@@ -1,0 +1,1235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Graphics="Microsoft.Xna.Framework.Graphics" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Fonts\distanceFont.spritefont</Source>
+      <Name>Fonts\distanceFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Fonts\distanceFont.xnb</Output>
+      <Time>2012-10-20T02:29:23.6539177+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\menuFont.spritefont</Source>
+      <Name>Fonts\menuFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Fonts\menuFont.xnb</Output>
+      <Time>2012-10-20T02:29:23.6449172+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\pause_menu.spritefont</Source>
+      <Name>Fonts\pause_menu</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Fonts\pause_menu.xnb</Output>
+      <Time>2012-10-20T02:29:23.658918+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\selectedFont.spritefont</Source>
+      <Name>Fonts\selectedFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Fonts\selectedFont.xnb</Output>
+      <Time>2012-10-20T02:29:23.6499175+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\trade_menu.spritefont</Source>
+      <Name>Fonts\trade_menu</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Fonts\trade_menu.xnb</Output>
+      <Time>2012-10-20T02:29:23.6399169+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\font.spritefont</Source>
+      <Name>Particles\font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Particles\font.xnb</Output>
+      <Time>2012-10-20T02:29:23.5679128+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Asteroids\AstrFBX.fbx</Source>
+      <Name>Models\Asteroids\AstrFBX</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Asteroids\AstrFBX.xnb</Output>
+      <Time>2012-10-20T02:29:09.9511339+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Asteroids\AstrFBX_0.xml</Key>
+        <Value>2012-10-20T02:31:51.5553772+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\B6F12E98\AstrFBX.fbm\Astroid01_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Planets\CallistoModel.FBX</Source>
+      <Name>Models\Planets\CallistoModel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Planets\CallistoModel.xnb</Output>
+      <Time>2012-10-20T02:28:34.6381141+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Planets\CallistoModel_0.xml</Key>
+        <Value>2012-10-20T02:31:53.1834703+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\75703033\CallistoModel.fbm\callisto_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Planets\mars2.FBX</Source>
+      <Name>Models\Planets\mars2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Planets\mars2.xnb</Output>
+      <Time>2012-10-20T02:28:05.4664456+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Planets\mars2_0.xml</Key>
+        <Value>2012-10-20T02:31:54.6845561+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\FCC42CAC\mars2.fbm\mars0kuu2png_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Planets\Saturn.FBX</Source>
+      <Name>Models\Planets\Saturn</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Planets\Saturn.xnb</Output>
+      <Time>2012-10-20T02:28:34.6451145+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Planets\Saturn_0.xml</Key>
+        <Value>2012-10-20T02:31:56.027633+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\2C112D64\Saturn.fbm\SaturnMap_png_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Planets\Venus.FBX</Source>
+      <Name>Models\Planets\Venus</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Planets\Venus.xnb</Output>
+      <Time>2012-10-20T02:28:34.6871169+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Planets\Venus_0.xml</Key>
+        <Value>2012-10-20T02:31:57.3807104+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\FE6A2CF8\Venus.fbm\venus0aaa2_png_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Projectiles\Cube.fbx</Source>
+      <Name>Models\Projectiles\Cube</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Projectiles\Cube.xnb</Output>
+      <Time>2012-10-20T02:27:58.0540217+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Projectiles\Cube_0.xml</Key>
+        <Value>2012-10-20T02:31:58.843794+02:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter1.fbx</Source>
+      <Name>Models\Ships\Fighter1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Fighter1.xnb</Output>
+      <Time>2012-10-20T02:29:05.7058911+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\Fighter1_0.xml</Key>
+        <Value>2012-10-20T02:32:00.0068606+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\spacecraft2uv_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter2.fbx</Source>
+      <Name>Models\Ships\Fighter2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Fighter2.xnb</Output>
+      <Time>2012-10-20T02:29:05.7118915+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\Fighter2_0.xml</Key>
+        <Value>2012-10-20T02:32:01.8089636+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\spacecraft3uv_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter3.fbx</Source>
+      <Name>Models\Ships\Fighter3</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Fighter3.xnb</Output>
+      <Time>2012-10-20T02:29:05.738893+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\Fighter3_0.xml</Key>
+        <Value>2012-10-20T02:32:03.6580694+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\spacecraft4uv_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShipBlue.fbx</Source>
+      <Name>Models\Ships\playerShipBlue</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\playerShipBlue.xnb</Output>
+      <Time>2012-10-20T02:29:05.8218978+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\playerShipBlue_0.xml</Key>
+        <Value>2012-10-20T02:32:05.3841681+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShipRed.FBX</Source>
+      <Name>Models\Ships\playerShipRed</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\playerShipRed.xnb</Output>
+      <Time>2012-10-20T02:29:05.7298925+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\playerShipRed_0.xml</Key>
+        <Value>2012-10-20T02:32:06.9302566+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\169D2F73\playerShipRed.fbm\SpaceCr_01_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\spaceStation.fbx</Source>
+      <Name>Models\Ships\spaceStation</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\spaceStation.xnb</Output>
+      <Time>2012-10-20T02:29:09.2230923+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Key>
+        <Value>2012-10-20T02:32:08.5743506+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\E65F2F05\spaceStation.fbm\Astroid02_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret1.fbx</Source>
+      <Name>Models\Ships\Turret1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Turret1.xnb</Output>
+      <Time>2012-10-20T02:29:05.6908903+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\Turret1_0.xml</Key>
+        <Value>2012-10-20T02:32:10.1164388+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Turret_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret2.fbx</Source>
+      <Name>Models\Ships\Turret2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Turret2.xnb</Output>
+      <Time>2012-10-20T02:29:05.6998908+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Ships\Turret2_0.xml</Key>
+        <Value>2012-10-20T02:32:12.0485493+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\TurretT2_0.xnb</Request>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\turretT1_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Particles\grid.x</Source>
+      <Name>Particles\grid</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Particles\grid.xnb</Output>
+      <Time>2012-10-20T02:29:23.5869139+02:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Particles\grid_0.xml</Key>
+        <Value>2012-10-20T02:32:13.2756195+02:00</Value>
+      </Dependency>
+      <Request>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Particles\checker_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Particles\ParticleEffect.fx</Source>
+      <Name>Particles\ParticleEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Particles\ParticleEffect.xnb</Output>
+      <Time>2012-10-20T02:29:23.5919141+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Shader\skyBoxEffect.fx</Source>
+      <Name>Shader\skyBoxEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Shader\skyBoxEffect.xnb</Output>
+      <Time>2012-10-20T02:29:22.5808563+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Shader\targetBox.fx</Source>
+      <Name>Shader\targetBox</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Shader\targetBox.xnb</Output>
+      <Time>2012-10-20T02:29:22.5858566+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\arrow.png</Source>
+      <Name>HudTextures\arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\arrow.xnb</Output>
+      <Time>2012-10-20T02:29:12.1432593+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\base.png</Source>
+      <Name>HudTextures\base</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\base.xnb</Output>
+      <Time>2012-10-20T02:29:12.0612546+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\base_w.png</Source>
+      <Name>HudTextures\base_w</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\base_w.xnb</Output>
+      <Time>2012-10-20T02:29:12.0312529+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\circle.png</Source>
+      <Name>HudTextures\circle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\circle.xnb</Output>
+      <Time>2012-10-20T02:29:12.0362532+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\diamond.png</Source>
+      <Name>HudTextures\diamond</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\diamond.xnb</Output>
+      <Time>2012-10-20T02:29:12.0802557+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\GlobalHealthBar.png</Source>
+      <Name>HudTextures\GlobalHealthBar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\GlobalHealthBar.xnb</Output>
+      <Time>2012-10-20T02:29:12.0662549+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\hexagon.png</Source>
+      <Name>HudTextures\hexagon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\hexagon.xnb</Output>
+      <Time>2012-10-20T02:29:12.137259+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\map.png</Source>
+      <Name>HudTextures\map</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\map.xnb</Output>
+      <Time>2012-10-20T02:29:12.0912563+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\rocket_bw.png</Source>
+      <Name>HudTextures\rocket_bw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\rocket_bw.xnb</Output>
+      <Time>2012-10-20T02:29:12.0962566+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\rocket_c.png</Source>
+      <Name>HudTextures\rocket_c</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\rocket_c.xnb</Output>
+      <Time>2012-10-20T02:29:12.1312586+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\square.png</Source>
+      <Name>HudTextures\square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\square.xnb</Output>
+      <Time>2012-10-20T02:29:12.0272527+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\triangle.png</Source>
+      <Name>HudTextures\triangle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\triangle.xnb</Output>
+      <Time>2012-10-20T02:29:12.0462538+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\control_menu.png</Source>
+      <Name>Menu\control_menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Menu\control_menu.xnb</Output>
+      <Time>2012-10-20T02:29:21.0287675+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\dark_trans.png</Source>
+      <Name>Menu\dark_trans</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Menu\dark_trans.xnb</Output>
+      <Time>2012-10-20T02:29:21.0447685+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\dark_trans_new.png</Source>
+      <Name>Menu\dark_trans_new</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Menu\dark_trans_new.xnb</Output>
+      <Time>2012-10-20T02:29:20.9897653+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\keyboard_controls.png</Source>
+      <Name>Menu\keyboard_controls</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Menu\keyboard_controls.xnb</Output>
+      <Time>2012-10-20T02:29:21.0167669+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\pause_menu.png</Source>
+      <Name>Menu\pause_menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Menu\pause_menu.xnb</Output>
+      <Time>2012-10-20T02:29:20.9977658+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\trade_menu_newest.png</Source>
+      <Name>Menu\trade_menu_newest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Menu\trade_menu_newest.xnb</Output>
+      <Time>2012-10-20T02:29:21.0527689+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\xbox_controls.png</Source>
+      <Name>Menu\xbox_controls</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Menu\xbox_controls.xnb</Output>
+      <Time>2012-10-20T02:29:21.0087664+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Asteroids\Astroid.png</Source>
+      <Name>Models\Asteroids\Astroid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Asteroids\Astroid.xnb</Output>
+      <Time>2012-10-20T02:29:09.9561342+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Planets\callisto.png</Source>
+      <Name>Models\Planets\callisto</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Planets\callisto.xnb</Output>
+      <Time>2012-10-20T02:28:34.6741162+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Planets\mars0kuu2png.png</Source>
+      <Name>Models\Planets\mars0kuu2png</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Planets\mars0kuu2png.xnb</Output>
+      <Time>2012-10-20T02:28:05.455445+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Planets\SaturnMap_png.png</Source>
+      <Name>Models\Planets\SaturnMap_png</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Planets\SaturnMap_png.xnb</Output>
+      <Time>2012-10-20T02:28:05.4444444+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Planets\venus0aaa2_png.png</Source>
+      <Name>Models\Planets\venus0aaa2_png</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Planets\venus0aaa2_png.xnb</Output>
+      <Time>2012-10-20T02:28:34.6601154+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Astroid02.png</Source>
+      <Name>Models\Ships\Astroid02</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Astroid02.xnb</Output>
+      <Time>2012-10-20T02:29:05.7458934+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\spacecraft2uv.png</Source>
+      <Name>Models\Ships\spacecraft2uv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\spacecraft2uv.xnb</Output>
+      <Time>2012-10-20T02:29:05.7598942+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\spacecraft3uv.png</Source>
+      <Name>Models\Ships\spacecraft3uv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\spacecraft3uv.xnb</Output>
+      <Time>2012-10-20T02:29:05.772895+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\spacecraft4uv.png</Source>
+      <Name>Models\Ships\spacecraft4uv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\spacecraft4uv.xnb</Output>
+      <Time>2012-10-20T02:29:05.7838956+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\SpaceCr_00.png</Source>
+      <Name>Models\Ships\SpaceCr_00</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\SpaceCr_00.xnb</Output>
+      <Time>2012-10-20T02:29:05.7968963+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\SpaceCr_01.png</Source>
+      <Name>Models\Ships\SpaceCr_01</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\SpaceCr_01.xnb</Output>
+      <Time>2012-10-20T02:29:05.8148974+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret.png</Source>
+      <Name>Models\Ships\Turret</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Turret.xnb</Output>
+      <Time>2012-10-20T02:29:05.8358986+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\turretT1.png</Source>
+      <Name>Models\Ships\turretT1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\turretT1.xnb</Output>
+      <Time>2012-10-20T02:29:09.235093+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\TurretT2.png</Source>
+      <Name>Models\Ships\TurretT2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\TurretT2.xnb</Output>
+      <Time>2012-10-20T02:29:09.2450936+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\explosion.png</Source>
+      <Name>Particles\explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Particles\explosion.xnb</Output>
+      <Time>2012-10-20T02:29:23.5749132+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\fire.png</Source>
+      <Name>Particles\fire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Particles\fire.xnb</Output>
+      <Time>2012-10-20T02:29:23.5829136+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\smoke.png</Source>
+      <Name>Particles\smoke</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Particles\smoke.xnb</Output>
+      <Time>2012-10-20T02:29:23.5569121+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space1.jpg</Source>
+      <Name>Skybox\space1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Skybox\space1.xnb</Output>
+      <Time>2012-10-20T02:27:29.7594033+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space2.jpg</Source>
+      <Name>Skybox\space2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Skybox\space2.xnb</Output>
+      <Time>2012-10-20T02:27:29.7614034+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space3.jpg</Source>
+      <Name>Skybox\space3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Skybox\space3.xnb</Output>
+      <Time>2012-10-20T02:27:29.7644036+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space4.jpg</Source>
+      <Name>Skybox\space4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Skybox\space4.xnb</Output>
+      <Time>2012-10-20T02:27:29.7664037+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\space5.jpg</Source>
+      <Name>Skybox\space5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Skybox\space5.xnb</Output>
+      <Time>2012-10-20T02:27:29.754403+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Skybox\Starfield.png</Source>
+      <Name>Skybox\Starfield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Skybox\Starfield.xnb</Output>
+      <Time>2012-10-20T02:27:29.7574032+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\fighter_small.png</Source>
+      <Name>stats_icons\fighter_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\stats_icons\fighter_small.xnb</Output>
+      <Time>2012-10-20T02:29:23.7089208+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\malpha_small.png</Source>
+      <Name>stats_icons\malpha_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\stats_icons\malpha_small.xnb</Output>
+      <Time>2012-10-20T02:29:23.7169213+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stats_icons\missile_small.png</Source>
+      <Name>stats_icons\missile_small</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\stats_icons\missile_small.xnb</Output>
+      <Time>2012-10-20T02:29:23.7039205+02:00</Time>
+    </Item>
+    <Item>
+      <Source>sun\flare.png</Source>
+      <Name>sun\flare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\sun\flare.xnb</Output>
+      <Time>2012-10-20T02:29:22.5258532+02:00</Time>
+    </Item>
+    <Item>
+      <Source>sun\sun.png</Source>
+      <Name>sun\sun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\sun\sun.xnb</Output>
+      <Time>2012-10-20T02:29:22.5198528+02:00</Time>
+    </Item>
+    <Item>
+      <Source>sun\sunglare.png</Source>
+      <Name>sun\sunglare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\sun\sunglare.xnb</Output>
+      <Time>2012-10-20T02:29:22.5138525+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\Loading.PNG</Source>
+      <Name>HudTextures\Loading</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\Loading.xnb</Output>
+      <Time>2012-10-20T02:29:12.085256+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\nebula_blue.jpg</Source>
+      <Name>Menu\nebula_blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Menu\nebula_blue.xnb</Output>
+      <Time>2012-10-20T02:29:21.0637695+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\planet-implosion.jpg</Source>
+      <Name>Menu\planet-implosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Menu\planet-implosion.xnb</Output>
+      <Time>2012-10-20T02:29:21.0347679+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\tutorial.png</Source>
+      <Name>Menu\tutorial</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Menu\tutorial.xnb</Output>
+      <Time>2012-10-20T02:29:21.0227672+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\playerblue.png</Source>
+      <Name>HudTextures\playerblue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\playerblue.xnb</Output>
+      <Time>2012-10-20T02:29:12.0412535+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\playerblue_b.png</Source>
+      <Name>HudTextures\playerblue_b</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\playerblue_b.xnb</Output>
+      <Time>2012-10-20T02:29:12.0532542+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\playerred.png</Source>
+      <Name>HudTextures\playerred</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\playerred.xnb</Output>
+      <Time>2012-10-20T02:29:12.1102574+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\playerred_b.png</Source>
+      <Name>HudTextures\playerred_b</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\playerred_b.xnb</Output>
+      <Time>2012-10-20T02:29:12.1262583+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\buttonA.png</Source>
+      <Name>Menu\buttonA</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Menu\buttonA.xnb</Output>
+      <Time>2012-10-20T02:29:20.9777646+02:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\Loading_narrative.png</Source>
+      <Name>HudTextures\Loading_narrative</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\HudTextures\Loading_narrative.xnb</Output>
+      <Time>2012-10-20T02:29:12.1212581+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Music\BeatIt.mp3</Source>
+      <Name>Music\BeatIt</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Music\BeatIt.xnb</Output>
+      <Extra>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Music\BeatIt.wma</Extra>
+      <Time>2012-10-20T02:27:57.938015+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Music\Imperial-March.mp3</Source>
+      <Name>Music\Imperial-March</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Music\Imperial-March.xnb</Output>
+      <Extra>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Music\Imperial-March.wma</Extra>
+      <Time>2012-10-20T02:27:57.972017+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Music\deadLaugh.wav</Source>
+      <Name>Music\deadLaugh</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Music\deadLaugh.xnb</Output>
+      <Time>2012-10-20T02:27:57.9890179+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Music\deadLaugh2.wav</Source>
+      <Name>Music\deadLaugh2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Music\deadLaugh2.xnb</Output>
+      <Time>2012-10-20T02:27:58.0150194+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Music\explosion.wav</Source>
+      <Name>Music\explosion</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Music\explosion.xnb</Output>
+      <Time>2012-10-20T02:27:58.0040188+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Asteroids\AstrFBX.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Asteroids\AstrFBX_0.xml</Output>
+      <Time>2012-10-20T02:29:09.9511339+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\B6F12E98\AstrFBX.fbm\Astroid01.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\B6F12E98\AstrFBX.fbm\Astroid01_0.xnb</Output>
+      <Time>2012-10-20T02:31:51.0613489+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Planets\CallistoModel.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Planets\CallistoModel_0.xml</Output>
+      <Time>2012-10-20T02:28:34.6381141+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\75703033\CallistoModel.fbm\callisto.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\75703033\CallistoModel.fbm\callisto_0.xnb</Output>
+      <Time>2012-10-20T02:31:53.1194666+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Planets\mars2.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Planets\mars2_0.xml</Output>
+      <Time>2012-10-20T02:28:05.4664456+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\FCC42CAC\mars2.fbm\mars0kuu2png.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\FCC42CAC\mars2.fbm\mars0kuu2png_0.xnb</Output>
+      <Time>2012-10-20T02:31:54.6585547+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Planets\Saturn.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Planets\Saturn_0.xml</Output>
+      <Time>2012-10-20T02:28:34.6451145+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\2C112D64\Saturn.fbm\SaturnMap_png.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\2C112D64\Saturn.fbm\SaturnMap_png_0.xnb</Output>
+      <Time>2012-10-20T02:31:56.0036316+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Planets\Venus.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Planets\Venus_0.xml</Output>
+      <Time>2012-10-20T02:28:34.6871169+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\FE6A2CF8\Venus.fbm\venus0aaa2_png.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\FE6A2CF8\Venus.fbm\venus0aaa2_png_0.xnb</Output>
+      <Time>2012-10-20T02:31:57.3377079+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Projectiles\Cube.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Projectiles\Cube_0.xml</Output>
+      <Time>2012-10-20T02:27:58.0540217+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter1.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Fighter1_0.xml</Output>
+      <Time>2012-10-20T02:29:05.7058911+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\spacecraft2uv.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\spacecraft2uv_0.xnb</Output>
+      <Time>2012-10-20T02:29:05.7598942+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter2.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Fighter2_0.xml</Output>
+      <Time>2012-10-20T02:29:05.7118915+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\spacecraft3uv.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\spacecraft3uv_0.xnb</Output>
+      <Time>2012-10-20T02:29:05.772895+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Fighter3.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Fighter3_0.xml</Output>
+      <Time>2012-10-20T02:29:05.738893+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\spacecraft4uv.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\spacecraft4uv_0.xnb</Output>
+      <Time>2012-10-20T02:29:05.7838956+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShipBlue.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\playerShipBlue_0.xml</Output>
+      <Time>2012-10-20T02:29:05.8218978+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\SpaceCr_00.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Output>
+      <Time>2012-10-20T02:29:05.7968963+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\playerShipRed.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\playerShipRed_0.xml</Output>
+      <Time>2012-10-20T02:29:05.7298925+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\169D2F73\playerShipRed.fbm\SpaceCr_01.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\169D2F73\playerShipRed.fbm\SpaceCr_01_0.xnb</Output>
+      <Time>2012-10-20T02:32:06.8972547+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\spaceStation.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\spaceStation_0.xml</Output>
+      <Time>2012-10-20T02:29:09.2230923+02:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\E65F2F05\spaceStation.fbm\Astroid02.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\FBX\E65F2F05\spaceStation.fbm\Astroid02_0.xnb</Output>
+      <Time>2012-10-20T02:32:08.4443432+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret1.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Turret1_0.xml</Output>
+      <Time>2012-10-20T02:29:05.6908903+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Turret_0.xnb</Output>
+      <Time>2012-10-20T02:29:05.8358986+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret2.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Ships\Turret2_0.xml</Output>
+      <Time>2012-10-20T02:29:05.6998908+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret2.fbm\TurretT2.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\TurretT2_0.xnb</Output>
+      <Time>2012-10-20T02:29:05.8699005+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Ships\Turret2.fbm\turretT1.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\turretT1_0.xnb</Output>
+      <Time>2012-10-20T02:29:05.8498994+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\grid.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Particles\grid_0.xml</Output>
+      <Time>2012-10-20T02:29:23.5869139+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\checker.bmp</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Graphics:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\Particles\checker_0.xnb</Output>
+      <Time>2012-10-20T02:29:23.5629125+02:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Bjtal-Laptop\Documents\Projects\BBN SVN\Nebulon12_GAMMA\Nebulon12_GAMMA\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2009-05-28T00:16:14+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2009-05-28T00:16:06+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2009-05-28T00:16:16+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2009-05-28T00:16:26+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2009-05-28T00:16:12+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.1\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2009-05-28T00:16:06+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.1.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-07-31T19:02:12.2420859+02:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
