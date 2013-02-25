@@ -451,14 +451,8 @@ namespace BBN_Game.Objects
         /// <returns></returns>
         private Boolean setVertexCoords(SpriteBatch b, Camera.CameraMatrices cam, Vector2 screenViewport, playerObject player)
         {
-            Color col;
-            if (this is Objects.Turret)
-                col = ((Objects.Turret)this).Repairing ? Color.Aqua : this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.neutral) ? Color.Yellow :
-                        this.Team.Equals(player.team) ? Color.Green : Color.Orange;
-            else
-                col = this.Equals(player.Target) ? Color.Red : this.team.Equals(Team.neutral) ? Color.Yellow :
-                        this.Team.Equals(player.team) ? Color.Green : Color.Orange;
-
+            Color col = Color.Yellow;
+               
             float radiusOfObject;
             radiusOfObject = greatestLength * 5f; // sets the greatest size of the object
 
