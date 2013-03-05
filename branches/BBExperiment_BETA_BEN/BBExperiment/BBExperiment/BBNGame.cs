@@ -21,8 +21,22 @@ namespace BBN_Game
         public List<SlimDX.DirectInput.Joystick> joysticks = new List<SlimDX.DirectInput.Joystick>();
         List<SlimDX.DirectInput.DeviceInstance> directInputList = new List<SlimDX.DirectInput.DeviceInstance>();
         SlimDX.DirectInput.DirectInput directInput = new SlimDX.DirectInput.DirectInput();
+
+        public enum ControllerMode
+        {
+            KB = 0,
+            GamePad = 1,
+            Joystick = 2
+        }
+        public enum ExperimentMode
+        {
+            Practice, RealThing
+        }
+        public static ControllerMode controllerMode = ControllerMode.KB;
+        public static ExperimentMode mode = ExperimentMode.Practice;
         public int numberOfHits = 0;
         public float totalElapsedTimeSeconds = 0;
+        public const float MAX_TIME = 360;
         public float totalTimeRotationP = 0;
         public float totalTimeRotationY = 0;
         public float totalTimeRotationR = 0;
