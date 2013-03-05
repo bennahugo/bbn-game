@@ -24,7 +24,7 @@ namespace BBN_Game.Controller
     class GameController
     {
         #region "Constants"
-        private const string INITIAL_MAP = "Content/Maps/CheckPointRace.xml";
+        private string INITIAL_MAP = BBNGame.mode.Equals(BBNGame.ExperimentMode.RealThing) ? "Content/Maps/CheckPointRace.xml" : "Content/Maps/Practice.xml";
         private const int GRID_CUBE_SIZE = 60;
         public const int MAX_NUM_FIGHTERS_PER_TEAM = 4;
         public const int MAX_NUM_DESTROYERS_PER_TEAM = 6;
@@ -199,7 +199,7 @@ namespace BBN_Game.Controller
             {
                 if (ObjectsLoaded)
                 {
-                    if (CheckPoints.Count > 0 || Player1.Target != null)
+                    if ((CheckPoints.Count > 0 || Player1.Target != null) && ((BBNGame)game).totalElapsedTimeSeconds < BBNGame.MAX_TIME)
                     {
                         for (i = 0; i < AllObjects.Count; ++i)
                             AllObjects.ElementAt(i).Update(gameTime);

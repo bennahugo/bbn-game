@@ -25,17 +25,10 @@ namespace BBN_Game.Objects
         FirstPerson = 1
     }
 
-    enum ControllerMode
-    {
-        KB = 0,
-        GamePad = 1,
-        Joystick =2
-    }
-
     class playerObject : DynamicObject
     {
         const int MAX_JOYSTICK = 62974;
-        ControllerMode controllerMode = ControllerMode.KB;
+        
         #region "Globals"
         /// <summary>
         /// Global variables
@@ -119,14 +112,14 @@ namespace BBN_Game.Objects
         /// </summary>
         protected override void setData()
         {
-            this.acceleration = 20f;
-            this.deceleration = 15;
+            this.acceleration = 15f;
+            this.deceleration = 10;
 
             this.mass = 10;
             this.pitchSpeed = 40;
             this.rollSpeed = pitchSpeed * 1.5f;
             this.yawSpeed = pitchSpeed * 1.05f;
-            this.maxSpeed = 50;
+            this.maxSpeed = 30;
             this.minSpeed = -10;
             this.greatestLength = 10f;
             this.shipData.scale = 1f;
@@ -232,11 +225,11 @@ namespace BBN_Game.Objects
         /// <param name="gt">Game time variable</param>
         public override void controller(GameTime gt)
         {
-            if (controllerMode.Equals(ControllerMode.GamePad) && GamePad.GetState(PlayerIndex.One).IsConnected)
+            if (BBNGame.controllerMode.Equals(BBNGame.ControllerMode.GamePad) && GamePad.GetState(PlayerIndex.One).IsConnected)
                 xboxControls((float)gt.ElapsedGameTime.TotalSeconds);
-            else if (controllerMode.Equals(ControllerMode.KB))
+            else if (BBNGame.controllerMode.Equals(BBNGame.ControllerMode.KB))
                 keyBoardChecks((float)gt.ElapsedGameTime.TotalSeconds);
-            else if (controllerMode.Equals(ControllerMode.Joystick))
+            else if (BBNGame.controllerMode.Equals(BBNGame.ControllerMode.Joystick))
                 joystickControls((float)gt.ElapsedGameTime.TotalSeconds);
             base.controller(gt);
         }
@@ -250,7 +243,7 @@ namespace BBN_Game.Objects
 
             #region "Player 1"
             if (index == PlayerIndex.One)
-            {
+            {/*
                 #region "Extra Controls (Camera)"
                 if (state.IsKeyDown(Keys.F1) && oldState.IsKeyUp(Keys.F1))
                     cameraType = cameraType.Equals(CurrentCam.Chase) ? CurrentCam.FirstPerson : CurrentCam.Chase;
@@ -259,7 +252,7 @@ namespace BBN_Game.Objects
                 if (state.IsKeyDown(Keys.B) && oldState.IsKeyUp(Keys.B))
                     drawMapBool = !drawMapBool;
                 #endregion
-
+                */
                 #region "Accel Deccel checks"
                 if (state.IsKeyDown(Keys.W))
                 {
@@ -511,27 +504,28 @@ namespace BBN_Game.Objects
                 SlimDX.DirectInput.JoystickState js = gamePtr.joysticks[0].GetCurrentState();
                 #region rotations
                 //roll
-                if (js.X > MAX_JOYSTICK / 2 * (1.5))
+                if (js.X > MAX_JOYSTICK / 2 * 1.3f)
                 {
-                    shipData.roll += rollSpeed * time;
+                    shipData.roll += rollSpeed * ((js.X - (float)MAX_JOYSTICK / 2) / ((float)MAX_JOYSTICK / 2)) * time;
                     ((BBNGame)Game).totalTimeRotationR += time;
                 }
-                else if (js.X < MAX_JOYSTICK / 2 * (0.5))
+                else if (js.X < MAX_JOYSTICK / 2 * 0.7f)
                 {
-                    shipData.roll -= rollSpeed * time;
+                    shipData.roll -= rollSpeed * (1 - js.X / ((float)MAX_JOYSTICK / 2)) * time;
                     ((BBNGame)Game).totalTimeRotationR += time;
                 }
                 //pitch
-                if (js.Y > MAX_JOYSTICK/2*(1.5))
+                if (js.Y > MAX_JOYSTICK / 2 * 1.1)
                 {
-                    shipData.pitch -= pitchSpeed * time;
+                    shipData.pitch -= pitchSpeed * ((js.Y - (float)MAX_JOYSTICK / 2) / ((float)MAX_JOYSTICK / 2)) * time;
                     ((BBNGame)Game).totalTimeRotationP += time;
                 }
-                else if (js.Y < MAX_JOYSTICK / 2 * (0.5))
+                else if (js.Y < MAX_JOYSTICK / 2 * 0.9)
                 {
-                    shipData.pitch += pitchSpeed * time;
+                    shipData.pitch += pitchSpeed * (1 - js.Y / ((float)MAX_JOYSTICK / 2)) * time;
                     ((BBNGame)Game).totalTimeRotationP += time;
                 }
+                System.Diagnostics.Debug.WriteLine(js.GetSliders()[0]);
                 //yaw
                 if (js.GetPointOfViewControllers()[0] == 27000)
                 {
@@ -545,18 +539,18 @@ namespace BBN_Game.Objects
                 }
                 #endregion
                 #region Acceleration
-                if (js.GetButtons()[7])
-                {
-                    if (shipData.speed < maxSpeed)
-                    {
-                        shipData.speed += acceleration * time;
-                    }
-                }
-                else if (js.GetButtons()[4])
+                if (js.GetButtons()[1])
                 {
                     if (shipData.speed > minSpeed)
                     {
                         shipData.speed -= deceleration * time;
+                    }
+                }
+                else if (js.GetButtons()[0])
+                {
+                    if (shipData.speed < maxSpeed)
+                    {
+                        shipData.speed += acceleration * time;
                     }
                 }
                 else
@@ -745,15 +739,22 @@ namespace BBN_Game.Objects
             //sb.DrawString(f, 1 / gt.ElapsedGameTime.TotalSeconds + " - " + this.greatestLength, new Vector2(100, 100), Color.Green);
 
             #region "stats"
+            
             sb.DrawString(f, "Statistics:", Vector2.Zero, Color.Lime);
             sb.DrawString(f, String.Format("{0:.00} seconds elapsed", Math.Round(((BBNGame)Game).totalElapsedTimeSeconds, 2)), new Vector2(0, 25), Color.Yellow);
             sb.DrawString(f, ((BBNGame)Game).numberOfHits+" hits", new Vector2(0, 50), Color.Yellow);
             sb.DrawString(f, String.Format("Yawed for {0:.00} seconds", Math.Round(((BBNGame)Game).totalTimeRotationY, 2)), new Vector2(0, 75), Color.Yellow);
             sb.DrawString(f, String.Format("Pitched for {0:.00} seconds", Math.Round(((BBNGame)Game).totalTimeRotationP, 2)), new Vector2(0, 100), Color.Yellow);
             sb.DrawString(f, String.Format("Rolled for {0:.00} seconds", Math.Round(((BBNGame)Game).totalTimeRotationR, 2)), new Vector2(0, 125), Color.Yellow);
-
+            if (((BBNGame)Game).totalElapsedTimeSeconds > BBNGame.MAX_TIME)
+            {
+                sb.DrawString(f, "~~~ G A M E   O V E R ~~~", new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2) - f.MeasureString("~~~ G A M E   O V E R ~~~") / 2, Color.LightPink);
+            }
             if (target == null)
-                sb.DrawString(f, "THANK YOU FOR PARTICIPATING! :D", new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2)- f.MeasureString("THANK YOU FOR PARTICIPATING! :D")/2, Color.LightBlue);
+                if (BBNGame.mode.Equals(BBNGame.ExperimentMode.RealThing))
+                    sb.DrawString(f, "THANK YOU FOR PARTICIPATING! :D", new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2)- f.MeasureString("THANK YOU FOR PARTICIPATING! :D")/2, Color.LightBlue);
+                else
+                    sb.DrawString(f, "PRACTICE SESSION OVER. NOW FOR THE REAL DEAL...", new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2) - f.MeasureString("PRACTICE SESSION OVER. NOW FOR THE REAL DEAL...") / 2, Color.LightBlue);
             #endregion
 
             #region "Arrows"

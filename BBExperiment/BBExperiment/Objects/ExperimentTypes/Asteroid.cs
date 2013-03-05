@@ -55,7 +55,7 @@ namespace BBN_Game.Objects
                 else
                     sphere = BoundingSphere.CreateMerged(sphere, m.BoundingSphere);
             }
-            sphere.Radius *= this.shipData.scale * 0.7f;
+            sphere.Radius *= this.shipData.scale * 0.40f;
 
             return sphere;
         }
