@@ -249,25 +249,11 @@ namespace BBN_Game.Controller
             game.GraphicsDevice.DepthStencilState = DepthStencilState.Default;
             // draw all other objects
             for (i = 0; i < AllObjects.Count; ++i)
-            //    if ((AllObjects.ElementAt(i).Position - cam.Position).Length() <= DETAIL_CULL_DISTANCE)
-                if (AllObjects.ElementAt(i) is Checkpoint)
-                {
-                    if (AllObjects.ElementAt(i) == Player1.Target)
-                        AllObjects.ElementAt(i).Draw(gameTime, cam);
-                }
-                else
-                    AllObjects.ElementAt(i).Draw(gameTime, cam);
+                AllObjects.ElementAt(i).Draw(gameTime, cam);
 
             // we have to draw the huds afterward so that in third person camera the huds will draw above the player (as the dpth buffer is removed)
-            for (i = 0; i < AllObjects.Count; ++i)
-            //    if ((AllObjects.ElementAt(i).Position - cam.Position).Length() <= HUD_DETAIL_CULL_DISTANCE)
-                if (AllObjects.ElementAt(i) is Checkpoint)
-                {
-                    if (AllObjects.ElementAt(i) == Player1.Target)
-                        AllObjects.ElementAt(i).drawSuroundingBox(game.sb, cam, player);
-                }
-                else
-                    AllObjects.ElementAt(i).drawSuroundingBox(game.sb, cam, player);
+            for (i = 0; i < targets.Count; ++i)
+                    targets.ElementAt(i).drawSuroundingBox(game.sb, cam, player);
 
             //draw the players hud now (so that the target boxes wont obscure them)
             player.drawHud(game.sb, DynamicObjs, gameTime);
@@ -354,8 +340,22 @@ namespace BBN_Game.Controller
         /// <param name="playerIndex">Either Red or Blue</param>
         public static Objects.playerObject spawnPlayer(Objects.Team playerIndex, Game game)
         {
-            Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, Vector3.Zero, new Vector3(0, 0, -1), false);
-                addObject(Player1);
+            Player1 = new BBN_Game.Objects.playerObject(game, Objects.Team.Red, Vector3.Zero, new Vector3(0, 0, 0), false);
+            addObject(Player1);
+
+            addObject(new Target(game, Team.Blue, new Vector3(100, 0, 0)));
+            addObject(new Target(game, Team.Blue, new Vector3(0, 100, 0)));
+            addObject(new Target(game, Team.Blue, new Vector3(0, 0, 100)));
+            addObject(new Target(game, Team.Blue, new Vector3(100, 100, 0)));
+            addObject(new Target(game, Team.Blue, new Vector3(100, 0, 100)));
+            addObject(new Target(game, Team.Blue, new Vector3(0, 100, 100)));
+            addObject(new Target(game, Team.Blue, new Vector3(100, 100, 100)));
+
+            addObject(new MovingTarget(game, Team.Blue, new Vector3(150, 100, 100)));
+            addObject(new MovingTarget(game, Team.Blue, new Vector3(100, 150, 100)));
+            addObject(new MovingTarget(game, Team.Blue, new Vector3(100, 150, 150)));
+            addObject(new MovingTarget(game, Team.Blue, new Vector3(150, 150, 100)));
+            
             return Player1;    
         }
         #endregion

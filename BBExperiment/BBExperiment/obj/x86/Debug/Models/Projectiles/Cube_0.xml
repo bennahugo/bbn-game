@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>Box01</Name>
     <Identity>
-      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperimentContent\Models\Projectiles\Cube.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Projectiles\Cube.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>2.54 0 0 0 0 1.55530138E-16 -2.54 0 0 2.54 1.55530138E-16 0 0 0 -3.00398117E-16 1</Transform>

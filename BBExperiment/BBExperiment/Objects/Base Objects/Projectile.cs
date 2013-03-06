@@ -51,10 +51,10 @@ namespace BBN_Game.Objects
             numHudLines = 3;
             typeOfLine = PrimitiveType.LineStrip;
 
-            Vector3 foreward = parent.Position + Vector3.Transform(new Vector3(0, 0, 10), Matrix.CreateFromQuaternion(parent.rotation));
-            Vector3 PYR = MathEuler.AngleTo(foreward, parent.Position);
-
-            rotation = Quaternion.CreateFromYawPitchRoll(PYR.Y, PYR.X, PYR.Z);
+            Vector3 foreward = parent.Position + Vector3.Transform(new Vector3(0, 0, 75), Matrix.CreateFromQuaternion(parent.rotation));
+            Vector3 PYR = MathEuler.AngleTo(foreward, this.Position);
+            float lol = 0;
+            rotation = Quaternion.CreateFromYawPitchRoll(PYR.Y + (left ? MathHelper.ToRadians(lol) : -MathHelper.ToRadians(lol)), PYR.X, PYR.Z);
 
             this.shipData.speed = parent.ShipMovementInfo.speed;
 

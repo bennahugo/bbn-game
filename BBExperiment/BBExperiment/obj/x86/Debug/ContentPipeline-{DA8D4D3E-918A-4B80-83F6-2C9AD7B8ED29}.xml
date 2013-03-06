@@ -7,7 +7,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Fonts\distanceFont.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Fonts\distanceFont.xnb</Output>
       <Time>2013-03-04T17:36:05.3990669-08:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Fonts\menuFont.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Fonts\menuFont.xnb</Output>
       <Time>2013-03-04T17:36:05.3890602-08:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Fonts\pause_menu.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Fonts\pause_menu.xnb</Output>
       <Time>2013-03-04T17:36:05.4050709-08:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Fonts\selectedFont.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Fonts\selectedFont.xnb</Output>
       <Time>2013-03-04T17:36:05.3940633-08:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Fonts\trade_menu.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Fonts\trade_menu.xnb</Output>
       <Time>2013-03-04T17:36:05.3850594-08:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\font.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\font.xnb</Output>
       <Time>2013-03-04T17:36:05.2729829-08:00</Time>
     </Item>
     <Item>
@@ -61,13 +61,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Asteroids\AstrFBX.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Asteroids\AstrFBX.xnb</Output>
       <Time>2013-03-04T17:36:04.0574364-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Asteroids\AstrFBX_0.xml</Key>
-        <Value>2013-03-04T17:44:06.9794086-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Asteroids\AstrFBX_0.xml</Key>
+        <Value>2013-03-04T18:50:56.3411758-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Astroid01_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Astroid01_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Planets\CallistoModel.FBX</Source>
@@ -75,13 +75,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\CallistoModel.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\CallistoModel.xnb</Output>
       <Time>2013-03-04T17:35:55.5651589-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\CallistoModel_0.xml</Key>
-        <Value>2013-03-04T17:44:07.3656665-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\CallistoModel_0.xml</Key>
+        <Value>2013-03-04T18:50:56.7324375-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\callisto_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\callisto_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Planets\mars2.FBX</Source>
@@ -89,13 +89,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\mars2.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\mars2.xnb</Output>
       <Time>2013-03-04T17:35:49.5636973-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\mars2_0.xml</Key>
-        <Value>2013-03-04T17:44:07.7899505-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\mars2_0.xml</Key>
+        <Value>2013-03-04T18:50:57.1957472-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\mars0kuu2png_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\mars0kuu2png_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Planets\Saturn.FBX</Source>
@@ -103,13 +103,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\Saturn.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\Saturn.xnb</Output>
       <Time>2013-03-04T17:35:55.5771682-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\Saturn_0.xml</Key>
-        <Value>2013-03-04T17:44:08.2022253-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\Saturn_0.xml</Key>
+        <Value>2013-03-04T18:50:57.626034-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\SaturnMap_png_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\SaturnMap_png_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Planets\Venus.FBX</Source>
@@ -117,13 +117,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\Venus.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\Venus.xnb</Output>
       <Time>2013-03-04T17:35:55.6021791-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\Venus_0.xml</Key>
-        <Value>2013-03-04T17:44:08.5894842-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\Venus_0.xml</Key>
+        <Value>2013-03-04T18:50:58.0463147-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\venus0aaa2_png_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\venus0aaa2_png_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Projectiles\Cube.fbx</Source>
@@ -131,11 +131,11 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Projectiles\Cube.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Projectiles\Cube.xnb</Output>
       <Time>2013-03-04T17:35:46.016157-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Projectiles\Cube_0.xml</Key>
-        <Value>2013-03-04T17:44:09.045789-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Projectiles\Cube_0.xml</Key>
+        <Value>2013-03-04T18:50:58.5436465-08:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -144,13 +144,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Fighter1.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Fighter1.xnb</Output>
       <Time>2013-03-04T17:36:02.0677546-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter1_0.xml</Key>
-        <Value>2013-03-04T17:44:09.1608667-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter1_0.xml</Key>
+        <Value>2013-03-04T18:50:58.6687304-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft2uv_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft2uv_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Ships\Fighter2.fbx</Source>
@@ -158,13 +158,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Fighter2.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Fighter2.xnb</Output>
       <Time>2013-03-04T17:36:02.0757612-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter2_0.xml</Key>
-        <Value>2013-03-04T17:44:09.8493253-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter2_0.xml</Key>
+        <Value>2013-03-04T18:50:59.4272369-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft3uv_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft3uv_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Ships\Fighter3.fbx</Source>
@@ -172,13 +172,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Fighter3.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Fighter3.xnb</Output>
       <Time>2013-03-04T17:36:02.0927722-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter3_0.xml</Key>
-        <Value>2013-03-04T17:44:10.6368516-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter3_0.xml</Key>
+        <Value>2013-03-04T18:51:00.221767-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft4uv_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft4uv_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Ships\playerShipBlue.fbx</Source>
@@ -186,13 +186,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\playerShipBlue.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\playerShipBlue.xnb</Output>
       <Time>2013-03-04T17:36:02.1358006-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\playerShipBlue_0.xml</Key>
-        <Value>2013-03-04T17:44:11.2832827-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\playerShipBlue_0.xml</Key>
+        <Value>2013-03-04T18:51:00.9862782-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Ships\playerShipRed.FBX</Source>
@@ -200,13 +200,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\playerShipRed.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\playerShipRed.xnb</Output>
       <Time>2013-03-04T17:36:02.0847675-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\playerShipRed_0.xml</Key>
-        <Value>2013-03-04T17:44:11.8616696-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\playerShipRed_0.xml</Key>
+        <Value>2013-03-04T18:51:01.7878138-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\SpaceCr_01_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\SpaceCr_01_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Ships\spaceStation.fbx</Source>
@@ -214,13 +214,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spaceStation.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spaceStation.xnb</Output>
       <Time>2013-03-04T17:36:03.7780037-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\spaceStation_0.xml</Key>
-        <Value>2013-03-04T17:44:12.4640719-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\spaceStation_0.xml</Key>
+        <Value>2013-03-04T18:51:02.6483886-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Astroid02_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Astroid02_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Ships\Turret1.fbx</Source>
@@ -228,13 +228,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret1.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret1.xnb</Output>
       <Time>2013-03-04T17:36:02.0457436-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Turret1_0.xml</Key>
-        <Value>2013-03-04T17:44:12.7872875-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Turret1_0.xml</Key>
+        <Value>2013-03-04T18:51:03.0676683-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Ships\Turret2.fbx</Source>
@@ -242,14 +242,14 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.xnb</Output>
       <Time>2013-03-04T17:36:02.0597493-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Turret2_0.xml</Key>
-        <Value>2013-03-04T17:44:13.5598034-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Turret2_0.xml</Key>
+        <Value>2013-03-04T18:51:04.0623326-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\TurretT2_0.xnb</Request>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\turretT1_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\TurretT2_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\turretT1_0.xnb</Request>
     </Item>
     <Item>
       <Source>Particles\grid.x</Source>
@@ -257,13 +257,13 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\grid.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\grid.xnb</Output>
       <Time>2013-03-04T17:36:05.2889935-08:00</Time>
       <Dependency>
-        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Particles\grid_0.xml</Key>
-        <Value>2013-03-04T17:44:14.8626736-08:00</Value>
+        <Key>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Particles\grid_0.xml</Key>
+        <Value>2013-03-04T18:51:05.6443889-08:00</Value>
       </Dependency>
-      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\checker_0.xnb</Request>
+      <Request>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\checker_0.xnb</Request>
     </Item>
     <Item>
       <Source>Particles\ParticleEffect.fx</Source>
@@ -271,7 +271,7 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\ParticleEffect.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\ParticleEffect.xnb</Output>
       <Time>2013-03-04T17:36:05.2939984-08:00</Time>
     </Item>
     <Item>
@@ -280,7 +280,7 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Shader\skyBoxEffect.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Shader\skyBoxEffect.xnb</Output>
       <Time>2013-03-04T17:36:09.9824797-08:00</Time>
     </Item>
     <Item>
@@ -289,7 +289,7 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Shader\targetBox.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Shader\targetBox.xnb</Output>
       <Time>2013-03-04T17:36:09.9874833-08:00</Time>
     </Item>
     <Item>
@@ -298,7 +298,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\arrow.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\arrow.xnb</Output>
       <Time>2013-03-04T17:36:04.8961114-08:00</Time>
     </Item>
     <Item>
@@ -307,7 +307,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\base.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\base.xnb</Output>
       <Time>2013-03-04T17:36:04.8430782-08:00</Time>
     </Item>
     <Item>
@@ -316,7 +316,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\base_w.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\base_w.xnb</Output>
       <Time>2013-03-04T17:36:04.8187778-08:00</Time>
     </Item>
     <Item>
@@ -325,7 +325,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\circle.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\circle.xnb</Output>
       <Time>2013-03-04T17:36:04.8237802-08:00</Time>
     </Item>
     <Item>
@@ -334,7 +334,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\diamond.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\diamond.xnb</Output>
       <Time>2013-03-04T17:36:04.8530824-08:00</Time>
     </Item>
     <Item>
@@ -343,7 +343,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\GlobalHealthBar.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\GlobalHealthBar.xnb</Output>
       <Time>2013-03-04T17:36:04.8480782-08:00</Time>
     </Item>
     <Item>
@@ -352,7 +352,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\hexagon.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\hexagon.xnb</Output>
       <Time>2013-03-04T17:36:04.8911072-08:00</Time>
     </Item>
     <Item>
@@ -361,7 +361,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\Loading.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\Loading.xnb</Output>
       <Time>2013-03-04T17:36:04.8580867-08:00</Time>
     </Item>
     <Item>
@@ -370,7 +370,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\Loading_narrative.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\Loading_narrative.xnb</Output>
       <Time>2013-03-04T17:36:04.8770978-08:00</Time>
     </Item>
     <Item>
@@ -379,7 +379,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\map.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\map.xnb</Output>
       <Time>2013-03-04T17:36:04.8630885-08:00</Time>
     </Item>
     <Item>
@@ -388,7 +388,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\playerblue.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\playerblue.xnb</Output>
       <Time>2013-03-04T17:36:04.8287845-08:00</Time>
     </Item>
     <Item>
@@ -397,7 +397,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\playerblue_b.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\playerblue_b.xnb</Output>
       <Time>2013-03-04T17:36:04.8390719-08:00</Time>
     </Item>
     <Item>
@@ -406,7 +406,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\playerred.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\playerred.xnb</Output>
       <Time>2013-03-04T17:36:04.8720942-08:00</Time>
     </Item>
     <Item>
@@ -415,7 +415,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\playerred_b.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\playerred_b.xnb</Output>
       <Time>2013-03-04T17:36:04.8821021-08:00</Time>
     </Item>
     <Item>
@@ -424,7 +424,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\rocket_bw.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\rocket_bw.xnb</Output>
       <Time>2013-03-04T17:36:04.8680945-08:00</Time>
     </Item>
     <Item>
@@ -433,7 +433,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\rocket_c.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\rocket_c.xnb</Output>
       <Time>2013-03-04T17:36:04.8871063-08:00</Time>
     </Item>
     <Item>
@@ -442,7 +442,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\square.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\square.xnb</Output>
       <Time>2013-03-04T17:36:04.813776-08:00</Time>
     </Item>
     <Item>
@@ -451,7 +451,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\triangle.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\triangle.xnb</Output>
       <Time>2013-03-04T17:36:04.8335901-08:00</Time>
     </Item>
     <Item>
@@ -460,7 +460,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\buttonA.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\buttonA.xnb</Output>
       <Time>2013-03-04T17:36:09.2915708-08:00</Time>
     </Item>
     <Item>
@@ -469,7 +469,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\control_menu.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\control_menu.xnb</Output>
       <Time>2013-03-04T17:36:09.340014-08:00</Time>
     </Item>
     <Item>
@@ -478,7 +478,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\dark_trans.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\dark_trans.xnb</Output>
       <Time>2013-03-04T17:36:09.3540233-08:00</Time>
     </Item>
     <Item>
@@ -487,7 +487,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\dark_trans_new.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\dark_trans_new.xnb</Output>
       <Time>2013-03-04T17:36:09.3035824-08:00</Time>
     </Item>
     <Item>
@@ -496,7 +496,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\keyboard_controls.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\keyboard_controls.xnb</Output>
       <Time>2013-03-04T17:36:09.3300061-08:00</Time>
     </Item>
     <Item>
@@ -505,7 +505,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\nebula_blue.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\nebula_blue.xnb</Output>
       <Time>2013-03-04T17:36:09.3650322-08:00</Time>
     </Item>
     <Item>
@@ -514,7 +514,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\pause_menu.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\pause_menu.xnb</Output>
       <Time>2013-03-04T17:36:09.3155862-08:00</Time>
     </Item>
     <Item>
@@ -523,7 +523,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\planet-implosion.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\planet-implosion.xnb</Output>
       <Time>2013-03-04T17:36:09.346018-08:00</Time>
     </Item>
     <Item>
@@ -532,7 +532,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\trade_menu_newest.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\trade_menu_newest.xnb</Output>
       <Time>2013-03-04T17:36:09.3590263-08:00</Time>
     </Item>
     <Item>
@@ -541,7 +541,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\tutorial.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\tutorial.xnb</Output>
       <Time>2013-03-04T17:36:09.3350103-08:00</Time>
     </Item>
     <Item>
@@ -550,7 +550,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\xbox_controls.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Menu\xbox_controls.xnb</Output>
       <Time>2013-03-04T17:36:09.3245642-08:00</Time>
     </Item>
     <Item>
@@ -559,7 +559,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Asteroids\Astroid.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Asteroids\Astroid.xnb</Output>
       <Time>2013-03-04T17:36:04.0674473-08:00</Time>
     </Item>
     <Item>
@@ -568,7 +568,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\callisto.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\callisto.xnb</Output>
       <Time>2013-03-04T17:35:55.5931728-08:00</Time>
     </Item>
     <Item>
@@ -577,7 +577,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\CallistoModel.fbm\callisto.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\CallistoModel.fbm\callisto.xnb</Output>
       <Time>2013-03-04T17:35:55.6111866-08:00</Time>
     </Item>
     <Item>
@@ -586,7 +586,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\mars0kuu2png.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\mars0kuu2png.xnb</Output>
       <Time>2013-03-04T17:35:49.5546916-08:00</Time>
     </Item>
     <Item>
@@ -595,7 +595,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\mars2.fbm\mars0kuu2png.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\mars2.fbm\mars0kuu2png.xnb</Output>
       <Time>2013-03-04T17:35:49.5717027-08:00</Time>
     </Item>
     <Item>
@@ -604,7 +604,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\SaturnMap_png.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\SaturnMap_png.xnb</Output>
       <Time>2013-03-04T17:35:49.5426818-08:00</Time>
     </Item>
     <Item>
@@ -613,7 +613,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\venus0aaa2_png.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Planets\venus0aaa2_png.xnb</Output>
       <Time>2013-03-04T17:35:55.5861666-08:00</Time>
     </Item>
     <Item>
@@ -622,7 +622,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Astroid02.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Astroid02.xnb</Output>
       <Time>2013-03-04T17:36:02.0977746-08:00</Time>
     </Item>
     <Item>
@@ -631,7 +631,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft2uv.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft2uv.xnb</Output>
       <Time>2013-03-04T17:36:02.1037787-08:00</Time>
     </Item>
     <Item>
@@ -640,7 +640,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft3uv.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft3uv.xnb</Output>
       <Time>2013-03-04T17:36:02.1087829-08:00</Time>
     </Item>
     <Item>
@@ -649,7 +649,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft4uv.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft4uv.xnb</Output>
       <Time>2013-03-04T17:36:02.1137853-08:00</Time>
     </Item>
     <Item>
@@ -658,7 +658,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\SpaceCr_00.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\SpaceCr_00.xnb</Output>
       <Time>2013-03-04T17:36:02.1207903-08:00</Time>
     </Item>
     <Item>
@@ -667,7 +667,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\SpaceCr_01.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\SpaceCr_01.xnb</Output>
       <Time>2013-03-04T17:36:02.1277953-08:00</Time>
     </Item>
     <Item>
@@ -676,7 +676,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret.xnb</Output>
       <Time>2013-03-04T17:36:02.1428056-08:00</Time>
     </Item>
     <Item>
@@ -685,7 +685,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\turretT1.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\turretT1.xnb</Output>
       <Time>2013-03-04T17:36:02.1498093-08:00</Time>
     </Item>
     <Item>
@@ -694,7 +694,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\TurretT2.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\TurretT2.xnb</Output>
       <Time>2013-03-04T17:36:02.1558145-08:00</Time>
     </Item>
     <Item>
@@ -703,7 +703,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\turretT1.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\turretT1.xnb</Output>
       <Time>2013-03-04T17:36:03.7960163-08:00</Time>
     </Item>
     <Item>
@@ -712,7 +712,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\TurretT2.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\TurretT2.xnb</Output>
       <Time>2013-03-04T17:36:03.8090229-08:00</Time>
     </Item>
     <Item>
@@ -721,7 +721,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\checker.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\checker.xnb</Output>
       <Time>2013-03-04T17:36:05.2649781-08:00</Time>
     </Item>
     <Item>
@@ -730,7 +730,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\explosion.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\explosion.xnb</Output>
       <Time>2013-03-04T17:36:05.2779883-08:00</Time>
     </Item>
     <Item>
@@ -739,7 +739,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\fire.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\fire.xnb</Output>
       <Time>2013-03-04T17:36:05.2839917-08:00</Time>
     </Item>
     <Item>
@@ -748,7 +748,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\smoke.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\smoke.xnb</Output>
       <Time>2013-03-04T17:36:05.2539705-08:00</Time>
     </Item>
     <Item>
@@ -757,7 +757,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Skybox\space1.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Skybox\space1.xnb</Output>
       <Time>2013-03-04T17:35:35.6992864-08:00</Time>
     </Item>
     <Item>
@@ -766,7 +766,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Skybox\space2.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Skybox\space2.xnb</Output>
       <Time>2013-03-04T17:35:35.7052904-08:00</Time>
     </Item>
     <Item>
@@ -775,7 +775,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Skybox\space3.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Skybox\space3.xnb</Output>
       <Time>2013-03-04T17:35:35.711295-08:00</Time>
     </Item>
     <Item>
@@ -784,7 +784,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Skybox\space4.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Skybox\space4.xnb</Output>
       <Time>2013-03-04T17:35:35.7172984-08:00</Time>
     </Item>
     <Item>
@@ -793,7 +793,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Skybox\space5.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Skybox\space5.xnb</Output>
       <Time>2013-03-04T17:35:35.6932824-08:00</Time>
     </Item>
     <Item>
@@ -802,7 +802,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Images\Starfield.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Images\Starfield.xnb</Output>
       <Time>2013-03-04T17:36:09.382042-08:00</Time>
     </Item>
     <Item>
@@ -811,7 +811,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\stats_icons\fighter_small.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\stats_icons\fighter_small.xnb</Output>
       <Time>2013-03-04T17:36:05.3290202-08:00</Time>
     </Item>
     <Item>
@@ -820,7 +820,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\stats_icons\malpha_small.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\stats_icons\malpha_small.xnb</Output>
       <Time>2013-03-04T17:36:05.3340251-08:00</Time>
     </Item>
     <Item>
@@ -829,7 +829,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\stats_icons\missile_small.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\stats_icons\missile_small.xnb</Output>
       <Time>2013-03-04T17:36:05.3240178-08:00</Time>
     </Item>
     <Item>
@@ -838,7 +838,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\sun\flare.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\sun\flare.xnb</Output>
       <Time>2013-03-04T17:36:09.9594665-08:00</Time>
     </Item>
     <Item>
@@ -847,7 +847,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\sun\sun.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\sun\sun.xnb</Output>
       <Time>2013-03-04T17:36:09.9544628-08:00</Time>
     </Item>
     <Item>
@@ -856,7 +856,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\sun\sunglare.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\sun\sunglare.xnb</Output>
       <Time>2013-03-04T17:36:09.9474615-08:00</Time>
     </Item>
     <Item>
@@ -865,7 +865,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\finishCheck.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\finishCheck.xnb</Output>
       <Time>2013-03-04T17:36:05.4430963-08:00</Time>
     </Item>
     <Item>
@@ -874,7 +874,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\progressCheck.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\progressCheck.xnb</Output>
       <Time>2013-03-04T17:35:46.0052472-08:00</Time>
     </Item>
     <Item>
@@ -883,8 +883,8 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\BeatIt.xnb</Output>
-      <Extra>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\BeatIt.wma</Extra>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\BeatIt.xnb</Output>
+      <Extra>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\BeatIt.wma</Extra>
       <Time>2013-03-04T17:35:45.9041807-08:00</Time>
     </Item>
     <Item>
@@ -893,8 +893,8 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\Imperial-March.xnb</Output>
-      <Extra>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\Imperial-March.wma</Extra>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\Imperial-March.xnb</Output>
+      <Extra>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\Imperial-March.wma</Extra>
       <Time>2013-03-04T17:35:45.9241953-08:00</Time>
     </Item>
     <Item>
@@ -903,7 +903,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\deadLaugh.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\deadLaugh.xnb</Output>
       <Time>2013-03-04T17:35:45.9311984-08:00</Time>
     </Item>
     <Item>
@@ -912,7 +912,7 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\deadLaugh2.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\deadLaugh2.xnb</Output>
       <Time>2013-03-04T17:35:45.9452078-08:00</Time>
     </Item>
     <Item>
@@ -921,18 +921,18 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\explosion.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Music\explosion.xnb</Output>
       <Time>2013-03-04T17:35:45.938204-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Asteroids\AstrFBX.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Asteroids\AstrFBX_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Asteroids\AstrFBX_0.xml</Output>
       <Time>2013-03-04T17:36:04.0574364-08:00</Time>
     </Item>
     <Item>
-      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\FBX\C27B352E\AstrFBX.fbm\Astroid01.png</Source>
+      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\FBX\9DB536DD\AstrFBX.fbm\Astroid01.png</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -944,18 +944,18 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Astroid01_0.xnb</Output>
-      <Time>2013-03-04T17:44:06.7302431-08:00</Time>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Astroid01_0.xnb</Output>
+      <Time>2013-03-04T18:50:56.0739971-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Planets\CallistoModel.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\CallistoModel_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\CallistoModel_0.xml</Output>
       <Time>2013-03-04T17:35:55.5651589-08:00</Time>
     </Item>
     <Item>
-      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\FBX\9B5236C9\CallistoModel.fbm\callisto.png</Source>
+      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\FBX\7D483878\CallistoModel.fbm\callisto.png</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -967,18 +967,18 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\callisto_0.xnb</Output>
-      <Time>2013-03-04T17:44:07.3406507-08:00</Time>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\callisto_0.xnb</Output>
+      <Time>2013-03-04T18:50:56.6964134-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Planets\mars2.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\mars2_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\mars2_0.xml</Output>
       <Time>2013-03-04T17:35:49.5636973-08:00</Time>
     </Item>
     <Item>
-      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\FBX\EDF63342\mars2.fbm\mars0kuu2png.png</Source>
+      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\FBX\C27434F1\mars2.fbm\mars0kuu2png.png</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -990,18 +990,18 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\mars0kuu2png_0.xnb</Output>
-      <Time>2013-03-04T17:44:07.7659345-08:00</Time>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\mars0kuu2png_0.xnb</Output>
+      <Time>2013-03-04T18:50:57.1607247-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Planets\Saturn.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\Saturn_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\Saturn_0.xml</Output>
       <Time>2013-03-04T17:35:55.5771682-08:00</Time>
     </Item>
     <Item>
-      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\FBX\23D933FA\Saturn.fbm\SaturnMap_png.png</Source>
+      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\FBX\F9F735A9\Saturn.fbm\SaturnMap_png.png</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -1013,18 +1013,18 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\SaturnMap_png_0.xnb</Output>
-      <Time>2013-03-04T17:44:08.1692035-08:00</Time>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\SaturnMap_png_0.xnb</Output>
+      <Time>2013-03-04T18:50:57.6040193-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Planets\Venus.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\Venus_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Planets\Venus_0.xml</Output>
       <Time>2013-03-04T17:35:55.6021791-08:00</Time>
     </Item>
     <Item>
-      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\FBX\EF9C338E\Venus.fbm\venus0aaa2_png.png</Source>
+      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\FBX\C41A353D\Venus.fbm\venus0aaa2_png.png</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -1036,21 +1036,21 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\venus0aaa2_png_0.xnb</Output>
-      <Time>2013-03-04T17:44:08.5634668-08:00</Time>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\venus0aaa2_png_0.xnb</Output>
+      <Time>2013-03-04T18:50:58.0172956-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Projectiles\Cube.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Projectiles\Cube_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Projectiles\Cube_0.xml</Output>
       <Time>2013-03-04T17:35:46.016157-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\Fighter1.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter1_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter1_0.xml</Output>
       <Time>2013-03-04T17:36:02.0677546-08:00</Time>
     </Item>
     <Item>
@@ -1066,14 +1066,14 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft2uv_0.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft2uv_0.xnb</Output>
       <Time>2013-03-04T17:36:02.1037787-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\Fighter2.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter2_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter2_0.xml</Output>
       <Time>2013-03-04T17:36:02.0757612-08:00</Time>
     </Item>
     <Item>
@@ -1089,14 +1089,14 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft3uv_0.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft3uv_0.xnb</Output>
       <Time>2013-03-04T17:36:02.1087829-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\Fighter3.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter3_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Fighter3_0.xml</Output>
       <Time>2013-03-04T17:36:02.0927722-08:00</Time>
     </Item>
     <Item>
@@ -1112,14 +1112,14 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft4uv_0.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\spacecraft4uv_0.xnb</Output>
       <Time>2013-03-04T17:36:02.1137853-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\playerShipBlue.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\playerShipBlue_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\playerShipBlue_0.xml</Output>
       <Time>2013-03-04T17:36:02.1358006-08:00</Time>
     </Item>
     <Item>
@@ -1135,18 +1135,18 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\SpaceCr_00_0.xnb</Output>
       <Time>2013-03-04T17:36:02.1207903-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\playerShipRed.FBX</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\playerShipRed_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\playerShipRed_0.xml</Output>
       <Time>2013-03-04T17:36:02.0847675-08:00</Time>
     </Item>
     <Item>
-      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\FBX\2F533609\playerShipRed.fbm\SpaceCr_01.png</Source>
+      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\FBX\DEB37B8\playerShipRed.fbm\SpaceCr_01.png</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -1158,18 +1158,18 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\SpaceCr_01_0.xnb</Output>
-      <Time>2013-03-04T17:44:11.8386545-08:00</Time>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\SpaceCr_01_0.xnb</Output>
+      <Time>2013-03-04T18:51:01.7467873-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\spaceStation.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\spaceStation_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\spaceStation_0.xml</Output>
       <Time>2013-03-04T17:36:03.7780037-08:00</Time>
     </Item>
     <Item>
-      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\FBX\F87F359B\spaceStation.fbm\Astroid02.png</Source>
+      <Source>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\FBX\D568374A\spaceStation.fbm\Astroid02.png</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -1181,14 +1181,14 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Astroid02_0.xnb</Output>
-      <Time>2013-03-04T17:44:12.3730108-08:00</Time>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Astroid02_0.xnb</Output>
+      <Time>2013-03-04T18:51:02.5012906-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\Turret1.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Turret1_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Turret1_0.xml</Output>
       <Time>2013-03-04T17:36:02.0457436-08:00</Time>
     </Item>
     <Item>
@@ -1204,14 +1204,14 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret_0.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret_0.xnb</Output>
       <Time>2013-03-04T17:36:02.1428056-08:00</Time>
     </Item>
     <Item>
       <Source>Models\Ships\Turret2.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Turret2_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Models\Ships\Turret2_0.xml</Output>
       <Time>2013-03-04T17:36:02.0597493-08:00</Time>
     </Item>
     <Item>
@@ -1227,7 +1227,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\TurretT2_0.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\TurretT2_0.xnb</Output>
       <Time>2013-03-04T17:36:02.1558145-08:00</Time>
     </Item>
     <Item>
@@ -1243,14 +1243,14 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\turretT1_0.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Models\Ships\Turret2.fbm\turretT1_0.xnb</Output>
       <Time>2013-03-04T17:36:02.1498093-08:00</Time>
     </Item>
     <Item>
       <Source>Particles\grid.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\Particles\grid_0.xml</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\Particles\grid_0.xml</Output>
       <Time>2013-03-04T17:36:05.2889935-08:00</Time>
     </Item>
     <Item>
@@ -1266,8 +1266,17 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\checker_0.xnb</Output>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\Particles\checker_0.xnb</Output>
       <Time>2013-03-04T17:36:05.2649781-08:00</Time>
+    </Item>
+    <Item>
+      <Source>HudTextures\targeting-reticle.png</Source>
+      <Name>HudTextures\targeting-reticle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\HudTextures\targeting-reticle.xnb</Output>
+      <Time>2013-03-04T19:33:46.7604245-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -1276,10 +1285,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperimentContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperiment\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperiment\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
