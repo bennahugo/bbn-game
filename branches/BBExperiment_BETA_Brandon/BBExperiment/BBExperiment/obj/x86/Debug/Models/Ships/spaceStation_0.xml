@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>polySurface6</Name>
     <Identity>
-      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperimentContent\Models\Ships\spaceStation.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\spaceStation.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <OpaqueData>
@@ -33,7 +33,7 @@ MapChannel:2 = map1
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Material #35</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_BEN\BBExperiment\BBExperimentContent\Models\Ships\spaceStation.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\spaceStation.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -54,6 +54,6 @@ MapChannel:2 = map1
     </Resource>
   </Resources>
   <ExternalReferences>
-    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\FBX\F87F359B\spaceStation.fbm\Astroid02.png</ExternalReference>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\FBX\D568374A\spaceStation.fbm\Astroid02.png</ExternalReference>
   </ExternalReferences>
 </XnaContent>

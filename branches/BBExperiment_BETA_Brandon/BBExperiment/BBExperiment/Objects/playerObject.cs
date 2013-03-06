@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using BBN_Game.Controller;
+using BBExperiment.Objects;
 
 
 /////
@@ -69,7 +70,7 @@ namespace BBN_Game.Objects
         static Texture2D arrow;
         static Texture2D missileReload;
         static Texture2D missileReloadBlack;
-        static Texture2D baseHealth, baseHealthBlack;
+        static Texture2D baseHealth, baseHealthBlack, retical;
 
         private const float MissileReload = 7, MechinegunReload = 0.5f, DefensiveReload = 20;
 
@@ -111,8 +112,6 @@ namespace BBN_Game.Objects
             get { return target; }
             set { target = value; }
         }
-
-        public List<StaticObject> targets;
         #endregion
 
         #region "Constructors - Data setting"
@@ -163,7 +162,6 @@ namespace BBN_Game.Objects
 
             this.twoPlayer = twoPlayer;
             previousList = new List<StaticObject>();
-            targets = new List<StaticObject>();
         }
 
         protected override void resetModels()
@@ -180,6 +178,8 @@ namespace BBN_Game.Objects
             playerRedBlack = Game.Content.Load<Texture2D>("HudTextures/playerred_b");
             playerBlue = Game.Content.Load<Texture2D>("HudTextures/playerblue");
             playerBlueBlack = Game.Content.Load<Texture2D>("HudTextures/playerblue_b");
+
+            retical = Game.Content.Load<Texture2D>("HudTextures/targeting-reticle");
 
             arrow = Game.Content.Load<Texture2D>("HudTextures/arrow");
             playerT = Game.Content.Load<Texture2D>("HudTextures/arrow");
@@ -262,8 +262,8 @@ namespace BBN_Game.Objects
                 //    cameraType = cameraType.Equals(CurrentCam.Chase) ? CurrentCam.FirstPerson : CurrentCam.Chase;
                 //if (state.IsKeyDown(Keys.V) && oldState.IsKeyUp(Keys.V))
                 //    getNewTarget();
-                if (state.IsKeyDown(Keys.B) && oldState.IsKeyUp(Keys.B))
-                    drawMapBool = !drawMapBool;
+                //if (state.IsKeyDown(Keys.B) && oldState.IsKeyUp(Keys.B))
+                //    drawMapBool = !drawMapBool;
                 #endregion
 
                 #region "Accel Deccel checks"
@@ -344,22 +344,12 @@ namespace BBN_Game.Objects
                 #endregion
 
                 // Debug
-                if (state.IsKeyDown(Keys.Space) && oldState.IsKeyUp(Keys.Space))
-                    mouseInverted = mouseInverted ? false : true;
+                //if (state.IsKeyDown(Keys.Space) && oldState.IsKeyUp(Keys.Space))
+                //    mouseInverted = mouseInverted ? false : true;
                 #endregion
 
                 #region "Guns"
-                /*if (state.IsKeyDown(Keys.F))
-                {
-                    if (target != null)
-                        if (reloadTimer[1] <= 0 && numMissiles > 0)
-                        {
-                            Controller.GameController.addObject(new Objects.Missile(Game, this.target, this));
-                            reloadTimer[1] = MissileReload;
-                            numMissiles--;
-                        }
-                }
-                */if (state.IsKeyDown(Keys.E))
+                if (state.IsKeyDown(Keys.Space))
                 {
                     if (reloadTimer[0] <= 0)
                     {
@@ -728,6 +718,8 @@ namespace BBN_Game.Objects
             int hudWidth = (int)((float)viewport.Width * 0.2f);
 
             sb.Begin();
+            int rad = 20;
+            sb.Draw(retical, new Rectangle((int)(viewport.Width/2f - rad), (int)(viewport.Height/2f -rad), rad * 2, rad * 2), Color.Green);
 
             //sb.DrawString(f, 1 / gt.ElapsedGameTime.TotalSeconds + " - " + this.greatestLength, new Vector2(100, 100), Color.Green);
 
@@ -738,7 +730,7 @@ namespace BBN_Game.Objects
             #region "Arrows"
             int width = (int)(Math.Min(viewport.Height, viewport.Width) * 0.05);
             float distance = Math.Min(viewport.Height, viewport.Width);
-            foreach (StaticObject o in targets){
+            foreach (StaticObject o in GameController.Targets){
                 target = o;
                 if (target != null)
                     if (!target.IsVisible(this.Camera))
@@ -755,7 +747,7 @@ namespace BBN_Game.Objects
                         int posx = (int)MathHelper.Clamp(-((int)(Math.Cos(angle) * distance)) + viewport.Width / 2, 0 + width, viewport.Width);
                         int posy = (int)MathHelper.Clamp(-((int)(Math.Sin(angle) * distance)) + viewport.Height / 2, 0 + viewport.Height * 0.1f + width, viewport.Height * 0.8f - width);
 
-                        sb.Draw(arrow, new Rectangle((int)(posx - width / 2), (int)(posy - width / 2), width, width), new Rectangle(0, 0, arrow.Width, arrow.Height), Color.Red, angle, new Vector2(arrow.Width / 2, arrow.Height / 2), SpriteEffects.FlipHorizontally, 1);
+                        sb.Draw(arrow, new Rectangle((int)(posx - width / 2), (int)(posy - width / 2), width, width), new Rectangle(0, 0, arrow.Width, arrow.Height), target is Target ? Color.Orange : Color.Red, angle, new Vector2(arrow.Width / 2, arrow.Height / 2), SpriteEffects.FlipHorizontally, 1);
                     
                     }
             }

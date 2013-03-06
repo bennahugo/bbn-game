@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
+using BBExperiment.Objects;
 #endregion
 
 /////
@@ -451,7 +452,7 @@ namespace BBN_Game.Objects
         /// <returns></returns>
         private Boolean setVertexCoords(SpriteBatch b, Camera.CameraMatrices cam, Vector2 screenViewport, playerObject player)
         {
-            Color col = Color.Yellow;
+            Color col = this is Target ? Color.Orange : Color.Red;
                
             float radiusOfObject;
             radiusOfObject = greatestLength * 5f; // sets the greatest size of the object
