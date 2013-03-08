@@ -525,21 +525,20 @@ namespace BBN_Game.Objects
                     shipData.pitch += pitchSpeed * (1 - js.Y / ((float)MAX_JOYSTICK / 2)) * time;
                     ((BBNGame)Game).totalTimeRotationP += time;
                 }
-                System.Diagnostics.Debug.WriteLine(js.GetSliders()[0]);
                 //yaw
-                if (js.GetPointOfViewControllers()[0] == 27000)
+                if (js.RotationZ > MAX_JOYSTICK / 2 * 1.25)
                 {
-                    shipData.yaw += yawSpeed * time;
+                    shipData.yaw -= yawSpeed * ((js.RotationZ - (float)MAX_JOYSTICK / 2) / ((float)MAX_JOYSTICK / 2)) * time;
                     ((BBNGame)Game).totalTimeRotationY += time;
                 }
-                else if (js.GetPointOfViewControllers()[0] == 9000)
+                else if (js.RotationZ < MAX_JOYSTICK / 2 * 0.75)
                 {
-                    shipData.yaw -= yawSpeed * time;
+                    shipData.yaw += yawSpeed * (1 - js.RotationZ / ((float)MAX_JOYSTICK / 2)) * time;
                     ((BBNGame)Game).totalTimeRotationY += time;
                 }
                 #endregion
                 #region Acceleration
-                if (js.GetButtons()[1])
+                if (js.GetButtons()[2])
                 {
                     if (shipData.speed > minSpeed)
                     {
