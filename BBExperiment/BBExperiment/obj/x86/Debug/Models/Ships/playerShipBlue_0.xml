@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>polySurface2</Name>
     <Identity>
-      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\playerShipBlue.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\playerShipBlue.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <OpaqueData>
@@ -31,7 +31,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Material #47</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\playerShipBlue.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\playerShipBlue.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

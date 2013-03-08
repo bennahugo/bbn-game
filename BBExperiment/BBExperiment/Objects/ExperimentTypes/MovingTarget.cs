@@ -22,7 +22,7 @@ namespace BBExperiment.Objects
         public MovingTarget(Game game, Team team, Vector3 position)
             : base(game, team, position)
         {
-            timer = 5;
+            timer = 10;
         }
 
         protected override void setData()
@@ -38,8 +38,8 @@ namespace BBExperiment.Objects
             typeOfLine = PrimitiveType.LineStrip;
 
             Shield = 100;
-            Health = 600;
-            totalHealth = 600;
+            Health = 100;
+            totalHealth = 100;
 
             x = (float)((float)(rand.Next(-3, 10)));
             y = (float)((float)(rand.Next(-10, 5)));
@@ -55,8 +55,8 @@ namespace BBExperiment.Objects
 
             if (timer <= 0)
             {
-                timer = 5;
-                plus = false;
+                timer = 10;
+                plus = !plus;
             }
 
             float speed = plus ? maxSpeed : minSpeed;

@@ -31,8 +31,8 @@ namespace BBExperiment.Objects
             typeOfLine = PrimitiveType.LineStrip;
 
             Shield = 100;
-            Health = 200;
-            totalHealth = 200;
+            Health = 100;
+            totalHealth = 100;
         }
 
         protected override void setVertexPosition(float screenX, float screenY, float radiusOfObject, Color col)

@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>top_of_turret</Name>
     <Identity>
-      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <OpaqueData>
@@ -130,7 +130,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Material #48</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -152,7 +152,7 @@
     <Resource ID="#Resource2" Type="Graphics:BasicMaterialContent">
       <Name>Material #49</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -174,7 +174,7 @@
     <Resource ID="#Resource3" Type="Graphics:BasicMaterialContent">
       <Name>Material #45</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -196,7 +196,7 @@
     <Resource ID="#Resource4" Type="Graphics:BasicMaterialContent">
       <Name>Material #41</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -218,7 +218,7 @@
     <Resource ID="#Resource5" Type="Graphics:BasicMaterialContent">
       <Name>Material #46</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -240,7 +240,7 @@
     <Resource ID="#Resource6" Type="Graphics:BasicMaterialContent">
       <Name>Material #44</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -262,7 +262,7 @@
     <Resource ID="#Resource7" Type="Graphics:BasicMaterialContent">
       <Name>Material #43</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -284,7 +284,7 @@
     <Resource ID="#Resource8" Type="Graphics:BasicMaterialContent">
       <Name>Material #47</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -306,7 +306,7 @@
     <Resource ID="#Resource9" Type="Graphics:BasicMaterialContent">
       <Name>Material #40</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -328,7 +328,7 @@
     <Resource ID="#Resource10" Type="Graphics:BasicMaterialContent">
       <Name>Material #39</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Ships\Turret2.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

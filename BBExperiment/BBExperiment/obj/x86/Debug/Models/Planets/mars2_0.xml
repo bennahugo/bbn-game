@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>pSphere1</Name>
     <Identity>
-      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Planets\mars2.FBX</SourceFilename>
+      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Planets\mars2.FBX</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <OpaqueData>
@@ -31,7 +31,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Material #25</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Planets\mars2.FBX</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Planets\mars2.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -52,6 +52,6 @@
     </Resource>
   </Resources>
   <ExternalReferences>
-    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\FBX\C27434F1\mars2.fbm\mars0kuu2png.png</ExternalReference>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\FBX\DA353C8A\mars2.fbm\mars0kuu2png.png</ExternalReference>
   </ExternalReferences>
 </XnaContent>

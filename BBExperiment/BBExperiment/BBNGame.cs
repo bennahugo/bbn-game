@@ -22,10 +22,7 @@ namespace BBN_Game
         List<SlimDX.DirectInput.DeviceInstance> directInputList = new List<SlimDX.DirectInput.DeviceInstance>();
         SlimDX.DirectInput.DirectInput directInput = new SlimDX.DirectInput.DirectInput();
         public int numberOfHits = 0;
-        public float totalElapsedTimeSeconds = 0;
-        public float totalTimeRotationP = 0;
-        public float totalTimeRotationY = 0;
-        public float totalTimeRotationR = 0;
+        public static float totalElapsedTimeSeconds = 0;
         // getter and setter
         public GraphicsDeviceManager Graphics
         {
