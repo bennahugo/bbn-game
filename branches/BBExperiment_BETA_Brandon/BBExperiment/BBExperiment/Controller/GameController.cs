@@ -92,6 +92,13 @@ namespace BBN_Game.Controller
         #endregion
 
         #region "Global Data Holders"
+
+        // For weapon detection
+        public static int numBulletsFired = 0;
+        public static int numBulletsMissed = 0;
+        public static int numStatTargets = 0;
+        public static int nummovTargets = 0;
+
         public static Viewport Origional;
         BBN_Game.BBNGame game;
         static int i;
@@ -204,15 +211,17 @@ namespace BBN_Game.Controller
             {
                 if (ObjectsLoaded)
                 {
+                    if (targets.Count > 0 && BBNGame.totalElapsedTimeSeconds < 180)
+                    {
                         for (i = 0; i < AllObjects.Count; ++i)
                             AllObjects.ElementAt(i).Update(gameTime);
-                        ((BBNGame)game).totalElapsedTimeSeconds += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        BBNGame.totalElapsedTimeSeconds += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
 
                         checkCollision();
                         RemoveDeadObjects();
                         moveObjectsInGrid();
-                    
+                    }
                 }
                 else
                 {
@@ -306,12 +315,17 @@ namespace BBN_Game.Controller
 
             if (Object is Objects.Projectile)
             {
+                numBulletsFired++;
                 Projectiles.Add(Object);
             }
             if (Object is Objects.DynamicObject)
                 DynamicObjs.Add(Object);
             if (Object is Target || Object is MovingTarget)
             {
+                if (Object is Target)
+                    numStatTargets++;
+                else
+                    nummovTargets++;
                 targets.Add(Object);
             }
 
@@ -329,6 +343,10 @@ namespace BBN_Game.Controller
                 DynamicObjs.Remove(Object);
             if (Object is Target || Object is MovingTarget)
             {
+                if (Object is Target)
+                    numStatTargets--;
+                else
+                    nummovTargets--;
                 targets.Remove(Object);
             }
 
@@ -344,17 +362,18 @@ namespace BBN_Game.Controller
             addObject(Player1);
 
             addObject(new Target(game, Team.Blue, new Vector3(100, 0, 0)));
-            addObject(new Target(game, Team.Blue, new Vector3(0, 100, 0)));
+            /*addObject(new Target(game, Team.Blue, new Vector3(0, 100, 0)));
             addObject(new Target(game, Team.Blue, new Vector3(0, 0, 100)));
             addObject(new Target(game, Team.Blue, new Vector3(100, 100, 0)));
             addObject(new Target(game, Team.Blue, new Vector3(100, 0, 100)));
             addObject(new Target(game, Team.Blue, new Vector3(0, 100, 100)));
             addObject(new Target(game, Team.Blue, new Vector3(100, 100, 100)));
 
-            addObject(new MovingTarget(game, Team.Blue, new Vector3(150, 100, 100)));
-            addObject(new MovingTarget(game, Team.Blue, new Vector3(100, 150, 100)));
-            addObject(new MovingTarget(game, Team.Blue, new Vector3(100, 150, 150)));
-            addObject(new MovingTarget(game, Team.Blue, new Vector3(150, 150, 100)));
+            addObject(new MovingTarget(game, Team.Blue, new Vector3(0, 125, 225)));
+            addObject(new MovingTarget(game, Team.Blue, new Vector3(0, 225, 0)));
+            addObject(new MovingTarget(game, Team.Blue, new Vector3(0, 150, 100)));
+            addObject(new MovingTarget(game, Team.Blue, new Vector3(100, 200, 0)));
+            addObject(new MovingTarget(game, Team.Blue, new Vector3(150, 200, 125)));*/
             
             return Player1;    
         }
@@ -555,6 +574,24 @@ namespace BBN_Game.Controller
             //    obj1.ShipMovementInfo.speed = 0;
             //    obj2.ShipMovementInfo.speed = 0;
 
+            if (obj1 is Projectile)
+            {
+                if (obj1.getHealth > 0 && obj2.getHealth > 0)
+                    if (obj2 is MovingTarget || obj2 is Target)
+                    {
+                        obj2.doDamage(((Projectile)obj1).damage);
+                        obj1.doDamage(1000);
+                    }
+            }
+            else if (obj2 is Projectile)
+            {
+                if (obj2.getHealth > 0 && obj1.getHealth > 0)
+                    if (obj1 is MovingTarget || obj1 is Target)
+                    {
+                        obj1.doDamage(((Projectile)obj2).damage);
+                        obj2.doDamage(1000);
+                    }
+            }
 
         }
 

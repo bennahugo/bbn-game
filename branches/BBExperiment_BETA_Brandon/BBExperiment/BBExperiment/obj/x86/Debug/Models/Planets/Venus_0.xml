@@ -3,7 +3,7 @@
   <Asset Type="Graphics:MeshContent">
     <Name>pSphere1</Name>
     <Identity>
-      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Planets\Venus.FBX</SourceFilename>
+      <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Planets\Venus.FBX</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <OpaqueData>
@@ -31,7 +31,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>Material #26</Name>
       <Identity>
-        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\bbn\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Planets\Venus.FBX</SourceFilename>
+        <SourceFilename>C:\Users\Brandon\Documents\Visual Studio 2010\Projects\BBExperiment\BBExperiment_BETA_Brandon\BBExperiment\BBExperimentContent\Models\Planets\Venus.FBX</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>
@@ -52,6 +52,6 @@
     </Resource>
   </Resources>
   <ExternalReferences>
-    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\FBX\C41A353D\Venus.fbm\venus0aaa2_png.png</ExternalReference>
+    <ExternalReference ID="#External1" TargetType="Graphics:TextureContent">..\..\FBX\DBDB3CD6\Venus.fbm\venus0aaa2_png.png</ExternalReference>
   </ExternalReferences>
 </XnaContent>

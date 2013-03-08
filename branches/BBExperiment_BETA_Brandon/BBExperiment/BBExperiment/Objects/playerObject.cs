@@ -305,12 +305,10 @@ namespace BBN_Game.Objects
                 if (state.IsKeyDown(Keys.A))
                 {
                     shipData.yaw += yawSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationY += time;
                 }
                 if (state.IsKeyDown(Keys.D))
                 {
                     shipData.yaw -= yawSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationY += time;
                 }
                 #endregion
                 #region "pitch & roll"
@@ -320,23 +318,19 @@ namespace BBN_Game.Objects
                 if (state.IsKeyDown(Keys.I))
                 {
                     pitch = pitchSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationP += time;
                 }
                 else if (state.IsKeyDown(Keys.K))
                 {
                     pitch = -pitchSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationP += time;
                 }
 
                 if (state.IsKeyDown(Keys.J))
                 {
                     roll = (rollSpeed) * time;
-                    ((BBNGame)Game).totalTimeRotationR += time;
                 }
                 else if (state.IsKeyDown(Keys.L))
                 {
                     roll = -(rollSpeed) * time;
-                    ((BBNGame)Game).totalTimeRotationR += time;
                 }
 
                 shipData.roll -= roll;
@@ -393,12 +387,10 @@ namespace BBN_Game.Objects
                 if (pad1State.ThumbSticks.Left.X <= -0.5)
                 {
                     shipData.yaw += yawSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationY += time;
                 }
                 if (pad1State.ThumbSticks.Left.X >= 0.5)
                 {
                     shipData.yaw -= yawSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationY += time;
                 }
 
                 #endregion
@@ -411,23 +403,19 @@ namespace BBN_Game.Objects
                 if (pad1State.ThumbSticks.Right.Y >= 0.5)
                 {
                     pitch = pitchSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationP += time;
                 }
                 else if (pad1State.ThumbSticks.Right.Y <= -0.5)
                 {
                     pitch = -pitchSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationP += time;
                 }
 
                 if (pad1State.ThumbSticks.Right.X <= -0.5)
                 {
                     roll = (rollSpeed) * time;
-                    ((BBNGame)Game).totalTimeRotationR += time;
                 }
                 else if (pad1State.ThumbSticks.Right.X >= 0.5)
                 {
                     roll = -(rollSpeed) * time;
-                    ((BBNGame)Game).totalTimeRotationR += time;
                 }
 
                 shipData.roll -= roll;
@@ -507,52 +495,46 @@ namespace BBN_Game.Objects
                 SlimDX.DirectInput.JoystickState js = gamePtr.joysticks[0].GetCurrentState();
                 #region rotations
                 //roll
-                if (js.X > MAX_JOYSTICK / 2 * (1.5))
+                if (js.X > MAX_JOYSTICK / 2 * 1.3f)
                 {
-                    shipData.roll += rollSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationR += time;
+                    shipData.roll += rollSpeed * ((js.X - (float)MAX_JOYSTICK / 2) / ((float)MAX_JOYSTICK / 2)) * time;
                 }
-                else if (js.X < MAX_JOYSTICK / 2 * (0.5))
+                else if (js.X < MAX_JOYSTICK / 2 * 0.7f)
                 {
-                    shipData.roll -= rollSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationR += time;
+                    shipData.roll -= rollSpeed * (1 - js.X / ((float)MAX_JOYSTICK / 2)) * time;
                 }
                 //pitch
-                if (js.Y > MAX_JOYSTICK/2*(1.5))
+                if (js.Y > MAX_JOYSTICK / 2 * 1.1)
                 {
-                    shipData.pitch -= pitchSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationP += time;
+                    shipData.pitch -= pitchSpeed * ((js.Y - (float)MAX_JOYSTICK / 2) / ((float)MAX_JOYSTICK / 2)) * time;
                 }
-                else if (js.Y < MAX_JOYSTICK / 2 * (0.5))
+                else if (js.Y < MAX_JOYSTICK / 2 * 0.9)
                 {
-                    shipData.pitch += pitchSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationP += time;
+                    shipData.pitch += pitchSpeed * (1 - js.Y / ((float)MAX_JOYSTICK / 2)) * time;
                 }
                 //yaw
-                if (js.GetPointOfViewControllers()[0] == 27000)
+                if (js.RotationZ > MAX_JOYSTICK / 2 * 1.25)
                 {
-                    shipData.yaw += yawSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationY += time;
+                    shipData.yaw -= yawSpeed * ((js.RotationZ - (float)MAX_JOYSTICK / 2) / ((float)MAX_JOYSTICK / 2)) * time;
                 }
-                else if (js.GetPointOfViewControllers()[0] == 9000)
+                else if (js.RotationZ < MAX_JOYSTICK / 2 * 0.75)
                 {
-                    shipData.yaw -= yawSpeed * time;
-                    ((BBNGame)Game).totalTimeRotationY += time;
+                    shipData.yaw += yawSpeed * (1 - js.RotationZ / ((float)MAX_JOYSTICK / 2)) * time;
                 }
                 #endregion
-                #region Acceleration
-                if (js.GetButtons()[7])
-                {
-                    if (shipData.speed < maxSpeed)
-                    {
-                        shipData.speed += acceleration * time;
-                    }
-                }
-                else if (js.GetButtons()[4])
+                /*#region Acceleration
+                if (js.GetButtons()[2])
                 {
                     if (shipData.speed > minSpeed)
                     {
                         shipData.speed -= deceleration * time;
+                    }
+                }
+                else if (js.GetButtons()[0])
+                {
+                    if (shipData.speed < maxSpeed)
+                    {
+                        shipData.speed += acceleration * time;
                     }
                 }
                 else
@@ -572,17 +554,17 @@ namespace BBN_Game.Objects
                             shipData.speed = 0;
                     }
                 }
-                #endregion
+                #endregion*/
                 #region guns
                 //fire cannon
-               /* if (js.GetButtons()[0])
-                {
-                    if (reloadTimer[0] <= 0)
-                    {
-                        Controller.GameController.addObject(new Objects.Bullet(Game, this.target, this));
-                        reloadTimer[0] = MechinegunReload;
-                    }
-                }*/
+                 if (js.GetButtons()[0])
+                 {
+                     if (reloadTimer[0] <= 0)
+                     {
+                         Controller.GameController.addObject(new Objects.Bullet(Game, this.target, this, left = !left));
+                         reloadTimer[0] = MechinegunReload;
+                     }
+                 }
                 #endregion
             }
         }
@@ -724,7 +706,26 @@ namespace BBN_Game.Objects
             //sb.DrawString(f, 1 / gt.ElapsedGameTime.TotalSeconds + " - " + this.greatestLength, new Vector2(100, 100), Color.Green);
 
             #region "stats"
-            sb.DrawString(f, GameController.getProjectiles.Count + "", new Vector2(100, 100), Color.Green);
+            sb.DrawString(f, "Targets Left: " + GameController.Targets.Count + "", new Vector2(0, 0), Color.Green);
+            sb.DrawString(f, "Stationary: " + GameController.numStatTargets + "", new Vector2(200, 0), Color.Orange);
+            sb.DrawString(f, "Moving: " + GameController.nummovTargets + "", new Vector2(325, 0), Color.Red);
+
+
+            sb.DrawString(f, "Bullets Fired: " + GameController.numBulletsFired, new Vector2(0, 20), Color.Green);
+            sb.DrawString(f, "Bullets Missed: " + GameController.numBulletsMissed + "", new Vector2(0, 40), Color.Green);
+            sb.DrawString(f, "Accuracy: " + ((float)(GameController.numBulletsFired - GameController.numBulletsMissed) / (float)(GameController.numBulletsFired)) * 100 + "%", new Vector2(0, 60), Color.Green);
+            sb.DrawString(f, "Game Time: " + BBNGame.totalElapsedTimeSeconds + " / " + 60 * 5, new Vector2(0, 80), Color.Yellow);
+
+            if (BBNGame.totalElapsedTimeSeconds >= 180)
+            {
+                sb.DrawString(f, "You ran out of time and the SPHERES destroyed Earth!", new Vector2(viewport.Width/2 - 180, viewport.Height /4), Color.Red);
+            }
+
+            if (GameController.Targets.Count <= 0)
+            {
+                sb.DrawString(f, "Congratulations - You saved Earth!", new Vector2(viewport.Width / 2 - 150, viewport.Height / 4), Color.Green);
+            }
+
             #endregion
 
             #region "Arrows"

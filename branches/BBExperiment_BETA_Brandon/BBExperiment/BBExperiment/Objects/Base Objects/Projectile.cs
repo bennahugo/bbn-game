@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
+using BBN_Game.Controller;
 
 namespace BBN_Game.Objects
 {
@@ -51,7 +52,7 @@ namespace BBN_Game.Objects
             numHudLines = 3;
             typeOfLine = PrimitiveType.LineStrip;
 
-            Vector3 foreward = parent.Position + Vector3.Transform(new Vector3(0, 0, 75), Matrix.CreateFromQuaternion(parent.rotation));
+            Vector3 foreward = parent.Position + Vector3.Transform(new Vector3(0, 0, 300), Matrix.CreateFromQuaternion(parent.rotation));
             Vector3 PYR = MathEuler.AngleTo(foreward, this.Position);
             float lol = 0;
             rotation = Quaternion.CreateFromYawPitchRoll(PYR.Y + (left ? MathHelper.ToRadians(lol) : -MathHelper.ToRadians(lol)), PYR.X, PYR.Z);
@@ -69,7 +70,10 @@ namespace BBN_Game.Objects
             this.lifeSpan -= 1 * (float)gt.ElapsedGameTime.TotalSeconds;
 
             if (lifeSpan <= 0)
+            {
+                GameController.numBulletsMissed++;
                 this.Health = 0;
+            }
 
             base.Update(gt);
         }

@@ -87,6 +87,7 @@ Content\sun\sun.xnb
 Content\sun\sunglare.xnb
 Content\finishCheck.xnb
 Content\progressCheck.xnb
+Content\HudTextures\targeting-reticle.xnb
 Content\Music\BeatIt.xnb
 Content\Music\Imperial-March.xnb
 Content\Music\deadLaugh.xnb
@@ -107,7 +108,6 @@ Content\Models\Ships\Turret_0.xnb
 Content\Models\Ships\Turret2.fbm\TurretT2_0.xnb
 Content\Models\Ships\Turret2.fbm\turretT1_0.xnb
 Content\Particles\checker_0.xnb
-Content\HudTextures\targeting-reticle.xnb
 Content\Music\BeatIt.wma
 Content\Music\Imperial-March.wma
 Content\Maps\Death Zone.xml
