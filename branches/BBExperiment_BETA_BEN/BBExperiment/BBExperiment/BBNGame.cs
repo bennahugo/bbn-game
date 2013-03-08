@@ -33,7 +33,7 @@ namespace BBN_Game
             Practice, RealThing
         }
         public static ControllerMode controllerMode = ControllerMode.KB;
-        public static ExperimentMode mode = ExperimentMode.Practice;
+        public static ExperimentMode mode = ExperimentMode.RealThing;
         public int numberOfHits = 0;
         public float totalElapsedTimeSeconds = 0;
         public const float MAX_TIME = 360;
