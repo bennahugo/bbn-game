@@ -36,7 +36,7 @@ namespace BBN_Game.Objects
     class playerObject : DynamicObject
     {
         const int MAX_JOYSTICK = 62974;
-        ControllerMode controllerMode = ControllerMode.KB;
+        ControllerMode controllerMode = ControllerMode.Joystick;
         #region "Globals"
         /// <summary>
         /// Global variables
@@ -338,8 +338,8 @@ namespace BBN_Game.Objects
                 #endregion
 
                 // Debug
-                //if (state.IsKeyDown(Keys.Space) && oldState.IsKeyUp(Keys.Space))
-                //    mouseInverted = mouseInverted ? false : true;
+                if (state.IsKeyDown(Keys.P) && oldState.IsKeyUp(Keys.P))
+                    mouseInverted = mouseInverted ? false : true;
                 #endregion
 
                 #region "Guns"
@@ -487,6 +487,9 @@ namespace BBN_Game.Objects
             #endregion
             prevPadState1 = pad1State;
         }
+
+        Boolean onceoffpause = false;
+        Boolean onceoffchange = false;
         public void joystickControls(float time)
         {
             BBNGame gamePtr = (BBNGame)Game;
@@ -522,14 +525,38 @@ namespace BBN_Game.Objects
                     shipData.yaw += yawSpeed * (1 - js.RotationZ / ((float)MAX_JOYSTICK / 2)) * time;
                 }
                 #endregion
-                /*#region Acceleration
-                if (js.GetButtons()[2])
+
+                //fire cannon
+                if (js.GetButtons()[0])
                 {
-                    if (shipData.speed > minSpeed)
+                    if (reloadTimer[0] <= 0)
                     {
-                        shipData.speed -= deceleration * time;
+                        Controller.GameController.addObject(new Objects.Bullet(Game, this.target, this, left = !left));
+                        reloadTimer[0] = MechinegunReload;
                     }
                 }
+
+                if (js.GetButtons()[2])
+                {
+                    if (!onceoffchange)
+                    {
+                        mouseInverted = mouseInverted ? false : true;
+                        onceoffchange = true;
+                        return;
+                    }
+                }
+                if (js.GetButtons()[2])
+                {
+                    if (!onceoffpause)
+                    {
+                        onceoffpause = true;
+                        GameController.pausedcheck = !GameController.pausedcheck;
+                        return;
+                    }
+                }
+
+                onceoffchange = onceoffpause = false;
+                    /*
                 else if (js.GetButtons()[0])
                 {
                     if (shipData.speed < maxSpeed)
@@ -556,15 +583,7 @@ namespace BBN_Game.Objects
                 }
                 #endregion*/
                 #region guns
-                //fire cannon
-                 if (js.GetButtons()[0])
-                 {
-                     if (reloadTimer[0] <= 0)
-                     {
-                         Controller.GameController.addObject(new Objects.Bullet(Game, this.target, this, left = !left));
-                         reloadTimer[0] = MechinegunReload;
-                     }
-                 }
+                
                 #endregion
             }
         }

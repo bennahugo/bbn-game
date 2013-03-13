@@ -205,22 +205,26 @@ namespace BBN_Game.Controller
             // issue here remember to talk to team (Note to self)...
         }
 
+        public static Boolean pausedcheck = false;
         public void Update(GameTime gameTime)
         {
             if (gameState.Equals(GameState.Playing))
             {
                 if (ObjectsLoaded)
                 {
-                    if (targets.Count > 0 && BBNGame.totalElapsedTimeSeconds < 180)
+                    if (!pausedcheck)
                     {
-                        for (i = 0; i < AllObjects.Count; ++i)
-                            AllObjects.ElementAt(i).Update(gameTime);
-                        BBNGame.totalElapsedTimeSeconds += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (targets.Count > 0 && BBNGame.totalElapsedTimeSeconds < 180)
+                        {
+                            for (i = 0; i < AllObjects.Count; ++i)
+                                AllObjects.ElementAt(i).Update(gameTime);
+                            BBNGame.totalElapsedTimeSeconds += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
 
-                        checkCollision();
-                        RemoveDeadObjects();
-                        moveObjectsInGrid();
+                            checkCollision();
+                            RemoveDeadObjects();
+                            moveObjectsInGrid();
+                        }
                     }
                 }
                 else
@@ -362,7 +366,7 @@ namespace BBN_Game.Controller
             addObject(Player1);
 
             addObject(new Target(game, Team.Blue, new Vector3(100, 0, 0)));
-            /*addObject(new Target(game, Team.Blue, new Vector3(0, 100, 0)));
+            addObject(new Target(game, Team.Blue, new Vector3(0, 100, 0)));
             addObject(new Target(game, Team.Blue, new Vector3(0, 0, 100)));
             addObject(new Target(game, Team.Blue, new Vector3(100, 100, 0)));
             addObject(new Target(game, Team.Blue, new Vector3(100, 0, 100)));
@@ -373,7 +377,7 @@ namespace BBN_Game.Controller
             addObject(new MovingTarget(game, Team.Blue, new Vector3(0, 225, 0)));
             addObject(new MovingTarget(game, Team.Blue, new Vector3(0, 150, 100)));
             addObject(new MovingTarget(game, Team.Blue, new Vector3(100, 200, 0)));
-            addObject(new MovingTarget(game, Team.Blue, new Vector3(150, 200, 125)));*/
+            addObject(new MovingTarget(game, Team.Blue, new Vector3(150, 200, 125)));
             
             return Player1;    
         }
